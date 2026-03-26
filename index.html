@@ -220,26 +220,37 @@
       nav ul { flex-direction: column; gap: 4px; }
       nav a { padding: 12px 16px; font-size: 0.9rem; }
       .nav-give { margin-left: 0; }
+      .nav-cta { background: none !important; color: var(--burgundy) !important; font-weight: 500; padding: 12px 16px !important; text-align: left; }
       .pillars-grid { grid-template-columns: repeat(2, 1fr); }
       .welcome-grid { grid-template-columns: 1fr; }
       .welcome-image { order: -1; }
       .events-grid { grid-template-columns: 1fr; }
       .clergy-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .hero-services { position: absolute; background: rgba(0,0,0,0.65); border-top: 2px solid var(--burgundy); }
-      .hero-services-inner { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem 0; }
-      .service-time { font-size: 1.4rem; }
-      .service-desc { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+      .hero-services { position: static; background: var(--ink); border-top: 2px solid var(--burgundy); }
+      .hero-services-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem 0; }
+      .service-time { font-size: 1.3rem; }
+      .service-desc { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
       .service-divider { display: none; }
       .newsletter-form { flex-direction: column; }
     }
     @media (max-width: 600px) {
-      .hero { min-height: 85vh; }
+      .hero { min-height: auto; padding-bottom: 0; }
+      .hero-content { padding-top: 96px; padding-bottom: 2rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero-sub { font-size: 0.95rem; margin-top: 1rem; }
+      .hero-actions { flex-direction: column; gap: 12px; margin-top: 1.5rem; }
+      .hero-actions .btn { text-align: center; justify-content: center; }
+      .hero-services { position: static; background: var(--ink); border-top: 2px solid var(--burgundy); }
+      .hero-services-inner { padding: 1.25rem 0; }
       .pillars-grid { grid-template-columns: 1fr; }
       .clergy-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
       .mission-block { flex-direction: column; gap: 1rem; }
       .visit-details { flex-direction: column; gap: 1rem; }
+      .connect-actions { flex-direction: column; }
+      .connect-actions .btn { text-align: center; justify-content: center; }
     }
   </style>
 </head>
