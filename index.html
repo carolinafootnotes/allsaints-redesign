@@ -29,7 +29,7 @@
     :root {
       --burgundy: #bd2132; --burgundy-dark: #8a1825; --burgundy-light: #d94a59;
       --cream: #faf8f4; --cream-warm: #f5f0e8;
-      --ink: #1a1a1a; --ink-soft: #4a4a4a; --ink-muted: #636363;
+      --ink: #1a1a1a; --ink-soft: #4a4a4a; --ink-muted: #595959;
       --gold: #c9a84c; --gold-light: #e8d9a0; --white: #ffffff;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'DM Sans', -apple-system, sans-serif;
@@ -73,6 +73,7 @@
     nav ul { display: flex; list-style: none; gap: 2px; align-items: center; }
     nav a { display: block; padding: 8px 18px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); border-radius: 6px; transition: color 0.2s, background 0.2s; }
     nav a:hover { color: var(--burgundy); background: rgba(189,33,50,0.06); }
+    nav a[aria-current="page"] { color: var(--burgundy); font-weight: 600; }
     .nav-cta { background: var(--burgundy) !important; color: var(--white) !important; font-weight: 600; }
     .nav-cta:hover { background: var(--burgundy-dark) !important; }
     .nav-give { margin-left: 0.75rem; }
@@ -415,7 +416,7 @@
     <div class="events-grid">
       <article class="event-card reveal reveal-d1">
         <div class="event-card-image">
-          <img src="https://allsaintsconcord.org/wp-content/uploads/2026/03/Holy-Week-2026-2-791x1024.jpg" alt="" loading="lazy">
+          <img src="https://allsaintsconcord.org/wp-content/uploads/2026/03/Holy-Week-2026-2-791x1024.jpg" alt="Holy Week and Easter service schedule" loading="lazy">
         </div>
         <div class="event-card-body">
           <p class="event-date"><time datetime="2026-03-29">Now through April 12</time></p>
