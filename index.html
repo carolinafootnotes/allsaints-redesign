@@ -629,8 +629,10 @@ if (prefersReducedMotion) {
 } else {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Safety: make everything visible after 3s regardless
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')), 3000);
 }
 
 // Est. 1878 candlelight glow
