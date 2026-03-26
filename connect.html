@@ -27,7 +27,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --burgundy: #bd2132; --burgundy-dark: #8a1825; --burgundy-light: #d94a59;
+      --burgundy: #7b2332; --burgundy-dark: #5e1a28; --burgundy-light: #9a3040;
       --cream: #faf8f4; --cream-warm: #f5f0e8;
       --ink: #1a1a1a; --ink-soft: #4a4a4a; --ink-muted: #595959;
       --gold: #c9a84c; --gold-light: #e8d9a0; --white: #ffffff;
@@ -72,7 +72,7 @@
     .logo-text small { display: block; font-family: var(--font-body); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
     nav ul { display: flex; list-style: none; gap: 2px; align-items: center; }
     nav a { display: block; padding: 8px 18px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); border-radius: 6px; transition: color 0.2s, background 0.2s; }
-    nav a:hover { color: var(--burgundy); background: rgba(189,33,50,0.06); }
+    nav a:hover { color: var(--burgundy); background: rgba(123,35,50,0.06); }
     nav a[aria-current="page"] { color: var(--burgundy); font-weight: 600; }
     .nav-cta { background: var(--burgundy) !important; color: var(--white) !important; font-weight: 600; }
     .nav-cta:hover { background: var(--burgundy-dark) !important; }
@@ -83,7 +83,7 @@
     /* Buttons */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 6px; transition: all 0.25s ease; }
     .btn-primary { background: var(--burgundy); color: var(--white); }
-    .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(189,33,50,0.3); }
+    .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,35,50,0.3); }
     .btn-outline { background: transparent; color: var(--burgundy); border: 2px solid var(--burgundy); }
     .btn-outline:hover { background: var(--burgundy); color: var(--white); transform: translateY(-2px); }
     .btn-white { background: var(--white); color: var(--burgundy); font-weight: 600; }
@@ -100,8 +100,8 @@
 
     /* Page Hero */
     .page-hero { position: relative; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: var(--ink); padding-top: 72px; }
-    .page-hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(189,33,50,0.15) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%), url('https://www.episcopalassetmap.org/sites/default/files/places/2018-09/533150_116858775115805_341560073_n.jpg') center/cover no-repeat, #1a1a1a; filter: saturate(0.85); }
-    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 80% 15%, rgba(201,168,76,0.14) 0%, rgba(189,33,50,0.06) 45%, transparent 70%); pointer-events: none; mix-blend-mode: screen; }
+    .page-hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(123,35,50,0.15) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%), url('https://www.episcopalassetmap.org/sites/default/files/places/2018-09/533150_116858775115805_341560073_n.jpg') center/cover no-repeat, #1a1a1a; filter: saturate(0.85); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 80% 15%, rgba(201,168,76,0.14) 0%, rgba(123,35,50,0.06) 45%, transparent 70%); pointer-events: none; mix-blend-mode: screen; }
     .page-hero-content { position: relative; z-index: 2; padding: clamp(3rem, 6vw, 5rem) 0; }
     .page-hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.8s 0.3s var(--ease-out-expo) forwards; }
     .page-hero-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
@@ -122,7 +122,7 @@
     .ministry-card-icon svg { width: 22px; height: 22px; }
     .ministry-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.25; }
     .ministry-card p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.65; }
-    .ministry-card .tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--burgundy); background: rgba(189,33,50,0.08); padding: 4px 10px; border-radius: 4px; margin-bottom: 0.75rem; }
+    .ministry-card .tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--burgundy); background: rgba(123,35,50,0.08); padding: 4px 10px; border-radius: 4px; margin-bottom: 0.75rem; }
     .ministry-note { text-align: center; margin-top: 2rem; font-size: 0.92rem; color: var(--ink-soft); }
     .ministry-note strong { color: var(--ink); }
 
@@ -212,8 +212,8 @@
         <rect x="55" y="28" width="10" height="68" rx="1" fill="#d4952a"/>
         <rect x="30" y="55" width="60" height="10" rx="1" fill="#d4952a"/>
         <rect x="52" y="52" width="16" height="16" rx="1" transform="rotate(45 60 60)" fill="#5b3a8c"/>
-        <polygon points="60,24 54,36 60,32 66,36" fill="#bd2132"/>
-        <polygon points="60,100 54,88 60,92 66,88" fill="#bd2132"/>
+        <polygon points="60,24 54,36 60,32 66,36" fill="#7b2332"/>
+        <polygon points="60,100 54,88 60,92 66,88" fill="#7b2332"/>
         <polygon points="26,60 38,54 34,60 38,66" fill="#5b3a8c"/>
         <polygon points="94,60 82,54 86,60 82,66" fill="#5b3a8c"/>
         <rect x="44" y="40" width="7" height="7" transform="rotate(45 47.5 43.5)" fill="#e8472a"/>
