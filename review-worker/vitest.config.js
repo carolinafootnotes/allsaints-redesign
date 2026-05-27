@@ -6,10 +6,13 @@ export default defineWorkersConfig(async () => {
 
   return {
     test: {
+      setupFiles: ["./tests/apply-migrations.js"],
       poolOptions: {
         workers: {
           singleWorker: true,
           miniflare: {
+            compatibilityDate: "2024-10-01",
+            compatibilityFlags: ["nodejs_compat"],
             d1Databases: ["DB"],
             bindings: {
               ADMIN_KEY: "test-admin-key",
