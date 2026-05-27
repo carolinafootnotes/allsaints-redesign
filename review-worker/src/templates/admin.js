@@ -135,11 +135,65 @@ export function adminPage({ adminKey, reviewers, decisions, submissionsByDecisio
     })
     .join("");
 
+  const forms = `
+  <div class="section">
+    <h2>Add a reviewer</h2>
+    <form method="POST" action="/api/reviewer" class="decision-card">
+      <input type="hidden" name="admin_key" value="${esc(adminKey)}">
+      <div class="field"><label>Name</label><input type="text" name="name" required></div>
+      <div class="field"><label>Email</label><input type="email" name="email" required></div>
+      <div class="field"><label>Role</label>
+        <select name="role">
+          <option value="group">Group (votes on copy)</option>
+          <option value="subject">Subject (their own bio)</option>
+        </select>
+      </div>
+      <button type="submit">Add reviewer</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Add a decision</h2>
+    <form method="POST" action="/api/decision" class="decision-card">
+      <input type="hidden" name="admin_key" value="${esc(adminKey)}">
+      <div class="field"><label>Section</label>
+        <select name="section">
+          <option>home</option><option>visit</option><option>connect</option><option>happenings</option><option>rector-search</option><option>watch-live</option><option>global</option>
+        </select>
+      </div>
+      <div class="field"><label>Kind</label>
+        <select name="kind"><option value="bio">bio</option><option value="copy">copy</option></select>
+      </div>
+      <div class="field"><label>Question</label><input type="text" name="question" required></div>
+      <div class="field"><label>Context (optional)</label><textarea name="context"></textarea></div>
+      <div class="field"><label>Options (JSON)</label>
+        <textarea name="options" required placeholder='[{"key":"A","label":"Current","body":"..."}, {"key":"B","label":"New","body":"..."}]'></textarea>
+      </div>
+      <div class="field"><label>Target selector (JSON)</label>
+        <textarea name="target_selector" required placeholder='{"file":"worker/public/final/index.html","anchor_string":"exact substring to replace"}'></textarea>
+      </div>
+      <div class="field"><label>Subject reviewer id (for bios)</label><input type="number" name="subject_reviewer_id"></div>
+      <div class="field"><label>Assigned reviewer ids (comma-separated, for copy)</label><input type="text" name="assigned_reviewer_ids"></div>
+      <button type="submit">Create</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Bulk import decisions (CSV)</h2>
+    <form method="POST" action="/api/decisions/bulk" class="decision-card">
+      <input type="hidden" name="admin_key" value="${esc(adminKey)}">
+      <p style="font-size:0.85rem; color:#666;">Columns: section, kind, question, context, option_a_label, option_a_body, option_b_label, option_b_body, target_file, target_anchor, subject_email, assigned_emails (semicolon-separated)</p>
+      <div class="field"><label>CSV</label><textarea name="csv" rows="10" required></textarea></div>
+      <button type="submit">Import all</button>
+    </form>
+  </div>
+`;
+
   const body = `<h1>All Saints' Review · Admin</h1>
 <p>Open: ${counts.open} · Submissions: ${counts.submissions} · Finalized: ${counts.finalized} · Reviewers: ${counts.reviewers}</p>
 ${linksPanel}
 ${decisionsHtml}
-<p style="margin-top:3rem; font-size:0.85rem; color:#888;">Decision authoring + reviewer creation forms come in Task 7.</p>`;
+${forms}`;
 
   return layout({ title: "Admin", body });
 }
