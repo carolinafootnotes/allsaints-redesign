@@ -10,6 +10,7 @@ export default defineWorkersConfig(async () => {
       poolOptions: {
         workers: {
           singleWorker: true,
+          main: "./src/index.js",
           miniflare: {
             compatibilityDate: "2024-10-01",
             compatibilityFlags: ["nodejs_compat"],
