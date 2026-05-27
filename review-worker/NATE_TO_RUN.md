@@ -54,3 +54,29 @@ curl https://allsaints-review.nate-ernst7.workers.dev/
 ```
 
 Should return: `All Saints Review — alive`
+
+## 7. Smoke test the pull script
+
+After the worker is deployed and seeded, finalize the seed bio decision via D1 (or via /admin once you've set the admin key):
+
+```bash
+cd review-worker
+npx wrangler d1 execute allsaints-review-db --remote --command "UPDATE decisions SET status='finalized', final_choice='B', finalized_at=datetime('now') WHERE id=1"
+cd ..
+python3 tools/import_review_approvals.py --dry-run
+```
+
+Expected: shows the planned replacement. Won't actually find the anchor "Original bio text." in /final, so it'll SKIP with "anchor not found". That's fine, proves the script can query D1 and execute its lookup logic.
+
+To do a real successful test, create a decision in /admin whose target_selector points at an actual string in /final, finalize it, then run:
+
+```bash
+python3 tools/import_review_approvals.py --dry-run   # preview the diff
+python3 tools/import_review_approvals.py             # apply
+python3 tools/import_review_approvals.py --deploy    # apply + deploy /final
+```
+
+Reset ledger if you want to re-apply something already imported:
+```bash
+rm tools/.imported_decision_ids
+```
