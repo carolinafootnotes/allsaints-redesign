@@ -5,8 +5,10 @@ compatibility_date = "2024-12-01"
 [assets]
 directory = "./public"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "allsaints-review-db"
-database_id = "REPLACE_AFTER_CREATE"
+# D1 binding for content approval pipeline.
+# Uncomment + paste the database_id after running step 1 of NATE_TO_RUN.md.
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "allsaints-review-db"
+# database_id = "PASTE_AFTER_CREATE"
 

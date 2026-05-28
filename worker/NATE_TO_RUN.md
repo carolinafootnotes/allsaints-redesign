@@ -9,7 +9,7 @@ cd worker
 npx wrangler d1 create allsaints-review-db
 ```
 
-Copy the returned `database_id` and paste it into `wrangler.toml` replacing the string `REPLACE_AFTER_CREATE`.
+Then uncomment the `[[d1_databases]]` block in `wrangler.toml` (currently commented out so unrelated content deploys still work) and paste the returned `database_id` in place of `PASTE_AFTER_CREATE`.
 
 ## 2. Apply schema to remote D1
 
