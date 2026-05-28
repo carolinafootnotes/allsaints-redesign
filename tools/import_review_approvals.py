@@ -10,7 +10,7 @@ from typing import Any
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 LEDGER = REPO / "tools" / ".imported_decision_ids"
-WORKER_DIR = REPO / "review-worker"
+WORKER_DIR = REPO / "worker"
 DB_NAME = "allsaints-review-db"
 
 

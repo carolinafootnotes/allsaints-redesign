@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Saints Episcopal Church — Concord, NC</title>
+  <meta name="description" content="All Saints Episcopal Church in Concord, North Carolina. A vibrant, welcoming community rooted in the Episcopal tradition. Join us for worship Sundays at 9AM and 11AM.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a1a;
+      background: #faf8f4;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .font-body { font-family: 'DM Sans', sans-serif; }
+    .label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ========================================
+       SKIP LINK
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: #7b2332;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0 0 8px 8px;
+      z-index: 10000;
+      font-weight: 600;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ========================================
+       HEADER / NAV
+       ======================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 1.5rem;
+      transition: background 0.4s, box-shadow 0.4s, padding 0.3s;
+    }
+    .site-header.transparent {
+      background: transparent;
+    }
+    .site-header.solid {
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      transition: height 0.3s;
+    }
+    .site-header.solid .header-inner {
+      height: 64px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .header-brand .logo-icon {
+      width: 140px;
+      height: auto;
+      max-height: 50px;
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: width 0.3s ease;
+    }
+    .site-header.solid .logo-icon {
+      width: 100px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c8a977;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus::after {
+      width: 100%;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: #e8d9a0;
+    }
+    .nav-cta {
+      background: #c8a977 !important;
+      color: #1a1a1a !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: #e8d9a0 !important;
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 28px;
+      padding: 4px 0;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile Nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover,
+    .mobile-nav a:focus { color: #c8a977; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(94, 26, 40, 0.88) 0%,
+        rgba(123, 35, 50, 0.75) 40%,
+        rgba(26, 26, 26, 0.7) 100%
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 6rem 1.5rem 4rem;
+      max-width: 800px;
+    }
+    .hero-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8a977;
+      margin-bottom: 1.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      border-radius: 2px;
+    }
+    .hero-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
+    }
+    .hero-heading em {
+      font-style: italic;
+      color: #e8d9a0;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 0.75rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-services {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-service-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      padding: 0.6rem 1.25rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .hero-service-badge .time {
+      font-weight: 700;
+      color: #c8a977;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      background: #c8a977;
+      color: #1a1a1a;
+    }
+    .btn-primary:hover {
+      background: #e8d9a0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    .hero-scroll-indicator svg {
+      width: 20px;
+      height: 20px;
+      stroke: rgba(255, 255, 255, 0.6);
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ========================================
+       SECTION HELPERS
+       ======================================== */
+    .section-pad {
+      padding: 6rem 1.5rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7b2332;
+      margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: #555;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       WELCOME / ABOUT
+       ======================================== */
+    .welcome {
+      background: #faf8f4;
+      position: relative;
+      overflow: hidden;
+    }
+    .welcome::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #7b2332, #c8a977, #7b2332);
+    }
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .welcome-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 600;
+      font-style: italic;
+      color: #5e1a28;
+      line-height: 1.35;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 4px solid #c8a977;
+    }
+    .welcome-text {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .welcome-text strong {
+      color: #1a1a1a;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem 0.5rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8e4dc;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #7b2332;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      margin-top: 0.5rem;
+    }
+    .welcome-image-col {
+      position: relative;
+    }
+    .welcome-image-main {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      position: relative;
+    }
+    .welcome-image-main img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+    .welcome-image-accent {
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      border: 4px solid #faf8f4;
+    }
+    .welcome-image-accent img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 900px) {
+      .welcome-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .welcome-image-col { order: -1; }
+      .welcome-image-accent { left: auto; right: -15px; bottom: -15px; width: 130px; height: 130px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ========================================
+       WORSHIP
+       ======================================== */
+    .worship {
+      background: linear-gradient(160deg, #5e1a28 0%, #7b2332 40%, #9a3040 100%);
+      color: #fff;
+      position: relative;
+    }
+    .worship .section-label { color: #c8a977; }
+    .worship .section-heading { color: #fff; }
+    .worship .section-sub { color: rgba(255,255,255,0.75); }
+    .worship-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .worship-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .worship-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    .worship-card-img {
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+    .worship-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .worship-card:hover .worship-card-img img {
+      transform: scale(1.05);
+    }
+    .worship-card-time {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: #c8a977;
+      color: #1a1a1a;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .worship-card-body {
+      padding: 1.75rem;
+    }
+    .worship-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .worship-card-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .worship-extras {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .worship-extra {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .worship-extra:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .worship-extra-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    .worship-extra-detail {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    @media (max-width: 768px) {
+      .worship-grid { grid-template-columns: 1fr; }
+      .worship-extras { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
+       COMMUNITY LIFE
+       ======================================== */
+    .community {
+      background: #f5f0e8;
+    }
+    .community-bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 300px 300px;
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .community-bento .bento-card:nth-child(1) { grid-column: span 2; }
+    .community-bento .bento-card:nth-child(2) { grid-column: span 2; }
+    .community-bento .bento-card:nth-child(3) { grid-column: span 1; }
+    .community-bento .bento-card:nth-child(4) { grid-column: span 1; }
+    .community-bento .bento-card:nth-child(5) { grid-column: span 2; }
+    .bento-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: default;
+    }
+    .bento-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .bento-card:hover img {
+      transform: scale(1.06);
+    }
+    .bento-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 26, 26, 0.85) 0%, rgba(26, 26, 26, 0.2) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #fff;
+      transition: background 0.3s;
+    }
+    .bento-card:hover .bento-overlay {
+      background: linear-gradient(to top, rgba(123, 35, 50, 0.9) 0%, rgba(123, 35, 50, 0.3) 50%, transparent 100%);
+    }
+    .bento-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8a977;
+      margin-bottom: 0.4rem;
+    }
+    .bento-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .bento-desc {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Photo strip */
+    .photo-strip {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .photo-strip-item {
+      height: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .photo-strip-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .photo-strip-item:hover img { transform: scale(1.08); }
+
+    @media (max-width: 768px) {
+      .community-bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .community-bento .bento-card { grid-column: span 1 !important; height: 280px; }
+      .photo-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ========================================
+       CLERGY
+       ======================================== */
+    .clergy {
+      background: #faf8f4;
+    }
+    .clergy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .clergy-card {
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .clergy-card:hover { transform: translateY(-6px); }
+    .clergy-photo-wrap {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #c8a977;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    .clergy-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .clergy-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.25rem;
+    }
+    .clergy-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7b2332;
+      margin-bottom: 0.6rem;
+    }
+    .clergy-fun {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    @media (max-width: 900px) {
+      .clergy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .clergy-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
+       VISIT US
+       ======================================== */
+    .visit {
+      background: linear-gradient(175deg, #1a1a1a 0%, #2d1118 100%);
+      color: #fff;
+    }
+    .visit .section-label { color: #c8a977; }
+    .visit .section-heading { color: #fff; }
+    .visit .section-sub { color: rgba(255,255,255,0.7); }
+    .visit-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .visit-map {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 400px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .visit-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .visit-info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .visit-info-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .visit-info-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+    .visit-card-icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 0.75rem;
+      color: #c8a977;
+    }
+    .visit-card-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+    .visit-card-desc {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+    }
+
+    /* First Sunday Timeline */
+    .first-sunday {
+      margin-top: 3rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .first-sunday-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: rgba(201, 168, 76, 0.3);
+    }
+    .timeline-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #7b2332;
+      border: 3px solid #c8a977;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-step-label {
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-step-desc {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    @media (max-width: 768px) {
+      .visit-layout { grid-template-columns: 1fr; }
+      .visit-map { height: 280px; }
+      .visit-info-cards { grid-template-columns: 1fr; }
+      .timeline { flex-direction: column; gap: 1.5rem; }
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 22px;
+        right: auto;
+        width: 2px;
+        height: auto;
+      }
+      .timeline-step {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+      }
+      .timeline-dot { margin: 0; flex-shrink: 0; }
+    }
+
+    /* Contact row */
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+    .contact-item svg {
+      width: 20px;
+      height: 20px;
+      stroke: #c8a977;
+      flex-shrink: 0;
+    }
+    .contact-item a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: #c8a977; }
+
+    /* ========================================
+       STAY CONNECTED
+       ======================================== */
+    .connect {
+      background: #7b2332;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .connect::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 140%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .connect .section-label { color: #e8d9a0; }
+    .connect .section-heading { color: #fff; }
+    .connect .section-sub {
+      color: rgba(255, 255, 255, 0.75);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .connect-cta-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .connect-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .connect-link-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      min-width: 180px;
+      transition: all 0.3s;
+    }
+    .connect-link-card:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .connect-link-card svg {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 0.75rem;
+      color: #c8a977;
+    }
+    .connect-link-card .link-label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    .connect-bottom-cta {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .site-footer {
+      background: #1a1a1a;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 3rem 1.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .footer-brand .logo-icon {
+      width: 100px;
+      height: auto;
+    }
+    .footer-about {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+    .footer-col-title {
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c8a977;
+      margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.85rem;
+      padding: 0.3rem 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom a { transition: color 0.2s; }
+    .footer-bottom a:hover { color: #c8a977; }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .footer-social a:hover {
+      background: #c8a977;
+      border-color: #c8a977;
+      color: #1a1a1a;
+    }
+    .footer-social a svg {
+      width: 16px;
+      height: 16px;
+    }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
+       EVENTS / WHAT'S HAPPENING
+       ======================================== */
+    .events {
+      background: linear-gradient(175deg, #faf8f4 0%, #f0ebe0 100%);
+      position: relative;
+    }
+    .events::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7b2332, #c8a977, #7b2332);
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .event-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e8e4dc;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(123, 35, 50, 0.12);
+    }
+    .event-card-date {
+      background: linear-gradient(135deg, #7b2332 0%, #5e1a28 100%);
+      color: #fff;
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+    .event-card-date .date-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .event-card-date .date-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #c8a977;
+      margin-top: 0.25rem;
+    }
+    .event-card-body {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .event-card-desc {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .event-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #7b2332;
+      margin-top: 1rem;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .event-card-link:hover {
+      color: #c8a977;
+      gap: 0.6rem;
+    }
+    @media (max-width: 900px) {
+      .events-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .events-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
+       THIS WEEK STRIP
+       ======================================== */
+    .this-week {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1118 100%);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+    }
+    .this-week-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .this-week-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .this-week-cards {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1;
+    }
+    .this-week-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s;
+      min-width: 260px;
+    }
+    .this-week-card:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .this-week-card svg {
+      width: 28px;
+      height: 28px;
+      color: #c8a977;
+      flex-shrink: 0;
+    }
+    .this-week-card .tw-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+    .this-week-card .tw-sub {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+    }
+    @media (max-width: 600px) {
+      .this-week-inner { flex-direction: column; text-align: center; }
+      .this-week-card { width: 100%; min-width: 0; }
+    }
+
+    /* ========================================
+       MOBILE POLISH
+       ======================================== */
+    @media (max-width: 480px) {
+      /* Hero text overflow prevention */
+      .hero-heading {
+        font-size: clamp(2.25rem, 10vw, 3.5rem);
+        word-break: break-word;
+      }
+      .hero-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        padding: 0.3rem 0.75rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      /* Full-width CTAs on mobile */
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-ctas .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+      }
+      /* Service badges stack */
+      .hero-services {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-service-badge {
+        min-height: 44px;
+      }
+      /* Stat row single column */
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      /* Bento cards taller on small screens */
+      .community-bento .bento-card {
+        height: 250px !important;
+      }
+      /* Section heading sizes */
+      .section-heading {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+      }
+      /* Photo strip 2-col already handled, ensure items visible */
+      .photo-strip { grid-template-columns: 1fr 1fr; }
+      .photo-strip-item { height: 120px; }
+    }
+
+    /* Ensure all tap targets are at least 44px */
+    @media (max-width: 768px) {
+      .nav-cta {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .btn {
+        min-height: 48px;
+      }
+      .worship-extra {
+        min-height: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .connect-link-card {
+        min-height: 48px;
+      }
+      .visit-info-card {
+        min-height: 48px;
+      }
+      .contact-item a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .footer-social a {
+        width: 44px;
+        height: 44px;
+      }
+      .footer-col a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+      /* Prevent horizontal scroll */
+      .hero-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .section-pad {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      /* Header logo smaller on mobile */
+      .header-brand .logo-icon {
+        width: 100px;
+      }
+    }
+
+    /* ========================================
+       SCROLL REVEAL
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .hero-scroll-indicator { animation: none; }
+      .hero-bg img { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ========================================
+       FOCUS STATES
+       ======================================== */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #c8a977;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header transparent" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand" aria-label="All Saints Episcopal Church, home">
+        <img src="/allsaints-logo.svg" alt="All Saints Episcopal Church" class="logo-icon">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#worship">Worship</a>
+        <a href="#community">Community</a>
+        <a href="#events">Events</a>
+        <a href="#clergy">Clergy</a>
+        <a href="#visit">Visit</a>
+        <a href="#rector-search">Rector Search</a>
+        <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener" class="nav-cta">Give</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#worship" class="mobile-nav-link">Worship</a>
+    <a href="#community" class="mobile-nav-link">Community</a>
+    <a href="#events" class="mobile-nav-link">Events</a>
+    <a href="#clergy" class="mobile-nav-link">Clergy</a>
+    <a href="#visit" class="mobile-nav-link">Visit</a>
+    <a href="#rector-search" class="mobile-nav-link">Rector Search</a>
+    <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give</a>
+  </nav>
+
+  <main id="main-content">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero" aria-label="Welcome">
+      <div class="hero-bg">
+        <img id="hero-image" src="/assets/2026/stained-glass-jesus-2026.jpg" alt="Stained glass window depicting Christ at All Saints Episcopal Church" loading="eager" fetchpriority="high">
+        <script>
+          (function () {
+            var pool = [
+              { src: '/assets/2026/stained-glass-jesus-2026.jpg', alt: 'Stained glass window depicting Christ at All Saints Episcopal Church' },
+              { src: '/assets/2026/exterior-2026.jpg', alt: 'Exterior of All Saints Episcopal Church in Concord, NC' },
+              { src: '/assets/2026/procession-cross-2026.jpg', alt: 'Processional cross carried during worship at All Saints' },
+              { src: '/assets/2026/altar-blessing-2026.jpg', alt: 'Blessing at the altar during Holy Eucharist at All Saints' },
+              { src: '/assets/2026/fellowship-formation-2026.jpg', alt: 'All Saints parishioners gathered in fellowship' }
+            ];
+            var pick = pool[Math.floor(Math.random() * pool.length)];
+            var img = document.getElementById('hero-image');
+            if (img && pick.src !== img.getAttribute('src')) {
+              img.setAttribute('src', pick.src);
+              img.setAttribute('alt', pick.alt);
+            }
+          })();
+        </script>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-label">All Saints Episcopal Church &middot; Concord, NC</div>
+        <h1 class="hero-heading">Come Home to<br><em>All Saints</em></h1>
+        <p class="hero-sub">A vibrant, welcoming community where everyone has a place at the table. Rooted in tradition. Alive in the Spirit.</p>
+        <div class="hero-services">
+          <div class="hero-service-badge">
+            <span class="time">9:00 AM</span>
+            <span>Family</span>
+          </div>
+          <div class="hero-service-badge">
+            <span class="time">11:10 AM</span>
+            <span>Traditional</span>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#visit" class="btn btn-primary">Join Us Sunday</a>
+          <a href="https://allsaintsconcord.org/live-events/" target="_blank" rel="noopener" class="btn btn-outline">Watch Live</a>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span>Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
+    </section>
+
+    <!-- ===== WELCOME ===== -->
+    <section class="welcome section-pad" id="welcome" aria-label="Welcome">
+      <div class="container">
+        <div class="welcome-grid">
+          <div class="welcome-text-col">
+            <div class="section-label reveal">Welcome Home</div>
+            <h2 class="section-heading reveal reveal-delay-1">A Church That <em>Loves Like<br>God Loves</em></h2>
+            <blockquote class="welcome-quote reveal reveal-delay-2">
+              "God is love, and those who abide in love abide in God, and God abides in them."
+              <footer style="font-size: 0.85rem; font-style: normal; font-weight: 500; color: #888; margin-top: 0.5rem; font-family: 'DM Sans', sans-serif;"><cite style="font-style: normal;">&mdash; 1 John 4:16</cite></footer>
+            </blockquote>
+            <p class="welcome-text reveal reveal-delay-3">
+              At All Saints, you won't find a perfect church. You'll find a <strong>real one</strong> &mdash; full of people learning to love God and each other, one Sunday at a time. We've been gathering in Concord since 1878, and the door is wide open for you.
+            </p>
+            <p class="welcome-text reveal reveal-delay-3">
+              Our mission is simple: <strong>Invite, Nurture, Serve, and Grow.</strong> Whether you're exploring faith for the first time or you've been in the pew your whole life, this is your place.
+            </p>
+            <p class="welcome-text reveal reveal-delay-3" style="font-size: 0.95rem; color: #6b6b6b;">
+              We are a parish of the Episcopal Diocese of North Carolina. The Rev. Nancy Cox served as our rector through 2025; The Rev. John Johanssen began as Interim Rector on January 1, 2026, while the vestry's <a href="#rector-search" style="color: #7b2332; text-decoration: underline;">search for our next rector</a> is underway.
+            </p>
+            <div class="stats-row reveal reveal-delay-4">
+              <div class="stat-item">
+                <div class="stat-number" data-count="1878">1878</div>
+                <div class="stat-label">Established</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Sunday Services</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Music Ensembles</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Books We Gather Around</div>
+              </div>
+            </div>
+          </div>
+          <div class="welcome-image-col reveal reveal-delay-2">
+            <div class="welcome-image-main">
+              <img src="/assets/2026/exterior-2026.jpg" alt="Front of All Saints Episcopal Church on a clear spring day with dogwoods in bloom" loading="lazy">
+            </div>
+            <div class="welcome-image-accent">
+              <img src="../assets/stained-glass.jpg" alt="Beautiful stained glass window at All Saints" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WORSHIP ===== -->
+    <section class="worship section-pad" id="worship" aria-label="Worship services">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+          <div class="section-label reveal">Sunday Worship</div>
+          <h2 class="section-heading reveal reveal-delay-1">Two Services.<br>One Community.</h2>
+          <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;">
+            However you connect with God, there's a service that feels like home.
+          </p>
+        </div>
+        <div class="worship-grid">
+          <div class="worship-card reveal reveal-delay-2">
+            <div class="worship-card-img">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/01/IMG_0942-scaled.jpg" alt="Family Eucharist at All Saints — families gathered in the Parish Hall" loading="lazy">
+              <div class="worship-card-time">9:00 AM</div>
+            </div>
+            <div class="worship-card-body">
+              <h3 class="worship-card-title">Family Eucharist</h3>
+              <p class="worship-card-desc">Holy Eucharist, Rite II, in the Parish Hall. Less formal, family-friendly, with a children's sermon and the kids invited around the altar at communion. Come as you are &mdash; really.</p>
+            </div>
+          </div>
+          <div class="worship-card reveal reveal-delay-3">
+            <div class="worship-card-img">
+              <img src="/assets/2026/altar-blessing-2026.jpg" alt="Clergy at the altar in benediction during a service at All Saints" loading="lazy">
+              <div class="worship-card-time">11:10 AM</div>
+            </div>
+            <div class="worship-card-body">
+              <h3 class="worship-card-title">Traditional Eucharist</h3>
+              <p class="worship-card-desc">Holy Eucharist, Rite II, in the Nave. Traditional hymnody, the Choir of All Saints with organ, ancient words made new. This is holy ground &mdash; and you're invited in.</p>
+            </div>
+          </div>
+        </div>
+        <div class="worship-extras reveal reveal-delay-4">
+          <div class="worship-extra">
+            <div class="worship-extra-title">Tuesday Compline</div>
+            <div class="worship-extra-detail">8:00 PM &middot; Night prayer by candlelight</div>
+          </div>
+          <div class="worship-extra">
+            <div class="worship-extra-title">Noonday Prayer</div>
+            <div class="worship-extra-detail">Wednesday &middot; A pause in the week</div>
+          </div>
+          <div class="worship-extra">
+            <a href="https://allsaintsconcord.org/live-events/" target="_blank" rel="noopener" style="color: #c8a977;">
+              <div class="worship-extra-title" style="color:#c8a977;">Watch Live &rarr;</div>
+              <div class="worship-extra-detail">Stream any Sunday service</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- What to Expect — inline -->
+        <div class="reveal reveal-delay-4" style="margin-top: 3.5rem; max-width: 56rem; margin-left: auto; margin-right: auto; background: #faf6ee; border: 1px solid #e8e4dc; border-radius: 14px; padding: 2rem 2.5rem;">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.5rem; color: #1a1a1a; margin-bottom: 1rem;">What to expect when you visit</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem 2rem; font-size: 0.95rem; line-height: 1.55; color: #3a3a3a;">
+            <div><strong style="color: #7b2332;">The shape of the service.</strong> A bulletin walks you through everything &mdash; when to stand, sit, kneel, or stay seated. The Book of Common Prayer is in the pew if you'd like to follow along.</div>
+            <div><strong style="color: #7b2332;">Communion.</strong> All who love God and are drawn to Christ are welcome at Christ's table &mdash; you don't need to be Episcopalian or a member here. Cross your arms for a blessing if you'd rather not receive.</div>
+            <div><strong style="color: #7b2332;">What to wear.</strong> Whatever you're comfortable in. Both services run about an hour to an hour and fifteen minutes.</div>
+            <div><strong style="color: #7b2332;">Children.</strong> Children are a full part of worship here. Nursery care is available; formation for kids meets between services.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMMUNITY LIFE ===== -->
+    <section class="community section-pad" id="community" aria-label="Community life">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+          <div class="section-label reveal">Life Together</div>
+          <h2 class="section-heading reveal reveal-delay-1">More Than Sunday Morning</h2>
+          <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;">
+            Church isn't just a place you go. It's a community you belong to, every day of the week.
+          </p>
+        </div>
+        <div class="community-bento">
+          <!-- Invite -->
+          <div class="bento-card reveal reveal-delay-1">
+            <img src="../assets/labyrinth.jpg" alt="Outdoor labyrinth with clergy at All Saints" loading="lazy">
+            <div class="bento-overlay">
+              <div class="bento-tag">Invite</div>
+              <h3 class="bento-title">Open Doors, Open Hearts</h3>
+              <p class="bento-desc">Newcomer welcomes, parish dinners, and a community that remembers your name.</p>
+            </div>
+          </div>
+          <!-- Nurture -->
+          <div class="bento-card reveal reveal-delay-2">
+            <img src="/assets/2026/fellowship-formation-2026.jpg" alt="Adult formation in the All Saints library" loading="lazy">
+            <div class="bento-overlay">
+              <div class="bento-tag">Formation</div>
+              <h3 class="bento-title">Growing Together</h3>
+              <p class="bento-desc">Children &amp; Youth ministries, adult formation, two Education for Ministry groups &mdash; faith deepens here.</p>
+            </div>
+          </div>
+          <!-- Serve -->
+          <div class="bento-card reveal reveal-delay-3">
+            <img src="https://allsaintsconcord.org/wp-content/uploads/2015/10/All-Saints-pic-21-kitchen.jpg" alt="Volunteers serving in the kitchen" loading="lazy">
+            <div class="bento-overlay">
+              <div class="bento-tag">Serve</div>
+              <h3 class="bento-title">Hands &amp; Hearts</h3>
+              <p class="bento-desc">Food drives, Cooperative Christian Ministry, pastoral care visits.</p>
+            </div>
+          </div>
+          <!-- Grow -->
+          <div class="bento-card reveal reveal-delay-3">
+            <img src="/assets/2026/choir-singing-2026.jpg" alt="Choristers singing at All Saints" loading="lazy">
+            <div class="bento-overlay">
+              <div class="bento-tag">Music</div>
+              <h3 class="bento-title">Five Voices, One Song</h3>
+              <p class="bento-desc">Choir of All Saints, Resurrection Choir, Bells of All Saints, and the St. Nicholas and Junior Choirs for our youngest singers.</p>
+            </div>
+          </div>
+          <!-- Fellowship -->
+          <div class="bento-card reveal reveal-delay-4">
+            <img src="../assets/bell-garden.jpg" alt="Bell tower with roses on the All Saints campus" loading="lazy">
+            <div class="bento-overlay">
+              <div class="bento-tag">Fellowship</div>
+              <h3 class="bento-title">The Best Part of Sunday</h3>
+              <p class="bento-desc">Potlucks, coffee hour, and the kind of friendships that last a lifetime.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Photo strip -->
+        <div class="photo-strip reveal reveal-delay-4">
+          <div class="photo-strip-item">
+            <img src="/assets/2026/procession-cross-2026.jpg" alt="Outdoor procession with the cross at All Saints" loading="lazy">
+          </div>
+          <div class="photo-strip-item">
+            <img src="/assets/2026/organist-hands-2026.jpg" alt="Organist's hands at the manuals during a service" loading="lazy">
+          </div>
+          <div class="photo-strip-item">
+            <img src="/assets/2026/columbarium-plaque-2026.jpg" alt="Bronze memorial plaque at the columbarium gates" loading="lazy">
+          </div>
+          <div class="photo-strip-item">
+            <img src="../assets/altar-close-up.jpg" alt="Brass cross and candles on the altar" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPDATE AS NEEDED: Current events and sign-ups. Each event card is self-contained. -->
+    <!-- ===== WHAT'S HAPPENING ===== -->
+    <section class="events section-pad" id="events" aria-label="Upcoming events">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+          <div class="section-label reveal">What's Happening</div>
+          <h2 class="section-heading reveal reveal-delay-1">Coming Up at All Saints'</h2>
+        </div>
+        <div class="events-grid">
+          <a href="https://allsaintsconcord.org/invitiation-to-holy-week/" target="_blank" rel="noopener" class="event-card reveal reveal-delay-1" style="text-decoration:none;">
+            <div class="event-card-date">
+              <div class="date-main">Holy Week</div>
+              <div class="date-sub">March 29 &ndash; April 5</div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-card-title">Holy Week &amp; Easter</h3>
+              <p class="event-card-desc">Palm Sunday through Easter &mdash; services, vigils, and celebrations for the whole parish.</p>
+              <span class="event-card-link">Learn More &rarr;</span>
+            </div>
+          </a>
+          <a href="https://allsaintsconcord.org/maundy-thursday-dinner-2/" target="_blank" rel="noopener" class="event-card reveal reveal-delay-2" style="text-decoration:none;">
+            <div class="event-card-date">
+              <div class="date-main">April 2</div>
+              <div class="date-sub">6:00 PM</div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-card-title">Maundy Thursday Dinner</h3>
+              <p class="event-card-desc">Share a parish meal followed by Holy Eucharist and Stripping of the Altar.</p>
+              <span class="event-card-link">Sign Up &rarr;</span>
+            </div>
+          </a>
+          <a href="https://allsaintsconcord.org/lenten-food-drive/" target="_blank" rel="noopener" class="event-card reveal reveal-delay-3" style="text-decoration:none;">
+            <div class="event-card-date">
+              <div class="date-main">Through April 2</div>
+              <div class="date-sub">Outreach</div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-card-title">Lenten Food Drive</h3>
+              <p class="event-card-desc">Bring non-perishable items to support neighbors through Cooperative Christian Ministry.</p>
+              <span class="event-card-link">Details &rarr;</span>
+            </div>
+          </a>
+          <a href="https://allsaintsconcord.org/easter-flowers/" target="_blank" rel="noopener" class="event-card reveal reveal-delay-4" style="text-decoration:none;">
+            <div class="event-card-date">
+              <div class="date-main">Easter Sunday</div>
+              <div class="date-sub">Memorial</div>
+            </div>
+            <div class="event-card-body">
+              <h3 class="event-card-title">Easter Flower Memorials</h3>
+              <p class="event-card-desc">Honor loved ones with a gift toward Easter flowers to adorn the church.</p>
+              <span class="event-card-link">Give Now &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THIS WEEK ===== -->
+    <section class="this-week" aria-label="This week at All Saints">
+      <div class="this-week-inner">
+        <h2 class="this-week-label reveal">This Week</h2>
+        <div class="this-week-cards">
+          <!-- UPDATE WEEKLY: Change the bulletin date and link below -->
+          <a href="https://allsaintsconcord.org/worship-bulletins/" target="_blank" rel="noopener" class="this-week-card reveal reveal-delay-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <div>
+              <div class="tw-title">This Sunday's Bulletin</div>
+              <div class="tw-sub">Download or view the order of worship</div>
+            </div>
+          </a>
+          <!-- UPDATE WEEKLY: Change the newsletter link below -->
+          <a href="https://conta.cc/47bfZ6Z" target="_blank" rel="noopener" class="this-week-card reveal reveal-delay-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <div class="tw-title">Read the Weekly Word</div>
+              <div class="tw-sub">News, reflections &amp; what's ahead</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CLERGY ===== -->
+    <section class="clergy section-pad" id="clergy" aria-label="Meet our clergy">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+          <div class="section-label reveal">Our Clergy</div>
+          <h2 class="section-heading reveal reveal-delay-1">Meet the People Who<br>Walk <span style="color:#7b2332;">With You</span></h2>
+        </div>
+        <div class="clergy-grid">
+          <div class="clergy-card reveal reveal-delay-1">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2026/01/Screenshot-2026-01-05-at-2.41.09-PM.png" alt="The Reverend John Johanssen" loading="lazy">
+            </div>
+            <h3 class="clergy-name">The Rev. John Johanssen</h3>
+            <div class="clergy-title">Interim Rector</div>
+            <p class="clergy-fun">Loves sailing, hiking, and the joy of watching a parish come alive.</p>
+          </div>
+          <div class="clergy-card reveal reveal-delay-2">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/06/Rev-Jim-Bernacki_glasses_8x10-scaled.jpg" alt="The Reverend Jim Bernacki" loading="lazy">
+            </div>
+            <h3 class="clergy-name">The Rev. Dr. Jim Bernacki</h3>
+            <div class="clergy-title">Priest Associate</div>
+            <p class="clergy-fun">Coordinates our beloved Tuesday Compline and brings calm to every room.</p>
+          </div>
+          <div class="clergy-card reveal reveal-delay-3">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/06/Rev-Mary-Reese_8x10-scaled.jpg" alt="The Reverend Mary Elizabeth Reese" loading="lazy">
+            </div>
+            <h3 class="clergy-name">The Rev. Mary Elizabeth Reese</h3>
+            <div class="clergy-title">Priest Associate</div>
+            <p class="clergy-fun">Eleven grandchildren and a heart big enough for the whole parish.</p>
+          </div>
+          <div class="clergy-card reveal reveal-delay-4">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/06/Deacon-Vern-Cahoon_8x10-scaled.jpg" alt="Deacon Vern Cahoon" loading="lazy">
+            </div>
+            <h3 class="clergy-name">The Rev. Vern Cahoon</h3>
+            <div class="clergy-title">Deacon</div>
+            <p class="clergy-fun">Brings pastoral care to nursing homes and a warm smile to everyone he meets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LAY STAFF ===== -->
+    <section class="staff section-pad" id="staff" aria-label="Meet our lay staff" style="padding-top: 0; background: #fff;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+          <div class="section-label reveal">Our Staff</div>
+          <h2 class="section-heading reveal reveal-delay-1">The People Who<br>Keep Things <span style="color:#7b2332;">Going</span></h2>
+        </div>
+        <div class="clergy-grid">
+          <div class="clergy-card reveal reveal-delay-1">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/06/Brian-Sapp-Moore_8x10-824x1030.jpg" alt="Brian Sapp-Moore" loading="lazy">
+            </div>
+            <h3 class="clergy-name">Brian Sapp-Moore, MM</h3>
+            <div class="clergy-title">Music &amp; Communications</div>
+            <p class="clergy-fun">Leads the choirs, plays the organ, and tells our story to the world.</p>
+          </div>
+          <div class="clergy-card reveal reveal-delay-2">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/06/Tiffany-Fulton_8x10-824x1030.jpg" alt="Tiffany Fulton" loading="lazy">
+            </div>
+            <h3 class="clergy-name">Tiffany Fulton, MSA</h3>
+            <div class="clergy-title">Youth &amp; Family Ministries</div>
+            <p class="clergy-fun">Walks with our kids, youth, and families through every season of life.</p>
+          </div>
+          <div class="clergy-card reveal reveal-delay-3">
+            <div class="clergy-photo-wrap">
+              <img src="https://allsaintsconcord.org/wp-content/uploads/2024/06/Ruth-Brown_8x10-824x1030.jpg" alt="Ruth Brown" loading="lazy">
+            </div>
+            <h3 class="clergy-name">Ruth Brown</h3>
+            <div class="clergy-title">Communications Assistant</div>
+            <p class="clergy-fun">The bulletin, the Weekly Word, the rhythm of telling our story.</p>
+          </div>
+          <div class="clergy-card reveal reveal-delay-4">
+            <div class="clergy-photo-wrap" style="background: #7b2332; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600;">EV</div>
+            <h3 class="clergy-name">Erin Vanasse</h3>
+            <div class="clergy-title">Administrator</div>
+            <p class="clergy-fun">The steady hand at the parish office &mdash; she keeps everything running.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VISIT US ===== -->
+    <section class="visit section-pad" id="visit" aria-label="Plan your visit">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+          <img src="/assets/2026/street-sign-2026.jpg" alt="All Saints Episcopal Church street sign at golden hour — &quot;Sunday Worship 9 AM &amp; 11:10 AM, All Are Welcome&quot;" loading="lazy" class="reveal" style="width: 100%; max-width: 700px; margin: 0 auto 2rem; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);">
+          <div class="section-label reveal">Plan Your Visit</div>
+          <h2 class="section-heading reveal reveal-delay-1">We'll Save You a Seat</h2>
+          <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;">
+            525 Lake Concord Road NE, Concord, NC 28025
+          </p>
+        </div>
+        <div class="visit-layout">
+          <div class="visit-map reveal reveal-delay-2">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.0!2d-80.573!3d35.424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8854b5e1c8b30c67%3A0x5d9b5e5f1c8b30c6!2s525+Lake+Concord+Rd+NE%2C+Concord%2C+NC+28025!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing All Saints Episcopal Church location"></iframe>
+          </div>
+          <div class="visit-info-cards">
+            <div class="visit-info-card reveal reveal-delay-2">
+              <svg class="visit-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg>
+              <h3 class="visit-card-title">Parking</h3>
+              <p class="visit-card-desc">Free lot right out front. Pull in, park, and follow the smiles.</p>
+            </div>
+            <div class="visit-info-card reveal reveal-delay-3">
+              <svg class="visit-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <h3 class="visit-card-title">Dress Code</h3>
+              <p class="visit-card-desc">Come as you are. Jeans, sundresses, suits &mdash; you'll fit right in.</p>
+            </div>
+            <div class="visit-info-card reveal reveal-delay-3">
+              <svg class="visit-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <h3 class="visit-card-title">Kids Welcome</h3>
+              <p class="visit-card-desc">Nursery available, plus a children's sermon they'll actually love.</p>
+            </div>
+            <div class="visit-info-card reveal reveal-delay-4">
+              <svg class="visit-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 12H8"/><path d="M12 8v8"/></svg>
+              <h3 class="visit-card-title">Accessible</h3>
+              <p class="visit-card-desc">Accessible entrances, seating, and restrooms. Everyone belongs here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- First Sunday Timeline -->
+        <div class="first-sunday reveal reveal-delay-3">
+          <h3 class="first-sunday-title">Your First Sunday</h3>
+          <ol class="timeline" role="list">
+            <li class="timeline-step">
+              <div class="timeline-dot" aria-hidden="true">&#128075;</div>
+              <div>
+                <div class="timeline-step-label">Arrive</div>
+                <div class="timeline-step-desc">Pull into the lot, we'll wave you in</div>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <div class="timeline-dot" aria-hidden="true">&#9749;</div>
+              <div>
+                <div class="timeline-step-label">Grab Coffee</div>
+                <div class="timeline-step-desc">It's always brewing</div>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <div class="timeline-dot" aria-hidden="true">&#9834;</div>
+              <div>
+                <div class="timeline-step-label">Find a Seat</div>
+                <div class="timeline-step-desc">Sit anywhere you like</div>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <div class="timeline-dot" aria-hidden="true">&#10013;</div>
+              <div>
+                <div class="timeline-step-label">Worship</div>
+                <div class="timeline-step-desc">Sing, pray, breathe</div>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <div class="timeline-dot" aria-hidden="true">&#9829;</div>
+              <div>
+                <div class="timeline-step-label">Stay</div>
+                <div class="timeline-step-desc">Fellowship after &mdash; you're one of us now</div>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Contact Row -->
+        <div class="contact-row reveal reveal-delay-4">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:7047822024">(704) 782-2024</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:admin@allsaintsconcord.org">admin@allsaintsconcord.org</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RECTOR SEARCH ===== -->
+    <section class="rector-search section-pad" id="rector-search" aria-label="Rector search update" style="background: #faf6ee;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 1.5rem;">
+          <div class="section-label reveal">Where We Are</div>
+          <h2 class="section-heading reveal reveal-delay-1">Our <em style="color:#7b2332;">Rector Search</em></h2>
+          <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto; max-width: 38rem;">
+            All Saints' is in a season of careful discernment as we listen for the next priest called to lead this parish.
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-2" style="max-width: 44rem; margin: 2.5rem auto 0; background: #fff; border: 1px solid #e8e4dc; border-radius: 14px; padding: 2rem 2.25rem;">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1rem;">Where we are now</h3>
+          <p style="font-size: 1rem; line-height: 1.7; color: #3a3a3a; margin-bottom: 1rem;">
+            <strong>The Rev. Nancy Cox</strong> served All Saints' faithfully as rector through the end of 2025. <strong>The Rev. John Johanssen</strong> &mdash; an experienced interim with specialized training in transition ministry and a Master of Divinity from Virginia Theological Seminary &mdash; began as our Interim Rector on January 1, 2026.
+          </p>
+          <p style="font-size: 1rem; line-height: 1.7; color: #3a3a3a; margin-bottom: 1rem;">
+            With Fr. John's steady leadership, the vestry has begun the work of calling our next rector, walking together through the discernment process in partnership with the Episcopal Diocese of North Carolina.
+          </p>
+          <p style="font-size: 1rem; line-height: 1.7; color: #3a3a3a;">
+            For clergy considering this call: we are a 1878-rooted parish in Concord, NC, with two Sunday liturgies, five named music ensembles, formation for every age, and a real, mature congregation. We would welcome the conversation.
+          </p>
+          <div style="margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid #e8e4dc; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;">
+            <div style="font-size: 0.95rem; color: #6b6b6b;">
+              To contact the search committee or express interest:
+            </div>
+            <a href="mailto:admin@allsaintsconcord.org?subject=Rector%20Search" class="btn btn-primary" style="font-size: 0.95rem; padding: 0.75rem 1.5rem;">admin@allsaintsconcord.org</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STAY CONNECTED ===== -->
+    <section class="connect section-pad" id="connect" aria-label="Stay connected">
+      <div class="container" style="position:relative; z-index:1;">
+        <div class="section-label reveal">Stay Connected</div>
+        <h2 class="connect-cta-heading reveal reveal-delay-1">Ready to Call All Saints Home?</h2>
+        <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;">
+          Whether you're ready to walk through the door this Sunday or just want to follow along from afar, we'd love to stay in touch.
+        </p>
+        <div class="connect-links">
+          <a href="https://conta.cc/47bfZ6Z" target="_blank" rel="noopener" class="connect-link-card reveal reveal-delay-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div class="link-label">Newsletter</div>
+          </a>
+          <a href="https://www.facebook.com/AllSaintsEpiscopalConcord/" target="_blank" rel="noopener" class="connect-link-card reveal reveal-delay-3">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <div class="link-label">Facebook</div>
+          </a>
+          <a href="https://www.instagram.com/allsaintsconcordnc/" target="_blank" rel="noopener" class="connect-link-card reveal reveal-delay-3">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <div class="link-label">Instagram</div>
+          </a>
+          <a href="https://www.youtube.com/@allsaintsepiscopalchurchco9498/videos" target="_blank" rel="noopener" class="connect-link-card reveal reveal-delay-4">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <div class="link-label">YouTube</div>
+          </a>
+          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener" class="connect-link-card reveal reveal-delay-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="link-label">Member Portal</div>
+          </a>
+        </div>
+
+        <div class="connect-bottom-cta reveal reveal-delay-5">
+          <p style="font-size:1.05rem; color:rgba(255,255,255,0.75); margin-bottom: 1.5rem;">Your next step is simple. Show up. We'll handle the rest.</p>
+          <a href="#visit" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2.5rem;">Join Us This Sunday</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="/allsaints-logo.svg" alt="All Saints Episcopal Church" class="logo-icon">
+          </div>
+          <p class="footer-about">A vibrant community of faith in Concord, North Carolina. Rooted in the Episcopal tradition since 1878. All are welcome.</p>
+          <p class="footer-about" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.85;">A parish of the Episcopal Diocese of North Carolina &middot; The Rt. Rev. Sam Rodman, Bishop</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Worship</div>
+          <a href="#worship">Sunday 9:00 AM</a>
+          <a href="#worship">Sunday 11:10 AM</a>
+          <a href="https://allsaintsconcord.org/live-events/" target="_blank" rel="noopener">Watch Live</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Quick Links</div>
+          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give Online</a>
+          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Member Portal</a>
+          <a href="https://conta.cc/47bfZ6Z" target="_blank" rel="noopener">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Connect</div>
+          <a href="tel:7047822024">(704) 782-2024</a>
+          <a href="mailto:admin@allsaintsconcord.org">Email Us</a>
+          <a href="https://www.lockhartcdc.org" target="_blank" rel="noopener">Lockhart CDC</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 All Saints Episcopal Church. All rights reserved.</div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/AllSaintsEpiscopalConcord/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/allsaintsconcordnc/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@allsaintsepiscopalchurchco9498/videos" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ---- Header scroll behavior ----
+      const header = document.getElementById('site-header');
+      let lastScroll = 0;
+      function updateHeader() {
+        const y = window.scrollY;
+        if (y > 80) {
+          header.classList.remove('transparent');
+          header.classList.add('solid');
+        } else {
+          header.classList.remove('solid');
+          header.classList.add('transparent');
+        }
+        lastScroll = y;
+      }
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      updateHeader();
+
+      // ---- Mobile menu ----
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileLinks = mobileNav.querySelectorAll('a');
+
+      function toggleMenu() {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (mobileNav.classList.contains('open')) {
+            toggleMenu();
+          }
+        });
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+          toggleMenu();
+          hamburger.focus();
+        }
+      });
+
+      // ---- Scroll reveal ----
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+        reveals.forEach(function(el) { observer.observe(el); });
+      } else {
+        // If reduced motion, show everything
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      // ---- Smooth scroll for anchor links ----
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            var headerHeight = header.offsetHeight;
+            var targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+            window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

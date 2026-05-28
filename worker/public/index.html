@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Saints' Website Redesign — Three Directions</title>
+  <meta name="description" content="Two website redesign concepts for All Saints Episcopal Church, Concord NC. Review both options and share your preference.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --burgundy: #7b2332;
+      --burgundy-dark: #5e1a28;
+      --cream: #faf8f4;
+      --cream-warm: #f5f0e8;
+      --gold: #c9a84c;
+      --gold-light: #e8d9a0;
+      --ink: #1a1a1a;
+      --ink-soft: #4a4a4a;
+      --ink-muted: #6b6b6b;
+      --white: #ffffff;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 50%;
+      height: 140%;
+      background: radial-gradient(ellipse, rgba(123,35,50,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      right: -10%;
+      width: 50%;
+      height: 140%;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .logo-showcase {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .logo-showcase .logo-icon { width: 150px; height: auto; }
+
+    .hero-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero h1 i { font-style: italic; color: var(--burgundy); }
+    .hero p {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--ink-soft);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 2.5rem;
+      position: relative;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-hint svg { width: 20px; height: 20px; opacity: 0.5; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Options */
+    .options {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background: var(--cream);
+    }
+    .options-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+    .options-header {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .options-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 0.75rem;
+    }
+    .options-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .options-title i { font-style: italic; color: var(--burgundy); }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .option-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+    .option-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    }
+
+    .option-preview {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    .option-preview iframe {
+      width: 200%;
+      height: 200%;
+      border: 0;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    .option-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .option-card:hover .option-preview-overlay { opacity: 1; }
+    .option-preview-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--white);
+      color: var(--burgundy);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .option-preview-btn:hover { background: var(--cream); }
+
+    .option-body {
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .option-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(123,35,50,0.08);
+      color: var(--burgundy);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+    .option-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .option-body h2 i { font-style: italic; color: var(--burgundy); }
+    .option-body p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .option-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .trait {
+      padding: 6px 14px;
+      background: var(--cream);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+    .option-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--burgundy);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      align-self: flex-start;
+    }
+    .option-cta:hover {
+      background: var(--burgundy-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(123,35,50,0.3);
+    }
+    .option-cta svg { width: 16px; height: 16px; }
+
+    /* About section */
+    .about {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      background: var(--white);
+      text-align: center;
+    }
+    .about-container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .about h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .about h2 i { font-style: italic; color: var(--burgundy); }
+    .about p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      background: var(--ink);
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.82rem;
+    }
+    footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--white); }
+
+    /* Mobile */
+    @media (max-width: 1024px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .option-preview { aspect-ratio: 16/9; }
+      .scroll-hint { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="logo-showcase">
+      <svg class="logo-icon" viewBox="0 0 718 454.55" role="img" aria-label="All Saints Episcopal Church logo" focusable="false">
+        <defs>
+          <style>
+            .cls-1{fill:#6752a2}.cls-2{fill:#beaf69}.cls-3{letter-spacing:.15em}.cls-4{letter-spacing:.16em}.cls-5{letter-spacing:.16em}.cls-6{letter-spacing:.17em}.cls-7{letter-spacing:.14em}.cls-8{fill:#e84225}.cls-9{fill:#bdaf69;font-family:GoudyTrajan-Bold,'Goudy Trajan';font-size:45.5px;font-weight:700}.cls-10{fill:#bd2233}.cls-11{letter-spacing:.11em}.cls-12{letter-spacing:.12em}.cls-13{fill:#faa824}
+          </style>
+        </defs>
+        <text class="cls-9" transform="translate(74.69 442.04)"><tspan class="cls-6" x="0" y="0">E</tspan><tspan class="cls-7" x="33.58" y="0">P</tspan><tspan class="cls-6" x="67.89" y="0">IS</tspan><tspan class="cls-5" x="123.08" y="0">C</tspan><tspan class="cls-3" x="163.57" y="0">O</tspan><tspan class="cls-11" x="207.43" y="0">P</tspan><tspan class="cls-6" x="240.38" y="0">AL CH</tspan><tspan class="cls-4" x="423.06" y="0">U</tspan><tspan class="cls-12" x="468.01" y="0">R</tspan><tspan class="cls-6" x="507.09" y="0">CH</tspan></text>
+        <g>
+          <path class="cls-10" d="M118.78,384.75c-.76,0-3.43-.07-6.01-.93-3.5-1-7.81-3.83-13.22-17.19-6.86-17.09-21.38-55.01-30.05-77.67-3.46-9.05-5.97-15.58-6.64-17.3-1.91-4.93-2.6-5.99-3.93-5.99s-2,1.15-3.94,6.47l-35.75,97.81c-2.99,8.29-6.17,13.61-12.82,14.48-1.23.15-2.63.31-3.72.31-2.24,0-2.71.79-2.71,1.45,0,1.76,2.27,1.76,3.49,1.76,5,0,10.53-.21,14.2-.36,1.77-.07,3.05-.12,3.6-.12.69,0,2.15.08,3.84.17,2.54.14,5.71.3,7.97.3,2.12,0,3.33-.64,3.33-1.76,0-1.45-1.72-1.45-2.55-1.45h-1.42c-2.49,0-5.17-1.27-5.17-4.07s.77-6.49,2.18-10.39l9.44-27.85c.33-.83.73-.95,1.11-.95h33.86c.55,0,.72.16.95.62l14.65,38.74c.43,1.13.47,2.15.14,2.85-.18.37-.46.64-.73.74-1.22.31-1.48,1.03-1.48,1.59,0,1.34,1.68,1.43,4.47,1.57l.74.04c7.01.2,15.8.32,24.74.32,2.42,0,3.65-.59,3.65-1.76,0-1.45-1.68-1.45-2.23-1.45ZM72.08,334.8s-.07.03-.23.03h-30.08s-.07,0-.08,0c0,0,0,0,0,0,0-.03-.02-.15.1-.45l13.86-42.52c.41-1.23.69-1.41.68-1.43.04.02.32.21.73,1.44l14.95,42.48c.09.34.07.45.08.45h0Z"/>
+          <path class="cls-10" d="M174.99,360.15c-1.47,0-1.66,1.57-1.76,2.32-.33,2.5-1.48,5.51-2.89,7.63-3.32,4.22-9.33,4.22-16.3,4.22-10.84,0-13.87-.98-16.19-3.01-2.63-2.48-3.15-12.66-3.15-29.4v-23.94c0-6.41-.02-11.17-.03-14.82-.03-8.24-.03-10.73.18-13.65.31-4.45,1.17-6.68,5.22-7.25,1.53-.15,3.12-.31,4.2-.31,1.27,0,2.23-.69,2.23-1.6,0-.73-.44-1.6-2.55-1.6-2.59,0-7.02.16-10.59.3-2.54.09-4.73.18-5.64.18-.06,0-.4-.02-.96-.04-2.73-.12-9.98-.43-15.42-.43-.78,0-2.86,0-2.86,1.6,0,.8.69,1.6,2.23,1.6,1.25,0,2.95,0,3.88.15,4.85.57,5.53,2.8,5.86,7.42.31,4.23.31,7.93.31,28.47v23.62c0,2.51.01,4.97.03,7.34.05,9.04.09,16.86-.65,21.58-.56,4.47-1.7,6.62-3.72,6.98-1.2.3-2.39.3-3.66.3-1.65,0-2.23.75-2.23,1.44,0,1.76,2.27,1.76,3.02,1.76,2.81,0,5.03-.12,7.17-.24,2.13-.12,4.14-.23,6.69-.23,8.62,0,16.15.24,22.8.45,5.46.17,10.63.34,15.47.34,7.29,0,7.78-.74,8.7-3.85l.14-.46c.96-3.68,1.91-12.78,1.91-14.3,0-.83,0-2.55-1.44-2.55Z"/>
+          <path class="cls-10" d="M241.77,360.15c-1.46,0-1.66,1.57-1.76,2.32-.33,2.46-1.5,5.54-2.89,7.63-3.32,4.22-9.33,4.22-16.3,4.22-10.84,0-13.87-.98-16.19-3.01-2.63-2.48-3.15-12.66-3.15-29.4v-23.94c0-6.41-.02-11.17-.03-14.82-.03-8.24-.03-10.73.18-13.65.31-4.45,1.17-6.68,5.22-7.25,1.53-.15,3.12-.31,4.2-.31,1.27,0,2.23-.69,2.23-1.6,0-.73-.44-1.6-2.55-1.6-2.59,0-7.02.16-10.59.3-2.54.09-4.73.18-5.64.18-.06,0-.4-.02-.96-.04-2.73-.12-9.98-.43-15.42-.43-.78,0-2.86,0-2.86,1.6,0,.8.69,1.6,2.23,1.6,1.25,0,2.95,0,3.88.15,4.85.57,5.53,2.8,5.86,7.42.31,4.23.31,7.93.31,28.47v23.62c0,2.51.01,4.97.03,7.34.05,9.04.09,16.86-.65,21.58-.56,4.47-1.7,6.62-3.72,6.98-1.2.3-2.39.3-3.66.3-1.65,0-2.23.75-2.23,1.44,0,1.76,2.27,1.76,3.02,1.76,2.81,0,5.03-.12,7.17-.24,2.13-.12,4.14-.23,6.69-.23,8.62,0,16.15.24,22.8.45,5.46.17,10.63.34,15.47.34,7.29,0,7.78-.74,8.7-3.85l.14-.46c.96-3.68,1.91-12.78,1.91-14.3,0-.83,0-2.55-1.44-2.55Z"/>
+          <path class="cls-10" d="M555.72,280.17c0-1.44-1.38-1.44-2.71-1.44-4.09,0-7.65.21-10,.35-1.17.07-2.09.12-2.6.12-.44,0-1.39-.05-2.69-.11-2.79-.14-7.45-.36-12.11-.36-1.17,0-3.34,0-3.34,1.44,0,.8.42,1.76,2.39,1.76.94,0,3.27.13,6.02.61,3.84,1,4.82,3.35,4.98,11.97l1.7,64.32c-2.27-2.18-6.4-6.33-11.45-11.42-5.98-6.02-13.43-13.51-19.79-19.71-20.57-21.01-43.89-44.83-45.36-46.47-.22-.22-.5-.52-.82-.86-1.88-2.01-3.4-3.54-4.42-3.54-1.88,0-2.23,2.45-2.23,6.96.08,13.23.08,13.5.06,20.38-.02,6.82-.06,19.53-.06,56.64,0,11.74-.88,15.41-3.9,16.38-1.98.61-3.64.61-4.74.61-.89,0-1.57.15-2.03.44-.42-.27-1.01-.37-1.64-.44-.65,0-3.89-.16-5.87-.62-3.84-.89-4.36-2.39-4.97-6.83-.67-4.81-.65-13.49-.63-23.54v-28.84c0-6.39,0-11.16-.02-14.83-.03-8.13-.03-10.88.18-13.8.32-4.7.83-6.54,4.93-7.1.51-.07.96-.11,1.38-.15.49-.04.95-.08,1.44-.17.7-.09,2.17-.27,2.17-1.6,0-1.6-2.08-1.6-2.86-1.6-3.21,0-8.95.25-12.03.39-1.17.05-1.97.09-2.14.09-.11,0-.69-.03-1.58-.07-2.93-.13-9.02-.41-12.75-.41-.93,0-2.86,0-2.86,1.6,0,1.29,1.63,1.52,2.15,1.6.38.06.78.1,1.23.14.67.06,1.44.14,2.38.33,2.78.53,3.83,2.24,4.16,6.79.31,4.23.31,7.98.31,28.79v23.62c0,11.81,0,22.96-.78,28.6-.5,3.97-.99,6.61-3.25,7.14-.33.08-.7.15-1.07.21-.7-.13-1.32-.29-1.89-.51-1.74-.62-6.36-2.27-11.68-15-5.5-12.98-16.83-41.64-24.32-60.61-4.01-10.14-6.9-17.47-7.65-19.23-1.79-4.55-2.5-5.36-3.62-5.36-1.47,0-2.03,1.08-3.77,5.68l-31.5,82.99c-2.63,6.5-5.17,11.52-11.75,12.14-.9.15-2.31.15-3.07.15-.31,0-.57.03-.81.08,6.1-6.49,8.4-14.81,8.4-21.16,0-11.41-3.57-20.83-21.83-35.22l-4.15-3.26c-14.04-10.97-17.89-16.24-17.89-24.51,0-9.98,7.12-16.69,17.73-16.69,12.59,0,16.84,5.31,18.09,7.59.83,1.51,1.72,5.45,1.87,7.23.13,1.05.3,2.36,1.68,2.36s1.54-2.02,1.54-3.91c0-7.91.37-12.61.52-14.62.04-.57.07-.93.07-1.09,0-1.35-1-1.54-1.98-1.54-1.07,0-2.15-.11-5.07-.73-4.25-1.02-8.67-1.5-13.9-1.5-18.94,0-31.18,10.67-31.18,27.18,0,9.95,3.31,19.3,19.45,32.55l6.67,5.48c13.24,10.93,16.86,16.58,16.86,26.29s-7.11,19.21-20.69,19.21c-11.56,0-19.58-5.5-21.45-14.72-.43-2.02-.43-4.04-.43-5.38,0-.85,0-2.13-1.54-2.13-1.32,0-1.56,1.46-1.68,2.84-.03.46-.07,1.06-.13,1.78-.23,2.99-.61,7.98-.61,13.96,0,4.1.19,4.92,2.5,6.08,5.59,2.73,12.16,4.05,20.08,4.05,8.91,0,16.74-2.18,22.67-6.32,1.02-.72,1.95-1.5,2.83-2.3.03,1.57,2.12,1.58,3.02,1.58,4.46,0,9.04-.21,12.07-.35,1.42-.07,2.55-.12,3.05-.12.71,0,2.38.08,4.31.18,2.71.13,6.09.3,8.14.3,1.74,0,2.86-.63,2.86-1.6,0-.6-.31-1.6-2.39-1.6h-1.1c-3.25,0-4.7-1.11-4.7-3.6,0-2.29.97-6.3,2.65-11.02l6.92-19.67c.33-.83.75-.95,1.11-.95h28.67c.35,0,.54.12.82.52l12.42,31.61c.84,2.1,0,2.63-.34,2.81-.83.23-1.42.88-1.42,1.57,0,1.37,1.66,1.46,4.42,1.6,6.61.2,13.7.27,18.46.3.49.03,1.05.02,1.65,0,1.99,0,3.38,0,3.85,0,.7,0,1.22-.05,1.63-.16,2.25-.08,4.45-.18,5.9-.24.96-.04,1.59-.07,1.71-.07.19,0,.84.03,1.84.07,3.24.13,9.99.41,16.12.41.89,0,1.57-.15,2.03-.44.57.4,1.45.44,2.27.44,4.84,0,9.13-.24,11.7-.38.99-.05,1.69-.09,2-.09.29,0,.89.03,1.78.08,2.53.14,7.23.39,13.5.39.9,0,3.02,0,3.02-1.6,0-.77-.63-1.6-2.39-1.6-1.26,0-3.88,0-6.34-.62-3.45-.83-4.49-4.15-4.82-15.44l-2-60.28c5.06,5.26,19.84,20.63,35.18,36.56,5.04,4.92,11.18,10.97,16.96,16.67,13.77,13.56,18.42,18.11,19.27,18.78,7.85,7.37,9.42,8.48,10.74,8.48,1.65,0,1.92-1.28,1.92-9.16l.31-79.07c0-9.53,1.12-10.63,4.32-11.32,1.01-.18,1.85-.26,2.59-.32.51-.04.95-.08,1.34-.15,1.15-.19,1.83-.85,1.83-1.75ZM371.66,336.05s-.04,0-.07,0l-25.14.05s-.02-.08.1-.33l11.81-34.8c.08-.22.25-.69.4-1.03.15.34.32.81.4,1.03l12.44,34.8c.05.16.06.25.08.28Z"/>
+          <path class="cls-10" d="M641.98,295.76c0-.44.04-1.98.09-3.99.1-3.88.23-9.19.23-12.07,0-.93-.51-1.92-1.45-1.92-.4,0-.76.09-1.72.32-.36.09-.81.19-1.37.32-2.13.46-6.75.78-11.24.78h-51.66s-4.42-.14-10.03-.78c-1.55-.17-3.18-.69-4.49-1.11-1.08-.35-1.94-.62-2.5-.62-.83,0-1.39.87-1.91,2.91l-.32,1.45c-1.89,8.48-2.96,13.54-2.84,14.25,0,1.58.7,1.92,1.29,1.92.91,0,1.37-.38,1.88-1.57l.15-.38c.34-.89.97-2.55,2.17-4.41,2.11-3.16,4.18-4.66,14.09-4.82,6.09-.15,14.22-.16,19.33-.16v55.73c0,11.89,0,23.12-.62,28.76-.64,5.45-1.09,6.87-3.66,7.28-1.23.15-2.14.15-3.4.15-1.53,0-2.23.83-2.23,1.6,0,1.6,1.93,1.6,2.86,1.6,2.95,0,8.68-.25,11.75-.38,1.23-.05,2.09-.09,2.26-.09.14,0,.68.02,1.53.06,3.03.12,10.14.42,16.42.42.63,0,2.55,0,2.55-1.76,0-.72-.74-1.44-2.39-1.44-1.16,0-4.16-.15-6.03-.62-3.64-.87-3.89-2.88-4.34-6.5-.54-4.94-.78-14.18-.78-29.08v-55.73c1.97,0,4,.04,6.17.07,2.74.04,5.57.09,8.77.09,16.51.16,17.54,2.08,18.09,7.58.16,1.55.16,1.7.16,2.16,0,1.59.54,2.39,1.6,2.39.6,0,1.6-.5,1.6-2.39Z"/>
+          <path class="cls-10" d="M675.49,321.82l-3.63-2.84c-13.23-10.04-16.66-14.46-16.66-21.49,0-8.75,6.44-14.62,16.04-14.62,11.95,0,16.01,5,17.2,7.14,1.31,2.48,1.65,5.55,1.81,7.03l.02.21c.14.96.31,2.16,1.6,2.16,1.48,0,1.6-1.97,1.6-3.81,0-7.21.39-12.13.56-14.22.04-.56.07-.92.07-1.06,0-1.44-1.39-1.44-1.92-1.44-.99,0-2.17-.13-5.25-.78-3.87-.88-7.84-1.27-12.87-1.27-17.73,0-29.64,9.95-29.64,24.76,0,9.48,3.09,17.83,18.46,30.16l6.29,4.88c11.95,9.66,15.41,14.91,15.41,23.39s-6.48,16.35-18.87,16.35c-4.04,0-17.43-.99-19.99-13.8-.46-1.83-.46-3.7-.46-4.6,0-.51,0-2.07-1.6-2.07-1.46,0-1.66,1.79-1.76,2.67l-.06.88c-.2,2.63-.57,7.53-.57,13.96,0,3.82,0,4.73,2.34,5.81,5.42,2.43,11.27,3.51,18.95,3.51,8.38,0,15.83-1.93,21.55-5.6,8.98-6.19,12.19-15.82,12.19-22.78,0-10.45-3.41-19.13-20.82-32.52Z"/>
+          <path class="cls-10" d="M714.59,252.63h-.01c-2.36-1.19-7.5-2.26-10.78-2.26-.7,0-1.28.34-1.47.88-.17.49.02,1.03.48,1.39,2,2,4.26,4.26,4.26,12.56,0,9.12-4.4,17.86-7,22.25-.34.51-1.42,2.25-.95,3.13.1.18.34.48.89.48.95,0,2.04-.75,3.22-2.22,3.46-4.07,14.77-18.32,14.77-30.72,0-2.77-.83-4.1-3.42-5.48Z"/>
+        </g>
+        <g>
+          <polygon class="cls-10" points="390.85 240 371.57 265.91 353.81 239.7 390.85 240"/>
+          <rect class="cls-13" x="293.86" y="146.56" width="63.14" height="19.04" transform="translate(-.87 1.83) rotate(-.32)"/>
+          <rect class="cls-13" x="362.62" y="76.72" width="19.11" height="63.29" transform="translate(-.45 1.56) rotate(-.24)"/>
+          <rect class="cls-13" x="362.75" y="170.54" width="18.9" height="63.31"/>
+          <rect class="cls-13" x="410.46" y="124.28" width="18.44" height="63.21" transform="translate(263.59 575.49) rotate(-89.97)"/>
+          <rect class="cls-1" x="360.92" y="143.93" width="23.02" height="23.13" transform="translate(-.17 .42) rotate(-.06)"/>
+          <polygon class="cls-10" points="391 70.45 353.75 70.69 371.65 44.36 391 70.45"/>
+          <path class="cls-10" d="M283.78,174.32c-9.62-5.69-17.27-12.28-25.96-19.09l8.55-5.95,17.36-11.36.04,36.4Z"/>
+          <polygon class="cls-10" points="485.07 155.31 459.07 174.98 458.99 137.4 485.07 155.31"/>
+          <polygon class="cls-8" points="343.63 136.69 311.74 136.88 319.29 112.29 343.63 136.69"/>
+          <path class="cls-8" d="M327.95,188.2c-2.99,3.06-5.54,5.33-9.01,7.61l-7.09-23.78,31.68.22-15.58,15.95Z"/>
+          <polygon class="cls-1" points="432.19 170.82 424.66 195.47 400.43 171.14 432.19 170.82"/>
+          <polygon class="cls-1" points="432.25 137.73 400.41 137.73 424.54 113.38 432.25 137.73"/>
+          <polygon class="cls-1" points="347.83 212.22 333.08 206.38 347.56 187.21 347.83 212.22"/>
+          <polygon class="cls-1" points="347.75 121.57 333.02 102.2 347.73 96.34 347.75 121.57"/>
+          <polygon class="cls-8" points="410.98 103.32 396.19 123.07 396.09 97.14 410.98 103.32"/>
+          <path class="cls-8" d="M410.73,205.05c-4.83,2.58-8.47,4.27-14.39,6.56l-.1-26.01,14.49,19.44Z"/>
+          <g>
+            <path class="cls-2" d="M373.01,0c-.02.2-.03.4-.05.6v21.31c35.73,15.24,66.51,36.82,92.32,65.33,24.8,27.39,41.08,60.25,51.27,93.97C502.27,101.51,443.97,34.71,373.01,0Z"/>
+            <path class="cls-2" d="M229.41,173.94c6.16-14.7,10.79-29.44,19.08-43.33,26.39-50.36,71.3-86.22,122.63-109.2V.16c0-.05,0-.11-.01-.16-68.42,32.66-126.38,98.61-141.69,173.94Z"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <p class="hero-label">Website Redesign</p>
+    <h1>Reimagining our <i>online home</i></h1>
+    <div class="hero-divider"></div>
+    <p>We've created three design directions for a new All Saints website. Each preserves our identity, our warmth, and our welcome while taking a different approach to how we present ourselves to the world. We'd love your input on which direction speaks to you.</p>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>See the options</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="options" id="options">
+    <div class="options-container">
+      <div class="options-header">
+        <p class="options-label">Three Directions</p>
+        <h2 class="options-title">Which feels like <i>All Saints'</i> to you?</h2>
+      </div>
+
+      <div class="options-grid">
+        <!-- V1 — Current Redesign -->
+        <div class="option-card">
+          <div class="option-preview">
+            <iframe src="/v1/" title="Preview of V1: Current Redesign" loading="lazy" sandbox="allow-same-origin" tabindex="-1"></iframe>
+            <div class="option-preview-overlay">
+              <a href="/v1/" class="option-preview-btn">View Full Site</a>
+            </div>
+          </div>
+          <div class="option-body">
+            <span class="option-tag">Option 1</span>
+            <h2>The <i>Original</i></h2>
+            <p>Our first redesign pass. Multi-page, clean and functional. A solid foundation that proved the concept and established the visual language we're building on.</p>
+            <div class="option-traits">
+              <span class="trait">Multi-page</span>
+              <span class="trait">Clean</span>
+              <span class="trait">Familiar</span>
+              <span class="trait">Foundational</span>
+            </div>
+            <a href="/v1/" class="option-cta">
+              Explore Option 1
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Option A -->
+        <div class="option-card">
+          <div class="option-preview">
+            <iframe src="/v2/" title="Preview of Option A: The Sanctuary" loading="lazy" sandbox="allow-same-origin" tabindex="-1"></iframe>
+            <div class="option-preview-overlay">
+              <a href="/v2/" class="option-preview-btn">View Full Site</a>
+            </div>
+          </div>
+          <div class="option-body">
+            <span class="option-tag">Option 2</span>
+            <h2>The <i>Sanctuary</i></h2>
+            <p>Timeless and refined. Large serif typography, generous whitespace, and an editorial sensibility that feels like stepping into a beautiful, light-filled church. This design breathes. It invites you to slow down, to read, to feel the reverence of a place with 148 years of history.</p>
+            <div class="option-traits">
+              <span class="trait">Editorial</span>
+              <span class="trait">Elegant</span>
+              <span class="trait">Spacious</span>
+              <span class="trait">Reverent</span>
+              <span class="trait">Timeless</span>
+            </div>
+            <a href="/v2/" class="option-cta">
+              Explore Option 2
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="option-card">
+          <div class="option-preview">
+            <iframe src="/v3/" title="Preview of Option B: The Gathering" loading="lazy" sandbox="allow-same-origin" tabindex="-1"></iframe>
+            <div class="option-preview-overlay">
+              <a href="/v3/" class="option-preview-btn">View Full Site</a>
+            </div>
+          </div>
+          <div class="option-body">
+            <span class="option-tag">Option 3</span>
+            <h2>The <i>Gathering</i></h2>
+            <p>Vibrant and alive. Bold photography, dynamic layouts, and a warm energy that captures the best moments of life at All Saints: people connecting, children learning, a community serving. This design moves. It shows a church that is very much alive and buzzing with purpose.</p>
+            <div class="option-traits">
+              <span class="trait">Bold</span>
+              <span class="trait">Photo-driven</span>
+              <span class="trait">Dynamic</span>
+              <span class="trait">Warm</span>
+              <span class="trait">Energetic</span>
+            </div>
+            <a href="/v3/" class="option-cta">
+              Explore Option 3
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="about-container">
+      <h2>What happens <i>next?</i></h2>
+      <p>These are working concepts, not final designs. Once the vestry chooses a direction, we can refine the details: adjust colors, swap photos, rewrite copy, add pages. Think of this as choosing the feeling, not the final product.</p>
+      <p>Both options link to our existing site for deeper content (giving, calendar, member portal). A full transition would happen gradually, not all at once.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>All Saints' Episcopal Church &middot; 525 Lake Concord Rd NE, Concord, NC 28025 &middot; <a href="tel:7047822024">(704) 782-2024</a></p>
+</footer>
+
+</body>
+</html>

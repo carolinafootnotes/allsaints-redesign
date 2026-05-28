@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Saints' Website Redesign — Three Directions</title>
+  <meta name="description" content="Two website redesign concepts for All Saints Episcopal Church, Concord NC. Review both options and share your preference.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --burgundy: #7b2332;
+      --burgundy-dark: #5e1a28;
+      --cream: #faf8f4;
+      --cream-warm: #f5f0e8;
+      --gold: #c8a977;
+      --gold-light: #e8d9a0;
+      --ink: #1a1a1a;
+      --ink-soft: #4a4a4a;
+      --ink-muted: #6b6b6b;
+      --white: #ffffff;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 50%;
+      height: 140%;
+      background: radial-gradient(ellipse, rgba(123,35,50,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      right: -10%;
+      width: 50%;
+      height: 140%;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .logo-showcase {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .logo-showcase .logo-icon { width: 150px; height: auto; }
+
+    .hero-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero h1 i { font-style: italic; color: var(--burgundy); }
+    .hero p {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--ink-soft);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 2.5rem;
+      position: relative;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-hint svg { width: 20px; height: 20px; opacity: 0.5; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Options */
+    .options {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background: var(--cream);
+    }
+    .options-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+    .options-header {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .options-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 0.75rem;
+    }
+    .options-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .options-title i { font-style: italic; color: var(--burgundy); }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .option-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+    .option-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    }
+
+    .option-preview {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    .option-preview iframe {
+      width: 200%;
+      height: 200%;
+      border: 0;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    .option-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .option-card:hover .option-preview-overlay { opacity: 1; }
+    .option-preview-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--white);
+      color: var(--burgundy);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .option-preview-btn:hover { background: var(--cream); }
+
+    .option-body {
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .option-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(123,35,50,0.08);
+      color: var(--burgundy);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+    .option-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .option-body h2 i { font-style: italic; color: var(--burgundy); }
+    .option-body p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .option-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .trait {
+      padding: 6px 14px;
+      background: var(--cream);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+    .option-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--burgundy);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      align-self: flex-start;
+    }
+    .option-cta:hover {
+      background: var(--burgundy-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(123,35,50,0.3);
+    }
+    .option-cta svg { width: 16px; height: 16px; }
+
+    /* About section */
+    .about {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      background: var(--white);
+      text-align: center;
+    }
+    .about-container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .about h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .about h2 i { font-style: italic; color: var(--burgundy); }
+    .about p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      background: var(--ink);
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.82rem;
+    }
+    footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--white); }
+
+    /* Mobile */
+    @media (max-width: 1024px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .option-preview { aspect-ratio: 16/9; }
+      .scroll-hint { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="logo-showcase">
+      <img src="/allsaints-logo.svg" alt="All Saints Episcopal Church" class="logo-icon">
+    </div>
+
+    <p class="hero-label">Website Redesign</p>
+    <h1>Reimagining our <i>online home</i></h1>
+    <div class="hero-divider"></div>
+    <p>We've created three design directions for a new All Saints website. Each preserves our identity, our warmth, and our welcome while taking a different approach to how we present ourselves to the world. We'd love your input on which direction speaks to you.</p>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>See the options</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="options" id="options">
+    <div class="options-container">
+      <div class="options-header">
+        <p class="options-label">Three Directions</p>
+        <h2 class="options-title">Which feels like <i>All Saints'</i> to you?</h2>
+      </div>
+
+      <div class="options-grid">
+        <!-- V1 — Current Redesign -->
+        <div class="option-card">
+          <div class="option-preview">
+            <iframe src="/v1" title="Preview of V1: Current Redesign" loading="lazy" sandbox="allow-same-origin" tabindex="-1"></iframe>
+            <div class="option-preview-overlay">
+              <a href="/v1" class="option-preview-btn">View Full Site</a>
+            </div>
+          </div>
+          <div class="option-body">
+            <span class="option-tag">Option 1</span>
+            <h2>The <i>Original</i></h2>
+            <p>Our first redesign pass. Multi-page, clean and functional. A solid foundation that proved the concept and established the visual language we're building on.</p>
+            <div class="option-traits">
+              <span class="trait">Multi-page</span>
+              <span class="trait">Clean</span>
+              <span class="trait">Familiar</span>
+              <span class="trait">Foundational</span>
+            </div>
+            <a href="/v1" class="option-cta">
+              Explore Option 1
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Option A -->
+        <div class="option-card">
+          <div class="option-preview">
+            <iframe src="/v2" title="Preview of Option A: The Sanctuary" loading="lazy" sandbox="allow-same-origin" tabindex="-1"></iframe>
+            <div class="option-preview-overlay">
+              <a href="/v2" class="option-preview-btn">View Full Site</a>
+            </div>
+          </div>
+          <div class="option-body">
+            <span class="option-tag">Option 2</span>
+            <h2>The <i>Sanctuary</i></h2>
+            <p>Timeless and refined. Large serif typography, generous whitespace, and an editorial sensibility that feels like stepping into a beautiful, light-filled church. This design breathes. It invites you to slow down, to read, to feel the reverence of a place with 148 years of history.</p>
+            <div class="option-traits">
+              <span class="trait">Editorial</span>
+              <span class="trait">Elegant</span>
+              <span class="trait">Spacious</span>
+              <span class="trait">Reverent</span>
+              <span class="trait">Timeless</span>
+            </div>
+            <a href="/v2" class="option-cta">
+              Explore Option 2
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="option-card">
+          <div class="option-preview">
+            <iframe src="/v3" title="Preview of Option B: The Gathering" loading="lazy" sandbox="allow-same-origin" tabindex="-1"></iframe>
+            <div class="option-preview-overlay">
+              <a href="/v3" class="option-preview-btn">View Full Site</a>
+            </div>
+          </div>
+          <div class="option-body">
+            <span class="option-tag">Option 3</span>
+            <h2>The <i>Gathering</i></h2>
+            <p>Vibrant and alive. Bold photography, dynamic layouts, and a warm energy that captures the best moments of life at All Saints: people connecting, children learning, a community serving. This design moves. It shows a church that is very much alive and buzzing with purpose.</p>
+            <div class="option-traits">
+              <span class="trait">Bold</span>
+              <span class="trait">Photo-driven</span>
+              <span class="trait">Dynamic</span>
+              <span class="trait">Warm</span>
+              <span class="trait">Energetic</span>
+            </div>
+            <a href="/v3" class="option-cta">
+              Explore Option 3
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="about-container">
+      <h2>What happens <i>next?</i></h2>
+      <p>These are working concepts, not final designs. Once the vestry chooses a direction, we can refine the details: adjust colors, swap photos, rewrite copy, add pages. Think of this as choosing the feeling, not the final product.</p>
+      <p>Both options link to our existing site for deeper content (giving, calendar, member portal). A full transition would happen gradually, not all at once.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>All Saints' Episcopal Church &middot; 525 Lake Concord Rd NE, Concord, NC 28025 &middot; <a href="tel:7047822024">(704) 782-2024</a></p>
+</footer>
+
+</body>
+</html>
