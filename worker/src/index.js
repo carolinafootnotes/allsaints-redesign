@@ -14,6 +14,9 @@ import * as adminHandler from './review/handlers/admin.js';
 import * as finalizeHandler from './review/handlers/finalize.js';
 import * as decisionHandler from './review/handlers/decision.js';
 import * as reviewerMgmtHandler from './review/handlers/reviewer_mgmt.js';
+import * as pagesReviewer from './review/handlers/pages_reviewer.js';
+import * as pagesApi from './review/handlers/pages_api.js';
+import * as pagesAdmin from './review/handlers/pages_admin.js';
 
 function html(content) {
   return new Response(content, {
@@ -52,6 +55,71 @@ export default {
       }
       if (path === '/api/reviewer/regenerate' && method === 'POST') {
         return await reviewerMgmtHandler.handleRegenerate(request, env);
+      }
+
+      // ---- Phase 3 v2: page-based review flow ----
+      if (path.startsWith('/r2/') && method === 'GET') {
+        const rest = path.slice('/r2/'.length);
+        const parts = rest.split('/');
+        const token = parts[0];
+        if (!token) return new Response('Not found', { status: 404 });
+        if (parts.length === 1) {
+          return await pagesReviewer.handleDashboard(request, env, token);
+        }
+        if (parts[1] === 'p' && parts[2]) {
+          return await pagesReviewer.handlePage(request, env, token, parts[2]);
+        }
+        return new Response('Not found', { status: 404 });
+      }
+      if (path === '/api/p/interstitial' && method === 'POST') {
+        return await pagesApi.handleInterstitial(request, env);
+      }
+      if (path === '/api/p/submit' && method === 'POST') {
+        return await pagesApi.handleSubmit(request, env);
+      }
+      if (path === '/api/p/flag' && method === 'POST') {
+        return await pagesApi.handleFlag(request, env);
+      }
+      if (path === '/api/p/signoff' && method === 'POST') {
+        return await pagesApi.handleSignoff(request, env);
+      }
+      if (path === '/admin/pages' && method === 'GET') {
+        return await pagesAdmin.handlePagesRegistry(request, env, url);
+      }
+      if (path.startsWith('/admin/pages/') && method === 'GET') {
+        const slug = path.slice('/admin/pages/'.length);
+        return await pagesAdmin.handlePageEditor(request, env, url, slug);
+      }
+      if (path === '/admin/flags' && method === 'GET') {
+        return await pagesAdmin.handleFlagsDashboard(request, env, url);
+      }
+      if (path === '/admin/audit' && method === 'GET') {
+        return await pagesAdmin.handleSignoffAudit(request, env, url);
+      }
+      if (path === '/admin/onboarding-email' && method === 'GET') {
+        return await pagesAdmin.handleOnboardingEmail(request, env, url);
+      }
+      if (path.startsWith('/admin/brief/') && method === 'GET') {
+        const slug = path.slice('/admin/brief/'.length);
+        return await pagesAdmin.handleBuildBrief(request, env, url, slug);
+      }
+      if (path === '/api/p/page' && method === 'POST') {
+        return await pagesAdmin.handleCreatePage(request, env);
+      }
+      if (path === '/api/p/page/status' && method === 'POST') {
+        return await pagesAdmin.handlePageStatus(request, env);
+      }
+      if (path === '/api/p/page/assign' && method === 'POST') {
+        return await pagesAdmin.handleAssign(request, env);
+      }
+      if (path === '/api/p/block' && method === 'POST') {
+        return await pagesAdmin.handleCreateBlock(request, env);
+      }
+      if (path === '/api/p/block/delete' && method === 'POST') {
+        return await pagesAdmin.handleDeleteBlock(request, env);
+      }
+      if (path === '/api/p/flag/update' && method === 'POST') {
+        return await pagesAdmin.handleFlagUpdate(request, env);
       }
     } catch (err) {
       console.error('review handler error', err);

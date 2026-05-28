@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch Live · All Saints' Episcopal Church</title>
-  <meta name="description" content="All Saints' Episcopal Church in Concord, North Carolina. The Episcopal branch of the Jesus Movement in Concord, NC. Join us for worship Sundays at 9AM and 11AM.">
+  <title>Weddings, Baptisms, Funerals · All Saints' Episcopal, Concord NC</title>
+  <meta name="description" content="Episcopal weddings, baptisms, and funerals at All Saints' Episcopal Church in Concord, NC. Reach out to begin the conversation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
@@ -1081,15 +1081,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      font-size: 1.1rem;
       position: relative;
       z-index: 1;
-    }
-    .timeline-dot svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      flex-shrink: 0;
     }
     .timeline-step-label {
       font-weight: 700;
@@ -1158,7 +1152,6 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      padding: clamp(4rem, 8vw, 6rem) 1.5rem;
     }
     .connect::before {
       content: '';
@@ -1634,236 +1627,103 @@
     }
 
 
-    /* ===== Visit page v2 (team-rebuilt) ===== */
-    #services { scroll-margin-top: 96px; }
-    #first-sunday, #getting-here, #accessibility { scroll-margin-top: 96px; }
-
-    /* Hero service pills (anchor links matching home hero badges) */
-    .page-hero-services {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-    .page-hero-service-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(4px);
-      padding: 0.6rem 1.25rem;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-    .page-hero-service-pill:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-1px);
-    }
-    .page-hero-service-pill .time {
-      font-weight: 700;
-      color: #e8d9a0;
-    }
-    .page-hero-service-pill:focus-visible {
-      outline: 2px solid rgba(200, 169, 119, 0.7);
-      outline-offset: 3px;
-    }
-
-    /* New service cards (image/gradient banner-led) */
-    .service-cards-v2 {
+    .involved-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.75rem;
-      max-width: 1080px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
-    .service-card-v2 {
-      background: #fff;
-      border: 1px solid #e8e4dc;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(123, 35, 50, 0.06);
-      display: flex;
-      flex-direction: column;
-    }
-    .service-card-v2-banner {
-      padding: 2.25rem 1.75rem 1.75rem;
-      color: #fff;
-      position: relative;
-    }
-    .service-card-v2-banner.family {
-      background: linear-gradient(135deg, #5e1a28 0%, #7b2332 100%);
-    }
-    .service-card-v2-banner.traditional {
-      background: linear-gradient(135deg, #3d2419 0%, #5c3a2a 100%);
-    }
-    .service-card-v2-banner .time {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #e8d9a0;
-      line-height: 1;
-      letter-spacing: -0.01em;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .service-card-v2-banner .name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      color: #fff;
-      margin: 0;
-    }
-    .service-card-v2-body {
-      padding: 1.75rem;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #3a3a3a;
-    }
-    .service-card-v2-body p { margin: 0 0 0.85rem; }
-    .service-card-v2-body p:last-child { margin: 0; }
-    .service-card-v2-body strong { color: #1a1a1a; font-weight: 600; }
-
-    /* Light-background info card (replaces .visit-info-card on light surfaces) */
-    .info-card-light {
+    .involved-card {
       background: #fff;
       border: 1px solid #e8e4dc;
       border-radius: 14px;
-      padding: 1.75rem 1.5rem;
-      box-shadow: 0 4px 16px rgba(123, 35, 50, 0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      padding: 1.75rem;
+      border-top: 4px solid #c8a977;
     }
-    .info-card-light:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(123, 35, 50, 0.08);
-      border-color: #c8a977;
+    .involved-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 0.5rem;
     }
-    .info-card-light .icon-housing {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(123, 35, 50, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .involved-card p {
+      font-size: 0.95rem;
+      color: #3a3a3a;
+      line-height: 1.6;
+      margin: 0;
     }
-    .info-card-light .icon-housing svg {
-      width: 22px;
-      height: 22px;
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .care-card {
+      background: #faf6ee;
+      border: 1px solid #e8e4dc;
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+    .care-card svg {
+      width: 32px;
+      height: 32px;
       stroke: #7b2332;
+      margin-bottom: 0.5rem;
     }
-    .info-card-light h3 {
+    .care-card h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.35rem;
       font-weight: 600;
       color: #1a1a1a;
-      margin: 0;
-      line-height: 1.25;
+      margin: 0 0 0.5rem;
     }
-    .info-card-light p {
+    .care-card p {
       font-size: 0.95rem;
-      color: #555;
-      line-height: 1.65;
+      color: #3a3a3a;
+      line-height: 1.6;
       margin: 0;
     }
-
-    .info-card-grid {
+    .connect-channels {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
       max-width: 1100px;
       margin: 0 auto;
     }
-
-    /* What to expect strip (no more cream box; cards) */
-    .expect-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 3rem auto 0;
-    }
-    .expect-card {
+    .connect-channel-card {
       background: #fff;
       border: 1px solid #e8e4dc;
       border-radius: 14px;
-      padding: 1.5rem 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: #3a3a3a;
-    }
-    .expect-card strong {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #7b2332;
-      margin-bottom: 0.4rem;
-    }
-    @media (max-width: 980px) {
-      .expect-strip { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .expect-strip { grid-template-columns: 1fr; }
-    }
-
-    /* Fixes for timeline rendered on light background */
-    #first-sunday .timeline::before {
-      background: rgba(123, 35, 50, 0.15);
-    }
-    #first-sunday .timeline-step-label {
+      padding: 1.5rem;
+      text-decoration: none;
       color: #1a1a1a;
-      font-weight: 700;
-      font-size: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
-    #first-sunday .timeline-step-desc {
-      color: #666;
-      font-size: 0.875rem;
+    .connect-channel-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(123, 35, 50, 0.08);
+      border-color: #c8a977;
     }
-
-    /* No-JS fallback so .reveal content isn't invisible */
-    @media (scripting: none) {
-      .reveal { opacity: 1 !important; transform: none !important; }
+    .connect-channel-card svg {
+      width: 28px;
+      height: 28px;
+      color: #7b2332;
     }
-
-
-    .live-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    .connect-channel-card .cc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
     }
-    .live-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .connect-channel-card .cc-sub {
+      font-size: 0.85rem;
+      color: #6b6b6b;
     }
-    .live-note {
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 0.95rem;
-      text-align: center;
-      max-width: 720px;
-      margin: 1.5rem auto 0;
-      line-height: 1.65;
-    }
-    .live-note a { text-decoration: underline; }
 
   </style>
 </head>
@@ -1898,88 +1758,74 @@
     <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give</a>
   </nav>
 
+
   <main id="main-content">
-    <section class="page-hero" aria-label="Watch a service live">
+    <section class="page-hero" aria-label="Life events at All Saints' Episcopal Church, Concord NC">
       <div class="page-hero-bg" aria-hidden="true">
         <img src="/assets/2026/altar-blessing-2026.jpg" alt="" role="presentation" loading="eager" fetchpriority="high">
       </div>
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
-        <div class="page-hero-label">Streaming Live &middot; Facebook + YouTube</div>
-        <h1>Watch a Service <em>Live</em></h1>
-        <p class="page-hero-sub">Join us from wherever you are. Sunday services at 9 AM and 11:10 AM, plus Tuesday Compline at 8 PM.</p>
+        <div class="page-hero-label">Weddings &middot; Baptisms &middot; Funerals</div>
+        <h1>Life Events at <em>All Saints' Episcopal</em>, Concord NC</h1>
+        <p class="page-hero-sub">The moments that mark a life, held in prayer, music, and the company of a parish that knows your name.</p>
       </div>
     </section>
 
-    <!-- ===== EMBED ===== -->
-    <section class="section-pad" id="stream" aria-label="Live stream" style="background: #1a1a1a;">
-      <div class="container" style="max-width: 1100px;">
-        <div class="live-frame reveal">
-          <iframe
-            src="https://www.youtube.com/embed/live_stream?channel=UCjE0qt4Lkp2I-nHEFFxVIIg&amp;autoplay=0"
-            title="All Saints' Episcopal Church live stream"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <p class="live-note reveal reveal-delay-1">
-          If no service is currently live, the player will say so. <a href="#schedule" style="color:#e8d9a0;">See the schedule below</a> for when we typically stream, or <a href="https://www.youtube.com/@allsaintsepiscopalchurchco9498/videos" target="_blank" rel="noopener" style="color:#e8d9a0;">browse past recordings</a> on our YouTube channel.
-        </p>
-      </div>
-    </section>
-
-    <!-- ===== SCHEDULE ===== -->
-    <section class="section-pad" id="schedule" aria-label="When we stream" style="background: #fff;">
-      <div class="container" style="max-width: 1000px;">
-        <div style="text-align:center; margin-bottom: 2.5rem;">
-          <div class="section-label reveal">When We Stream</div>
-          <h2 class="section-heading reveal reveal-delay-1">Live Service <em style="color:#7b2332;">Schedule</em></h2>
-          <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto; max-width:640px;">All times Eastern. The stream embeds above automatically. No need to leave this page.</p>
-        </div>
-        <div class="info-card-grid">
-          <div class="info-card-light reveal reveal-delay-1">
-            <span class="icon-housing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <h3>Sunday 9:00 AM</h3>
-            <p>Family Eucharist, Rite II, in the Parish Hall.</p>
-          </div>
-          <div class="info-card-light reveal reveal-delay-2">
-            <span class="icon-housing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <h3>Sunday 11:10 AM</h3>
-            <p>Traditional Eucharist, Rite II, in the Nave with the Choir of All Saints'.</p>
-          </div>
-          <div class="info-card-light reveal reveal-delay-3">
-            <span class="icon-housing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M5.6 18.4l1.1-1.1M17.3 6.7l1.1-1.1"/><circle cx="12" cy="12" r="4"/></svg></span>
-            <h3>Tuesday 8:00 PM</h3>
-            <p>Online Compline: night prayer by candlelight.</p>
-          </div>
-          <div class="info-card-light reveal reveal-delay-1">
-            <span class="icon-housing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <h3>Wednesday 12:00 PM</h3>
-            <p>Online Noonday Prayer: a short midweek pause.</p>
-          </div>
+    <!-- ===== WEDDINGS ===== -->
+    <section class="section-pad" id="weddings" aria-label="Weddings at All Saints' Episcopal" style="background:#faf8f4;">
+      <div class="container" style="max-width: 880px;">
+        <div class="section-label reveal">Marriage</div>
+        <h2 class="section-heading reveal reveal-delay-1">Weddings at <em style="color:#7b2332;">All Saints' Episcopal</em></h2>
+        <p class="reveal reveal-delay-2" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1.5rem 0;">An Episcopal wedding is more than a ceremony. It is a sacrament: a public promise made before God and a community that commits to walk with you. The liturgy is rooted in the Book of Common Prayer, with room for music, scripture, and personal touches that fit you.</p>
+        <p class="reveal reveal-delay-3" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1rem 0;">We ask that at least one partner be a member of All Saints' before a wedding is scheduled, and we take marriage preparation seriously. Our clergy meet with every couple through a preparation process that's honest, warm, and practical.</p>
+        <p class="reveal reveal-delay-4" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1rem 0;">Reach out early. We'd rather start the conversation about membership and timing well before a date is set.</p>
+        <div class="hero-ctas reveal reveal-delay-4" style="margin-top:1.5rem;">
+          <a href="mailto:admin@allsaintsconcord.org?subject=Wedding%20Inquiry" class="btn btn-primary">Contact Us to Begin</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== ARCHIVE CTA ===== -->
-    <section class="connect" id="archive-cta" aria-label="Past recordings">
+    <!-- ===== BAPTISMS ===== -->
+    <section class="section-pad" id="baptisms" aria-label="Baptisms at All Saints' Episcopal" style="background:#fff;">
+      <div class="container" style="max-width: 880px;">
+        <div class="section-label reveal">Baptism</div>
+        <h2 class="section-heading reveal reveal-delay-1">Baptisms at <em style="color:#7b2332;">All Saints' Episcopal</em></h2>
+        <p class="reveal reveal-delay-2" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1.5rem 0;">In the Episcopal Church, baptism is a sacrament, a visible sign of the grace already at work in a life. Through baptism, the person being baptized (an infant, a child, a teen, or an adult) is welcomed fully into the Body of Christ and into the life of this parish.</p>
+        <p class="reveal reveal-delay-3" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1rem 0;">Baptisms typically happen on principal feast days throughout the year: the Baptism of Our Lord, the Easter Vigil, Pentecost, and All Saints' Sunday. We'll walk with parents, godparents, and adult candidates through a short preparation conversation before the day.</p>
+        <p class="reveal reveal-delay-4" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1rem 0;">If you were baptized as an infant and want to publicly own that faith for yourself, talk to us about confirmation. The bishop visits the parish each year and welcomes those ready to take that step.</p>
+        <div class="hero-ctas reveal reveal-delay-4" style="margin-top:1.5rem;">
+          <a href="mailto:admin@allsaintsconcord.org?subject=Baptism%20Inquiry" class="btn btn-primary">Contact Us to Begin</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FUNERALS ===== -->
+    <section class="section-pad" id="funerals" aria-label="Funerals at All Saints' Episcopal" style="background:#faf8f4;">
+      <div class="container" style="max-width: 880px;">
+        <div class="section-label reveal">Funerals &amp; Memorials</div>
+        <h2 class="section-heading reveal reveal-delay-1">Funerals at <em style="color:#7b2332;">All Saints' Episcopal</em></h2>
+        <p class="reveal reveal-delay-2" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1.5rem 0;">The Burial Office in the Book of Common Prayer is built on Christian hope: that the life we share with God in this world is not ended at death. The liturgy is honest about grief and steady in its trust. It holds families through one of the hardest days of a life.</p>
+        <p class="reveal reveal-delay-3" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1rem 0;">All Saints' clergy guide families through every part of planning a service, including readings, hymns, and the role of the parish in the days surrounding the funeral. The parish often provides a reception for families afterward.</p>
+        <p class="reveal reveal-delay-4" style="font-size:1.05rem; color:#3a3a3a; line-height:1.8; margin: 1rem 0;">If you are facing the loss of someone you love, or thinking ahead about your own service, please reach out. We are here.</p>
+        <div class="hero-ctas reveal reveal-delay-4" style="margin-top:1.5rem;">
+          <a href="mailto:admin@allsaintsconcord.org?subject=Funeral%20Inquiry" class="btn btn-primary">Contact Us to Begin</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONNECT CTA ===== -->
+    <section class="connect" id="contact" aria-label="Begin the conversation">
       <div class="container" style="text-align:center;">
-        <h2 class="connect-cta-heading reveal reveal-delay-1">Catch up on a <em>past service</em></h2>
-        <p class="reveal reveal-delay-2" style="font-size: 1.1rem; max-width: 600px; margin: 1rem auto 2rem; color: rgba(255,255,255,0.9); line-height: 1.65;">
-          Recent Sunday services, Compline, and special liturgies are all on our YouTube channel.
-        </p>
+        <h2 class="connect-cta-heading reveal reveal-delay-1">Whatever the moment, we're here for it</h2>
+        <p class="reveal reveal-delay-2" style="font-size: 1.1rem; max-width: 600px; margin: 1rem auto 2rem; color: rgba(255,255,255,0.9); line-height: 1.65;">A wedding, a baptism, a goodbye. Send a note. We'll meet you where you are.</p>
         <div class="hero-ctas reveal reveal-delay-3" style="justify-content:center;">
-          <a href="https://www.youtube.com/@allsaintsepiscopalchurchco9498/videos" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.998 2.998 0 0 0-2.108-2.118C19.62 3.5 12 3.5 12 3.5s-7.62 0-9.39.568A2.998 2.998 0 0 0 .502 6.186 31.27 31.27 0 0 0 0 12a31.27 31.27 0 0 0 .502 5.814 2.998 2.998 0 0 0 2.108 2.118C4.38 20.5 12 20.5 12 20.5s7.62 0 9.39-.568a2.998 2.998 0 0 0 2.108-2.118A31.27 31.27 0 0 0 24 12a31.27 31.27 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z"/></svg>
-            YouTube Channel
-          </a>
-          <a href="https://www.facebook.com/AllSaintsEpiscopalConcord/" target="_blank" rel="noopener" class="btn btn-outline">Facebook Live</a>
+          <a href="mailto:admin@allsaintsconcord.org?subject=Life%20Event%20Inquiry" class="btn btn-primary">Email the Parish Office</a>
+          <a href="/final/connect" class="btn btn-outline">Back to Connect</a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
@@ -1995,7 +1841,7 @@
           <div class="footer-col-title">Worship</div>
           <a href="/final/#worship">Sunday 9:00 AM</a>
           <a href="/final/#worship">Sunday 11:10 AM</a>
-          <a href="/final/watch-live">Watch Live</a>
+          <a href="/final/watch-and-listen">Watch Live</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Quick Links</div>
@@ -2007,7 +1853,7 @@
           <div class="footer-col-title">Connect</div>
           <a href="tel:7047822024">(704) 782-2024</a>
           <a href="mailto:admin@allsaintsconcord.org">Email Us</a>
-          <a href="https://www.lockhartcdc.org" target="_blank" rel="noopener">Lockhart CDC</a>
+          <a href="/final/lcdc">Lockhart Child Development Center</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -2121,4 +1967,3 @@
     })();
   </script>
 </body>
-</html>
