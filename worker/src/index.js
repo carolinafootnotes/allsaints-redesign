@@ -17,6 +17,7 @@ import * as reviewerMgmtHandler from './review/handlers/reviewer_mgmt.js';
 import * as pagesReviewer from './review/handlers/pages_reviewer.js';
 import * as pagesApi from './review/handlers/pages_api.js';
 import * as pagesAdmin from './review/handlers/pages_admin.js';
+import * as triageHandler from './review/handlers/triage.js';
 
 function html(content) {
   return new Response(content, {
@@ -120,6 +121,25 @@ export default {
       }
       if (path === '/api/p/flag/update' && method === 'POST') {
         return await pagesAdmin.handleFlagUpdate(request, env);
+      }
+
+      // ---- Phase 4: WP content triage ----
+      if (path.startsWith('/t/') && method === 'GET') {
+        const token = path.slice('/t/'.length).split('/')[0];
+        if (!token) return new Response('Not found', { status: 404 });
+        return await triageHandler.handleReviewer(request, env, token);
+      }
+      if (path === '/api/triage' && method === 'POST') {
+        return await triageHandler.handleApi(request, env);
+      }
+      if (path === '/triage-admin' && method === 'GET') {
+        return await triageHandler.handleAdmin(request, env, url);
+      }
+      if (path === '/api/triage/export' && method === 'GET') {
+        return await triageHandler.handleExport(request, env, url);
+      }
+      if (path === '/api/triage/seed' && method === 'POST') {
+        return await triageHandler.handleSeed(request, env, url);
       }
     } catch (err) {
       console.error('review handler error', err);

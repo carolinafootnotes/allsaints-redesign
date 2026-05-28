@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marshall Smith &middot; Memorial Arboretum &middot; All Saints' Episcopal Church</title>
+  <meta name="description" content="A Shortleaf Pine planted in memory of Marshall Smith by Debby Smith. Part of the Memorial Arboretum at All Saints' Episcopal Church in Concord, NC.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a1a;
+      background: #faf8f4;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: #7b2332; color: #fff;
+      padding: 0.75rem 1.5rem; border-radius: 0 0 8px 8px;
+      z-index: 10000; font-weight: 600; transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* HEADER */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000; padding: 0 1.5rem;
+      transition: background 0.4s, box-shadow 0.4s, padding 0.3s, border-color 0.4s;
+    }
+    .site-header.transparent {
+      background: rgba(250, 248, 244, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(123, 35, 50, 0.06);
+    }
+    .site-header.solid {
+      background: #faf8f4;
+      border-bottom: 1px solid rgba(123, 35, 50, 0.12);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    }
+    .header-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 112px; transition: height 0.3s;
+    }
+    .site-header.solid .header-inner { height: 64px; }
+    .header-brand { display: flex; align-items: center; gap: 0.75rem; position: relative; }
+    .header-brand .logo-full, .header-brand .logo-horizontal {
+      object-fit: contain; flex-shrink: 0;
+      transition: opacity 0.25s ease, height 0.3s ease;
+    }
+    .header-brand .logo-full { height: 92px; width: auto; }
+    .header-brand .logo-horizontal {
+      height: 40px; width: auto; position: absolute; left: 0; top: 50%;
+      transform: translateY(-50%); opacity: 0; pointer-events: none;
+    }
+    .site-header.solid .logo-full { opacity: 0; pointer-events: none; }
+    .site-header.solid .logo-horizontal { opacity: 1; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a {
+      color: #7b2332; font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: #c8a977; transition: width 0.3s;
+    }
+    .nav-links a:hover::after, .nav-links a:focus::after { width: 100%; }
+    .nav-links a:hover, .nav-links a:focus { color: #5e1a28; }
+    .nav-cta {
+      background: transparent !important; color: #7b2332 !important;
+      padding: 0.5rem 1.25rem; border-radius: 4px;
+      border: 1px solid rgba(123, 35, 50, 0.5);
+      font-weight: 600 !important; letter-spacing: 0.08em;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: rgba(123, 35, 50, 0.06) !important;
+      border-color: #7b2332; transform: translateY(-1px);
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      width: 28px; padding: 4px 0; z-index: 1001;
+    }
+    .hamburger span {
+      display: block; height: 2px; background: #7b2332;
+      border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav {
+      display: none; position: fixed; inset: 0;
+      background: rgba(26, 26, 26, 0.98); z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: #fff; font-size: 1.5rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .mobile-nav a:hover, .mobile-nav a:focus { color: #c8a977; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .header-brand .logo-full { height: 64px; }
+      .header-inner { height: 88px; }
+    }
+    body.page-subpage .site-header.transparent {
+      background: #faf8f4;
+      border-bottom: 1px solid rgba(123, 35, 50, 0.12);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    }
+    body.page-subpage .site-header.transparent .header-inner { height: 64px; }
+    body.page-subpage .site-header.transparent .logo-full { opacity: 0; }
+    body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #c8a977; outline-offset: 2px;
+    }
+
+    /* ========================================
+       TREE POSTER LAYOUT
+       ======================================== */
+    .tree-page {
+      padding: 8rem 1.5rem 5rem;
+      background: #faf8f4;
+    }
+    .tree-poster {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .tree-breadcrumb {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #7b2332;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    .tree-breadcrumb a {
+      color: #7b2332;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .tree-breadcrumb a:hover,
+    .tree-breadcrumb a:focus-visible {
+      border-color: #7b2332;
+    }
+    .tree-breadcrumb-sep {
+      margin: 0 0.5rem;
+      color: #c8a977;
+    }
+    .tree-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7b2332;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(123, 35, 50, 0.3);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .tree-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #1a1a1a;
+      margin: 0;
+    }
+    .tree-rule {
+      display: block;
+      width: 60px;
+      height: 1px;
+      border: 0;
+      background: rgba(200, 169, 119, 0.4);
+      margin: 2.5rem auto;
+    }
+
+    /* Photo placeholder */
+    .tree-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(123, 35, 50, 0.06) 0%, rgba(200, 169, 119, 0.10) 100%);
+      border: 1px solid rgba(123, 35, 50, 0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .tree-photo-leaf {
+      width: 56px;
+      height: 56px;
+      color: rgba(123, 35, 50, 0.35);
+    }
+    .tree-photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: rgba(123, 35, 50, 0.55);
+    }
+    .tree-photo-figcaption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #7b6650;
+      margin-top: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Details */
+    .tree-details {
+      text-align: left;
+      margin: 2.5rem 0;
+      border-top: 1px solid #f0eadd;
+    }
+    .tree-detail-row {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      column-gap: 1rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid #f0eadd;
+      align-items: start;
+    }
+    .tree-detail-row:last-child { border-bottom: none; }
+    .tree-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      grid-row: 1 / span 2;
+      align-self: start;
+      margin-top: 0.15rem;
+    }
+    .tree-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #7b2332;
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .tree-detail-row dt {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #888;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .tree-detail-row dd {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 0.2rem 0 0;
+      line-height: 1.55;
+    }
+    .tree-detail-row dd em {
+      font-style: italic;
+      color: #5a5a5a;
+    }
+
+    /* About */
+    .tree-about-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 3rem 0 1rem;
+      text-align: center;
+    }
+    .tree-about-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a3a3a;
+      text-align: left;
+    }
+    .tree-about-body em { font-style: italic; }
+
+    /* Tribute */
+    .tree-tribute {
+      margin: 3rem 0 2rem;
+      padding: 1.75rem 2rem;
+      border-left: 4px solid #c8a977;
+      background: #faf6ee;
+      border-radius: 0 10px 10px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #5e1a28;
+      text-align: left;
+    }
+
+    /* Back link */
+    .tree-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #7b2332;
+      border-bottom: 1px solid rgba(123, 35, 50, 0.25);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tree-back:hover, .tree-back:focus-visible {
+      border-color: #7b2332;
+      color: #5e1a28;
+    }
+
+    @media (max-width: 600px) {
+      .tree-page { padding: 6rem 1.25rem 4rem; }
+      .tree-detail-row { column-gap: 0.85rem; }
+      .tree-tribute { padding: 1.25rem 1.5rem; font-size: 1.1rem; }
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #1a1a1a; color: rgba(255, 255, 255, 0.6);
+      padding: 3rem 1.5rem 1.5rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem; padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .footer-brand .logo-icon { height: 96px; width: auto; object-fit: contain; }
+    .footer-about { font-size: 0.85rem; line-height: 1.7; max-width: 320px; }
+    .footer-col-title {
+      font-weight: 700; font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: #c8a977; margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block; font-size: 0.85rem; padding: 0.3rem 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 1.5rem; font-size: 0.78rem;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom a { transition: color 0.2s; }
+    .footer-bottom a:hover { color: #c8a977; }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+    }
+    .footer-social a:hover {
+      background: #c8a977; border-color: #c8a977; color: #1a1a1a;
+    }
+    .footer-social a svg { width: 16px; height: 16px; }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="page-subpage">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header transparent" id="site-header">
+    <div class="header-inner">
+      <a href="/final/" class="header-brand" aria-label="All Saints' Episcopal Church, home">
+        <img src="/allsaints-logo.svg" alt="All Saints' Episcopal Church" class="logo-full">
+        <img src="/allsaints-horizontal.svg" alt="" role="presentation" class="logo-horizontal">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/final/visit">Visit</a>
+        <a href="/final/happenings">What's Happening</a>
+        <a href="/final/connect">Connect</a>
+        <a href="/final/serve">Serve</a>
+        <a href="/final/rector-search">Rector Search</a>
+        <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener" class="nav-cta">Give</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/final/visit">Visit</a>
+    <a href="/final/happenings">What's Happening</a>
+    <a href="/final/connect">Connect</a>
+    <a href="/final/serve">Serve</a>
+    <a href="/final/rector-search">Rector Search</a>
+    <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give</a>
+  </nav>
+
+  <main id="main-content">
+    <article class="tree-page">
+      <div class="tree-poster">
+        <!-- Breadcrumb -->
+        <nav class="tree-breadcrumb" aria-label="Breadcrumb">
+          <a href="/final/arboretum/">Memorial Arboretum</a>
+          <span class="tree-breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">Marshall Smith</span>
+        </nav>
+
+        <!-- Eyebrow + name -->
+        <div class="tree-eyebrow">In Memory Of</div>
+        <h1 class="tree-name">Marshall Smith</h1>
+        <hr class="tree-rule" aria-hidden="true">
+
+        <!-- Photo placeholder -->
+        <figure>
+          <div class="tree-photo" role="img" aria-label="No photo available for this tree yet">
+            <svg class="tree-photo-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 20A7 7 0 0 1 4 13V6a2 2 0 0 1 2-2h7a7 7 0 0 1 7 7v0a7 7 0 0 1-7 7Z"/>
+              <path d="M5 21c5-3 9-7 12-13"/>
+            </svg>
+            <span class="tree-photo-caption">Shortleaf Pine</span>
+          </div>
+          <figcaption class="tree-photo-figcaption">A photograph of this tree will be added soon.</figcaption>
+        </figure>
+
+        <!-- Details -->
+        <dl class="tree-details">
+          <div class="tree-detail-row">
+            <span class="tree-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V6a2 2 0 0 1 2-2h7a7 7 0 0 1 7 7v0a7 7 0 0 1-7 7Z"/><path d="M5 21c5-3 9-7 12-13"/></svg>
+            </span>
+            <dt>Species</dt>
+            <dd>Shortleaf Pine <em>(Pinus echinata)</em></dd>
+          </div>
+          <div class="tree-detail-row">
+            <span class="tree-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c0-4 3.2-7 7-7s7 3 7 7"/></svg>
+            </span>
+            <dt>In memory of</dt>
+            <dd>Marshall Smith</dd>
+          </div>
+          <div class="tree-detail-row">
+            <span class="tree-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+            </span>
+            <dt>Planted by</dt>
+            <dd>Debby Smith</dd>
+          </div>
+          <div class="tree-detail-row">
+            <span class="tree-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s-7-7.5-7-13a7 7 0 0 1 14 0c0 5.5-7 13-7 13Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </span>
+            <dt>Location</dt>
+            <dd>All Saints' Memorial Arboretum (specific grove location TBD)</dd>
+          </div>
+          <div class="tree-detail-row">
+            <span class="tree-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+            </span>
+            <dt>Date planted</dt>
+            <dd>Date to come</dd>
+          </div>
+        </dl>
+
+        <!-- About this tree -->
+        <h2 class="tree-about-heading">About this tree</h2>
+        <p class="tree-about-body">The Shortleaf Pine is a tall and straight tree with a rounded top. It has a long tap root and is therefore quite drought-resistant, growing 50 to 100 feet tall. The color of young bark is greyish, dark and scaly, turning reddish brown with maturity and forming fragmented rectangular plates. Native to the eastern United States, the Shortleaf Pine prefers full sun and loose, acidic soils. The name <em>echinata</em> means &ldquo;prickly,&rdquo; referring to small prickles on the cone scales.</p>
+
+        <!-- Tribute -->
+        <blockquote class="tree-tribute">
+          Given in memory of Marshall Smith by Debby Smith. Part of the living memorial at All Saints' Memorial Arboretum.
+        </blockquote>
+
+        <!-- Closing link -->
+        <p style="text-align:center; margin-top: 2.5rem;">
+          <a class="tree-back" href="/final/arboretum/">
+            <span aria-hidden="true">&larr;</span>
+            Return to the Memorial Arboretum
+          </a>
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="/allsaints-logo-white.svg" alt="All Saints' Episcopal Church" class="logo-icon">
+          </div>
+          <p class="footer-about">A vibrant community of faith in Concord, North Carolina. Rooted in the Episcopal tradition since 1878. All are welcome.</p>
+          <p class="footer-about" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.85;">A parish of the Episcopal Diocese of North Carolina &middot; The Rt. Rev. Sam Rodman, Bishop</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Worship</div>
+          <a href="/final/#worship">Sunday 9:00 AM</a>
+          <a href="/final/#worship">Sunday 11:10 AM</a>
+          <a href="/final/watch-and-listen">Watch Live</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Quick Links</div>
+          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give Online</a>
+          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Member Portal</a>
+          <a href="https://conta.cc/47bfZ6Z" target="_blank" rel="noopener">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Connect</div>
+          <a href="tel:7047822024">(704) 782-2024</a>
+          <a href="mailto:admin@allsaintsconcord.org">Email Us</a>
+          <a href="/final/lcdc">Lockhart Child Development Center</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 All Saints' Episcopal Church. All rights reserved.</div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/AllSaintsEpiscopalConcord/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/allsaintsconcordnc/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@allsaintsepiscopalchurchco9498/videos" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      const header = document.getElementById('site-header');
+      function updateHeader() {
+        const y = window.scrollY;
+        if (y > 80) { header.classList.remove('transparent'); header.classList.add('solid'); }
+        else { header.classList.remove('solid'); header.classList.add('transparent'); }
+      }
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      updateHeader();
+
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileLinks = mobileNav.querySelectorAll('a');
+      function toggleMenu() {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+      hamburger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (mobileNav.classList.contains('open')) toggleMenu();
+        });
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+          toggleMenu(); hamburger.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
