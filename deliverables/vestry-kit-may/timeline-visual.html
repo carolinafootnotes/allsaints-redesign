@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Saints Website — Visual Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #7b2332;
+    --burgundy-deep: #5a1a25;
+    --cream: #faf8f4;
+    --cream-warm: #f3ede1;
+    --gold: #c9a84c;
+    --gold-soft: #e6d5a0;
+    --ink: #2a2422;
+    --ink-soft: #6b5e58;
+    --rule: #d6cdbe;
+  }
+
+  @page {
+    size: 11in 8.5in;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 11in;
+    min-height: 8.5in;
+    padding: 0.5in 0.55in;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--burgundy) 0%, var(--burgundy) 60%, var(--gold) 60%, var(--gold) 100%);
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 22px;
+  }
+  .h-left { display: flex; align-items: baseline; gap: 16px; }
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .h-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    max-width: 8in;
+    line-height: 1.4;
+  }
+
+  /* Timeline */
+  .timeline-wrap {
+    position: relative;
+    margin: 30px 0 18px;
+    padding: 50px 0 80px;
+  }
+
+  .spine {
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      var(--gold) 0%,
+      var(--burgundy) 88%,
+      var(--burgundy-deep) 88%,
+      var(--burgundy-deep) 100%);
+    border-radius: 2px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    position: relative;
+    padding: 0 6px;
+    text-align: center;
+  }
+
+  .step .when {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    height: 14px;
+  }
+
+  .step .who {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .step.decision .when {
+    color: var(--burgundy);
+    font-weight: 700;
+  }
+
+  .dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 3px solid var(--gold);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step.decision .dot {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+    width: 28px;
+    height: 28px;
+    margin-top: -3px;
+  }
+
+  .step.launch .dot {
+    background: var(--burgundy-deep);
+    border-color: var(--gold);
+    width: 36px;
+    height: 36px;
+    margin-top: -7px;
+    box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.25);
+  }
+
+  .step .label {
+    margin-top: 14px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.2;
+    min-height: 34px;
+  }
+
+  .step.decision .label {
+    color: var(--burgundy);
+  }
+
+  .step.launch .label {
+    color: var(--burgundy-deep);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* Phases band */
+  .phases {
+    display: grid;
+    grid-template-columns: 1.15fr 2.6fr 1.6fr 1.4fr 1fr;
+    gap: 8px;
+    margin: 22px 0 28px;
+  }
+
+  .phase {
+    padding: 12px 14px 14px;
+    background: var(--cream-warm);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+  }
+  .phase.now { border-left-color: var(--burgundy); }
+  .phase.launch { border-left-color: var(--burgundy-deep); background: rgba(123, 35, 50, 0.06); }
+
+  .phase .pnum {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .phase .ptitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+  .phase.now .ptitle { color: var(--burgundy); }
+  .phase.launch .ptitle { color: var(--burgundy-deep); }
+  .phase .pdates {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .phase .pdesc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  /* Footer key + meta */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    margin-top: 12px;
+  }
+
+  .legend { display: flex; gap: 20px; }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--ink-soft);
+  }
+  .key-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .key-step { background: var(--cream); border: 2px solid var(--gold); }
+  .key-decision { background: var(--burgundy); }
+  .key-launch { background: var(--burgundy-deep); border: 2px solid var(--gold); }
+
+  .meta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-align: right;
+    line-height: 1.5;
+  }
+  .meta strong { color: var(--burgundy); font-weight: 600; }
+
+  /* Three-decision callout */
+  .vestry-asks {
+    margin: 0 0 20px;
+    padding: 14px 18px;
+    background: rgba(201, 168, 76, 0.10);
+    border: 1px solid var(--gold-soft);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .vestry-asks .va-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--burgundy);
+    flex-shrink: 0;
+  }
+  .vestry-asks .va-list {
+    display: flex;
+    gap: 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    color: var(--ink);
+  }
+  .vestry-asks .va-list span strong {
+    color: var(--burgundy);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="h-left">
+      <span class="eyebrow">All Saints' Episcopal · Concord</span>
+      <h1>Website Migration — Visual Timeline</h1>
+    </div>
+    <div class="h-right">For Vestry · April 21, 2026</div>
+  </div>
+
+  <p class="lede">From this meeting to a launched site in four months. Volunteer-paced, with deliberate buffer, three vestry checkpoints, and a calm summer build window before the program-year ramp-up.</p>
+
+  <!-- Visual timeline -->
+  <div class="timeline-wrap">
+    <div class="spine"></div>
+    <div class="row">
+
+      <div class="step decision">
+        <div class="when">Apr 21</div>
+        <div class="dot"></div>
+        <div class="label">Vestry decision</div>
+        <div class="who">Today</div>
+      </div>
+
+      <div class="step">
+        <div class="when">Late Apr</div>
+        <div class="dot"></div>
+        <div class="label">Audit refresh &amp; sitemap</div>
+        <div class="who">Nate</div>
+      </div>
+
+      <div class="step">
+        <div class="when">Early May</div>
+        <div class="dot"></div>
+        <div class="label">Squarespace + nonprofit discount</div>
+        <div class="who">Nate</div>
+      </div>
+
+      <div class="step">
+        <div class="when">Late May – Jun</div>
+        <div class="dot"></div>
+        <div class="label">Build &amp; migrate content</div>
+        <div class="who">Nate</div>
+      </div>
+
+      <div class="step">
+        <div class="when">Early July</div>
+        <div class="dot"></div>
+        <div class="label">Clergy &amp; staff review</div>
+        <div class="who">Fr. John + team</div>
+      </div>
+
+      <div class="step decision">
+        <div class="when">Mid July</div>
+        <div class="dot"></div>
+        <div class="label">Vestry sign-off on staging</div>
+        <div class="who">Vestry</div>
+      </div>
+
+      <div class="step">
+        <div class="when">Mid–Late Jul</div>
+        <div class="dot"></div>
+        <div class="label">Congregation preview (2 wks)</div>
+        <div class="who">All members</div>
+      </div>
+
+      <div class="step launch">
+        <div class="when">Mid Aug</div>
+        <div class="dot"></div>
+        <div class="label">Launch</div>
+        <div class="who">Old URLs redirect</div>
+      </div>
+
+      <div class="step">
+        <div class="when">Mid Sept</div>
+        <div class="dot"></div>
+        <div class="label">30-day check-in</div>
+        <div class="who">Nate + staff</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vestry asks callout -->
+  <div class="vestry-asks">
+    <div class="va-title">The vestry's whole role:</div>
+    <div class="va-list">
+      <span><strong>1.</strong> Today — direction, platform, budget</span>
+      <span><strong>2.</strong> Mid July — sign off on staging</span>
+      <span><strong>3.</strong> Mid August — final go / no-go</span>
+    </div>
+  </div>
+
+  <!-- Phase band -->
+  <div class="phases">
+    <div class="phase now">
+      <div class="pnum">Phase 1 · Decide</div>
+      <div class="ptitle">Approve direction</div>
+      <div class="pdates">Apr 21</div>
+      <div class="pdesc">Vestry approves Sanctuary direction, Squarespace Business, ~$248 yr-1 budget, and the build path.</div>
+    </div>
+    <div class="phase">
+      <div class="pnum">Phase 2 · Build</div>
+      <div class="ptitle">Content + Squarespace</div>
+      <div class="pdates">Late April → end of June</div>
+      <div class="pdesc">Refresh audit, finalize sitemap, build the new site, migrate retained content, draft new Rector Search and Events sections.</div>
+    </div>
+    <div class="phase">
+      <div class="pnum">Phase 3 · Review</div>
+      <div class="ptitle">Internal sign-off</div>
+      <div class="pdates">Early → Mid July</div>
+      <div class="pdesc">Clergy and staff review on staging. Vestry sign-off before opening to the congregation.</div>
+    </div>
+    <div class="phase">
+      <div class="pnum">Phase 4 · Preview</div>
+      <div class="ptitle">Congregation feedback</div>
+      <div class="pdates">Mid → Late July</div>
+      <div class="pdesc">Two-week window for parishioners to flag confusion or errors via a simple form. No design-by-committee.</div>
+    </div>
+    <div class="phase launch">
+      <div class="pnum">Phase 5 · Launch</div>
+      <div class="ptitle">Live</div>
+      <div class="pdates">Mid Aug → Mid Sept</div>
+      <div class="pdesc">Site launches; old URLs redirect for 30 days; 30-day check-in to close issues and hand off.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="legend">
+      <div class="legend-item"><span class="key-dot key-step"></span> Working milestone</div>
+      <div class="legend-item"><span class="key-dot key-decision"></span> Vestry decision point</div>
+      <div class="legend-item"><span class="key-dot key-launch"></span> Launch</div>
+    </div>
+    <div class="meta">
+      <div><strong>Target launch:</strong> Mid August 2026 · under interim rector</div>
+      <div>4 months from approval to live · ~3 vestry decisions total</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

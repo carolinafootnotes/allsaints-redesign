@@ -1,12 +1,6 @@
+.DS_Store
+.superpowers/
 .firecrawl/
 .playwright-mcp/
-.claude/
-
-# wrangler files
-.wrangler
-.dev.vars*
-!.dev.vars.example
-.env*
-!.env.example
-
-tools/.imported_decision_ids
+.wrangler/
+*.backup*.pptx

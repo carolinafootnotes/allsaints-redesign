@@ -6,9 +6,8 @@ compatibility_date = "2024-12-01"
 directory = "./public"
 
 # D1 binding for content approval pipeline.
-# Uncomment + paste the database_id after running step 1 of NATE_TO_RUN.md.
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "allsaints-review-db"
-# database_id = "PASTE_AFTER_CREATE"
+[[d1_databases]]
+binding = "DB"
+database_name = "allsaints-review-db"
+database_id = "3ae58fa4-a9f8-4784-b990-60ef40e481ae"
 
