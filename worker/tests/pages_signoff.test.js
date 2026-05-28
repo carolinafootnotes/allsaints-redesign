@@ -125,6 +125,19 @@ describe("POST /api/p/signoff", () => {
     );
     expect(res.status).toBe(401);
   });
+
+  it("returns 403 if reviewer is not assigned to the page", async () => {
+    const { slug } = await seedPageWithBlock();
+    const outsider = await tokenReviewer("Outsider");
+    const res = await SELF.fetch(
+      new Request("https://example.com/api/p/signoff", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ token: outsider.token, page_slug: slug }),
+      }),
+    );
+    expect(res.status).toBe(403);
+  });
 });
 
 describe("vote tally aggregation", () => {

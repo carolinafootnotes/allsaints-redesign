@@ -34,10 +34,22 @@ async function seedReviewer(name = "Chuck") {
   return r;
 }
 
+async function seedAssignedPage(reviewerNames = ["Chuck"]) {
+  const pageId = await seedPage();
+  await createBlock(env.DB, {
+    page_slug: "visit", block_type: "ab_choice", section: "Hero",
+    question: "?", options: [{ key: "a", label: "A", body: "A" }],
+    target_selector: { file: "", anchor_string: "" },
+  });
+  const rs = [];
+  for (const n of reviewerNames) rs.push(await seedReviewer(n));
+  await assignReviewersToPage(env.DB, "visit", rs.map((r) => r.id));
+  return { pageId, reviewers: rs };
+}
+
 describe("POST /api/p/flag", () => {
   it("creates a flag with default triaged_by='brian'", async () => {
-    const pageId = await seedPage();
-    const r = await seedReviewer();
+    const { pageId, reviewers: [r] } = await seedAssignedPage();
     const res = await SELF.fetch(
       new Request("https://example.com/api/p/flag", {
         method: "POST",
@@ -61,6 +73,24 @@ describe("POST /api/p/flag", () => {
     expect(flags[0].triaged_by).toBe("brian");
     expect(flags[0].status).toBe("open");
     expect(flags[0].anchor).toBe("Service times");
+  });
+
+  it("rejects reviewer not assigned to the page (403)", async () => {
+    await seedAssignedPage(["Chuck"]);
+    const outsider = await seedReviewer("Outsider");
+    const res = await SELF.fetch(
+      new Request("https://example.com/api/p/flag", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          token: outsider.token,
+          page_slug: "visit",
+          claim_under_review: "x",
+          proposed_correction: "y",
+        }),
+      }),
+    );
+    expect(res.status).toBe(403);
   });
 
   it("rejects bad token", async () => {

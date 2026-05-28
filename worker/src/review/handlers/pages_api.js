@@ -8,6 +8,7 @@ import {
   maybeAdvanceAfterSignoff,
   createFlag,
   markInterstitialSeen,
+  getAssignedReviewerIdsForPage,
 } from "../pages_db.js";
 
 async function parseJson(request) {
@@ -73,6 +74,11 @@ export async function handleFlag(request, env) {
   const page = await getPageBySlug(env.DB, page_slug);
   if (!page) return Response.json({ ok: false, error: "page not found" }, { status: 404 });
 
+  const assignedIds = await getAssignedReviewerIdsForPage(env.DB, page_slug);
+  if (!assignedIds.includes(reviewer.id)) {
+    return Response.json({ ok: false, error: "not assigned" }, { status: 403 });
+  }
+
   const { id } = await createFlag(env.DB, {
     page_id: page.id,
     anchor: anchor || null,
@@ -98,6 +104,11 @@ export async function handleSignoff(request, env) {
 
   const page = await getPageBySlug(env.DB, page_slug);
   if (!page) return Response.json({ ok: false, error: "page not found" }, { status: 404 });
+
+  const assignedIds = await getAssignedReviewerIdsForPage(env.DB, page_slug);
+  if (!assignedIds.includes(reviewer.id)) {
+    return Response.json({ ok: false, error: "not assigned" }, { status: 403 });
+  }
 
   await recordSignoff(env.DB, {
     page_id: page.id,

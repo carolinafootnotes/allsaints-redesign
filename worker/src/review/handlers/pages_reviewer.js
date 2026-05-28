@@ -84,7 +84,15 @@ export async function handlePage(request, env, token, slug) {
     });
   }
   const page = await getPageBySlug(env.DB, slug);
-  if (!page) {
+  if (!page || page.status === "draft") {
+    return new Response(notFoundPage(), {
+      status: 404,
+      headers: { "content-type": "text/html; charset=utf-8" },
+    });
+  }
+
+  const assignedIds = await getAssignedReviewerIdsForPage(env.DB, slug);
+  if (!assignedIds.includes(reviewer.id)) {
     return new Response(notFoundPage(), {
       status: 404,
       headers: { "content-type": "text/html; charset=utf-8" },
