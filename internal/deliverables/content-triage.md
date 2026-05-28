@@ -70,7 +70,7 @@ Legend for Decision: `KEEP` (migrate as-is, preserve URL if marked) · `MIGRATE`
 | 45 | Parish Nurses | `/parish-nurses/` | 2015-11-04 | 95 | publish | TBD |  |  |  |
 | 46 | Pastoral Care | `/pastoral-care/` | 2023-06-26 | 143 | publish | Migrate to /connect (Pastoral Care) |  |  |  |
 | 47 | Photo Gallery | `/photo-gallery/` | 2015-02-05 | 0 | publish | TBD |  |  |  |
-| 48 | Play | `/play/` | 2018-06-25 | 242 | publish | Migrate (consolidate into new IA) |  |  |  |
+| 48 | Play | `/play/` | 2018-06-25 | 242 | publish | Migrate (consolidate into new IA) | MERGE | No | `/final/happenings#parish-life` — VBS, Tacky Gift Exchange, After Dark added as evergreen rhythm cards (built 2026-05-28). Hops Helping Haiti held pending Haiti decision (see haiti-mission-question-for-group.md) |
 | 49 | Prayer | `/prayer/` | 2018-03-01 | 194 | publish | TBD |  |  |  |
 | 50 | Prayer Requests | `/prayer-requests/` | 2017-03-09 | 16 | publish | KEEP — preserve URL (printed) |  | ⚠️ YES |  |
 | 51 | Prayer Teams | `/prayer-teams/` | 2015-09-09 | 980 | publish | TBD |  |  |  |

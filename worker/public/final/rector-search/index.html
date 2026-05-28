@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <style>
+
+    /* Widow control: prevent single-word last lines in headings */
+    h1, h2, h3, h4, .hero-heading, .section-heading, .page-hero h1 { text-wrap: balance; }
+
     /* ========================================
        RESET & BASE
        ======================================== */
@@ -886,7 +890,8 @@
     /* ===== Service Times cards ===== */
     .service-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1000px;
       margin: 0 auto;
@@ -1678,7 +1683,8 @@
     /* New service cards (image/gradient banner-led) */
     .service-cards-v2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+      justify-content: center;
       gap: 1.75rem;
       max-width: 1080px;
       margin: 0 auto;
@@ -1780,7 +1786,8 @@
 
     .info-card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+      justify-content: center;
       gap: 1.25rem;
       max-width: 1100px;
       margin: 0 auto;

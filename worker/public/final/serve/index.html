@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <style>
+
+    /* Widow control: prevent single-word last lines in headings */
+    h1, h2, h3, h4, .hero-heading, .section-heading, .page-hero h1 { text-wrap: balance; }
+
     /* ========================================
        RESET & BASE
        ======================================== */
@@ -886,7 +890,8 @@
     /* ===== Service Times cards ===== */
     .service-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1000px;
       margin: 0 auto;
@@ -1629,7 +1634,8 @@
 
     .involved-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -1656,7 +1662,8 @@
     }
     .care-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -1688,7 +1695,8 @@
     }
     .connect-channels {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+      justify-content: center;
       gap: 1.25rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -1725,6 +1733,73 @@
       color: #6b6b6b;
     }
 
+    /* ===== Sticky in-page jump nav ===== */
+    .jump-nav {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid rgba(123, 35, 50, 0.10);
+      box-shadow: 0 2px 12px rgba(123, 35, 50, 0.06);
+      z-index: 990;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+    .jump-nav.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .jump-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0.25rem;
+      padding: 0 1rem;
+    }
+    .jump-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .jump-nav a:hover,
+    .jump-nav a:focus-visible {
+      color: #7b2332;
+    }
+    .jump-nav a[aria-current="location"] {
+      color: #7b2332;
+      border-bottom-color: #c8a977;
+    }
+    @media (max-width: 768px) {
+      .jump-nav-inner { gap: 0; padding: 0 0.25rem; }
+      .jump-nav a {
+        padding: 0.85rem 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        flex: 1 1 0;
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .jump-nav { transition: opacity 0.15s ease; transform: none; }
+    }
+
   </style>
 </head>
 <body class="page-subpage">
@@ -1758,6 +1833,15 @@
     <a href="/final/serve">Serve</a>
     <a href="/final/rector-search">Rector Search</a>
     <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give</a>
+  </nav>
+
+  <!-- ===== Sticky in-page jump nav ===== -->
+  <nav class="jump-nav" id="jump-nav" aria-label="In-page sections">
+    <div class="jump-nav-inner">
+      <a href="#in-the-church">In the Church</a>
+      <a href="#in-the-community">In the Community</a>
+      <a href="#in-the-world">In the World</a>
+    </div>
   </nav>
 
   <main id="main-content">
@@ -2040,6 +2124,8 @@
 
       // ---- Header scroll behavior ----
       const header = document.getElementById('site-header');
+      const jumpNav = document.getElementById('jump-nav');
+      const footerEl = document.querySelector('.site-footer');
       let lastScroll = 0;
       function updateHeader() {
         const y = window.scrollY;
@@ -2050,10 +2136,56 @@
           header.classList.remove('solid');
           header.classList.add('transparent');
         }
+        // Jump-nav: reveal after hero scrolls past (~80vh), hide when footer visible
+        if (jumpNav) {
+          const heroPassed = y > (window.innerHeight * 0.8);
+          const footerTop = footerEl ? footerEl.getBoundingClientRect().top : Infinity;
+          const footerVisible = footerTop < window.innerHeight;
+          if (heroPassed && !footerVisible) {
+            jumpNav.classList.add('visible');
+          } else {
+            jumpNav.classList.remove('visible');
+          }
+        }
         lastScroll = y;
       }
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
+
+      // ---- Jump-nav active-section tracking ----
+      if (jumpNav) {
+        const jumpLinks = Array.from(jumpNav.querySelectorAll('a'));
+        const sectionMap = {};
+        jumpLinks.forEach(function(link) {
+          const id = link.getAttribute('href').slice(1);
+          const sec = document.getElementById(id);
+          if (sec) sectionMap[id] = link;
+        });
+        const sections = Object.keys(sectionMap).map(function(id) { return document.getElementById(id); });
+        function setActive(id) {
+          jumpLinks.forEach(function(l) {
+            if (l.getAttribute('href') === '#' + id) {
+              l.setAttribute('aria-current', 'location');
+            } else {
+              l.removeAttribute('aria-current');
+            }
+          });
+        }
+        const sectionObserver = new IntersectionObserver(function(entries) {
+          // Pick the most visible intersecting section
+          let best = null;
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+            }
+          });
+          if (best && best.target && best.target.id) setActive(best.target.id);
+        }, {
+          rootMargin: '-30% 0px -55% 0px',
+          threshold: [0, 0.25, 0.5, 0.75, 1]
+        });
+        sections.forEach(function(s) { sectionObserver.observe(s); });
+      }
 
       // ---- Mobile menu ----
       const hamburger = document.getElementById('hamburger');

@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <style>
+
+    /* Widow control: prevent single-word last lines in headings */
+    h1, h2, h3, h4, .hero-heading, .section-heading, .page-hero h1 { text-wrap: balance; }
+
     /* ========================================
        RESET & BASE
        ======================================== */
@@ -886,7 +890,8 @@
     /* ===== Service Times cards ===== */
     .service-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1000px;
       margin: 0 auto;
@@ -1629,7 +1634,8 @@
 
     .rhythms-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -1671,7 +1677,8 @@
     }
     .archive-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+      justify-content: center;
       gap: 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -1889,7 +1896,7 @@
           <h2 class="section-heading reveal reveal-delay-1">A Little Less <em style="color:#7b2332;">Serious</em></h2>
           <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto; max-width:640px;">Not every gathering is a formation opportunity. Some of them are just fun.</p>
         </div>
-        <div class="rhythms-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+        <div class="rhythms-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 260px)); justify-content: center; gap: 1.5rem;">
           <div class="rhythm-card reveal reveal-delay-1">
             <div class="rhythm-day">Annual / Spring</div>
             <h3 class="rhythm-title">Tour de Saints</h3>
@@ -1909,6 +1916,21 @@
             <div class="rhythm-day">Seasonal</div>
             <h3 class="rhythm-title">Parish Picnics &amp; Cookouts</h3>
             <p class="rhythm-desc">We find any excuse to cook outdoors together. Summer and fall are the usual suspects.</p>
+          </div>
+          <div class="rhythm-card reveal reveal-delay-1">
+            <div class="rhythm-day">Annual / Winter</div>
+            <h3 class="rhythm-title">After Dark @ All Saints'</h3>
+            <p class="rhythm-desc">Evening classes taught by parishioners and local experts, from cooking to wine tasting, with proceeds benefiting local organizations like Cooperative Christian Ministry. Each year brings a new lineup, posted with registration when the season opens.</p>
+          </div>
+          <div class="rhythm-card reveal reveal-delay-2">
+            <div class="rhythm-day">Annual / Summer</div>
+            <h3 class="rhythm-title">Vacation Bible School</h3>
+            <p class="rhythm-desc">A week of stories, songs, crafts, and play for children on our grounds. It wraps up with the kids helping lead worship that Sunday.</p>
+          </div>
+          <div class="rhythm-card reveal reveal-delay-3">
+            <div class="rhythm-day">Annual / December</div>
+            <h3 class="rhythm-title">Tacky Gift Exchange</h3>
+            <p class="rhythm-desc">Adults gather in the Welcome Center for snacks and a swap of gloriously questionable gifts. Bring something to share and something nobody could possibly want.</p>
           </div>
         </div>
       </div>

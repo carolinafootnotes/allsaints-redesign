@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <style>
+
+    /* Widow control: prevent single-word last lines in headings */
+    h1, h2, h3, h4, .hero-heading, .section-heading, .page-hero h1 { text-wrap: balance; }
+
     /* ========================================
        RESET & BASE
        ======================================== */
@@ -88,7 +92,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 112px;
+      height: 145px;
       transition: height 0.3s;
     }
     .site-header.solid .header-inner {
@@ -107,7 +111,7 @@
       transition: opacity 0.25s ease, height 0.3s ease;
     }
     .header-brand .logo-full {
-      height: 92px;
+      height: 125px;
       width: auto;
     }
     .header-brand .logo-horizontal {
@@ -285,6 +289,7 @@
       color: #e8d9a0;
       margin-bottom: 1.5rem;
       padding: 0.4rem 1rem;
+      background: rgba(26, 6, 9, 0.5);
       border: 1px solid rgba(232, 217, 160, 0.5);
       border-radius: 2px;
     }
@@ -1794,7 +1799,7 @@
           <div class="section-label reveal">What's Happening</div>
           <h2 class="section-heading reveal reveal-delay-1">Life at <em style="color:#7b2332;">All Saints'</em></h2>
         </div>
-        <div class="events-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px; margin: 0 auto;">
+        <div class="events-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 280px)); justify-content: center; max-width: 900px; margin: 0 auto;">
           <a href="https://allsaintsconcord.org/invitiation-to-holy-week/" target="_blank" rel="noopener" class="event-card reveal reveal-delay-1" style="text-decoration:none;">
             <div class="event-card-date">
               <div class="date-main">Holy Week</div>
