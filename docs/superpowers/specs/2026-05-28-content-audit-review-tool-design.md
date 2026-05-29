@@ -6,87 +6,111 @@ Owner: Nate
 
 ## Purpose
 
-Before the WordPress → Squarespace cutover (mid-July 2026), one trusted reviewer
-verifies that the new site's copy is factually accurate and that nothing important
-was dropped from the old site. The reviewer reads a before/after text comparison
-of each old page against the new page it became, and either approves it or raises
-an issue describing what's wrong.
+Before the WordPress → Squarespace cutover (mid-July 2026), confirm that the new
+site's copy is factually accurate and that nothing important was dropped from the old
+site. The mechanism is a before/after text comparison of each old page against the new
+page it became.
 
-The reviewer is **one specific person, ~80 years old, non-technical.** That single
-fact is the dominant design constraint. Every choice below optimizes for her being
-able to do this easily, without help, without fear of breaking something.
+This is a **two-pass** workflow:
+
+1. **First pass — Nate (admin).** Nate walks every unit in the before/after view and,
+   for each, either *clears* it (accounted for, nothing to check) or *flags* it as
+   "needs a second look" with a short note. This is where the accounting happens.
+2. **Second pass — the reviewer.** A trusted, knowledgeable, ~80-year-old,
+   non-technical man. His queue is *only the units Nate flagged*, each shown with
+   Nate's note. For each he confirms it looks right or raises an issue describing
+   what's wrong.
+
+The reviewer already understands we are not rewording everything; the tool doesn't
+need to over-explain that. His job is the knowledgeable accuracy check on the handful
+of things Nate couldn't clear alone.
+
+Designing for the reviewer being ~80 and non-technical is still the dominant UI
+constraint for his pass: easy, large, unmistakable, nothing happens unless he taps,
+no way to break anything.
 
 ## Success criteria
 
-- She can open a private link (no password), understand what she's being asked to
-  do within one short screen, and start reviewing.
-- For each unit she sees the old wording and the new wording as plain text, and can
-  tell at a glance which is old and which is new.
-- She can approve a unit, or raise an issue with a free-text note, using large,
-  well-spaced, plainly-labeled controls. Nothing happens unless she taps.
-- She can stop any time and resume later via the same link, landing back where she
-  left off.
-- Every issue she raises lands in an admin view only Nate sees.
+- **Nate's pass:** Nate can go unit by unit through the full curated set, see old vs
+  new as plain text, and clear or flag-with-note each one quickly. He can see at a
+  glance how many remain and what he's flagged.
+- **Reviewer's pass:** he opens a private link (no password), sees only the flagged
+  units with Nate's note, reads old vs new, and either approves or raises a free-text
+  issue using large, well-spaced, plainly-labeled controls. Nothing happens unless he
+  taps. He can stop and resume via the same link.
+- Every issue he raises lands in an admin view only Nate sees.
 - Every one of the ~93 published WordPress pages is *accounted for* in the mapping
-  Nate approves: either in her queue, or explicitly excluded with a reason.
+  Nate approves: either in a review unit, or explicitly excluded with a reason.
 
 Out of scope: layout, images, fonts, colors of the *public* site; wording/style
-preferences (she is checking facts, not editing prose); multi-reviewer voting;
-email notifications.
+preferences (this is a fact check, not prose editing); multi-reviewer voting; email
+notifications.
 
 ## Key decisions (locked)
 
 1. **New separate flow**, served by the existing `allsaints-redesign` worker, on its
-   own URL prefix `/audit/{token}`. The existing A/B preference tool (`/r2/`) is left
+   own URL prefix `/audit/...`. The existing A/B preference tool (`/r2/`) is left
    untouched. Reuses: D1 database, tokenized reviewer links, `reviewers` table,
    `layout.js` base CSS, deploy pipeline.
-2. **One reviewer.** No vote tallies, no signoff thresholds, no seeing others' input.
-3. **Issues go straight to Nate** in an admin view. No email, no Brian triage.
-4. **Layout is responsive left|right.** Side-by-side old/new on a wide screen
+2. **Two passes, one shared comparison screen.** Nate's first pass clears/flags units;
+   the reviewer's pass acts only on flagged units. The before/after comparison
+   component is built once and reused by both.
+3. **One reviewer.** No vote tallies, no signoff thresholds, no seeing others' input.
+4. **The reviewer sees only Nate-flagged units**, each with Nate's note.
+5. **Issues go straight to Nate** in an admin view. No email, no Brian triage.
+6. **Layout is responsive left|right.** Side-by-side old/new on a wide screen
    (desktop, iPad landscape); stacks to old-on-top / new-below when the viewport is
-   too narrow to show two readable columns. Honors the "left | right" request wherever
-   there's room; never becomes unreadable.
-5. **New copy shows as plain text** on the right, same as old on the left. The point
+   too narrow to show two readable columns.
+7. **New copy shows as plain text** on the right, same as old on the left. The point
    of "text only" is to compare words to words without the live page's images/layout.
-6. **Curated queue, full accounting.** She reviews substantive content pages only.
-   The mapping doc Nate approves lists all ~93 published pages, each tagged either
-   `in_queue` or `excluded` with a reason (empty stub / transaction page / duplicate
-   / obsolete). Nothing falls through silently.
-7. **Grouped review unit.** The unit of review is a *new destination page plus all
-   the old pages that fed it.* When several old pages merged into one new page, she
-   sees all the old sources together (stacked, each labeled by its old title) on the
-   left, and the single new page on the right. This also absorbs the "incorporated
-   into X" case. 1:1 mappings are just a single old source vs the new page. Pages
-   removed entirely with no destination collect in one "Removed from the new site"
-   unit (or a short list), so she can confirm the removals were fine.
+8. **Curated units, full accounting.** The mapping doc Nate approves lists all ~93
+   published pages, each tagged either into a review unit or `excluded` with a reason
+   (empty stub / transaction page / duplicate / obsolete). Nothing falls through.
+9. **Grouped review unit.** The unit of review is a *new destination page plus all the
+   old pages that fed it.* When several old pages merged into one new page, the old
+   sources are shown together (stacked, each labeled by its old title) on the left and
+   the single new page on the right. This also absorbs the "incorporated into X" case.
+   1:1 mappings are a single old source vs the new page. Pages removed entirely collect
+   in one "Removed from the new site" unit.
 
-## The reviewer experience
+## Nate's first pass (admin)
 
-### Orientation screen (shown once, before the first unit)
+Reached at `/audit-admin?key=...` (the existing admin-key pattern). It is itself a
+before/after walker, one unit at a time, using the shared comparison component:
 
-Three short sentences, 20px, generous whitespace, one button "Start reviewing":
+- Sticky header: unit title, plain-text progress ("Unit 4 of 32"), count flagged so far.
+- The same old/new comparison area the reviewer sees.
+- Two actions: **"Cleared — nothing to check"** and **"Flag for a second look"**. Flag
+  opens a small note field ("What should he look at?"). Both are changeable.
+- A compact summary view listing every unit with its state (pending / cleared /
+  flagged) and, after the reviewer's pass, his outcome and issue note per flagged unit.
 
-> For each page, you'll see the old website's wording and the new website's wording.
-> Your job is to catch anything that's *wrong* or *missing*: a name, a date, a phone
-> number, a ministry that disappeared. You are **not** reviewing the writing, so if
-> the new site simply says something in different words, that's fine and expected.
+This walker doubles as how Nate reviews the auto-generated mapping: if a unit's
+grouping or disposition is wrong, that's the moment he catches it.
 
-This framing is load-bearing. Without it she flags every reworded sentence.
+## The reviewer's pass
 
-### The review unit screen
+### Intro screen (shown once)
+
+Short and respectful, since he already understands the job. Two sentences, 20px, one
+button "Start":
+
+> Nate flagged a few pages he'd like your eyes on. For each, you'll see the old
+> website's wording and the new website's wording — just check that nothing's wrong or
+> missing, and flag anything that is.
+
+### The review unit screen (shared component)
 
 Sticky header (always visible while scrolling):
 - Unit title (the new page's name, e.g. "Pastoral Care").
-- Plain-text progress: "Page 4 of 32" (no progress bar as the primary signal; a thin
-  bar may appear as a secondary cue).
-- A small, 56px "Back to previous" control. No 70-item dashboard.
+- Plain-text progress: "Page 2 of 7."
+- A small, 56px "Back to previous" control. No long dashboard.
 
-A one-paragraph instruction block (<50 words) under the title repeating the job in
-plain language.
+**Nate's note** for this unit, shown prominently near the top ("Nate asked: …").
 
 Comparison area, wrapped so screen readers read old-then-new in DOM order:
 - **Left / top — "Current wording" (old).** Light tint, gold left border. If multiple
-  old sources feed this unit, each is shown in sequence with its old page title as a
+  old sources feed this unit, each shows in sequence with its old page title as a
   subheading. Full extracted plain text, 18px / 1.7 line-height.
 - **Right / bottom — "New wording" (new).** White, burgundy left border. Full extracted
   plain text of the new page.
@@ -94,59 +118,51 @@ Comparison area, wrapped so screen readers read old-then-new in DOM order:
     removed from the new site. If you think something important was lost, tap
     Something's off." Never a blank/broken-looking panel.
 
-Fixed bottom action bar (always reachable, regardless of scroll depth):
+Fixed bottom action bar (always reachable):
 - **"Looks right to me"** — filled burgundy, primary, ≥56px.
 - **"Something's off"** — outlined burgundy, secondary, ≥56px, separated from the
-  primary by ≥24px (stacked vertically on touch screens) to prevent mis-taps.
+  primary by ≥24px (stacked on touch screens) to prevent mis-taps.
 
 ### Interactions
 
-- **Looks right to me:** records the decision, shows a persistent banner at the top of
-  the content area ("This page is approved. Thank you.") that stays until she acts,
-  and reveals a large **"Go to next page"** button. No auto-advance, no timer. She
-  moves herself.
-- **Something's off:** an inline section expands below the buttons (not a modal she has
-  to dismiss) containing one large textarea (≥120px) labeled "Describe what looks
-  wrong, or type the words that concern you," and a "Send my note to Nate" button plus
-  a "Never mind, go back" link. Focus moves into the textarea on expand. Empty submit
-  shows inline `role="alert"` text, not a browser tooltip. After sending: persistent
-  confirmation, then she can still approve or move on.
-- **Changing her mind:** every decision is changeable. Re-opening a unit shows her
-  current decision and lets her switch it any time before she finishes. This removes
-  the need for "are you sure?" friction and removes any misclick trap.
+- **Looks right to me:** records the decision, shows a persistent banner ("This page is
+  approved. Thank you.") that stays until he acts, and reveals a large **"Go to next
+  page"** button. No auto-advance, no timer. He moves himself.
+- **Something's off:** an inline section expands below the buttons (not a modal to
+  dismiss) with one large textarea (≥120px) labeled "Describe what looks wrong," a
+  "Send my note to Nate" button, and a "Never mind, go back" link. Focus moves into the
+  textarea on expand. Empty submit shows inline `role="alert"` text, not a browser
+  tooltip. After sending: persistent confirmation, then he can still approve or move on.
+- **Changing his mind:** every decision is changeable. Re-opening a unit shows his
+  current decision and lets him switch it. No "are you sure?" friction, no misclick trap.
 
 ### Resume and done
 
-- Returning to the link lands on a single "Welcome back. You've reviewed 4 of 32 pages.
+- Returning to the link lands on a single "Welcome back. You've reviewed 2 of 7 pages.
   Continue where you left off." card with one button — not a list.
-- After the last unit: a warm completion screen. If any units were left with an issue
-  note, it says Nate will look at those.
+- After the last flagged unit: a warm completion screen noting Nate will follow up on
+  anything he flagged.
 
-## Accessibility requirements (WCAG 2.1 AA, tuned for an 80-year-old)
+## Accessibility requirements (WCAG 2.1 AA, tuned for an ~80-year-old)
 
-These are requirements, not suggestions. Full detail lives with the accessibility
-review; the load-bearing ones:
+Requirements, not suggestions. The load-bearing ones:
 
 - Base `html` font-size 112.5% (18px); all sizes in `rem` so browser zoom works.
 - Body comparison text ≥18px / 1.65–1.7 line-height; max line length ~65ch.
-- No visible UI text below 16px. Content copy in Cormorant Garamond (as it will appear
-  publicly is acceptable for the *new* side); all UI chrome in DM Sans.
+- No visible UI text below 16px. UI chrome in DM Sans; the displayed church copy may
+  use Cormorant Garamond as it will appear publicly.
 - Contrast: fix the existing template's failing pairs (`#666` on cream → `#4a4a4a`+;
-  flag-badge `#8a6d3b` on `#fff3cd` → darken text or change bg). Target 7:1 where
-  practical. Old/new distinguished by **label + border + tint, never color alone.**
+  flag-badge `#8a6d3b` on `#fff3cd` → darken text or change bg). Old/new distinguished
+  by **label + border + tint, never color alone.**
 - Visible focus ring on every focusable element: `outline:3px solid #c8a977;
-  outline-offset:2px` (the template currently has none — a 2.4.7 failure).
-- Targets ≥56px; Approve and Something's-off separated as above.
-- No `<dialog>` for the issue flow; inline expand with managed focus. If any modal is
-  used (none planned), it must trap focus, close on Escape, return focus to trigger,
-  and use a labeled text close button (never an icon-only "X").
+  outline-offset:2px` (the template currently has none).
+- Targets ≥56px; the two reviewer actions separated as above.
+- No `<dialog>` for the issue flow; inline expand with managed focus.
 - Status messages persist ≥4s and are dismissible; no 2-second toasts.
 - No timeouts, no auto-logout, no auto-advance. Expired/invalid token shows a plain
-  full-page message telling her to reply to the email for a fresh link.
-- Skip link to the comparison section; `role="region"` + `aria-label` on the old/new
-  wrappers; correct heading order (h1 unit title, h2 column labels / source titles).
-- Reading level ~grade 6. Button labels: "Looks right to me", "Something's off",
-  "Send my note to Nate", "Never mind, go back", "Go to next page", "Back to previous".
+  full-page message telling him to reply to the email for a fresh link.
+- Skip link to the comparison; `role="region"` + `aria-label` on old/new wrappers;
+  correct heading order. Reading level ~grade 6 for all chrome.
 
 ## Architecture
 
@@ -156,31 +172,34 @@ existing tables except read-only use of `reviewers`.
 
 ### Data model (new tables — migration `schema/0004_copy_audit.sql`)
 
-Because the review unit groups multiple old sources against one new page, use a
-unit + sources shape rather than one flat row per old page.
-
 ```sql
 CREATE TABLE IF NOT EXISTS audit_units (
-  id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  slug_key    TEXT    NOT NULL UNIQUE,   -- stable key, e.g. "pastoral-care"
-  title       TEXT    NOT NULL,          -- new page name, or "Removed from the new site"
-  disposition TEXT    NOT NULL CHECK (disposition IN ('rewritten','merged','removed')),
-  new_url     TEXT,                      -- /final/... path; NULL if removed
-  new_text    TEXT,                      -- extracted plain text of the new page; NULL if removed
-  sort_order  INTEGER NOT NULL DEFAULT 0,
-  created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
+  id           INTEGER PRIMARY KEY AUTOINCREMENT,
+  slug_key     TEXT    NOT NULL UNIQUE,   -- stable key, e.g. "pastoral-care"
+  title        TEXT    NOT NULL,          -- new page name, or "Removed from the new site"
+  disposition  TEXT    NOT NULL CHECK (disposition IN ('rewritten','merged','removed')),
+  new_url      TEXT,                      -- /final/... path; NULL if removed
+  new_text     TEXT,                      -- extracted plain text of the new page; NULL if removed
+  -- Nate's first pass lives on the unit (single admin editor):
+  review_state TEXT    NOT NULL DEFAULT 'pending'
+                 CHECK (review_state IN ('pending','cleared','flagged')),
+  flag_note    TEXT,                      -- Nate's note when flagged
+  sort_order   INTEGER NOT NULL DEFAULT 0,
+  created_at   TEXT    NOT NULL DEFAULT (datetime('now'))
 );
+CREATE INDEX IF NOT EXISTS idx_audit_units_state ON audit_units(review_state);
 
 CREATE TABLE IF NOT EXISTS audit_sources (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   unit_id    INTEGER NOT NULL REFERENCES audit_units(id),
   old_title  TEXT    NOT NULL,
   old_url    TEXT,
-  old_text   TEXT,                       -- extracted plain text from WP XML
+  old_text   TEXT,                        -- extracted plain text from WP XML
   sort_order INTEGER NOT NULL DEFAULT 0
 );
 CREATE INDEX IF NOT EXISTS idx_audit_sources_unit ON audit_sources(unit_id);
 
+-- The reviewer's second-pass decision (only on flagged units).
 CREATE TABLE IF NOT EXISTS audit_decisions (
   id            INTEGER PRIMARY KEY AUTOINCREMENT,
   reviewer_id   INTEGER NOT NULL REFERENCES reviewers(id),
@@ -194,16 +213,19 @@ CREATE TABLE IF NOT EXISTS audit_decisions (
 CREATE INDEX IF NOT EXISTS idx_audit_decisions_unit ON audit_decisions(unit_slug_key);
 ```
 
-Plain text stored directly in D1 `TEXT` columns (~hundreds of KB total; no file I/O at
-request time). The extraction script strips tags/shortcodes/comments to clean prose.
+`review_state`/`flag_note` carry Nate's first pass (Nate is the only admin, so they
+live on the unit). The reviewer's queue is `WHERE review_state='flagged'`. Plain text
+stored directly in D1 `TEXT` columns; the extraction script strips tags/shortcodes/
+comments to clean prose.
 
 ### Routes (in `src/index.js`, alongside the `/t/` block)
 
 ```
-GET  /audit/{token}                 -> resume card / orientation / first undecided unit
-GET  /audit/{token}/u/{slug_key}    -> single unit comparison screen
-POST /api/audit/decide              -> upsert decision (approved | issue+text)
-GET  /audit-admin?key=...           -> Nate-only: every unit, its decision, issue notes
+GET  /audit-admin?key=...            -> Nate's first-pass walker + summary
+POST /api/audit/triage               -> set a unit cleared|flagged (+note); key-guarded
+GET  /audit/{token}                  -> reviewer: resume card / intro / first undecided flagged unit
+GET  /audit/{token}/u/{slug_key}     -> reviewer: single flagged-unit comparison screen
+POST /api/audit/decide               -> reviewer: upsert decision (approved | issue+text)
 ```
 
 ### New files
@@ -212,11 +234,11 @@ GET  /audit-admin?key=...           -> Nate-only: every unit, its decision, issu
 worker/schema/0004_copy_audit.sql           migration
 worker/schema/audit_seed.sql                generated by extraction script
 worker/src/review/audit_db.js               db helpers
-worker/src/review/handlers/audit.js         route handlers
-worker/src/review/templates/audit.js        HTML templates (reviewer + admin)
+worker/src/review/handlers/audit.js         route handlers (admin + reviewer)
+worker/src/review/templates/audit.js        HTML templates + shared comparison component
 worker/tests/audit.test.js                  vitest
 tools/extract-audit-content.js              one-shot Node extractor -> audit_seed.sql
-tools/audit-mapping.json                    the approved old->new map + exclusions
+tools/audit-mapping.json                    approved old->new map + exclusions
 ```
 
 Edits to existing files: import + route block in `src/index.js`.
@@ -226,52 +248,52 @@ Edits to existing files: import + route block in `src/index.js`.
 `tools/extract-audit-content.js` reads `assets/wordpress-export/*.xml` (published pages
 only), strips HTML tags, `<!-- wp:* -->` block comments, `[shortcodes]`, and collapses
 whitespace; reads `worker/public/final/**/index.html` `<main>` for new-page text; and
-reads `tools/audit-mapping.json` (the human-approved classification) to assemble units,
-their sources, and exclusions. Outputs `schema/audit_seed.sql` with
-`INSERT OR IGNORE` (idempotent, keyed on `slug_key`). Loaded with
-`wrangler d1 execute allsaints-review-db --remote --file schema/audit_seed.sql`.
+reads `tools/audit-mapping.json` to assemble units, their sources, and exclusions.
+Outputs `schema/audit_seed.sql` with `INSERT OR IGNORE` (idempotent on `slug_key`).
+Loaded via `wrangler d1 execute allsaints-review-db --remote --file schema/audit_seed.sql`.
 
 `tools/audit-mapping.json` is the artifact Nate approves before anything reaches the
-reviewer. It is generated as a *draft* from the WP export + `/final` pages, then
-hand-corrected. Shape per entry: old slug → `{ disposition, unit, new_url }` or
-`{ excluded: "reason" }`. Every published WP slug must appear exactly once.
+reviewer. Generated as a draft from the WP export + `/final`, then hand-corrected.
+Every published WP slug appears exactly once: assigned to a unit, or `excluded` with a
+reason.
 
 ### Reviewer provisioning
 
-One `reviewers` row with `role='audit'` (distinct from the A/B group's role), created
-via the existing `createReviewer` helper. Its token is the `/audit/{token}` link Nate
-emails her.
+One `reviewers` row with `role='audit'`, created via the existing `createReviewer`
+helper. Its token is the `/audit/{token}` link Nate emails him.
 
 ## Testing
 
 vitest, following `tests/pages_*.test.js`:
-- POST decide approved → 200, row present.
-- POST decide issue with text → upsert, single row, text stored.
-- POST decide issue with empty text → 400.
+- Triage: POST `/api/audit/triage` with key sets `review_state`/`flag_note`; bad/no key → 401.
+- Reviewer queue: only `flagged` units appear; `cleared`/`pending` are excluded.
+- Decide approved → 200, row present; decide issue with text → upsert; empty issue text → 400.
 - Bad token on reviewer route → 404; bad/no admin key → 401.
-- GET reviewer unit with valid token → 200, HTML contains unit title + both columns.
+- GET reviewer unit (flagged) with valid token → 200, HTML contains unit title, Nate's
+  note, and both columns.
 - Removed-disposition unit renders the yellow note, not a blank panel.
-- Resume: GET `/audit/{token}` after one decision points to the next undecided unit.
+- Resume: GET `/audit/{token}` after one decision points to the next undecided flagged unit.
 
-Manual device QA before handing to the reviewer: load on an actual iPad in portrait
-and landscape; confirm columns stack/side-by-side correctly, type is readable, buttons
-are reachable and well-separated, focus rings show, and the issue textarea takes focus
-on expand. Per project rule: not "ready to ship" until run on a device.
+Manual device QA before handing to the reviewer: load on an actual iPad, portrait and
+landscape; confirm responsive stack/side-by-side, readable type, reachable well-separated
+buttons, visible focus rings, textarea-takes-focus-on-expand. Per project rule: not
+"ready to ship" until run on a device.
 
 ## Build sequence
 
-1. Migration + `audit_db.js` + tests for the data layer.
+1. Migration + `audit_db.js` + data-layer tests.
 2. Extraction script + draft `audit-mapping.json`; **Nate reviews/corrects the mapping.**
-3. Reviewer template + handler + routes (orientation, unit screen, resume, done).
-4. Admin view.
-5. Accessibility pass against the requirements above; device QA on iPad.
-6. Seed remote D1, create the reviewer, hand Nate the link.
+3. Shared before/after comparison component.
+4. Nate's first-pass admin walker (clear/flag + note) + summary.
+5. Reviewer flow (intro, flagged-unit screen, resume, done) + decide API.
+6. Accessibility pass + iPad device QA.
+7. Seed remote D1, create the reviewer, hand Nate the link.
 
 ## Risks
 
 - **Mapping accuracy** is the real work and the real risk; the tool is only as good as
-  `audit-mapping.json`. Nate must review it.
+  `audit-mapping.json`. Nate's first pass is where it gets caught.
 - **Extraction debris** from WP shortcodes/blocks; needs the multi-pass strip and a
-  manual skim of output before seeding.
-- **iPad portrait readability** — mitigated by the responsive stack and large type, but
-  must be verified on a real device, not asserted.
+  manual skim before seeding.
+- **iPad portrait readability** — mitigated by responsive stack and large type, but
+  verified on a real device, not asserted.
