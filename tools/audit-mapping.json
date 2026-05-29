@@ -1,0 +1,162 @@
+{
+  "_comment": "DRAFT old WordPress page -> new-site disposition map for the content audit. Generated from the WP triage CSV + the /final pages, then hand-correctable. Nate corrects this during his first pass. 'sources' are WP post_name slugs (from the export). Every published WP page must appear once: in a unit's sources, in the 'removed' unit, or in 'excluded'.",
+  "units": [
+    {
+      "slug_key": "home",
+      "title": "Home",
+      "disposition": "merged",
+      "new_url": "/final/",
+      "new_file": "final/index.html",
+      "sources": ["mission", "mission-vision-and-values", "welcome-from-the-rector"]
+    },
+    {
+      "slug_key": "visit",
+      "title": "Visit (What to Expect on Sunday)",
+      "disposition": "merged",
+      "new_url": "/final/visit/",
+      "new_file": "final/visit/index.html",
+      "sources": ["what-to-expect", "worship", "worship-support", "contact"]
+    },
+    {
+      "slug_key": "watch-and-listen",
+      "title": "Watch & Listen",
+      "disposition": "merged",
+      "new_url": "/final/watch-and-listen/",
+      "new_file": "final/watch-and-listen/index.html",
+      "sources": ["live-events"]
+    },
+    {
+      "slug_key": "happenings",
+      "title": "What's Happening",
+      "disposition": "merged",
+      "new_url": "/final/happenings/",
+      "new_file": "final/happenings/index.html",
+      "sources": ["play"]
+    },
+    {
+      "slug_key": "connect",
+      "title": "Connect",
+      "disposition": "merged",
+      "new_url": "/final/connect/",
+      "new_file": "final/connect/index.html",
+      "sources": ["connect", "fellowship", "become-a-member", "koinonia", "mens-ministry", "womens-ministry", "young-adults", "primetimers", "stitches-for-the-saints", "parish-life-events"]
+    },
+    {
+      "slug_key": "episcopalian",
+      "title": "What Is an Episcopalian?",
+      "disposition": "rewritten",
+      "new_url": "/final/connect/episcopalian/",
+      "new_file": "final/connect/episcopalian/index.html",
+      "sources": ["what-is-an-epis"]
+    },
+    {
+      "slug_key": "life-events",
+      "title": "Life Events",
+      "disposition": "merged",
+      "new_url": "/final/connect/life-events/",
+      "new_file": "final/connect/life-events/index.html",
+      "sources": ["life-events"]
+    },
+    {
+      "slug_key": "pastoral-care",
+      "title": "Pastoral Care",
+      "disposition": "merged",
+      "new_url": "/final/connect/pastoral-care/",
+      "new_file": "final/connect/pastoral-care/index.html",
+      "sources": ["pastoral-care", "stephen-ministry", "parish-nurses", "prayer-teams", "prayer", "really-need-talk"]
+    },
+    {
+      "slug_key": "serve",
+      "title": "Serve",
+      "disposition": "merged",
+      "new_url": "/final/serve/",
+      "new_file": "final/serve/index.html",
+      "sources": ["serve", "set-free-to-serve", "in-the-church", "in-the-community", "in-the-world", "service-hours", "night-shelter-meal-ministry", "ccm-mac-house-meal-ministry", "meals"]
+    },
+    {
+      "slug_key": "learn",
+      "title": "Learn (Formation)",
+      "disposition": "merged",
+      "new_url": "/final/learn/",
+      "new_file": "final/learn/index.html",
+      "sources": ["learn", "christian-education", "episcopal-youth", "nursery"]
+    },
+    {
+      "slug_key": "clergy",
+      "title": "Clergy & Staff",
+      "disposition": "merged",
+      "new_url": "/final/clergy/",
+      "new_file": "final/clergy/index.html",
+      "sources": ["clergy", "staff"]
+    },
+    {
+      "slug_key": "history",
+      "title": "History",
+      "disposition": "rewritten",
+      "new_url": "/final/history/",
+      "new_file": "final/history/index.html",
+      "sources": ["history"]
+    },
+    {
+      "slug_key": "prayer-requests",
+      "title": "Prayer Requests",
+      "disposition": "rewritten",
+      "new_url": "/final/prayer-requests/",
+      "new_file": "final/prayer-requests/index.html",
+      "sources": ["prayer-requests"]
+    },
+    {
+      "slug_key": "giving",
+      "title": "Giving",
+      "disposition": "rewritten",
+      "new_url": "/final/giving/",
+      "new_file": "final/giving/index.html",
+      "sources": ["support"]
+    },
+    {
+      "slug_key": "lcdc",
+      "title": "Lockhart Child Development Center",
+      "disposition": "rewritten",
+      "new_url": "/final/lcdc/",
+      "new_file": "final/lcdc/index.html",
+      "sources": ["public-preschool"]
+    },
+    {
+      "slug_key": "rector-search",
+      "title": "Rector Search",
+      "disposition": "merged",
+      "new_url": "/final/rector-search/",
+      "new_file": "final/rector-search/index.html",
+      "sources": ["vestry", "transition", "interim-position-overview-for-all-saints-episcopal-church", "why-is-an-interim-needed-and-what-is-interim-work-content-provide-by-multiple-sources"]
+    }
+  ],
+  "removed": {
+    "slug_key": "removed",
+    "title": "Removed from the new site",
+    "sources": ["tour-de-saints-2021-sponsorship"]
+  },
+  "excluded": {
+    "activity": "Empty page (0 words)",
+    "adas-media": "Near-empty media-embed page (36 words)",
+    "bulletins": "Navigation stub; bulletins live elsewhere",
+    "directory": "Empty page (1 word)",
+    "event-payment": "Transaction/payment page, no content",
+    "get-the-latest": "Newsletter signup stub (30 words)",
+    "groups": "Empty page (0 words)",
+    "home": "Empty legacy home page (0 words); the new Home is its own unit",
+    "important-forms": "Empty forms-list page (0 words)",
+    "interior-1": "Photo/tour scaffolding, no real prose",
+    "members": "Empty page (0 words)",
+    "new-home": "Stub (11 words)",
+    "photo-gallery": "Image gallery, no prose",
+    "preparing-way-registration": "Event registration form",
+    "sermons": "Stub (2 words); sermons live on Watch & Listen",
+    "thank-you": "Form thank-you confirmation page",
+    "virtual-tour": "Photo/tour scaffolding, no real prose",
+    "after-dark-all-saints-2025": "Past seasonal event page",
+    "after-dark-all-saints-2026": "Seasonal event page; events live on Happenings",
+    "test": "Test page (private)",
+    "wpforms-preview": "Form-builder preview (private)",
+    "wpforms-preview-2": "Form-builder preview (private)"
+  }
+}

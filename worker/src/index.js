@@ -18,6 +18,7 @@ import * as pagesReviewer from './review/handlers/pages_reviewer.js';
 import * as pagesApi from './review/handlers/pages_api.js';
 import * as pagesAdmin from './review/handlers/pages_admin.js';
 import * as triageHandler from './review/handlers/triage.js';
+import * as auditHandler from './review/handlers/audit.js';
 
 function html(content) {
   return new Response(content, {
@@ -140,6 +141,30 @@ export default {
       }
       if (path === '/api/triage/seed' && method === 'POST') {
         return await triageHandler.handleSeed(request, env, url);
+      }
+
+      // ---- Phase 5: content audit (before/after copy accuracy review) ----
+      if (path.startsWith('/audit/') && method === 'GET') {
+        const rest = path.slice('/audit/'.length);
+        const parts = rest.split('/');
+        const token = parts[0];
+        if (!token) return new Response('Not found', { status: 404 });
+        if (parts.length === 1 || (parts.length === 2 && parts[1] === '')) {
+          return await auditHandler.handleLanding(request, env, token);
+        }
+        if (parts[1] === 'u' && parts[2]) {
+          return await auditHandler.handleUnit(request, env, token, decodeURIComponent(parts[2]));
+        }
+        return new Response('Not found', { status: 404 });
+      }
+      if (path === '/api/audit/decide' && method === 'POST') {
+        return await auditHandler.handleDecide(request, env);
+      }
+      if (path === '/api/audit/triage' && method === 'POST') {
+        return await auditHandler.handleTriage(request, env);
+      }
+      if (path === '/audit-admin' && method === 'GET') {
+        return await auditHandler.handleAdmin(request, env, url);
       }
     } catch (err) {
       console.error('review handler error', err);
