@@ -28,9 +28,6 @@
       background: rgba(123, 35, 50, 0.06);
     }
 
-    /* SECTION-SUB OVERRIDE: this page uses #555 (no matching token; between --color-text-soft #333 and --color-text-muted #666) */
-    /* Raw value kept: #555 */
-
     /* PRIEST SECTION */
     .priest-section { padding: 5rem var(--space-6); }
     .priest-section.bg-cream { background: var(--color-cream); }
@@ -137,7 +134,7 @@
     .closing-cta {
       background: var(--color-cream-warm);
       padding: 5rem var(--space-6);
-      border-top: 1px solid #ebe2cf; /* decorative warm tan; no token */
+      border-top: 1px solid var(--color-border);
     }
     .closing-cta-inner {
       max-width: 760px;
@@ -154,7 +151,7 @@
     }
     .closing-cta p {
       font-size: var(--text-base);
-      color: #444; /* no exact token: between --color-text-soft #333 and --color-text-muted #666 */
+      color: var(--color-text-soft);
       line-height: 1.7;
       margin: 0 auto var(--space-8);
       max-width: 600px;

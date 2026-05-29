@@ -15,9 +15,10 @@
     --gold: #c8a977;
     --gold-light: #e8d9a0;
     --cream: #faf8f4;
-    --cream-warm: #faf6ee;
     --ink: #1a1a1a;
-    --muted: #6b6b6b;
+    --color-text-muted: #666;
+    --color-border: #e8e4dc;
+    --color-cream-warm: #faf6ee;
   }
   * { box-sizing: border-box; }
   body {
@@ -75,7 +76,7 @@
   .option-tagline { font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem; }
   .mockup {
     padding: 1.25rem;
-    background: var(--cream-warm);
+    background: var(--color-cream-warm);
     border-bottom: 1px solid #e8e4dc;
   }
   .nav-bar {
@@ -96,7 +97,7 @@
     min-height: 280px;
   }
   .page-title { font-family: 'Cormorant Garamond', Garamond, serif; font-size: 1.4rem; color: var(--burgundy); margin: 0 0 0.25rem; }
-  .page-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #eee; }
+  .page-sub { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #eee; }
   .tier {
     border-left: 3px solid var(--gold);
     padding: 0.4rem 0 0.4rem 0.75rem;
@@ -115,7 +116,7 @@
   .mini-card .mc-title { font-weight: 600; color: var(--burgundy); margin-bottom: 0.25rem; font-size: 0.75rem; }
   .partner {
     padding: 0.5rem 0;
-    border-bottom: 1px solid #f0eadd;
+    border-bottom: 1px solid var(--color-border);
     font-size: 0.8rem;
   }
   .partner:last-child { border-bottom: none; }
@@ -135,7 +136,7 @@
     background: white;
     border-top: 1px solid #e8e4dc;
   }
-  .pick-bar p { margin: 0; color: var(--muted); }
+  .pick-bar p { margin: 0; color: var(--color-text-muted); }
 </style>
 </head>
 <body>
@@ -200,7 +201,7 @@
       <div class="page-preview">
         <h2 class="page-title">Connect</h2>
         <div class="page-sub">Life together, get involved, pastoral care, become a member</div>
-        <div style="font-size: 0.75rem; color: var(--muted); font-style: italic; margin: 0.5rem 0;">↓ ...other Connect sections above this point...</div>
+        <div style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic; margin: 0.5rem 0;">↓ ...other Connect sections above this point...</div>
         <div style="font-weight: 600; font-size: 0.85rem; color: var(--burgundy); margin: 0.75rem 0 0.5rem;">Ways We Serve</div>
         <div class="cards-row">
           <div class="mini-card">
