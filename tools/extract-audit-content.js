@@ -56,6 +56,18 @@ function toPlainText(html) {
   return s.trim();
 }
 
+// Drop lorem-ipsum filler lines; keep real content. A page that is entirely
+// placeholder collapses to empty and gets dropped from the audit.
+const LOREM = /lorem ipsum|dolor sit amet|consectetur adipiscing|sed do eiusmod/i;
+function stripLorem(text) {
+  return (text || "")
+    .split("\n")
+    .filter((line) => !LOREM.test(line))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 // Pull the <main> region from a /final page (fall back to <body>).
 function pageMainText(html) {
   const main = html.match(/<main[\s\S]*?<\/main>/i);
@@ -104,51 +116,72 @@ const sqlEsc = (v) => (v == null ? "NULL" : `'${String(v).replace(/'/g, "''")}'`
 
 const unitRows = [];
 const sourceRows = []; // { unitSlug, title, url, text, order }
+const dropped = [];    // { name, reason }
 let sortBase = 0;
 
-function addSources(unitSlug, sources) {
+// Build cleaned source rows for a unit. Lorem-only and empty sources are dropped
+// (a published-but-placeholder page has nothing to verify against).
+function buildSources(unitSlug, sources) {
+  const rows = [];
   let order = 0;
   for (const name of sources) {
     accounted.add(name);
     const p = wpPages.get(name);
     if (!p) {
       warnings.push(`source not found in WP export: "${name}" (unit ${unitSlug})`);
-      sourceRows.push({ unitSlug, title: name, url: null, text: null, order: order++ });
       continue;
     }
-    sourceRows.push({ unitSlug, title: p.title || name, url: p.link, text: p.text, order: order++ });
+    const clean = stripLorem(p.text);
+    if (clean.length < 15) {
+      dropped.push({ name, reason: LOREM.test(p.text || "") ? "lorem-ipsum placeholder" : "no real text (empty/widget-only)" });
+      continue;
+    }
+    rows.push({ unitSlug, title: p.title || name, url: p.link, text: clean, order: order++ });
   }
+  return rows;
+}
+
+function newTextFor(u) {
+  if (!u.new_file) return null;
+  const f = path.join(PUBLIC, u.new_file);
+  if (!fs.existsSync(f)) {
+    warnings.push(`new_file not found: ${u.new_file} (unit ${u.slug_key})`);
+    return null;
+  }
+  return pageMainText(fs.readFileSync(f, "utf-8"));
 }
 
 for (const u of mapping.units) {
-  let newText = null;
-  if (u.new_file) {
-    const f = path.join(PUBLIC, u.new_file);
-    if (fs.existsSync(f)) newText = pageMainText(fs.readFileSync(f, "utf-8"));
-    else warnings.push(`new_file not found: ${u.new_file} (unit ${u.slug_key})`);
+  const srcs = buildSources(u.slug_key, u.sources || []);
+  if (srcs.length === 0) {
+    dropped.push({ name: `unit:${u.slug_key}`, reason: "no real old content to compare (all sources dropped)" });
+    continue;
   }
   unitRows.push({
     slug_key: u.slug_key,
     title: u.title,
     disposition: u.disposition,
     new_url: u.new_url || null,
-    new_text: newText,
+    new_text: newTextFor(u),
     sort_order: sortBase++,
   });
-  addSources(u.slug_key, u.sources || []);
+  sourceRows.push(...srcs);
 }
 
 // removed unit
 if (mapping.removed) {
-  unitRows.push({
-    slug_key: mapping.removed.slug_key,
-    title: mapping.removed.title,
-    disposition: "removed",
-    new_url: null,
-    new_text: null,
-    sort_order: sortBase++,
-  });
-  addSources(mapping.removed.slug_key, mapping.removed.sources || []);
+  const srcs = buildSources(mapping.removed.slug_key, mapping.removed.sources || []);
+  if (srcs.length > 0) {
+    unitRows.push({
+      slug_key: mapping.removed.slug_key,
+      title: mapping.removed.title,
+      disposition: "removed",
+      new_url: null,
+      new_text: null,
+      sort_order: sortBase++,
+    });
+    sourceRows.push(...srcs);
+  }
 }
 
 // excluded (accounting only; not seeded as units)
@@ -169,6 +202,10 @@ if (unaccounted.length) {
     const p = wpPages.get(n);
     console.log(`  - ${n}  ("${p.title}", ${p.link}, ${p.text.length} chars)`);
   }
+}
+if (dropped.length) {
+  console.log(`\nDropped (lorem/empty) (${dropped.length}):`);
+  for (const d of dropped) console.log(`  - ${d.name}: ${d.reason}`);
 }
 if (warnings.length) {
   console.log(`\nWarnings (${warnings.length}):`);
