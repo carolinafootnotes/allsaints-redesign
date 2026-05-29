@@ -763,56 +763,6 @@
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
-  <script>
-    (function() {
-      'use strict';
-
-      // ---- Header scroll behavior ----
-      const header = document.getElementById('site-header');
-      function updateHeader() {
-        const y = window.scrollY;
-        if (y > 80) {
-          header.classList.remove('transparent');
-          header.classList.add('solid');
-        } else {
-          header.classList.remove('solid');
-          header.classList.add('transparent');
-        }
-      }
-      window.addEventListener('scroll', updateHeader, { passive: true });
-      updateHeader();
-
-      // ---- Mobile menu ----
-      const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobile-nav');
-      const mobileLinks = mobileNav.querySelectorAll('a');
-
-      function toggleMenu() {
-        const isOpen = mobileNav.classList.toggle('open');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', isOpen);
-        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      }
-
-      hamburger.addEventListener('click', toggleMenu);
-      mobileLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (mobileNav.classList.contains('open')) {
-            toggleMenu();
-          }
-        });
-      });
-
-      // Close on Escape
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-          toggleMenu();
-          hamburger.focus();
-        }
-      });
-    })();
-  </script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>

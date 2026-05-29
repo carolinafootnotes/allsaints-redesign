@@ -513,52 +513,42 @@ rel="stylesheet">
 
 
   <!-- ===== JAVASCRIPT ===== -->
+  <!-- Jump-nav: serve-page-specific (visibility + active-section tracking) -->
   <script>
-    (function() {
+    (function () {
       'use strict';
 
-      // ---- Header scroll behavior ----
-      const header = document.getElementById('site-header');
-      const jumpNav = document.getElementById('jump-nav');
-      const footerEl = document.querySelector('.site-footer');
-      let lastScroll = 0;
-      function updateHeader() {
-        const y = window.scrollY;
-        if (y > 80) {
-          header.classList.remove('transparent');
-          header.classList.add('solid');
+      var jumpNav = document.getElementById('jump-nav');
+      var footerEl = document.querySelector('.site-footer');
+
+      // ---- Jump-nav visibility: reveal after hero (~80vh), hide when footer visible ----
+      function updateJumpNav() {
+        if (!jumpNav) return;
+        var y = window.scrollY;
+        var heroPassed = y > (window.innerHeight * 0.8);
+        var footerTop = footerEl ? footerEl.getBoundingClientRect().top : Infinity;
+        var footerVisible = footerTop < window.innerHeight;
+        if (heroPassed && !footerVisible) {
+          jumpNav.classList.add('visible');
         } else {
-          header.classList.remove('solid');
-          header.classList.add('transparent');
+          jumpNav.classList.remove('visible');
         }
-        // Jump-nav: reveal after hero scrolls past (~80vh), hide when footer visible
-        if (jumpNav) {
-          const heroPassed = y > (window.innerHeight * 0.8);
-          const footerTop = footerEl ? footerEl.getBoundingClientRect().top : Infinity;
-          const footerVisible = footerTop < window.innerHeight;
-          if (heroPassed && !footerVisible) {
-            jumpNav.classList.add('visible');
-          } else {
-            jumpNav.classList.remove('visible');
-          }
-        }
-        lastScroll = y;
       }
-      window.addEventListener('scroll', updateHeader, { passive: true });
-      updateHeader();
+      window.addEventListener('scroll', updateJumpNav, { passive: true });
+      updateJumpNav();
 
       // ---- Jump-nav active-section tracking ----
       if (jumpNav) {
-        const jumpLinks = Array.from(jumpNav.querySelectorAll('a'));
-        const sectionMap = {};
-        jumpLinks.forEach(function(link) {
-          const id = link.getAttribute('href').slice(1);
-          const sec = document.getElementById(id);
+        var jumpLinks = Array.from(jumpNav.querySelectorAll('a'));
+        var sectionMap = {};
+        jumpLinks.forEach(function (link) {
+          var id = link.getAttribute('href').slice(1);
+          var sec = document.getElementById(id);
           if (sec) sectionMap[id] = link;
         });
-        const sections = Object.keys(sectionMap).map(function(id) { return document.getElementById(id); });
+        var sections = Object.keys(sectionMap).map(function (id) { return document.getElementById(id); });
         function setActive(id) {
-          jumpLinks.forEach(function(l) {
+          jumpLinks.forEach(function (l) {
             if (l.getAttribute('href') === '#' + id) {
               l.setAttribute('aria-current', 'location');
             } else {
@@ -566,10 +556,9 @@ rel="stylesheet">
             }
           });
         }
-        const sectionObserver = new IntersectionObserver(function(entries) {
-          // Pick the most visible intersecting section
-          let best = null;
-          entries.forEach(function(entry) {
+        var sectionObserver = new IntersectionObserver(function (entries) {
+          var best = null;
+          entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
             }
@@ -579,78 +568,10 @@ rel="stylesheet">
           rootMargin: '-30% 0px -55% 0px',
           threshold: [0, 0.25, 0.5, 0.75, 1]
         });
-        sections.forEach(function(s) { sectionObserver.observe(s); });
+        sections.forEach(function (s) { sectionObserver.observe(s); });
       }
-
-      // ---- Mobile menu ----
-      const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobile-nav');
-      const mobileLinks = mobileNav.querySelectorAll('a');
-
-      function toggleMenu() {
-        const isOpen = mobileNav.classList.toggle('open');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', isOpen);
-        hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      }
-
-      hamburger.addEventListener('click', toggleMenu);
-      mobileLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (mobileNav.classList.contains('open')) {
-            toggleMenu();
-          }
-        });
-      });
-
-      // Close on Escape
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-          toggleMenu();
-          hamburger.focus();
-        }
-      });
-
-      // ---- Scroll reveal ----
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!prefersReducedMotion) {
-        var reveals = document.querySelectorAll('.reveal');
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.12,
-          rootMargin: '0px 0px -40px 0px'
-        });
-        reveals.forEach(function(el) { observer.observe(el); });
-      } else {
-        // If reduced motion, show everything
-        document.querySelectorAll('.reveal').forEach(function(el) {
-          el.classList.add('visible');
-        });
-      }
-
-      // ---- Smooth scroll for anchor links ----
-      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          var targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          var target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            var headerHeight = header.offsetHeight;
-            var targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-            window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-          }
-        });
-      });
     })();
   </script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
