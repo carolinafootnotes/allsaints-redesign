@@ -21,14 +21,24 @@
    TOKEN LAYER
    ============================================================ */
 :root {
-  /* Colors */
+  /* Colors -- core palette */
   --color-burgundy:       #7b2332;
   --color-burgundy-deep:  #5e1a28;
+  --color-burgundy-mid:   #9a3040;   /* lighter burgundy; gradient stop: 10 pages */
   --color-header-dark:    #260609;
+  --color-ink-warm:       #2d1118;   /* near-black with burgundy undertone; dark section gradient stop: 9 pages */
   --color-gold:           #c8a977;
   --color-gold-light:     #e8d9a0;
   --color-cream:          #faf8f4;
+  --color-cream-warm:     #faf6ee;   /* warm cream; section backgrounds: 14 pages */
+  --color-cream-tint:     #f5f0e8;   /* slightly deeper warm cream; section backgrounds: 9 pages */
+  --color-cream-deep:     #f0ebe0;   /* warm cream gradient stop: 9 pages */
   --color-ink:            #1a1a1a;
+
+  /* Colors -- neutral text and borders */
+  --color-border:         #e8e4dc;   /* card borders, dividers: 11 pages */
+  --color-text-soft:      #333;      /* secondary / dense body text (merged from #3a3a3a + #444) */
+  --color-text-muted:     #666;      /* captions, labels, muted supporting text (merged from #555 + #6b6b6b) */
 
   /* Font families */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -388,7 +398,7 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 }
 .section-sub {
   font-size: var(--text-base);
-  color: #555;
+  color: var(--color-text-muted);
   max-width: 600px;
   line-height: 1.7;
 }

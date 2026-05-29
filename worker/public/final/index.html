@@ -196,7 +196,7 @@
     }
     .welcome-text {
       font-size: var(--text-base);
-      color: #444;
+      color: var(--color-text-soft);
       line-height: 1.8;
       margin-bottom: var(--space-6);
     }
@@ -242,7 +242,7 @@
       padding: var(--space-6) var(--space-2);
       background: #fff;
       border-radius: var(--radius-md);
-      border: 1px solid #e8e4dc;
+      border: 1px solid var(--color-border);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .stat-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
@@ -258,7 +258,7 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #6b6b6b;
+      color: var(--color-text-muted);
       margin-top: var(--space-2);
     }
     .welcome-image-col { position: relative; }
@@ -292,7 +292,7 @@
        WORSHIP
        ======================================== */
     .worship {
-      background: linear-gradient(160deg, var(--color-burgundy-deep) 0%, var(--color-burgundy) 40%, #9a3040 100%);
+      background: linear-gradient(160deg, var(--color-burgundy-deep) 0%, var(--color-burgundy) 40%, var(--color-burgundy-mid) 100%);
       color: #fff;
       position: relative;
     }
@@ -361,7 +361,7 @@
     /* ========================================
        COMMUNITY LIFE
        ======================================== */
-    .community { background: #f5f0e8; }
+    .community { background: var(--color-cream-tint); }
     .community-bento {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -463,7 +463,7 @@
       color: var(--color-burgundy);
       margin-bottom: 0.6rem;
     }
-    .clergy-fun { font-size: var(--text-sm); color: #666; line-height: 1.5; font-style: italic; }
+    .clergy-fun { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; font-style: italic; }
     @media (max-width: 900px) { .clergy-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 520px)  { .clergy-grid { grid-template-columns: 1fr; } }
 
@@ -471,7 +471,7 @@
        VISIT US (home teaser section)
        ======================================== */
     .visit {
-      background: linear-gradient(175deg, var(--color-ink) 0%, #2d1118 100%);
+      background: linear-gradient(175deg, var(--color-ink) 0%, var(--color-ink-warm) 100%);
       color: #fff;
     }
     .visit .section-label  { color: var(--color-gold); }
@@ -572,7 +572,7 @@
        EVENTS / WHAT'S HAPPENING (home only)
        ======================================== */
     .events {
-      background: linear-gradient(175deg, var(--color-cream) 0%, #f0ebe0 100%);
+      background: linear-gradient(175deg, var(--color-cream) 0%, var(--color-cream-deep) 100%);
       position: relative;
     }
     .events::before {
@@ -592,7 +592,7 @@
       background: #fff;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid #e8e4dc;
+      border: 1px solid var(--color-border);
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
@@ -627,7 +627,7 @@
       margin-bottom: var(--space-2);
       line-height: 1.2;
     }
-    .event-card-desc { font-size: var(--text-sm); color: #555; line-height: 1.6; flex: 1; }
+    .event-card-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; flex: 1; }
     .event-card-link {
       display: inline-flex;
       align-items: center;
@@ -648,7 +648,7 @@
        THIS WEEK STRIP
        ======================================== */
     .this-week {
-      background: linear-gradient(135deg, var(--color-ink) 0%, #2d1118 100%);
+      background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-ink-warm) 100%);
       color: #fff;
       padding: var(--space-10) var(--space-6);
     }
@@ -848,7 +848,7 @@
           <div class="welcome-text-col">
             <div class="section-label reveal">Welcome Home</div>
             <h2 class="section-heading reveal reveal-delay-1">A Church That <em>Loves as<br>God Loves</em></h2>
-            <p class="welcome-text reveal reveal-delay-2" style="font-size: 1.15rem; color: #1a1a1a;">
+            <p class="welcome-text reveal reveal-delay-2" style="font-size: 1.15rem; color: var(--color-ink);">
               All Saints' is the Episcopal branch of the Jesus Movement, a faith community where his love, forgiveness, and healing are changing lives.
             </p>
             <blockquote class="welcome-quote reveal reveal-delay-2">
@@ -858,7 +858,7 @@
             <p class="welcome-text reveal reveal-delay-3">
               Whether you are visiting from afar or have lived in Concord your whole life, you are welcome here. We are a faith community where <strong>God's love meets you</strong> exactly where you are. We've been gathering in Concord since 1878, and the door is wide open for you.
             </p>
-            <p class="welcome-text reveal reveal-delay-3" style="font-size: 0.95rem; color: #555;">
+            <p class="welcome-text reveal reveal-delay-3" style="font-size: 0.95rem; color: var(--color-text-muted);">
               Two Sunday services: 9 AM in the Parish Hall and 11:10 AM in the Nave. Nursery available for infants and toddlers. Accessible entrances on all sides.
             </p>
             <div class="mission-vision-block reveal reveal-delay-3">
@@ -874,8 +874,8 @@
             <p class="welcome-text reveal reveal-delay-3">
               Whether you're exploring faith for the first time or you've been in the pew your whole life, this is your place.
             </p>
-            <p class="welcome-text reveal reveal-delay-3" style="font-size: 0.95rem; color: #6b6b6b;">
-              We are a parish of the Episcopal Diocese of North Carolina. The Rev. John Johanssen serves as our Interim Rector while the vestry's <a href="/final/rector-search" style="color: #7b2332; text-decoration: underline;">search for our next rector</a> is underway.
+            <p class="welcome-text reveal reveal-delay-3" style="font-size: 0.95rem; color: var(--color-text-muted);">
+              We are a parish of the Episcopal Diocese of North Carolina. The Rev. John Johanssen serves as our Interim Rector while the vestry's <a href="/final/rector-search" style="color: var(--color-burgundy); text-decoration: underline;">search for our next rector</a> is underway.
             </p>
             <div class="stats-row reveal reveal-delay-4">
               <div class="stat-item">
@@ -934,7 +934,7 @@
       <div class="container">
         <div style="text-align:center; margin-bottom: 1rem;">
           <div class="section-label reveal">Sunday Worship</div>
-          <h2 class="section-heading reveal reveal-delay-1">Two Services, <em style="color:#c8a977;">One Community</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1">Two Services, <em style="color:var(--color-gold);">One Community</em></h2>
           <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;">
             Both services are Holy Eucharist, Rite II. One is casual and family-friendly; one is traditional with choir and organ.
           </p>
@@ -971,34 +971,34 @@
             <div class="worship-extra-detail">Wednesday &middot; A pause in the week</div>
           </div>
           <div class="worship-extra">
-            <a href="/final/watch-and-listen" style="color: #c8a977;">
-              <div class="worship-extra-title" style="color:#c8a977;">Watch Live &rarr;</div>
+            <a href="/final/watch-and-listen" style="color: var(--color-gold);">
+              <div class="worship-extra-title" style="color:var(--color-gold);">Watch Live &rarr;</div>
               <div class="worship-extra-detail">Stream any Sunday service</div>
             </a>
           </div>
         </div>
 
         <!-- What to Expect inline -->
-        <div class="reveal reveal-delay-4" style="margin-top: 3.5rem; max-width: 56rem; margin-left: auto; margin-right: auto; background: #faf6ee; border: 1px solid #e8e4dc; border-radius: 14px; padding: 2rem 2.5rem;">
-          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.5rem; color: #1a1a1a; margin-bottom: 1rem;">What to expect when you visit</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem 2rem; font-size: 0.95rem; line-height: 1.55; color: #3a3a3a;">
-            <div><strong style="color: #7b2332;">The shape of the service.</strong> A bulletin walks you through everything: when to stand, sit, kneel, or stay seated. The Book of Common Prayer is in the pew if you'd like to follow along.</div>
-            <div><strong style="color: #7b2332;">Communion.</strong> All who love God and are drawn to Christ are welcome at Christ's table. You don't need to be Episcopalian or a member here. Cross your arms for a blessing if you'd rather not receive.</div>
-            <div><strong style="color: #7b2332;">What to wear.</strong> Whatever you're comfortable in. Both services run about an hour to an hour and fifteen minutes.</div>
-            <div><strong style="color: #7b2332;">Children.</strong> Children are a full part of worship here. Nursery care is available; formation for kids meets between services.</div>
+        <div class="reveal reveal-delay-4" style="margin-top: 3.5rem; max-width: 56rem; margin-left: auto; margin-right: auto; background: var(--color-cream-warm); border: 1px solid var(--color-border); border-radius: 14px; padding: 2rem 2.5rem;">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.5rem; color: var(--color-ink); margin-bottom: 1rem;">What to expect when you visit</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem 2rem; font-size: 0.95rem; line-height: 1.55; color: var(--color-text-soft);">
+            <div><strong style="color: var(--color-burgundy);">The shape of the service.</strong> A bulletin walks you through everything: when to stand, sit, kneel, or stay seated. The Book of Common Prayer is in the pew if you'd like to follow along.</div>
+            <div><strong style="color: var(--color-burgundy);">Communion.</strong> All who love God and are drawn to Christ are welcome at Christ's table. You don't need to be Episcopalian or a member here. Cross your arms for a blessing if you'd rather not receive.</div>
+            <div><strong style="color: var(--color-burgundy);">What to wear.</strong> Whatever you're comfortable in. Both services run about an hour to an hour and fifteen minutes.</div>
+            <div><strong style="color: var(--color-burgundy);">Children.</strong> Children are a full part of worship here. Nursery care is available; formation for kids meets between services.</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== COMMUNITY LIFE TEASER ===== -->
-    <section class="section-pad" id="community" aria-label="Life together" style="background: #faf8f4;">
+    <section class="section-pad" id="community" aria-label="Life together" style="background: var(--color-cream);">
       <div class="container">
         <div class="teaser-grid">
           <div class="teaser-copy reveal">
             <div class="section-label">Life Together</div>
-            <h2 class="section-heading">More Than <em style="color:#7b2332;">Sunday Morning</em></h2>
-            <p style="font-size:1.05rem; color:#444; line-height:1.7; margin: 1rem 0 1.75rem;">Worship is the start. Formation, ministries, fellowship, outreach, music — there's a place for you in the rhythm of parish life.</p>
+            <h2 class="section-heading">More Than <em style="color:var(--color-burgundy);">Sunday Morning</em></h2>
+            <p style="font-size:1.05rem; color:var(--color-text-soft); line-height:1.7; margin: 1rem 0 1.75rem;">Worship is the start. Formation, ministries, fellowship, outreach, music — there's a place for you in the rhythm of parish life.</p>
             <a href="/final/connect" class="btn btn-primary">Find Your Place</a>
           </div>
           <div class="teaser-images reveal reveal-delay-2">
@@ -1014,7 +1014,7 @@
       <div class="container">
         <div style="text-align:center; margin-bottom: 2.5rem;">
           <div class="section-label reveal">What's Happening</div>
-          <h2 class="section-heading reveal reveal-delay-1">Life at <em style="color:#7b2332;">All Saints'</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1">Life at <em style="color:var(--color-burgundy);">All Saints'</em></h2>
         </div>
         <div class="events-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 280px)); justify-content: center; max-width: 900px; margin: 0 auto;">
           <a href="https://allsaintsconcord.org/invitiation-to-holy-week/" target="_blank" rel="noopener" class="event-card reveal reveal-delay-1" style="text-decoration:none;">
@@ -1041,7 +1041,7 @@
           </a>
         </div>
         <div style="text-align:center; margin-top: 2rem;" class="reveal reveal-delay-3">
-          <a href="/final/happenings" class="btn btn-outline" style="color: #7b2332; border-color: #7b2332;">See What's Coming Up</a>
+          <a href="/final/happenings" class="btn btn-outline" style="color: var(--color-burgundy); border-color: var(--color-burgundy);">See What's Coming Up</a>
         </div>
       </div>
     </section>
@@ -1051,7 +1051,7 @@
       <div class="container">
         <div style="text-align:center; margin-bottom: 1rem;">
           <div class="section-label reveal">Our Clergy</div>
-          <h2 class="section-heading reveal reveal-delay-1">Meet Our <em style="color:#7b2332;">Clergy</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1">Meet Our <em style="color:var(--color-burgundy);">Clergy</em></h2>
         </div>
         <div class="clergy-grid">
           <div class="clergy-card reveal reveal-delay-1">
@@ -1095,7 +1095,7 @@
       <div class="container">
         <div style="text-align:center; margin-bottom: 2.5rem;">
           <div class="section-label reveal">The Team</div>
-          <h2 class="section-heading reveal reveal-delay-1">Our <em style="color:#7b2332;">Staff</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1">Our <em style="color:var(--color-burgundy);">Staff</em></h2>
         </div>
         <div class="clergy-grid">
           <div class="clergy-card reveal reveal-delay-1">
@@ -1135,17 +1135,17 @@
     </section>
 
     <!-- ===== VISIT TEASER ===== -->
-    <section class="section-pad" id="visit" aria-label="Plan your visit" style="background: #faf8f4;">
+    <section class="section-pad" id="visit" aria-label="Plan your visit" style="background: var(--color-cream);">
       <div class="container">
         <div class="teaser-grid teaser-grid-reverse">
           <div class="teaser-copy reveal">
             <div class="section-label">Plan Your Visit</div>
-            <h2 class="section-heading">We'll save you a <em style="color:#7b2332;">seat</em></h2>
-            <p style="font-size:1.05rem; color:#444; line-height:1.7; margin: 1rem 0 0.5rem;">525 Lake Concord Road NE, Concord, NC 28025</p>
-            <p style="font-size:1rem; color:#555; line-height:1.7; margin: 0 0 1.75rem;">Service times, what to expect, getting here, accessibility, and how to find us. Everything a first-time guest wants to know, in one place.</p>
+            <h2 class="section-heading">We'll save you a <em style="color:var(--color-burgundy);">seat</em></h2>
+            <p style="font-size:1.05rem; color:var(--color-text-soft); line-height:1.7; margin: 1rem 0 0.5rem;">525 Lake Concord Road NE, Concord, NC 28025</p>
+            <p style="font-size:1rem; color:var(--color-text-muted); line-height:1.7; margin: 0 0 1.75rem;">Service times, what to expect, getting here, accessibility, and how to find us. Everything a first-time guest wants to know, in one place.</p>
             <div style="display:flex; gap: 0.75rem; flex-wrap: wrap;">
               <a href="/final/visit" class="btn btn-primary">Plan Your Visit</a>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=All+Saints+Episcopal+Church+525+Lake+Concord+Rd+NE+Concord+NC+28025" target="_blank" rel="noopener" class="btn btn-outline" style="color: #7b2332; border-color: #7b2332;">Get Directions</a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=All+Saints+Episcopal+Church+525+Lake+Concord+Rd+NE+Concord+NC+28025" target="_blank" rel="noopener" class="btn btn-outline" style="color: var(--color-burgundy); border-color: var(--color-burgundy);">Get Directions</a>
             </div>
           </div>
           <div class="teaser-images reveal reveal-delay-2">
@@ -1156,16 +1156,16 @@
     </section>
 
     <!-- ===== RECTOR SEARCH TEASER ===== -->
-    <section class="section-pad" id="rector-search-teaser" aria-label="Rector search" style="background: #faf6ee;">
+    <section class="section-pad" id="rector-search-teaser" aria-label="Rector search" style="background: var(--color-cream-warm);">
       <div class="container" style="max-width: 760px; text-align: center;">
         <div class="section-label reveal">Where We Are</div>
-        <h2 class="section-heading reveal reveal-delay-1">Our <em style="color:#7b2332;">Rector Search</em></h2>
-        <p class="reveal reveal-delay-2" style="font-size: 1.1rem; color: #444; line-height: 1.7; margin: 1rem auto 1.75rem; max-width: 580px;">
+        <h2 class="section-heading reveal reveal-delay-1">Our <em style="color:var(--color-burgundy);">Rector Search</em></h2>
+        <p class="reveal reveal-delay-2" style="font-size: 1.1rem; color: var(--color-text-soft); line-height: 1.7; margin: 1rem auto 1.75rem; max-width: 580px;">
           All Saints' is in a season of careful discernment. The Rev. John Johanssen serves as our Interim Rector while the vestry walks the search process with the Episcopal Diocese of North Carolina.
         </p>
         <div class="reveal reveal-delay-3" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
           <a href="/final/rector-search" class="btn btn-primary">About the Search</a>
-          <a href="mailto:admin@allsaintsconcord.org?subject=Rector%20Search" class="btn btn-outline" style="color:#7b2332; border-color:#7b2332;">Contact the Committee</a>
+          <a href="mailto:admin@allsaintsconcord.org?subject=Rector%20Search" class="btn btn-outline" style="color:var(--color-burgundy); border-color:var(--color-burgundy);">Contact the Committee</a>
         </div>
       </div>
     </section>
