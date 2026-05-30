@@ -64,6 +64,18 @@ export async function getDecisionsByReviewer(db, reviewerId) {
   return results;
 }
 
+// Admin progress: units that have feedback (cleared|flagged) vs still pending.
+export async function getAdminProgress(db) {
+  return await db
+    .prepare(
+      `SELECT
+         SUM(CASE WHEN review_state != 'pending' THEN 1 ELSE 0 END) AS done_count,
+         SUM(CASE WHEN review_state =  'pending' THEN 1 ELSE 0 END) AS pending_count
+       FROM audit_units`,
+    )
+    .first();
+}
+
 export async function getAllAuditDecisions(db) {
   const { results } = await db
     .prepare(

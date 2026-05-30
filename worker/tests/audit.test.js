@@ -159,4 +159,63 @@ describe("audit admin triage", () => {
     const body = await res.text();
     expect(body).toContain("Date is wrong");
   });
+
+  it("admin shows one unit at a time with prev/next and a counter", async () => {
+    await seedUnit({ slug: "aa", state: "pending" });
+    await seedUnit({ slug: "bb", state: "cleared" });
+    const res = await SELF.fetch(`https://x/audit-admin?key=${KEY}&u=aa`);
+    const body = await res.text();
+    expect(body).toContain("u=bb");        // Next link to the other unit
+    expect(body).toContain("to review");   // progress counter present
+    expect(body).toContain("Unit 1 of 2");
+  });
+
+  it("admin counter counts cleared/flagged as done", async () => {
+    await seedUnit({ slug: "p1", state: "pending" });
+    await seedUnit({ slug: "c1", state: "cleared" });
+    const body = await (await SELF.fetch(`https://x/audit-admin?key=${KEY}&u=p1`)).text();
+    expect(body).toContain(">1</b> done");
+    expect(body).toContain(">1</b> to review");
+  });
+
+  it("admin 404s on an unknown unit slug", async () => {
+    await seedUnit({ slug: "real", state: "pending" });
+    const res = await SELF.fetch(`https://x/audit-admin?key=${KEY}&u=ghost`);
+    expect(res.status).toBe(404);
+  });
+});
+
+describe("audit utilitarian shell + fact gaps", () => {
+  it("audit pages do not load the church fonts/branding", async () => {
+    await seedUnit();
+    const r = await seedReviewer();
+    const body = await (await SELF.fetch(`https://x/audit/${r.token}/u/pastoral-care`)).text();
+    expect(body).not.toContain("fonts.googleapis.com");
+    expect(body).not.toContain("Cormorant");
+  });
+
+  async function seedFactUnit(slug, oldText, newText) {
+    await env.DB.prepare(
+      "INSERT INTO audit_units (slug_key, title, disposition, new_url, new_text, review_state, sort_order) VALUES (?1,?2,'merged','/final/x/',?3,'flagged',0)",
+    ).bind(slug, slug, newText).run();
+    const u = await env.DB.prepare("SELECT id FROM audit_units WHERE slug_key=?1").bind(slug).first();
+    await env.DB.prepare(
+      "INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) VALUES (?1,'Old','/',?2,0)",
+    ).bind(u.id, oldText).run();
+  }
+
+  it("flags an old fact missing from the new page", async () => {
+    await seedFactUnit("facts-missing", "Call us at (704) 782-2024 for details.", "Reach the parish office anytime.");
+    const r = await seedReviewer();
+    const body = await (await SELF.fetch(`https://x/audit/${r.token}/u/facts-missing`)).text();
+    expect(body).toContain("Please confirm");
+    expect(body).toContain("(704) 782-2024");
+  });
+
+  it("does not flag a fact that is present in the new page", async () => {
+    await seedFactUnit("facts-present", "Call (704) 782-2024 today.", "The office line is (704) 782-2024.");
+    const r = await seedReviewer();
+    const body = await (await SELF.fetch(`https://x/audit/${r.token}/u/facts-present`)).text();
+    expect(body).not.toContain("Please confirm");
+  });
 });

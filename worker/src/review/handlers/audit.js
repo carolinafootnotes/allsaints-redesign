@@ -9,6 +9,7 @@ import {
   upsertAuditDecision,
   getDecisionsByReviewer,
   getAllAuditDecisions,
+  getAdminProgress,
 } from "../audit_db.js";
 import {
   reviewerLanding,
@@ -84,6 +85,8 @@ export async function handleUnit(request, env, token, slug) {
     || flagged[index + 1]
     || null;
 
+  const doneCount = flagged.filter((u) => decidedSlugs.has(u.slug_key)).length;
+
   return htmlResponse(
     reviewerUnitPage({
       unit,
@@ -92,6 +95,7 @@ export async function handleUnit(request, env, token, slug) {
       token,
       index,
       total: flagged.length,
+      doneCount,
       prevSlug: index > 0 ? flagged[index - 1].slug_key : null,
       nextSlug: next ? next.slug_key : null,
     }),
@@ -148,17 +152,36 @@ export async function handleTriage(request, env) {
   return jsonResponse({ ok: true });
 }
 
-// GET /audit-admin?key=...  — Nate's first-pass page
+// GET /audit-admin?key=...&u=<slug>  — Nate's first pass, one unit at a time
 export async function handleAdmin(request, env, url) {
   const key = url.searchParams.get("key");
   if (!validateAdminKey(env, key)) return new Response("Unauthorized", { status: 401 });
 
   const units = await listAuditUnits(env.DB);
-  const sourcesByUnitId = {};
-  for (const u of units) sourcesByUnitId[u.id] = await getSourcesForUnit(env.DB, u.id);
-  const decisions = await getAllAuditDecisions(env.DB);
-  const decisionsByUnitSlug = {};
-  for (const d of decisions) decisionsByUnitSlug[d.unit_slug_key] = d;
+  if (units.length === 0) return htmlResponse(adminPage({ unit: null, adminKey: key }));
 
-  return htmlResponse(adminPage({ units, sourcesByUnitId, decisionsByUnitSlug, adminKey: key }));
+  const slug = url.searchParams.get("u") || units[0].slug_key;
+  const index = units.findIndex((u) => u.slug_key === slug);
+  if (index === -1) return new Response("Not found", { status: 404 });
+
+  const unit = units[index];
+  const sources = await getSourcesForUnit(env.DB, unit.id);
+  const decisions = await getAllAuditDecisions(env.DB);
+  const unitDecisions = decisions.filter((d) => d.unit_slug_key === slug);
+  const progress = await getAdminProgress(env.DB);
+
+  return htmlResponse(
+    adminPage({
+      unit,
+      sources,
+      unitDecisions,
+      index,
+      total: units.length,
+      prevSlug: index > 0 ? units[index - 1].slug_key : null,
+      nextSlug: index < units.length - 1 ? units[index + 1].slug_key : null,
+      doneCount: progress.done_count || 0,
+      pendingCount: progress.pending_count || 0,
+      adminKey: key,
+    }),
+  );
 }
