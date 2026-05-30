@@ -123,6 +123,21 @@ function auditLayout({ title, body, head = "" }) {
 </head>
 <body>
 <div class="container">${body}</div>
+<script>
+(function () {
+  // Pad the scroll area to clear the fixed action bar (height varies: admin note
+  // row, button wrapping on narrow screens), so the last line is always reachable.
+  function pad() {
+    var bar = document.querySelector('.actionbar');
+    var c = document.querySelector('.container');
+    if (bar && c) c.style.paddingBottom = (bar.offsetHeight + 28) + 'px';
+  }
+  pad();
+  window.addEventListener('resize', pad);
+  window.addEventListener('load', pad);
+  setTimeout(pad, 250);
+})();
+</script>
 </body>
 </html>`;
 }
