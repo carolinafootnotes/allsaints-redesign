@@ -103,8 +103,28 @@ for (const it of items) {
     : "";
   // First occurrence wins; skip duplicate post_names.
   if (!wpPages.has(name)) {
-    wpPages.set(name, { title, link, text: toPlainText(rawContent) });
+    wpPages.set(name, {
+      title,
+      link,
+      text: toPlainText(rawContent),
+      extras: detectExtras(rawContent),
+    });
   }
+}
+
+// Non-text page elements that won't survive plain-text extraction. We note these
+// so the reviewer knows the old page also had a form / map / live list, even
+// though there are no words to check.
+function detectExtras(raw) {
+  const found = [];
+  if (/\[(gravityform|gravity_form|wpforms|contact-form-7|contact-form|fusion_form)\b/i.test(raw) || /wpforms-/.test(raw))
+    found.push("an online form (its fields aren't shown here as text)");
+  if (/<iframe[^>]+google\.com\/maps/i.test(raw)) found.push("an embedded map");
+  else if (/<iframe[^>]+(youtube|vimeo)/i.test(raw)) found.push("an embedded video");
+  else if (/<iframe/i.test(raw)) found.push("an embedded item");
+  if (/<!--\s*wp:query\b/i.test(raw)) found.push("a live list of other pages (filled in automatically)");
+  if (/widget_featured_posts|class="[^"]*\bwidget\b/i.test(raw)) found.push("an automatic list of linked posts");
+  return found;
 }
 
 // ---- assemble units from the mapping -------------------------------------
@@ -132,11 +152,15 @@ function buildSources(unitSlug, sources) {
       continue;
     }
     const clean = stripLorem(p.text);
-    if (clean.length < 15) {
+    const extras = p.extras || [];
+    if (clean.length < 15 && extras.length === 0) {
       dropped.push({ name, reason: LOREM.test(p.text || "") ? "lorem-ipsum placeholder" : "no real text (empty/widget-only)" });
       continue;
     }
-    rows.push({ unitSlug, title: p.title || name, url: p.link, text: clean, order: order++ });
+    const note = extras.length
+      ? `${clean ? "\n\n" : ""}(Also on this old page, not shown as text here: ${extras.join("; ")}.)`
+      : "";
+    rows.push({ unitSlug, title: p.title || name, url: p.link, text: clean + note, order: order++ });
   }
   return rows;
 }

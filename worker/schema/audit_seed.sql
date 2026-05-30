@@ -1591,7 +1591,9 @@ The St. Nicholas Choir , for Grades 1-3, meets on Tuesdays from 5:30-6:00 PM and
 
 The  Junior Choir of All Saints'' , for Grades 4-7, meets on Tuesdays from 6:00-7:00 PM and sings and plays periodically throughout the academic semesters.
 
-Both children''s groups learn basic musical education, learn to sing in a healthy way as well as play and accompany themselves with instruments, all carried along with the Orff-Schulwerk process!', 1 FROM audit_units WHERE slug_key = 'visit';
+Both children''s groups learn basic musical education, learn to sing in a healthy way as well as play and accompany themselves with instruments, all carried along with the Orff-Schulwerk process!
+
+(Also on this old page, not shown as text here: an automatic list of linked posts.)', 1 FROM audit_units WHERE slug_key = 'visit';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Worship Support', 'https://allsaintsconcord.org/worship-support/', 'Service Hours Acolytes 
 The Acolyte ministry is open to children and teens in grades 3-12. They serve at the altar in several roles during the 9:00 and 11:10 services. There is training required for participation in this important and fun ministry. 
 
@@ -1601,6 +1603,7 @@ This support ministry offers lay people the opportunity to participate directly 
 Altar Guild 
 
 The ministry of the Altar Guild provides its members the privilege of coming together each week to enhance the gathering and worship of the Parish. If you enjoy handling beautiful silver, brass, linens and flowers, you would enjoy being a part of this group of men and women.', 2 FROM audit_units WHERE slug_key = 'visit';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Contact', 'https://allsaintsconcord.org/contact/', '(Also on this old page, not shown as text here: an online form (its fields aren''t shown here as text); an embedded map.)', 3 FROM audit_units WHERE slug_key = 'visit';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Live Events', 'https://allsaintsconcord.org/live-events/', 'This is where you can find out about all the weekly live experiences at All Saints''.
 
 Worship
@@ -1648,6 +1651,7 @@ Adults of all ages gather, usually on the second Friday evening in December, for
 
 
 Wine Tasting', 0 FROM audit_units WHERE slug_key = 'happenings';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Connect', 'https://allsaintsconcord.org/connect/', '(Also on this old page, not shown as text here: an online form (its fields aren''t shown here as text).)', 0 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Fellowship', 'https://allsaintsconcord.org/fellowship/', 'In spending time together, we encourage one another in our lives and journeys.  Fellowship events promote and encourage our spirit of community in addition to providing laughs, smiles, and usually food!
 
 Parish Life
@@ -1701,7 +1705,7 @@ EYC (Episcopal Youth Community) is for All Saints’ youth in grades 6-12 and th
 
 There are many opportunities for fellowship, fun, service, and spiritual growth for our youth. Some of last year’s events included: a Pool Party; Fall Youth Retreat to the mountains that included zip-lining; serving at Franklin Graham’s Operation Christmas Child and the Second Harvest Food Distribution Center; Advent and Lenten Service Projects; leading the Palm Sunday and Youth Sunday Worship Services, Spring Weekend Retreat to the beach, assisting with Vacation Bible School and High School and Middle School Summer Mission experiences.
 
-The youth also participate in events during the year within the Charlotte Convocation and the Diocese of North Carolina such as Bishop’s Ball, High School Outreach weekend, Happening, Fall Youth Event and Spring Youth Event and Episcopal Outreach Camp.', 0 FROM audit_units WHERE slug_key = 'connect';
+The youth also participate in events during the year within the Charlotte Convocation and the Diocese of North Carolina such as Bishop’s Ball, High School Outreach weekend, Happening, Fall Youth Event and Spring Youth Event and Episcopal Outreach Camp.', 1 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Become a Member', 'https://allsaintsconcord.org/become-a-member/', 'We rejoice in all those who come to All Saints’. If you would like to make All Saints’ your church home, please be in touch with our Parish Administrator.
 A member of the parish is:
 
@@ -1736,7 +1740,7 @@ Through Confirmation
 Adult baptized members become confirmed members through the Sacrament of Confirmation. Sixteen is usually considered the earliest age for Confirmation, which involves prayers and the laying on of hands by an Episcopal Bishop.
 Through being Received
 
-Those who have been confirmed in another denomination may become a confirmed communicant of the Episcopal Church by Reception.', 1 FROM audit_units WHERE slug_key = 'connect';
+Those who have been confirmed in another denomination may become a confirmed communicant of the Episcopal Church by Reception.', 2 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Koinonia', 'https://allsaintsconcord.org/koinonia/', 'Collect for Koinonia
 God of all creation, fill us with a passion for justice and dignity for each neighbor in our community. Guide and support us through Koinonia to follow Your example and Your command: to do justice, to love mercy, and to walk humbly with You. Transform us, through Your Spirit, to become conduits of your love and compassion, in all that we do, so we become reconciled to You and Your creation. In the name of the Triune God. Amen
 
@@ -1819,25 +1823,25 @@ Access Affordable Housing Handouts Here Download
 
 And check out the Koinonia song that helps express the meaning of the word!
 
-https://youtu.be/ikvRT4yYYhY', 2 FROM audit_units WHERE slug_key = 'connect';
+https://youtu.be/ikvRT4yYYhY', 3 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Men''s Ministry', 'https://allsaintsconcord.org/mens-ministry/', 'Men''s Ministry All Saints’ Men’s Ministry centers around a group of men who meet every Saturday morning from 8:00 until 9:30 in the church’s Welcome Center. The group does book studies, and studies both the Bible and through-provoking books, discussing applications to everyday life and circumstances.
 
 The group also participates in parish works days and volunteers at the community night shelter.
 
-Another opportunity for fun is the F3 program (Faith, Fitness and Fellowship), which meets really early on Tuesdays, Thursday and Saturdays to enjoy fellowship as they work out. Contact Tom Jones for more information.', 3 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Women''s Ministry', 'https://allsaintsconcord.org/womens-ministry/', 'Women''s Ministry The Women’s Ministry of All Saints’ offers times of fellowship and growth, as well as service opportunities.  The annual events include an Advent quiet day, a Lenten Retreat, and a dessert night.  See Roxanne Friday for more information.', 4 FROM audit_units WHERE slug_key = 'connect';
+Another opportunity for fun is the F3 program (Faith, Fitness and Fellowship), which meets really early on Tuesdays, Thursday and Saturdays to enjoy fellowship as they work out. Contact Tom Jones for more information.', 4 FROM audit_units WHERE slug_key = 'connect';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Women''s Ministry', 'https://allsaintsconcord.org/womens-ministry/', 'Women''s Ministry The Women’s Ministry of All Saints’ offers times of fellowship and growth, as well as service opportunities.  The annual events include an Advent quiet day, a Lenten Retreat, and a dessert night.  See Roxanne Friday for more information.', 5 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Young Adults', 'https://allsaintsconcord.org/young-adults/', 'Young Adults The Young Adults group at All Saints'' is made up of singles and couples who are in their late twenties through early forties. Some of us have children, and some do not. We get together for outings, like winery tours and camping trips, and we gather at each others'' homes to share meals, fellowship, and prayer. We invite you to join us! 
 
-Contact Jerrod Smith or Jennifer Cobb for more information.', 5 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Primetimers', 'https://allsaintsconcord.org/primetimers/', 'Prime Timers The Prime Timers are a group of men and women 50+ years of age; they participate in many activities at All Saints’ throughout the year as well as the activities away from the church.', 6 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Stitches for the Saints', 'https://allsaintsconcord.org/stitches-for-the-saints/', 'Stitches for the Saints What expresses love and support better than comfort food?  All Saints’ meal team provides home-cooked meals for folks recovering from illness or hospitalizations, those who are unpacking into new homes, and those with new babies.  There is a supply of home-cooked meals in the freezer, too, ready to be delivered when needed.', 7 FROM audit_units WHERE slug_key = 'connect';
+Contact Jerrod Smith or Jennifer Cobb for more information.', 6 FROM audit_units WHERE slug_key = 'connect';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Primetimers', 'https://allsaintsconcord.org/primetimers/', 'Prime Timers The Prime Timers are a group of men and women 50+ years of age; they participate in many activities at All Saints’ throughout the year as well as the activities away from the church.', 7 FROM audit_units WHERE slug_key = 'connect';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Stitches for the Saints', 'https://allsaintsconcord.org/stitches-for-the-saints/', 'Stitches for the Saints What expresses love and support better than comfort food?  All Saints’ meal team provides home-cooked meals for folks recovering from illness or hospitalizations, those who are unpacking into new homes, and those with new babies.  There is a supply of home-cooked meals in the freezer, too, ready to be delivered when needed.', 8 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Parish Life Events', 'https://allsaintsconcord.org/parish-life-events/', 'Parish Life Events Parish Life 
 
 Small groups, foyer/dinner groups, and Wednesday Night dinners which are open to all members of the church have brought us together.   This last year we held two family picnics which were great fun for all who attended as well as a picnic lunch for all who attended the combined service at the closing of Vacation Bible School in the Park.   
 
 After Christmas Eve service and Easter service we join together for revels which is a toast to celebrate.   
 
-For more information, contact Hilary Smith and Scott Russell.', 8 FROM audit_units WHERE slug_key = 'connect';
+For more information, contact Hilary Smith and Scott Russell.', 9 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'What is an Episcopalian', 'https://allsaintsconcord.org/what-is-an-epis/', 'The Episcopal Church is sometimes called a “bridge” church, because of our strong affinities with both Roman Catholic and other Protestant churches and our respect for all faith traditions. Our worship consists of music, prayers, readings from Scripture and a sermon, followed by what we call the celebration of Holy Communion, a sacred act of remembering and re-living Jesus’ last meal with his disciples. Our worship is traditional in many ways, and quite innovative in others. It’s that combination of tradition and innovation that gives the Episcopal Church its distinct feel. We love to explore the deeper questions of life and faith, in the context of that deeper grounding.
 
 The Episcopal Church celebrates diversity. We are young and old, male and female, gay and straight, single, married, divorced and widowed, Anglo, African American, Latino, African, Asian, CEO and unemployed, student and teacher, rich and poor. We worship together, study and ask questions as we move more deeply into the mystery of God.
@@ -1901,7 +1905,9 @@ What expresses love and support better than comfort food? All Saints’ meal tea
 
 Stitches for the Saints
 
-This group of dedicated knitters and crocheters creates prayer shawls for the home and hospital bound, and for new babies. The group meets monthly, the third Tuesday of each month, in the Welcome Center. You do not have to be an accomplished knitter to join; the members are happy to teach you!', 0 FROM audit_units WHERE slug_key = 'pastoral-care';
+This group of dedicated knitters and crocheters creates prayer shawls for the home and hospital bound, and for new babies. The group meets monthly, the third Tuesday of each month, in the Welcome Center. You do not have to be an accomplished knitter to join; the members are happy to teach you!
+
+(Also on this old page, not shown as text here: an automatic list of linked posts.)', 0 FROM audit_units WHERE slug_key = 'pastoral-care';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Stephen Ministry', 'https://allsaintsconcord.org/stephen-ministry/', 'Bringing Christ''s Care to Hurting People
 
 On June 30, 2024, three new Stephen Ministers were commissioned (right). Current Stephen Ministers are seen on the left.
@@ -1983,7 +1989,9 @@ Marjorie Brown, JD, Concord NC, will discuss the importance of wills, power of a
 Sunday, February 12, 2017- 10:00am 
 All Saint''s parishioner and nationally acclaimed presenter and author, Mary Ann Drummond, RN, will provide valuable information for those seeking a deeper understanding of what dementia is, how to recognize the symptoms associated with dementia, and techniques for positive interactions when a loved one or someone you know has dementia. What are the risk factors? Can dementia be prevented? What resources are available in our community for care givers? What can I personally do to support friends and loved ones with dementia?
 
-Registration', 5 FROM audit_units WHERE slug_key = 'pastoral-care';
+Registration
+
+(Also on this old page, not shown as text here: an online form (its fields aren''t shown here as text).)', 5 FROM audit_units WHERE slug_key = 'pastoral-care';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Serve', 'https://allsaintsconcord.org/serve/', 'In The Church
 
 There are many, many areas of service and ministry ongoing within All Saints’. Some are visible, and some are behind the scenes. From making sure the pews are orderly, to answering phones and greeting visitors, to providing cookies and fruit for coffee hour, there is a place for you to contribute to the life of All Saints’ and the work and walk of fellow parishioners.
@@ -2307,7 +2315,9 @@ Cursillo/Tres Dias
 
 A Cursillo or Tres Dias experience is designed to help you live out the concepts of Christian thoughts, ideals, and faith through the discovery of your God-given gifts. In addition, the 3-day weekend equips each saint through small group sharing, accountability, and support to live out your unique calling to be a Christian leader in your daily life.
 
-Information and registration forms are available online at www.nccursillo.org , or you can contact Dave Millar at dmillar@carolina.rr.com or cell at 704-796-0536 for additional information and instructions.', 0 FROM audit_units WHERE slug_key = 'learn';
+Information and registration forms are available online at www.nccursillo.org , or you can contact Dave Millar at dmillar@carolina.rr.com or cell at 704-796-0536 for additional information and instructions.
+
+(Also on this old page, not shown as text here: an automatic list of linked posts.)', 0 FROM audit_units WHERE slug_key = 'learn';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Christian Education', 'https://allsaintsconcord.org/christian-education/', 'CHILDREN and YOUTH at ALL SAINTS''
 
 Our purpose in Christian Education is to nurture the spiritual growth of
@@ -2509,7 +2519,9 @@ This beautiful stained glass window, first given to the glory of God and in hon
 Alice Jackson “Jack” Hilbish was born in Massie Mill, VA on November 21, 1926. She was the youngest child of Alice and Robert Massie. Jack graduated from Lovingston High School and married her childhood sweetheart, Frederick "Buddy" Hilbish of Piney River on June 2, 1945. A lifelong Episcopalian, Jack was inspired by Henry Wiley and his brother David to join St. James Episcopal Church, Kannapolis, NC. The Hilbishes adopted two children, Melissa and George. The Hilbishes were active at St. James and, after the merger, at All Saints’, Concord. They were also instrumental in the founding of Concord Academy, now Cannon School. Jack was lively, artistic and did exquisite needlework. She chaired the craft section of the Olde Countrie Faire for many years. With Ginny Aberle, Jack organized the creation of the needlepoint kneelers for the altar and the Chrismons which adorn the altar trees at Christmas. She was frequently the life of the party and had a special gift with young people who were happy to have her as a chaperone and sought her out during Kanuga Parish Weekends. Jack died in Lynchburg, Virginia, March 5, 2001 and is buried in the Massie Family Cemetery, Troy, Virginia.
 
 You are invited to view the restored window in its current placement between the Welcome Center and Sanctuary.', 0 FROM audit_units WHERE slug_key = 'history';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Prayer Requests', 'https://allsaintsconcord.org/prayer-requests/', 'Please fill out the form below should you have any prayer concerns.', 0 FROM audit_units WHERE slug_key = 'prayer-requests';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Prayer Requests', 'https://allsaintsconcord.org/prayer-requests/', 'Please fill out the form below should you have any prayer concerns.
+
+(Also on this old page, not shown as text here: an online form (its fields aren''t shown here as text).)', 0 FROM audit_units WHERE slug_key = 'prayer-requests';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Support', 'https://allsaintsconcord.org/support/', 'Worship Support Acolytes 
 
 The Acolyte ministry is open to children and teens in grades 3-12.  They serve at the altar in several roles during the 9:00 and 11:10 services.  There is training required for participation in this important and fun ministry.   
@@ -2550,7 +2562,6 @@ Victor Clark
 Treasurer
 Kim Gordick
 Vestry Clerk', 0 FROM audit_units WHERE slug_key = 'rector-search';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Transition', 'https://allsaintsconcord.org/transition/', 'Transition Updates:', 1 FROM audit_units WHERE slug_key = 'rector-search';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Interim Position Overview for All Saints’ Episcopal Church', 'https://allsaintsconcord.org/transition/interim-position-overview-for-all-saints-episcopal-church/', 'All Saints Episcopal Church, is a vibrant and growing parish in Concord, North Carolina. As the only Episcopal church in the area, we serve a diverse community across Cabarrus, Rowan, and Mecklenburg counties. Our spacious 9-acre campus houses a child development center with NC Pre-K and an extensive creation care ministry.
 
 We offer two Sunday services:
@@ -2567,7 +2578,7 @@ Our ministry is supported by a dedicated staff team of four full time and two pa
 
 We are seeking an interim rector with transition experience who will join us in our journey of growth, outreach, and deepening faith in Christ - someone who will support and encourage our open, loving, and engaged congregation.
 
-For more information on this position, please contact the Diocesan Transition Ministry Officer, Rev. Marion Sprott at  marion.sprott@episdionc.org', 2 FROM audit_units WHERE slug_key = 'rector-search';
+For more information on this position, please contact the Diocesan Transition Ministry Officer, Rev. Marion Sprott at  marion.sprott@episdionc.org', 1 FROM audit_units WHERE slug_key = 'rector-search';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Why is an Interim Needed? And What is ‘Interim Work’?', 'https://allsaintsconcord.org/transition/why-is-an-interim-needed-and-what-is-interim-work-content-provide-by-multiple-sources/', 'When a church has had a long-term pastor and that pastor leaves (due to retirement, resignation, etc.), it is often wise to appoint an interim pastor before calling a new permanent pastor. Here are several key reasons why:
 
 Time for Grieving and Transition
@@ -2632,7 +2643,7 @@ Congregations often are not aware of the support and resources they receive from
 
 5. Committing to New Directions in Ministry
 
-When a congregation has developed a shared vision of its future and has sought to call a rector to help lead it in moving into that future, there will probably be a new commitment both to that new leader and to that new future.', 3 FROM audit_units WHERE slug_key = 'rector-search';
+When a congregation has developed a shared vision of its future and has sought to call a rector to help lead it in moving into that future, there will probably be a new commitment both to that new leader and to that new future.', 2 FROM audit_units WHERE slug_key = 'rector-search';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Tour de Saints 2026 Sponsorship', 'https://allsaintsconcord.org/tour-de-saints-2021-sponsorship/', 'Sign up to become a Tour de Saints sponsor.
 
 Now in our 14th year, The Tour de Saints charity bike ride is an annual outreach event hosted by All Saints Episcopal Church. This community event supports local charities in Cabarrus County.

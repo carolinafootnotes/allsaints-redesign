@@ -127,7 +127,7 @@
       "disposition": "merged",
       "new_url": "/final/rector-search/",
       "new_file": "final/rector-search/index.html",
-      "sources": ["vestry", "transition", "interim-position-overview-for-all-saints-episcopal-church", "why-is-an-interim-needed-and-what-is-interim-work-content-provide-by-multiple-sources"]
+      "sources": ["vestry", "interim-position-overview-for-all-saints-episcopal-church", "why-is-an-interim-needed-and-what-is-interim-work-content-provide-by-multiple-sources"]
     }
   ],
   "removed": {
@@ -152,6 +152,7 @@
     "preparing-way-registration": "Event registration form",
     "sermons": "Stub (2 words); sermons live on Watch & Listen",
     "thank-you": "Form thank-you confirmation page",
+    "transition": "Dynamic hub page; auto-lists the interim pages, which are included separately under Rector Search",
     "virtual-tour": "Photo/tour scaffolding, no real prose",
     "after-dark-all-saints-2025": "Past seasonal event page",
     "after-dark-all-saints-2026": "Seasonal event page; events live on Happenings",
