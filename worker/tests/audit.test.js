@@ -194,28 +194,11 @@ describe("audit utilitarian shell + fact gaps", () => {
     expect(body).not.toContain("Cormorant");
   });
 
-  async function seedFactUnit(slug, oldText, newText) {
-    await env.DB.prepare(
-      "INSERT INTO audit_units (slug_key, title, disposition, new_url, new_text, review_state, sort_order) VALUES (?1,?2,'merged','/final/x/',?3,'flagged',0)",
-    ).bind(slug, slug, newText).run();
-    const u = await env.DB.prepare("SELECT id FROM audit_units WHERE slug_key=?1").bind(slug).first();
-    await env.DB.prepare(
-      "INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) VALUES (?1,'Old','/',?2,0)",
-    ).bind(u.id, oldText).run();
-  }
-
-  it("flags an old fact missing from the new page", async () => {
-    await seedFactUnit("facts-missing", "Call us at (704) 782-2024 for details.", "Reach the parish office anytime.");
+  it("does not add a 'please confirm' fact list to the old column", async () => {
+    await seedUnit({ slug: "no-gap", state: "flagged" });
     const r = await seedReviewer();
-    const body = await (await SELF.fetch(`https://x/audit/${r.token}/u/facts-missing`)).text();
-    expect(body).toContain("Please confirm");
-    expect(body).toContain("(704) 782-2024");
-  });
-
-  it("does not flag a fact that is present in the new page", async () => {
-    await seedFactUnit("facts-present", "Call (704) 782-2024 today.", "The office line is (704) 782-2024.");
-    const r = await seedReviewer();
-    const body = await (await SELF.fetch(`https://x/audit/${r.token}/u/facts-present`)).text();
+    const body = await (await SELF.fetch(`https://x/audit/${r.token}/u/no-gap`)).text();
     expect(body).not.toContain("Please confirm");
+    expect(body).not.toContain("gap-box");
   });
 });

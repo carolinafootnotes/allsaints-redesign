@@ -62,13 +62,6 @@ a { color: var(--old); }
 .removed-note h3 { font-size: 1.05rem; color: var(--amber-tx); margin-bottom: 0.4rem; }
 .removed-note p { font-size: 1.02rem; line-height: 1.55; color: var(--amber-tx); }
 
-.gap-box { margin-top: 0.9rem; background: #322a16; border: 1px solid #6a5526; border-radius: 8px; padding: 0.8rem 0.95rem; }
-.gap-box h4 { font-size: 0.92rem; color: var(--amber-tx); margin-bottom: 0.5rem; }
-.gap-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.gap-list li { font-size: 0.9rem; padding: 0.25rem 0.6rem; border-radius: 5px;
-  background: var(--amber-bg); color: var(--amber-tx); border: 1px solid #7a6230; }
-.gap-allgood { margin-top: 0.85rem; font-size: 0.9rem; color: #9fd9b3; }
-
 @media (max-width: 900px) {
   .compare { flex-direction: column; gap: 1.25rem; }
   .col + .col { border-top: 2px solid var(--border); padding-top: 1.25rem; }
@@ -134,79 +127,12 @@ function auditLayout({ title, body, head = "" }) {
 </html>`;
 }
 
-// ---- fact extraction: find concrete facts in OLD text, flag those missing from NEW ----
-
-// Known parish proper nouns whose multi-word forms have lowercase connectors the
-// generic capitalized-run regex would miss. Kept short and stable.
-const KNOWN_TERMS = [
-  "Education for Ministry", "EfM", "Lockhart Child Development Center", "LCDC",
-  "Stephen Ministry", "Daughters of the King", "Episcopal Youth", "Set Free to Serve",
-  "Tour de Saints", "Parish Nurses", "Prayer Shawl", "CODEP", "Haiti", "Koinonia",
-  "Primetimers", "Men's Ministry", "Women's Ministry", "Young Adults", "Cooperative Christian Ministry",
-];
-
-function normalize(s) {
-  return (s || "").toLowerCase().replace(/[‘’']/g, "'").replace(/[^a-z0-9'@.\s]/g, " ").replace(/\s+/g, " ").trim();
-}
-
-function extractFacts(text) {
-  const t = text || "";
-  const facts = new Set();
-  // dates
-  for (const m of t.matchAll(/\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2}(?:,?\s*\d{4})?/g)) facts.add(m[0].trim());
-  for (const m of t.matchAll(/\b(?:19|20)\d{2}\b/g)) facts.add(m[0]);                 // years
-  for (const m of t.matchAll(/\$\s?\d[\d,]*(?:\.\d{1,2})?/g)) facts.add(m[0].replace(/\s/g, "")); // money
-  for (const m of t.matchAll(/\(?\d{3}\)?[\s\-.]\d{3}[\s\-.]\d{4}/g)) facts.add(m[0].trim());      // phone
-  for (const m of t.matchAll(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g)) facts.add(m[0]); // email
-  for (const m of t.matchAll(/\b\d{1,5}\s+[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3}\s+(?:Road|Rd|Street|St|Avenue|Ave|Drive|Dr|Lane|Ln|Blvd|Boulevard|Way|Court|Ct)\b/g)) facts.add(m[0].trim()); // street address
-  for (const m of t.matchAll(/(?:[A-Z][a-z]{1,20}\s+){1,4}[A-Z][a-z]{1,20}/g)) {     // multi-word proper nouns
-    const v = m[0].trim();
-    if (v.length > 3) facts.add(v);
-  }
-  for (const term of KNOWN_TERMS) {                                                   // curated terms
-    if (new RegExp("\\b" + term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i").test(t)) facts.add(term);
-  }
-  return [...facts];
-}
-
-// Facts in OLD text not found (normalized) in NEW text. Caps at a sane length.
-function missingFacts(oldText, newText) {
-  if (!newText) return [];
-  const hay = normalize(newText);
-  const out = [];
-  const seen = new Set();
-  for (const f of extractFacts(oldText)) {
-    const n = normalize(f);
-    if (n.length < 3 || seen.has(n)) continue;
-    seen.add(n);
-    if (!hay.includes(n)) out.push(f);
-  }
-  return out.slice(0, 20);
-}
-
 // ---- shared before/after comparison component ----------------------------
 
 function proseBlock(text) {
   const t = (text || "").trim();
   if (!t) return `<div class="prose" style="color:var(--muted);">(No text found for this page.)</div>`;
   return `<div class="prose">${esc(t)}</div>`;
-}
-
-function gapBox(oldText, newText) {
-  const missing = missingFacts(oldText, newText);
-  if (!newText) return "";
-  if (missing.length === 0) {
-    return extractFacts(oldText).length
-      ? `<p class="gap-allgood">Key facts from this old page were found in the new wording.</p>`
-      : "";
-  }
-  const items = missing
-    .map((f) => `<li aria-label="Not found in new wording: ${esc(f)}">${esc(f)}</li>`)
-    .join("");
-  return `<div class="gap-box" role="note" aria-label="Facts to confirm on the new page">
-    <h4>Please confirm these from the old page still appear on the new page:</h4>
-    <ul class="gap-list">${items}</ul>
-  </div>`;
 }
 
 export function comparisonHtml(unit, sources) {
@@ -216,7 +142,6 @@ export function comparisonHtml(unit, sources) {
         <div class="source-title">${esc(s.old_title)}</div>
         ${s.old_url ? `<div class="source-url">${esc(s.old_url)}</div>` : ""}
         ${proseBlock(s.old_text)}
-        ${gapBox(s.old_text, unit.new_text)}
       </div>`,
     )
     .join("");
