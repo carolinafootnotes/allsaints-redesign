@@ -7,7 +7,7 @@
       "disposition": "merged",
       "new_url": "/final/",
       "new_file": "final/index.html",
-      "sources": ["mission", "mission-vision-and-values", "welcome-from-the-rector"]
+      "sources": ["mission", "mission-vision-and-values"]
     },
     {
       "slug_key": "visit",
@@ -153,6 +153,7 @@
     "sermons": "Stub (2 words); sermons live on Watch & Listen",
     "thank-you": "Form thank-you confirmation page",
     "transition": "Dynamic hub page; auto-lists the interim pages, which are included separately under Rector Search",
+    "welcome-from-the-rector": "Former rector's welcome letter; dropped from the audit pending Fr. John's confirmation",
     "virtual-tour": "Photo/tour scaffolding, no real prose",
     "after-dark-all-saints-2025": "Past seasonal event page",
     "after-dark-all-saints-2026": "Seasonal event page; events live on Happenings",

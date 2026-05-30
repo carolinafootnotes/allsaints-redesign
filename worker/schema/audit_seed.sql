@@ -1456,13 +1456,6 @@ To be a church of Disciples Making Disciples for Jesus.
 Our Vision 
 
 To be a church that Loves Like God Loves.', 0 FROM audit_units WHERE slug_key = 'home';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Welcome', 'https://allsaintsconcord.org/welcome-from-the-rector/', 'Welcome to All Saints’, a faith community where Jesus’ love, forgiveness and healing is changing lives.
-
-All are welcome in this place. Whether you are visiting from afar, or have lived in the area for a long time, you are welcome here. Whether you have wandered in wondering about God, or grew up in the church, you are welcome here. Whether you have more questions than answers, or more answers than questions, you are welcome here. Wherever you are on your journey, you are welcome here. Your hopes, dreams, aspirations, sorrows, concerns, and frustrations are welcome, too!
-
-As a community, we believe that God is Love. We hold up a vision of being a community that loves as God loves, growing in our likeness of Jesus, who modeled God’s love for us. Our mission is to help others to grow in that likeness as well. The work we do is shaped by our core values which are both broad and specific -- a good description of the Episcopal Church! We gather around two books, the Bible (the story of God’s love for us across time and in many different situations), and the Book of Common Prayer (our way of responding to God’s love in praise and worship, in the words of our common heritage as Episcopalians). We go out into the wider community, and the even wider world, to serve those in need of shelter, food, housing, medical care, education and hope.
-
-You are invited to this joyful journey of living in God’s kingdom, God’s dream for this world.', 1 FROM audit_units WHERE slug_key = 'home';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'What to Expect', 'https://allsaintsconcord.org/what-to-expect/', 'What to Expect It can be a little intimidating walking into a church for the first time. Maybe you are new in town, or maybe it''s just been a long time since you''ve been to church, or maybe you have never been to an Episcopal church at all.
 
 When you visit All Saints’, you are a welcome guest. We extend a warm and unconditional invitation to you to worship with us, whether you are just visiting in town or searching for a community that will embrace you as you are.
