@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Page Triage (internal review tool)</title>
+<style>
+  /* Deliberately plain. This is a working tool, NOT the church website. */
+  :root { --line:#d9d9d9; --ink:#1a1a1a; --muted:#666; --bg:#f4f4f4;
+          --keep:#1e7d34; --cons:#9a6b00; --remove:#a4262c; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:var(--ink); background:var(--bg); line-height:1.45; }
+  .wrap { max-width:860px; margin:0 auto; padding:0 16px 80px; }
+  header { background:#fffbe6; border-bottom:2px solid #e0c200; }
+  .head-in { max-width:860px; margin:0 auto; padding:14px 16px; }
+  h1 { font-size:1.2rem; margin:0 0 2px; }
+  .sub { font-size:.8rem; color:var(--muted); margin:0; }
+  .bar { position:sticky; top:0; z-index:5; background:#fff; border-bottom:1px solid var(--line);
+         display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:10px 16px; }
+  .bar .grow { flex:1 1 auto; }
+  .count { font-size:.85rem; color:var(--muted); }
+  .count strong { color:var(--ink); }
+  select, button { font:inherit; }
+  .btn { border:1px solid var(--line); background:#fff; padding:6px 12px; border-radius:6px; cursor:pointer; }
+  .btn:hover { background:#f0f0f0; }
+  ul { list-style:none; margin:20px 0 0; padding:0; }
+  li.card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
+  li.card.done { border-left:5px solid #bbb; }
+  li.card.keep { border-left:5px solid var(--keep); }
+  li.card.consolidate { border-left:5px solid var(--cons); }
+  li.card.remove { border-left:5px solid var(--remove); }
+  .row1 { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+  .num { color:var(--muted); font-size:.8rem; min-width:28px; }
+  .title { font-weight:600; font-size:1.02rem; }
+  .badge { font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; padding:1px 6px; border-radius:4px;
+           background:#eee; color:#555; }
+  .badge.draft { background:#fde9c8; color:#8a5a00; }
+  .badge.private { background:#e6dcff; color:#5b3fa0; }
+  .meta { font-size:.78rem; color:var(--muted); margin:4px 0 0; }
+  .meta a { color:#1155cc; }
+  .meta .nolink { color:#999; font-style:italic; }
+  .suggest { font-size:.76rem; color:var(--muted); margin:6px 0 0; }
+  .suggest b { color:var(--ink); text-transform:capitalize; }
+  .choices { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .choices button { flex:1 1 0; min-width:110px; padding:9px 8px; border-radius:6px; border:2px solid var(--line);
+                    background:#fff; cursor:pointer; font-weight:600; }
+  .choices button[data-v="keep"].on { background:var(--keep); color:#fff; border-color:var(--keep); }
+  .choices button[data-v="consolidate"].on { background:var(--cons); color:#fff; border-color:var(--cons); }
+  .choices button[data-v="remove"].on { background:var(--remove); color:#fff; border-color:var(--remove); }
+  .choices button:hover { filter:brightness(.97); }
+  .note { width:100%; margin-top:10px; font:inherit; font-size:.85rem; padding:6px 8px;
+          border:1px solid var(--line); border-radius:6px; resize:vertical; min-height:34px; display:none; }
+  li.card .note.show { display:block; }
+  .notetoggle { background:none; border:none; color:#1155cc; cursor:pointer; font-size:.76rem; padding:6px 0 0; }
+  .empty { color:var(--muted); padding:30px 0; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="head-in">
+    <h1>Page Triage &mdash; internal review tool</h1>
+    <p class="sub">Not the real website. Go through each page, look at the live version, decide: Keep, Consolidate, or Remove. Your choices save in this browser. Export when done.</p>
+  </div>
+</header>
+
+<div class="bar">
+  <span class="count" id="count"></span>
+  <span class="grow"></span>
+  <label class="count">Show
+    <select id="filter">
+      <option value="published">Published only</option>
+      <option value="all">All 82</option>
+      <option value="undecided">Undecided</option>
+    </select>
+  </label>
+  <button class="btn" id="export">Export CSV</button>
+  <button class="btn" id="reset">Reset</button>
+</div>
+
+<div class="wrap">
+  <ul id="list"></ul>
+  <p class="empty" id="empty" hidden>Nothing to show with this filter.</p>
+</div>
+
+<script>
+const LIVE = "https://allsaintsconcord.org";
+const KEY = "allsaints-page-triage-v1";
+const PAGES = [{"id":"p001-activity","num":1,"title":"Activity","slug":"/activity/","status":"publish","words":0,"modified":"2016-01-27","suggest":"","foldTarget":"","note":""},{"id":"p002-adas-media","num":2,"title":"AD@AS Media","slug":"/adas-media/","status":"publish","words":36,"modified":"2024-03-25","suggest":"","foldTarget":"","note":""},{"id":"p003-home","num":3,"title":"After Dark @ All Saints' 2017","slug":"/","status":"draft","words":872,"modified":"2020-03-11","suggest":"","foldTarget":"","note":""},{"id":"p004-home","num":4,"title":"After Dark @ All Saints' 2019","slug":"/","status":"draft","words":369,"modified":"2020-03-11","suggest":"","foldTarget":"","note":""},{"id":"p005-home","num":5,"title":"After Dark @ All Saints' 2020","slug":"/","status":"draft","words":3340,"modified":"2023-01-06","suggest":"","foldTarget":"","note":""},{"id":"p006-home","num":6,"title":"After Dark @ All Saints' 2020 Registration","slug":"/","status":"draft","words":103,"modified":"2020-03-09","suggest":"","foldTarget":"","note":""},{"id":"p007-home","num":7,"title":"After Dark @ All Saints' 2023","slug":"/","status":"draft","words":2606,"modified":"2024-01-03","suggest":"","foldTarget":"","note":""},{"id":"p008-home","num":8,"title":"After Dark @ All Saints' 2024","slug":"/","status":"draft","words":2913,"modified":"2024-12-28","suggest":"","foldTarget":"","note":""},{"id":"p009-after-dark-all-saints-2025","num":9,"title":"After Dark @ All Saints' 2026","slug":"/after-dark-all-saints-2025/","status":"publish","words":78,"modified":"2026-01-08","suggest":"","foldTarget":"","note":""},{"id":"p010-after-dark-all-saints-2026","num":10,"title":"After Dark @ All Saints' 2026","slug":"/after-dark-all-saints-2026/","status":"publish","words":110,"modified":"2026-01-15","suggest":"","foldTarget":"","note":""},{"id":"p011-become-a-member","num":11,"title":"Become a Member","slug":"/become-a-member/","status":"publish","words":206,"modified":"2017-03-13","suggest":"keep","foldTarget":"","note":"Migrate already in /final"},{"id":"p012-bulletins","num":12,"title":"Bulletins","slug":"/bulletins/","status":"publish","words":26,"modified":"2023-12-21","suggest":"","foldTarget":"","note":""},{"id":"p013-ccm-mac-house-meal-ministry","num":13,"title":"CCM MAC House Meal Ministry","slug":"/ccm-mac-house-meal-ministry/","status":"publish","words":158,"modified":"2026-05-04","suggest":"","foldTarget":"","note":""},{"id":"p014-christian-education","num":14,"title":"Christian Education","slug":"/christian-education/","status":"publish","words":563,"modified":"2017-05-05","suggest":"","foldTarget":"","note":""},{"id":"p015-clergy","num":15,"title":"Clergy","slug":"/clergy/","status":"publish","words":966,"modified":"2026-03-25","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p016-connect","num":16,"title":"Connect","slug":"/connect/","status":"publish","words":4,"modified":"2015-08-17","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p017-contact","num":17,"title":"Contact","slug":"/contact/","status":"publish","words":32,"modified":"2015-02-06","suggest":"","foldTarget":"","note":""},{"id":"p018-directory","num":18,"title":"Directory","slug":"/directory/","status":"publish","words":1,"modified":"2015-02-13","suggest":"","foldTarget":"","note":""},{"id":"p019-episcopal-youth","num":19,"title":"Episcopal Youth","slug":"/episcopal-youth/","status":"publish","words":189,"modified":"2017-05-05","suggest":"","foldTarget":"","note":""},{"id":"p020-event-payment","num":20,"title":"Event Payment","slug":"/event-payment/","status":"publish","words":0,"modified":"2017-11-19","suggest":"","foldTarget":"","note":""},{"id":"p021-fellowship","num":21,"title":"Fellowship","slug":"/fellowship/","status":"publish","words":644,"modified":"2018-06-25","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p022-get-the-latest","num":22,"title":"Get the Latest","slug":"/get-the-latest/","status":"publish","words":30,"modified":"2023-07-26","suggest":"","foldTarget":"","note":""},{"id":"p023-groups","num":23,"title":"Groups","slug":"/groups/","status":"publish","words":0,"modified":"2014-12-15","suggest":"","foldTarget":"","note":""},{"id":"p024-history","num":24,"title":"History","slug":"/history/","status":"publish","words":757,"modified":"2023-01-25","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p025-home","num":25,"title":"HOME","slug":"/","status":"publish","words":0,"modified":"2016-11-28","suggest":"","foldTarget":"","note":""},{"id":"p026-important-forms","num":26,"title":"Important Forms","slug":"/important-forms/","status":"publish","words":0,"modified":"2015-02-05","suggest":"","foldTarget":"","note":""},{"id":"p027-in-the-church","num":27,"title":"In the Church","slug":"/in-the-church/","status":"publish","words":487,"modified":"2016-06-27","suggest":"","foldTarget":"","note":""},{"id":"p028-in-the-community","num":28,"title":"In the Community","slug":"/in-the-community/","status":"publish","words":675,"modified":"2015-11-02","suggest":"","foldTarget":"","note":""},{"id":"p029-in-the-world","num":29,"title":"In the World","slug":"/in-the-world/","status":"publish","words":608,"modified":"2015-11-02","suggest":"","foldTarget":"","note":""},{"id":"p030-interior-1","num":30,"title":"Interior 1","slug":"/interior-1/","status":"publish","words":787,"modified":"2015-01-27","suggest":"","foldTarget":"","note":""},{"id":"p031-koinonia","num":31,"title":"Koinonia","slug":"/koinonia/","status":"publish","words":790,"modified":"2023-07-24","suggest":"","foldTarget":"","note":""},{"id":"p032-learn","num":32,"title":"Learn","slug":"/learn/","status":"publish","words":863,"modified":"2023-04-25","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p033-life-events","num":33,"title":"Life Events","slug":"/life-events/","status":"publish","words":505,"modified":"2025-02-06","suggest":"consolidate","foldTarget":"/connect","note":"Migrate to /connect (Pastoral Care)"},{"id":"p034-live-events","num":34,"title":"Live Events","slug":"/live-events/","status":"publish","words":225,"modified":"2026-01-12","suggest":"consolidate","foldTarget":"/watch-live","note":"Migrate to /watch-live"},{"id":"p035-meals","num":35,"title":"Meals","slug":"/meals/","status":"publish","words":122,"modified":"2015-11-04","suggest":"","foldTarget":"","note":""},{"id":"p036-members","num":36,"title":"Members","slug":"/members/","status":"publish","words":0,"modified":"2014-12-15","suggest":"","foldTarget":"","note":""},{"id":"p037-mens-ministry","num":37,"title":"Men's Ministry","slug":"/mens-ministry/","status":"publish","words":163,"modified":"2015-11-02","suggest":"","foldTarget":"","note":""},{"id":"p038-home","num":38,"title":"Ministry Contacts","slug":"/","status":"draft","words":13,"modified":"2025-02-26","suggest":"","foldTarget":"","note":""},{"id":"p039-mission","num":39,"title":"Mission","slug":"/mission/","status":"publish","words":1005,"modified":"2015-02-04","suggest":"","foldTarget":"","note":""},{"id":"p040-mission-vision-and-values","num":40,"title":"Mission, Vision, and Values","slug":"/mission-vision-and-values/","status":"publish","words":24,"modified":"2016-11-28","suggest":"","foldTarget":"","note":""},{"id":"p041-new-home","num":41,"title":"New Home","slug":"/new-home/","status":"publish","words":11,"modified":"2016-11-08","suggest":"","foldTarget":"","note":""},{"id":"p042-night-shelter-meal-ministry","num":42,"title":"Night Shelter Meal Ministry","slug":"/night-shelter-meal-ministry/","status":"publish","words":230,"modified":"2025-11-18","suggest":"","foldTarget":"","note":""},{"id":"p043-nursery","num":43,"title":"Nursery","slug":"/nursery/","status":"publish","words":1005,"modified":"2015-02-04","suggest":"","foldTarget":"","note":""},{"id":"p044-parish-life-events","num":44,"title":"Parish Life Events","slug":"/parish-life-events/","status":"publish","words":163,"modified":"2015-10-15","suggest":"consolidate","foldTarget":"/connect","note":"Migrate to /connect (Pastoral Care)"},{"id":"p045-parish-nurses","num":45,"title":"Parish Nurses","slug":"/parish-nurses/","status":"publish","words":95,"modified":"2015-11-04","suggest":"","foldTarget":"","note":""},{"id":"p046-pastoral-care","num":46,"title":"Pastoral Care","slug":"/pastoral-care/","status":"publish","words":143,"modified":"2023-06-26","suggest":"consolidate","foldTarget":"/connect","note":"Migrate to /connect (Pastoral Care)"},{"id":"p047-photo-gallery","num":47,"title":"Photo Gallery","slug":"/photo-gallery/","status":"publish","words":0,"modified":"2015-02-05","suggest":"","foldTarget":"","note":""},{"id":"p048-play","num":48,"title":"Play","slug":"/play/","status":"publish","words":242,"modified":"2018-06-25","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p049-prayer","num":49,"title":"Prayer","slug":"/prayer/","status":"publish","words":194,"modified":"2018-03-01","suggest":"","foldTarget":"","note":""},{"id":"p050-prayer-requests","num":50,"title":"Prayer Requests","slug":"/prayer-requests/","status":"publish","words":16,"modified":"2017-03-09","suggest":"keep","foldTarget":"","note":"KEEP preserve URL (printed)"},{"id":"p051-prayer-teams","num":51,"title":"Prayer Teams","slug":"/prayer-teams/","status":"publish","words":980,"modified":"2015-09-09","suggest":"","foldTarget":"","note":""},{"id":"p052-preparing-way-registration","num":52,"title":"Preparing the Way Registration","slug":"/preparing-way-registration/","status":"publish","words":198,"modified":"2016-11-16","suggest":"","foldTarget":"","note":""},{"id":"p053-primetimers","num":53,"title":"Primetimers","slug":"/primetimers/","status":"publish","words":107,"modified":"2015-10-15","suggest":"","foldTarget":"","note":""},{"id":"p054-public-preschool","num":54,"title":"Public Preschool","slug":"/public-preschool/","status":"publish","words":1006,"modified":"2015-02-04","suggest":"","foldTarget":"","note":""},{"id":"p055-sermons","num":55,"title":"Sermons","slug":"/sermons/","status":"publish","words":2,"modified":"2016-09-26","suggest":"","foldTarget":"","note":""},{"id":"p056-serve","num":56,"title":"Serve","slug":"/serve/","status":"publish","words":290,"modified":"2017-01-28","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p057-home","num":57,"title":"Service Archive","slug":"/","status":"draft","words":27,"modified":"2020-06-20","suggest":"","foldTarget":"","note":""},{"id":"p058-service-hours","num":58,"title":"Service Hours","slug":"/service-hours/","status":"publish","words":201,"modified":"2026-01-05","suggest":"","foldTarget":"","note":""},{"id":"p059-set-free-to-serve","num":59,"title":"Set Free To Serve","slug":"/set-free-to-serve/","status":"publish","words":858,"modified":"2018-04-29","suggest":"","foldTarget":"","note":""},{"id":"p060-staff","num":60,"title":"Staff","slug":"/staff/","status":"publish","words":840,"modified":"2026-04-30","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p061-stephen-ministry","num":61,"title":"Stephen Ministry","slug":"/stephen-ministry/","status":"publish","words":160,"modified":"2024-07-01","suggest":"consolidate","foldTarget":"/connect","note":"Migrate to /connect (Pastoral Care)"},{"id":"p062-stitches-for-the-saints","num":62,"title":"Stitches for the Saints","slug":"/stitches-for-the-saints/","status":"publish","words":125,"modified":"2015-11-04","suggest":"","foldTarget":"","note":""},{"id":"p063-support","num":63,"title":"Support","slug":"/support/","status":"publish","words":215,"modified":"2015-10-26","suggest":"","foldTarget":"","note":""},{"id":"p064-test","num":64,"title":"test","slug":"/test/","status":"private","words":2,"modified":"2017-12-05","suggest":"","foldTarget":"","note":""},{"id":"p065-thank-you","num":65,"title":"Thank you","slug":"/thank-you/","status":"publish","words":6,"modified":"2019-05-08","suggest":"","foldTarget":"","note":""},{"id":"p066-home","num":66,"title":"Tour de Saints 2024 Volunteer","slug":"/","status":"draft","words":3,"modified":"2025-05-12","suggest":"remove","foldTarget":"","note":"Retire (seasonal)"},{"id":"p067-tour-de-saints-2021-sponsorship","num":67,"title":"Tour de Saints 2026 Sponsorship","slug":"/tour-de-saints-2021-sponsorship/","status":"publish","words":204,"modified":"2026-05-13","suggest":"remove","foldTarget":"","note":"Retire (seasonal)"},{"id":"p068-transition","num":68,"title":"Transition","slug":"/transition/","status":"publish","words":2,"modified":"2025-08-17","suggest":"","foldTarget":"","note":""},{"id":"p069-transition-interim-overview","num":69,"title":"Interim Position Overview","slug":"/transition/interim-position-overview-for-all-saints-episcopal-church/","status":"publish","words":333,"modified":"2025-08-19","suggest":"","foldTarget":"","note":""},{"id":"p070-transition-why-interim","num":70,"title":"Why is an Interim Needed?","slug":"/transition/why-is-an-interim-needed-and-what-is-interim-work-content-provide-by-multiple-sources/","status":"publish","words":634,"modified":"2025-08-17","suggest":"","foldTarget":"","note":""},{"id":"p071-vestry","num":71,"title":"Vestry","slug":"/vestry/","status":"publish","words":68,"modified":"2026-03-10","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p072-virtual-tour","num":72,"title":"Virtual Tour","slug":"/virtual-tour/","status":"publish","words":1006,"modified":"2015-02-04","suggest":"","foldTarget":"","note":""},{"id":"p073-really-need-talk","num":73,"title":"We Really Need to Talk","slug":"/really-need-talk/","status":"publish","words":587,"modified":"2017-01-28","suggest":"","foldTarget":"","note":""},{"id":"p074-welcome-from-the-rector","num":74,"title":"Welcome","slug":"/welcome-from-the-rector/","status":"publish","words":260,"modified":"2026-01-05","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p075-what-is-an-epis","num":75,"title":"What is an Episcopalian","slug":"/what-is-an-epis/","status":"publish","words":469,"modified":"2017-03-04","suggest":"","foldTarget":"","note":""},{"id":"p076-what-to-expect","num":76,"title":"What to Expect","slug":"/what-to-expect/","status":"publish","words":1876,"modified":"2016-01-11","suggest":"","foldTarget":"","note":""},{"id":"p077-womens-ministry","num":77,"title":"Women's Ministry","slug":"/womens-ministry/","status":"publish","words":110,"modified":"2015-10-15","suggest":"","foldTarget":"","note":""},{"id":"p078-worship","num":78,"title":"Worship","slug":"/worship/","status":"publish","words":724,"modified":"2024-08-08","suggest":"keep","foldTarget":"","note":"Migrate (consolidate into new IA)"},{"id":"p079-worship-support","num":79,"title":"Worship Support","slug":"/worship-support/","status":"publish","words":213,"modified":"2015-08-06","suggest":"","foldTarget":"","note":""},{"id":"p080-wpforms-preview","num":80,"title":"WPForms Preview","slug":"/wpforms-preview/","status":"private","words":36,"modified":"2017-11-19","suggest":"","foldTarget":"","note":""},{"id":"p081-wpforms-preview-2","num":81,"title":"WPForms Preview","slug":"/wpforms-preview-2/","status":"private","words":36,"modified":"2017-11-19","suggest":"","foldTarget":"","note":""},{"id":"p082-young-adults","num":82,"title":"Young Adults","slug":"/young-adults/","status":"publish","words":144,"modified":"2015-10-15","suggest":"","foldTarget":"","note":""}];
+
+let decisions = {};
+try { decisions = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { decisions = {}; }
+function save() { localStorage.setItem(KEY, JSON.stringify(decisions)); }
+
+const listEl = document.getElementById("list");
+const emptyEl = document.getElementById("empty");
+const countEl = document.getElementById("count");
+const filterEl = document.getElementById("filter");
+
+function liveUrl(p) {
+  if (p.status !== "publish") return null;
+  if (!p.slug || p.slug === "/") return p.slug === "/" ? LIVE + "/" : null;
+  return LIVE + p.slug;
+}
+
+function visible() {
+  const f = filterEl.value;
+  if (f === "all") return PAGES;
+  if (f === "undecided") return PAGES.filter(p => !decisions[p.id]);
+  return PAGES.filter(p => p.status === "publish");
+}
+
+function renderCount() {
+  const total = PAGES.length;
+  const done = PAGES.filter(p => decisions[p.id] && decisions[p.id].d).length;
+  const pubTotal = PAGES.filter(p => p.status === "publish").length;
+  const pubDone = PAGES.filter(p => p.status === "publish" && decisions[p.id] && decisions[p.id].d).length;
+  countEl.innerHTML = "Published decided: <strong>" + pubDone + " / " + pubTotal +
+    "</strong> &nbsp;·&nbsp; All: " + done + " / " + total;
+}
+
+function cardClass(p) {
+  const d = decisions[p.id] && decisions[p.id].d;
+  return "card" + (d ? " " + d : "");
+}
+
+function render() {
+  const rows = visible();
+  listEl.innerHTML = "";
+  emptyEl.hidden = rows.length > 0;
+  for (const p of rows) {
+    const url = liveUrl(p);
+    const d = decisions[p.id] || {};
+    const li = document.createElement("li");
+    li.className = cardClass(p);
+    li.dataset.id = p.id;
+
+    const linkHtml = url
+      ? '<a href="' + url + '" target="_blank" rel="noopener">View live page ↗</a> <span style="color:#999">' + esc(p.slug) + '</span>'
+      : '<span class="nolink">' + esc(p.status) + ', no live URL</span> <span style="color:#bbb">' + esc(p.slug) + '</span>';
+
+    const suggestHtml = p.suggest
+      ? '<div class="suggest">Starting suggestion: <b>' + p.suggest + '</b>' + (p.note ? ' &mdash; ' + esc(p.note) : '') + '</div>'
+      : '';
+
+    li.innerHTML =
+      '<div class="row1"><span class="num">#' + p.num + '</span>' +
+        '<span class="title">' + esc(p.title) + '</span>' +
+        '<span class="badge ' + p.status + '">' + esc(p.status) + '</span></div>' +
+      '<div class="meta">' + linkHtml + ' &nbsp;·&nbsp; ' + p.words + ' words &nbsp;·&nbsp; modified ' + p.modified + '</div>' +
+      suggestHtml +
+      '<div class="choices">' +
+        '<button data-v="keep" class="' + (d.d === "keep" ? "on" : "") + '">Keep</button>' +
+        '<button data-v="consolidate" class="' + (d.d === "consolidate" ? "on" : "") + '">Consolidate</button>' +
+        '<button data-v="remove" class="' + (d.d === "remove" ? "on" : "") + '">Remove</button>' +
+      '</div>' +
+      '<button class="notetoggle">' + (d.note ? "Edit note" : "+ Add a note") + '</button>' +
+      '<textarea class="note' + (d.note ? " show" : "") + '" placeholder="Optional note (e.g. where it folds into)">' + esc(d.note || "") + '</textarea>';
+
+    listEl.appendChild(li);
+  }
+  renderCount();
+}
+
+listEl.addEventListener("click", (e) => {
+  const li = e.target.closest("li.card");
+  if (!li) return;
+  const id = li.dataset.id;
+  if (e.target.matches(".choices button")) {
+    const v = e.target.dataset.v;
+    const cur = decisions[id] || {};
+    cur.d = (cur.d === v) ? "" : v;     // tap again to clear
+    decisions[id] = cur;
+    save();
+    // update just this card + filter behavior
+    if (filterEl.value === "undecided" && cur.d) { render(); }
+    else {
+      li.className = cardClass({ id });
+      li.querySelectorAll(".choices button").forEach(b =>
+        b.classList.toggle("on", b.dataset.v === cur.d));
+      renderCount();
+    }
+  } else if (e.target.matches(".notetoggle")) {
+    li.querySelector(".note").classList.toggle("show");
+    li.querySelector(".note").focus();
+  }
+});
+
+listEl.addEventListener("input", (e) => {
+  if (!e.target.matches(".note")) return;
+  const li = e.target.closest("li.card");
+  const id = li.dataset.id;
+  const cur = decisions[id] || {};
+  cur.note = e.target.value;
+  decisions[id] = cur;
+  save();
+});
+
+filterEl.addEventListener("change", render);
+
+document.getElementById("reset").addEventListener("click", () => {
+  if (confirm("Clear ALL your decisions and notes? This cannot be undone.")) {
+    decisions = {}; save(); render();
+  }
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const head = ["num","title","slug","status","suggested","decision","note"];
+  const lines = [head.join(",")];
+  for (const p of PAGES) {
+    const d = decisions[p.id] || {};
+    lines.push([p.num, q(p.title), q(p.slug), p.status, p.suggest || "",
+                d.d || "", q(d.note || "")].join(","));
+  }
+  const blob = new Blob([lines.join("\n")], { type: "text/csv" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "page-triage-decisions.csv";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+function q(s) { s = String(s == null ? "" : s); return /[",\n]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s; }
+function esc(s) { return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+render();
+</script>
+</body>
+</html>
