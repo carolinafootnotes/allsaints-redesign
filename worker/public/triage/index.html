@@ -8,7 +8,7 @@
 <style>
   /* Deliberately plain. This is a working tool, NOT the church website. */
   :root { --line:#d9d9d9; --ink:#1a1a1a; --muted:#666; --bg:#f4f4f4;
-          --keep:#1e7d34; --cons:#9a6b00; --remove:#a4262c; }
+          --keep:#1e7d34; --cons:#9a6b00; --remove:#a4262c; --ask:#2d5fa3; }
   * { box-sizing:border-box; }
   body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
          color:var(--ink); background:var(--bg); line-height:1.45; }
@@ -31,6 +31,7 @@
   li.card.keep { border-left:5px solid var(--keep); }
   li.card.consolidate { border-left:5px solid var(--cons); }
   li.card.remove { border-left:5px solid var(--remove); }
+  li.card.ask { border-left:5px solid var(--ask); }
   .row1 { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
   .num { color:var(--muted); font-size:.8rem; min-width:28px; }
   .title { font-weight:600; font-size:1.02rem; }
@@ -49,6 +50,7 @@
   .choices button[data-v="keep"].on { background:var(--keep); color:#fff; border-color:var(--keep); }
   .choices button[data-v="consolidate"].on { background:var(--cons); color:#fff; border-color:var(--cons); }
   .choices button[data-v="remove"].on { background:var(--remove); color:#fff; border-color:var(--remove); }
+  .choices button[data-v="ask"].on { background:var(--ask); color:#fff; border-color:var(--ask); }
   .choices button:hover { filter:brightness(.97); }
   .note { width:100%; margin-top:10px; font:inherit; font-size:.85rem; padding:6px 8px;
           border:1px solid var(--line); border-radius:6px; resize:vertical; min-height:34px; display:none; }
@@ -61,7 +63,7 @@
 <header>
   <div class="head-in">
     <h1>Page Triage &mdash; internal review tool</h1>
-    <p class="sub">Not the real website. Go through each page, look at the live version, decide: Keep, Consolidate, or Remove. Your choices save in this browser. Export when done.</p>
+    <p class="sub">Not the real website. Go through each page, look at the live version, decide: Keep, Consolidate, Remove, or Ask the team (parks it for the website committee, opens a note for your question). Your choices save in this browser. Export when done.</p>
   </div>
 </header>
 
@@ -73,6 +75,7 @@
       <option value="published">Published only</option>
       <option value="all">All 82</option>
       <option value="undecided">Undecided</option>
+      <option value="ask">Ask the team</option>
     </select>
   </label>
   <button class="btn" id="export">Export CSV</button>
@@ -107,7 +110,8 @@ function liveUrl(p) {
 function visible() {
   const f = filterEl.value;
   if (f === "all") return PAGES;
-  if (f === "undecided") return PAGES.filter(p => !decisions[p.id]);
+  if (f === "undecided") return PAGES.filter(p => !(decisions[p.id] && decisions[p.id].d));
+  if (f === "ask") return PAGES.filter(p => decisions[p.id] && decisions[p.id].d === "ask");
   return PAGES.filter(p => p.status === "publish");
 }
 
@@ -154,6 +158,7 @@ function render() {
         '<button data-v="keep" class="' + (d.d === "keep" ? "on" : "") + '">Keep</button>' +
         '<button data-v="consolidate" class="' + (d.d === "consolidate" ? "on" : "") + '">Consolidate</button>' +
         '<button data-v="remove" class="' + (d.d === "remove" ? "on" : "") + '">Remove</button>' +
+        '<button data-v="ask" class="' + (d.d === "ask" ? "on" : "") + '">Ask the team</button>' +
       '</div>' +
       '<button class="notetoggle">' + (d.note ? "Edit note" : "+ Add a note") + '</button>' +
       '<textarea class="note' + (d.note ? " show" : "") + '" placeholder="Optional note (e.g. where it folds into)">' + esc(d.note || "") + '</textarea>';
@@ -173,8 +178,16 @@ listEl.addEventListener("click", (e) => {
     cur.d = (cur.d === v) ? "" : v;     // tap again to clear
     decisions[id] = cur;
     save();
-    // update just this card + filter behavior
-    if (filterEl.value === "undecided" && cur.d) { render(); }
+    // when parking for the team, open the note so the question gets captured
+    if (cur.d === "ask") {
+      const n = li.querySelector(".note");
+      n.classList.add("show");
+      n.focus();
+    }
+    // a card may leave the current filter (undecided -> decided, or cleared ask)
+    const leavesFilter = (filterEl.value === "undecided" && cur.d) ||
+                         (filterEl.value === "ask" && cur.d !== "ask");
+    if (leavesFilter) { render(); }
     else {
       li.className = cardClass({ id });
       li.querySelectorAll(".choices button").forEach(b =>
