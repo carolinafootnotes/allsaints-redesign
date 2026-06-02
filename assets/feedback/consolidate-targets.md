@@ -27,7 +27,11 @@ Legend: **Done** = content already lives on the new page. **Add** = destination 
 | 77 | Women's Ministry | `/fellowship` | New | Same as Men's Ministry |
 | 79 | Worship Support | `/serve` | Done | Serve lists Altar Guild, Ushers, Worship Support already |
 
-## The one new page: `/fellowship`
+## SUPERSEDED (2026-06-01): no new page; folded into connect
+
+The recommendation below was to build a new `/fellowship` page. After design-team review, that was reversed: connect is already the relational hub, so a separate page would duplicate it. Instead, Men's Ministry, Women's Ministry, Episcopal Youth, and the "revels" tradition were added as cards to connect's existing `#fellowship` section (shipped, commit 98035b4). The original rationale is kept below for reference only. The "New page" rows in the table above now mean "added to /final/connect's fellowship section."
+
+## The one new page: `/fellowship` (superseded, see above)
 
 This is the only genuine gap. The affinity groups (Men's Ministry, Women's Ministry, Episcopal Youth's social side, and pending the committee, Young Adults and Primetimers) have nowhere to go in the current IA. And Nate already marked **Fellowship** as **Keep**, but `/final/fellowship` doesn't exist yet. Those line up: build one `/fellowship` page.
 
