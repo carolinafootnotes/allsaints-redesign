@@ -12,7 +12,9 @@ The sent email asked questions 1-4 plus the interim pages (item 7 below). Answer
 - **AD@AS Media → RETIRE.** Brian.
 - **Interim pages (Transition, Interim Position Overview, Why is an Interim Needed) → RETIRE.** Fr. John confirmed no need for interim info now; Brian deferred to Chuck + Fr. John.
 
-**Not sent / still open (Nate's call):** Parish Life Events destination (item 5 below) and the After Dark one-page-vs-yearly idea (item 6 below) were trimmed before sending.
+**Decided by Nate (6/1), were not sent to committee:**
+- **After Dark → one evergreen page**, refreshed each year. The year-specific After Dark pages (2017-2026) retire into it.
+- **Parish Life Events → fold into Ministries / Happenings** via the calendar events; no standalone page.
 
 ## Still active, or safe to retire?
 

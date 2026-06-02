@@ -8,7 +8,7 @@ num,title,slug,status,already_on_new_site,suggested,decision,note
 7,After Dark @ All Saints' 2023,/,draft,,,,
 8,After Dark @ All Saints' 2024,/,draft,,,,
 9,After Dark @ All Saints' 2026,/after-dark-all-saints-2025/,publish,,,remove,
-10,After Dark @ All Saints' 2026,/after-dark-all-saints-2026/,publish,,,ask,"Suggest we make this a dedicated after dark page, and change the content each year. "
+10,After Dark @ All Saints' 2026,/after-dark-all-saints-2026/,publish,,,keep,"Decision 6/1: ONE evergreen After Dark page, refreshed each year. This is it; the other year-specific After Dark pages retire."
 11,Become a Member,/become-a-member/,publish,,keep,keep,
 12,Bulletins,/bulletins/,publish,,,consolidate,
 13,CCM MAC House Meal Ministry,/ccm-mac-house-meal-ministry/,publish,,,keep,Committee 6/1: still active (created by Gary Kovar). Keep.
@@ -42,7 +42,7 @@ num,title,slug,status,already_on_new_site,suggested,decision,note
 41,New Home,/new-home/,publish,,,remove,
 42,Night Shelter Meal Ministry,/night-shelter-meal-ministry/,publish,,,keep,
 43,Nursery,/nursery/,publish,,,remove,
-44,Parish Life Events,/parish-life-events/,publish,,consolidate,ask,I think this can get migrated to other parts of the site
+44,Parish Life Events,/parish-life-events/,publish,,consolidate,consolidate,"Decision 6/1: fold into Ministries / Happenings via calendar events; no standalone page."
 45,Parish Nurses,/parish-nurses/,publish,,,remove,
 46,Pastoral Care,/pastoral-care/,publish,/final/connect/pastoral-care,consolidate,consolidate,
 47,Photo Gallery,/photo-gallery/,publish,,,remove,
