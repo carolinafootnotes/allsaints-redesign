@@ -1,6 +1,6 @@
 num,title,slug,status,already_on_new_site,suggested,decision,note
 1,Activity,/activity/,publish,,,remove,
-2,AD@AS Media,/adas-media/,publish,,,ask,These are the old presentations from Koinania. I think we can remove.
+2,AD@AS Media,/adas-media/,publish,,,remove,Old presentations from Koinonia. Committee 6/1: retire.
 3,After Dark @ All Saints' 2017,/,draft,,,,
 4,After Dark @ All Saints' 2019,/,draft,,,,
 5,After Dark @ All Saints' 2020,/,draft,,,,
@@ -11,7 +11,7 @@ num,title,slug,status,already_on_new_site,suggested,decision,note
 10,After Dark @ All Saints' 2026,/after-dark-all-saints-2026/,publish,,,ask,"Suggest we make this a dedicated after dark page, and change the content each year. "
 11,Become a Member,/become-a-member/,publish,,keep,keep,
 12,Bulletins,/bulletins/,publish,,,consolidate,
-13,CCM MAC House Meal Ministry,/ccm-mac-house-meal-ministry/,publish,,,ask,I can't tell if this is still active or not
+13,CCM MAC House Meal Ministry,/ccm-mac-house-meal-ministry/,publish,,,keep,Committee 6/1: still active (created by Gary Kovar). Keep.
 14,Christian Education,/christian-education/,publish,,,consolidate,
 15,Clergy,/clergy/,publish,/final/clergy,keep,keep,
 16,Connect,/connect/,publish,/final/connect,keep,keep,
@@ -29,7 +29,7 @@ num,title,slug,status,already_on_new_site,suggested,decision,note
 28,In the Community,/in-the-community/,publish,,,consolidate,
 29,In the World,/in-the-world/,publish,,,consolidate,
 30,Interior 1,/interior-1/,publish,,,remove,
-31,Koinonia,/koinonia/,publish,,,ask,I believe this series is old enough to archive/remove
+31,Koinonia,/koinonia/,publish,,,remove,Committee 6/1: retire.
 32,Learn,/learn/,publish,/final/learn,keep,keep,
 33,Life Events,/life-events/,publish,/final/connect/life-events,consolidate,consolidate,
 34,Live Events,/live-events/,publish,/final/watch-and-listen,consolidate,consolidate,
@@ -51,7 +51,7 @@ num,title,slug,status,already_on_new_site,suggested,decision,note
 50,Prayer Requests,/prayer-requests/,publish,/final/prayer-requests,keep,keep,
 51,Prayer Teams,/prayer-teams/,publish,,,remove,
 52,Preparing the Way Registration,/preparing-way-registration/,publish,,,remove,
-53,Primetimers,/primetimers/,publish,,,ask,I think this is outdated and can be removed
+53,Primetimers,/primetimers/,publish,,,remove,Committee 6/1: retire.
 54,Public Preschool,/public-preschool/,publish,,,remove,
 55,Sermons,/sermons/,publish,,,remove,
 56,Serve,/serve/,publish,/final/serve,keep,keep,

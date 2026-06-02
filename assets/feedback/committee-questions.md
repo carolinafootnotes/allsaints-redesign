@@ -2,6 +2,18 @@
 
 From the first triage pass of the current site. For each, my lean is noted, but I want a gut check before we cut or move anything.
 
+## RESOLVED (committee reply, 2026-06-01, thread "A few page questions for the website")
+
+The sent email asked questions 1-4 plus the interim pages (item 7 below). Answers:
+
+- **CCM MAC House Meal Ministry → KEEP.** Brian: still active, created by Gary Kovar.
+- **Primetimers → RETIRE.** Brian.
+- **Koinonia → RETIRE.** Brian.
+- **AD@AS Media → RETIRE.** Brian.
+- **Interim pages (Transition, Interim Position Overview, Why is an Interim Needed) → RETIRE.** Fr. John confirmed no need for interim info now; Brian deferred to Chuck + Fr. John.
+
+**Not sent / still open (Nate's call):** Parish Life Events destination (item 5 below) and the After Dark one-page-vs-yearly idea (item 6 below) were trimmed before sending.
+
 ## Still active, or safe to retire?
 
 1. **CCM MAC House Meal Ministry** (`/ccm-mac-house-meal-ministry/`)
