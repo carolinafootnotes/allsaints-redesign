@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
+    "predeploy": "node tools/check-content.js",
     "deploy": "wrangler deploy",
     "test": "vitest run",
     "test:watch": "vitest"
