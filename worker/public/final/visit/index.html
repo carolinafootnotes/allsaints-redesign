@@ -11,48 +11,14 @@
   <link rel="stylesheet" href="/assets/site.css">
   <style>
 
-    /* Connect CTA section on this page has no .section-pad wrapper; supply padding directly */
-    .connect { padding: clamp(4rem, 8vw, 6rem) 1.5rem; }
-
     /* ===== Visit page v2 (team-rebuilt) ===== */
     #services { scroll-margin-top: 96px; }
     #first-sunday, #getting-here, #accessibility { scroll-margin-top: 96px; }
 
-    /* Hero service pills (anchor links matching home hero badges) */
+    /* Hero service pills -- defined in site.css; .page-hero-services gap/margin overrides below */
     .page-hero-services {
-      display: flex;
       gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
       margin-top: 1.5rem;
-    }
-    .page-hero-service-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(4px);
-      padding: 0.6rem 1.25rem;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-    .page-hero-service-pill:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-1px);
-    }
-    .page-hero-service-pill .time {
-      font-weight: 700;
-      color: #e8d9a0;
-    }
-    .page-hero-service-pill:focus-visible {
-      outline: 2px solid rgba(200, 169, 119, 0.7);
-      outline-offset: 3px;
     }
 
     /* New service cards (image/gradient banner-led) */
@@ -274,11 +240,11 @@
     </section>
 
     <!-- ===== YOUR FIRST SUNDAY (light cards + timeline) ===== -->
-    <section class="section-pad" id="first-sunday" aria-label="Your First Sunday" style="background: #faf8f4;">
+    <section class="section-pad bg-cream" id="first-sunday" aria-label="Your First Sunday">
       <div class="container">
         <div style="text-align:center; margin-bottom: 2.5rem;">
           <div class="section-label reveal">New Here?</div>
-          <h2 class="section-heading reveal reveal-delay-1">Your First <em style="color:#7b2332;">Sunday</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1">Your First <em>Sunday</em></h2>
           <p class="section-sub reveal reveal-delay-2" style="margin-left:auto;margin-right:auto; max-width:640px;">The questions guests most often ask before they get here.</p>
         </div>
         <div class="info-card-grid">
@@ -369,11 +335,11 @@
     </section>
 
     <!-- ===== GETTING HERE + WHAT TO EXPECT (combined) ===== -->
-    <section class="section-pad" id="getting-here" aria-label="Getting here and what to expect" style="background: #fff;">
+    <section class="section-pad bg-white" id="getting-here" aria-label="Getting here and what to expect">
       <div class="container">
         <div style="text-align:center; margin-bottom: 2.5rem;">
           <div class="section-label reveal">Find Us</div>
-          <h2 class="section-heading reveal reveal-delay-1">Getting <em style="color:#7b2332;">Here</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1">Getting <em>Here</em></h2>
         </div>
         <div class="getting-here-grid">
           <div class="getting-here-info reveal reveal-delay-2">
@@ -417,11 +383,11 @@
     </section>
 
     <!-- ===== ACCESSIBILITY ===== -->
-    <section class="section-pad" id="accessibility" aria-label="Accessibility" style="background: #faf8f4;">
+    <section class="section-pad bg-cream" id="accessibility" aria-label="Accessibility">
       <div class="container">
         <div style="text-align:center; margin-bottom: 2.5rem;">
           <div class="section-label reveal">Everyone Is Welcome</div>
-          <h2 class="section-heading reveal reveal-delay-1"><em style="color:#7b2332;">Accessibility</em></h2>
+          <h2 class="section-heading reveal reveal-delay-1"><em>Accessibility</em></h2>
         </div>
         <div class="info-card-grid" style="max-width: 1000px;">
           <div class="info-card-light reveal reveal-delay-1">
