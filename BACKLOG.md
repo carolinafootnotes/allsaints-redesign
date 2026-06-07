@@ -72,7 +72,7 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 - [ ] **P3 / N** Koinonia small groups — confirm they're currently active.
 
 ### `/final/rector-search`
-- [ ] **P3 / N** "A Parish, in Brief" 6-card grid is generic. Once the formal parish profile exists, replace this section with a link to the profile.
+- [ ] **P3 / N** "A Parish, in Brief" 6-card grid is generic. Decision (Jun 2026): leave the page thin for now. The search committee will supply more parish data and tell us how detailed they want it before the job posting. Revisit then (replace this section with the formal profile or expand with their data).
 - [ ] **P2 / V** Search committee contact pattern — currently routes through admin@. Should it route to a dedicated search committee email or a real person?
 
 ### `/final/watch-live`
