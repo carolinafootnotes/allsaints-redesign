@@ -709,7 +709,6 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 @media (max-width: 768px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-social a { width: 44px; height: 44px; }
-  .footer-col a { min-height: 44px; display: inline-flex; align-items: center; }
 }
 @media (max-width: 480px) {
   .footer-top { grid-template-columns: 1fr; }
