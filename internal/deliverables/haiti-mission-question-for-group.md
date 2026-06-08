@@ -1,6 +1,6 @@
 ---
 name: Haiti mission — open question for the review group
-status: needs decision from review group
+status: RESOLVED 2026-06-08 — Option 3 (history only). Chuck Collier chose 3, Nate confirmed. Haiti removed from serve/giving active outreach; kept as the 1996 milestone on the history page (past framing).
 audience: Chuck, John, Joy Marie, Andrea, Brian, Julie, Jennifer, Ben, Randy, Ragan, Tiffany
 date: 2026-05-28
 ---
