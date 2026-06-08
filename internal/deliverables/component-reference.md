@@ -31,7 +31,7 @@ For each: where it is used, the markup skeleton, and the classes/tokens it relie
 
 ### Global chrome (every page)
 - **Header / nav** — `.site-header` (`.transparent`/`.solid` toggled by `site.js` on scroll), `.header-inner`, `.header-brand` (`.logo-full` + `.logo-horizontal` swap), `.nav-links` + `.nav-cta`, `.hamburger`, `.mobile-nav`. Home overrides header/logo height (145px/125px) inline; subpages use the 112px/92px default. `body.page-subpage` forces the always-solid header.
-- **Footer** — `.site-footer` → `.footer-inner` → `.footer-top` (2fr/1fr/1fr/1fr) with `.footer-brand` + three `.footer-col`, then `.footer-bottom` + `.footer-social`. Identical on every page.
+- **Footer** — `.site-footer` → `.footer-inner` → `.footer-top` (2fr/1fr/1fr/1fr) with `.footer-brand` + three `.footer-col`, then `.footer-bottom` + `.footer-social`. Byte-identical on every page. **As of Jun 2026 the three columns ARE the site's secondary navigation:** "Our Parish" (Clergy & Staff, Our History, Formation & Learning, Memorial Arboretum, Rector Search), "Get Connected" (Plan a Visit, What's Happening, Connect, Serve, Watch & Listen, Prayer Requests), "Contact" (phone, Email Us, Giving, Give Online, Newsletter, LCDC). `.footer-bottom` carries the copyright + a Site Map link. The top nav is flat, so this footer is how the otherwise-unlinked pages are reached. In Squarespace it becomes the native Footer Navigation.
 - **Skip link, focus states, scroll-reveal** — `.skip-link`, `:focus-visible` outline, `.reveal` + `.reveal-delay-1..5` (driven by the IntersectionObserver in `site.js`, with a `prefers-reduced-motion` guard).
 - **Buttons** — `.btn`, `.btn-primary` (gold), `.btn-outline` (white-on-dark by default; light-background pages override the outline color inline).
 
@@ -66,7 +66,7 @@ Three sections `#in-the-church` / `#in-the-community` / `#in-the-world`, each = 
 - **Rhythm grid** (`.rhythms-grid` + `.rhythm-card`, happenings) — schedule cards with day/time.
 - **This-week strip** (`.this-week` + `.this-week-card`, home/happenings) — frosted cards on a dark band.
 - **Stats row** (`.stats-row` + `.stat-item`, home).
-- **Timelines** — horizontal step timeline (`.timeline`/`.timeline-step`, home/visit) and the vertical alternating history timeline (`.timeline-wrap`/`.t-entry`, history).
+- **Timelines** — horizontal step timeline (`.timeline`/`.timeline-step`, **visit only**; CSS lives in visit's page `<style>`, home no longer uses it) and the vertical alternating history timeline (`.timeline-wrap`/`.t-entry`, history).
 - **Serve jump-nav** (`.jump-nav`, serve only) — sticky in-page nav; page-specific JS. Planned to become native Squarespace anchor links at rebuild.
 - **Prayer form** (`.preview-form`, prayer-requests) — currently a disabled preview; becomes a Squarespace Form Block when live.
 
@@ -141,3 +141,11 @@ Define the card styles once in Custom CSS, then add a CSS class name to each blo
 - All 18 public pages on the shared layer; two connect subpages now have zero inline CSS. Done.
 - Recurring card CSS consolidated into `site.css` (one definition, ~10 per-page duplicates removed). Done.
 - Deferred to rebuild: the `.card` + modifier rename; building the Saved Sections / Collections in Squarespace; the broader pre-go-live checklist in `squarespace-rebuild-readiness.md`.
+
+## Update (2026-06-08) — second consolidation pass + full visual QA
+A design-team audit + page-by-page Playwright QA drove another round of cleanup:
+- **More components moved out of page inline `<style>` into `site.css`:** `.hero-ctas`, the worship-card system (`.worship-grid`/`.worship-card*`/`.worship-extras`), the clergy/staff card grid (`.clergy-grid`/`.clergy-card*`), plus new shared utilities `.btn-outline-light`, `.section-heading em` (italic burgundy), `.sr-only`, `.page-hero.utility`, and background utilities `.bg-white`/`.bg-cream`/`.bg-cream-warm`. **Rule going forward: any component used on more than one page lives in `site.css`, never in a single page's inline `<style>` (that was the root cause of several "renders unstyled on page X" bugs this session).**
+- **Still legitimately page-unique:** visit's step timeline + `.getting-here-*`, the prayer-requests form, the serve jump-nav, the home hero randomizer.
+- **New patterns:** the Connect "Explore" hub-card row (`.connect-channel-card` links to the 3 connect subpages); the staff grid now lives on `/clergy` (moved off home); the navigable footer (see Footer above).
+- **Removed:** `serve-options` (internal comparison doc); the placeholder sermon list on watch-and-listen; the duplicated serve-page paste that had leaked into prayer-requests and giving.
+- **Visual QA technique that worked:** before a full-page screenshot of any `/final` page, run `document.querySelectorAll('.reveal').forEach(e => { e.classList.add('visible'); e.style.opacity=1; e.style.transform='none'; })` and strip `loading="lazy"`, otherwise scroll-reveal content and below-the-fold images read as blank/broken in the static capture. Also scan `document.body.innerText` for `[brackets]`/`TBD` to catch placeholder scaffolding.
