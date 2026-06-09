@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Saints' Episcopal Church — Site Map (Clean)</title>
+  <style>
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:#1a1a1a; background:#fff; line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+    .sheet{ max-width:680px; margin:0 auto; padding:48px 56px 52px; }
+
+    header{ border-bottom:2px solid #1a1a1a; padding-bottom:14px; margin-bottom:22px; }
+    header h1{ font-size:1.7rem; font-weight:700; letter-spacing:-.01em; }
+    header .sub{ font-size:.95rem; color:#555; margin-top:4px; }
+    header .date{ font-size:.8rem; color:#888; margin-top:6px; }
+
+    /* metrics strip */
+    .metrics{
+      display:flex; gap:14px; margin-bottom:30px;
+    }
+    .metric{
+      flex:1; border:1px solid #e4e4e4; border-radius:8px; padding:14px 16px; background:#fafafa;
+    }
+    .metric .label{
+      font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#888;
+    }
+    .metric .nums{ margin-top:6px; font-size:1.15rem; font-weight:700; color:#1a1a1a; display:flex; align-items:baseline; gap:8px; }
+    .metric .nums .was{ color:#bbb; font-weight:600; }
+    .metric .nums .arrow{ color:#bbb; font-size:.95rem; }
+    .metric .note{ font-size:.72rem; color:#999; margin-top:4px; }
+
+    .group{ margin-bottom:30px; }
+    .group-title{
+      font-size:.78rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+      color:#1a1a1a; padding-bottom:7px; border-bottom:1px solid #ccc; margin-bottom:10px;
+    }
+
+    ul{ list-style:none; }
+
+    .page{
+      display:flex; align-items:baseline; gap:8px;
+      padding:8px 0; border-bottom:1px solid #eee;
+    }
+    .page:last-child{ border-bottom:none; }
+    .page .name{ font-size:1.08rem; font-weight:600; }
+    .page .tag{
+      font-size:.68rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+      color:#7a4a00; background:#f6ecda; border-radius:3px; padding:2px 7px; white-space:nowrap;
+    }
+    .ext-icon{ font-size:.82rem; color:#7a4a00; }
+
+    .sub{ margin:0 0 4px 20px; padding-left:16px; border-left:2px solid #e2e2e2; }
+    .sub li{ padding:4px 0; font-size:.98rem; font-weight:500; display:flex; align-items:baseline; gap:6px; }
+    .sub li::before{ content:"–"; color:#bbb; }
+    .sub .note{ font-size:.8rem; color:#999; font-weight:400; }
+
+    .footnotes{
+      margin-top:26px; padding-top:14px; border-top:1px solid #ccc;
+      font-size:.8rem; color:#777; line-height:1.7;
+    }
+
+    @media print{ .sheet{ padding:24px; } .page,.group{ break-inside:avoid; } }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <h1>All Saints' Episcopal Church — Site Map</h1>
+      <div class="sub">Every page on the new website, at a glance</div>
+      <div class="date">Draft for review &middot; June 2026</div>
+    </header>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="label">Pages</div>
+        <div class="nums"><span class="was">70</span><span class="arrow">&rarr;</span><span>18</span></div>
+        <div class="note">plus 36 memorial-tree pages, kept as-is</div>
+      </div>
+      <div class="metric">
+        <div class="label">Main menu</div>
+        <div class="nums"><span class="was">41</span><span class="arrow">&rarr;</span><span>6</span></div>
+        <div class="note">no more dropdown menus</div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">The Top Menu</div>
+      <ul>
+        <li class="page"><span class="name">Home</span></li>
+        <li class="page"><span class="name">Visit</span></li>
+        <li class="page"><span class="name">About</span></li>
+        <ul class="sub">
+          <li>Clergy &amp; Staff</li>
+          <li>Our History</li>
+          <li>Formation &amp; Learning</li>
+          <li>Memorial Arboretum <span class="note">(with the Columbarium &amp; Labyrinth)</span></li>
+        </ul>
+        <li class="page"><span class="name">Connect</span></li>
+        <ul class="sub">
+          <li>New to the Episcopal Church</li>
+          <li>Life Events</li>
+          <li>Pastoral Care</li>
+        </ul>
+        <li class="page"><span class="name">Serve</span></li>
+        <li class="page"><span class="name">Rector Search</span></li>
+        <li class="page"><span class="name">Give</span></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <div class="group-title">In the Footer</div>
+      <ul>
+        <li class="page"><span class="name">What's Happening</span></li>
+        <li class="page"><span class="name">Watch &amp; Listen</span></li>
+        <li class="page"><span class="name">Prayer Requests</span></li>
+        <li class="page"><span class="name">Lockhart Child Development Center</span><span class="tag">Outside site</span></li>
+      </ul>
+    </div>
+
+    <div class="footnotes">
+      <p>The old site had 70 pages and a menu of 41 links across eight dropdowns. The new site keeps every essential page, in six plain buttons with no dropdowns.</p>
+    </div>
+  </div>
+</body>
+</html>

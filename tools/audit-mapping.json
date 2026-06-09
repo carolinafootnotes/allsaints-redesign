@@ -1,5 +1,5 @@
 {
-  "_comment": "DRAFT old WordPress page -> new-site disposition map for the content audit. Generated from the WP triage CSV + the /final pages, then hand-correctable. Nate corrects this during his first pass. 'sources' are WP post_name slugs (from the export). Every published WP page must appear once: in a unit's sources, in the 'removed' unit, or in 'excluded'.",
+  "_comment": "Old WordPress page -> new-site disposition map for the content audit (the side-by-side review). Reconciled 2026-06-02 against the finalized triage in assets/feedback/page-triage-decisions.csv. Rule: a unit's 'sources' are the old pages whose content survives into that new page. keep + consolidate pages are always sources (the reviewer verifies the fold happened); a 'remove' page is a source ONLY if its content was genuinely absorbed/rewritten into the new page (e.g. old Mission + Mission/Vision/Values -> new Home; old public-preschool -> new LCDC). 'remove' pages with no surviving content are excluded, not reviewed. There is no 'Removed from the new site' bucket: retired pages are simply excluded. Every published WP page appears exactly once: in a unit's sources, or in 'excluded' with a reason.",
   "units": [
     {
       "slug_key": "home",
@@ -31,7 +31,7 @@
       "disposition": "merged",
       "new_url": "/final/happenings/",
       "new_file": "final/happenings/index.html",
-      "sources": ["play"]
+      "sources": ["play", "parish-life-events"]
     },
     {
       "slug_key": "connect",
@@ -39,7 +39,7 @@
       "disposition": "merged",
       "new_url": "/final/connect/",
       "new_file": "final/connect/index.html",
-      "sources": ["connect", "fellowship", "become-a-member", "koinonia", "mens-ministry", "womens-ministry", "young-adults", "primetimers", "stitches-for-the-saints", "parish-life-events"]
+      "sources": ["connect", "fellowship", "become-a-member", "mens-ministry", "womens-ministry", "stitches-for-the-saints"]
     },
     {
       "slug_key": "episcopalian",
@@ -63,7 +63,7 @@
       "disposition": "merged",
       "new_url": "/final/connect/pastoral-care/",
       "new_file": "final/connect/pastoral-care/index.html",
-      "sources": ["pastoral-care", "stephen-ministry", "parish-nurses", "prayer-teams", "prayer", "really-need-talk"]
+      "sources": ["pastoral-care", "stephen-ministry", "prayer", "prayer-teams"]
     },
     {
       "slug_key": "serve",
@@ -71,7 +71,7 @@
       "disposition": "merged",
       "new_url": "/final/serve/",
       "new_file": "final/serve/index.html",
-      "sources": ["serve", "set-free-to-serve", "in-the-church", "in-the-community", "in-the-world", "service-hours", "night-shelter-meal-ministry", "ccm-mac-house-meal-ministry", "meals"]
+      "sources": ["serve", "in-the-church", "in-the-community", "in-the-world", "service-hours", "night-shelter-meal-ministry", "ccm-mac-house-meal-ministry", "meals"]
     },
     {
       "slug_key": "learn",
@@ -130,35 +130,37 @@
       "sources": ["vestry", "interim-position-overview-for-all-saints-episcopal-church", "why-is-an-interim-needed-and-what-is-interim-work-content-provide-by-multiple-sources"]
     }
   ],
-  "removed": {
-    "slug_key": "removed",
-    "title": "Removed from the new site",
-    "sources": ["tour-de-saints-2021-sponsorship"]
-  },
   "excluded": {
-    "activity": "Empty page (0 words)",
-    "adas-media": "Near-empty media-embed page (36 words)",
-    "bulletins": "Navigation stub; bulletins live elsewhere",
-    "directory": "Empty page (1 word)",
-    "event-payment": "Transaction/payment page, no content",
-    "get-the-latest": "Newsletter signup stub (30 words)",
-    "groups": "Empty page (0 words)",
-    "home": "Empty legacy home page (0 words); the new Home is its own unit",
-    "important-forms": "Empty forms-list page (0 words)",
-    "interior-1": "Photo/tour scaffolding, no real prose",
-    "members": "Empty page (0 words)",
-    "new-home": "Stub (11 words)",
-    "photo-gallery": "Image gallery, no prose",
-    "preparing-way-registration": "Event registration form",
-    "sermons": "Stub (2 words); sermons live on Watch & Listen",
-    "thank-you": "Form thank-you confirmation page",
-    "transition": "Dynamic hub page; auto-lists the interim pages, which are included separately under Rector Search",
-    "welcome-from-the-rector": "Former rector's welcome letter; dropped from the audit pending Fr. John's confirmation",
-    "virtual-tour": "Photo/tour scaffolding, no real prose",
-    "after-dark-all-saints-2025": "Past seasonal event page",
-    "after-dark-all-saints-2026": "Seasonal event page; events live on Happenings",
-    "test": "Test page (private)",
-    "wpforms-preview": "Form-builder preview (private)",
-    "wpforms-preview-2": "Form-builder preview (private)"
+    "activity": "Empty page (0 words). Triage 6/1: remove.",
+    "adas-media": "Near-empty media-embed page (36 words); old Koinonia presentations. Committee 6/1: retire.",
+    "bulletins": "Navigation stub; bulletins live elsewhere. Triage 6/1: consolidate, but no real prose to compare.",
+    "directory": "Empty page (1 word). Triage 6/1: remove.",
+    "event-payment": "Transaction/payment page, no content. Triage 6/1: remove.",
+    "get-the-latest": "Newsletter signup stub (30 words). Triage 6/1: consolidate, but no real prose to compare.",
+    "groups": "Empty page (0 words). Triage 6/1: remove.",
+    "home": "Empty legacy home page (0 words); the new Home is its own unit. Triage 6/1: remove.",
+    "important-forms": "Empty forms-list page (0 words). Triage 6/1: remove.",
+    "interior-1": "Photo/tour scaffolding, no real prose. Triage 6/1: remove.",
+    "koinonia": "Committee 6/1: retire. Was a Connect source; content is not carried forward.",
+    "members": "Empty page (0 words). Triage 6/1: remove.",
+    "new-home": "Stub (11 words). Triage 6/1: remove.",
+    "parish-nurses": "Triage 6/1: remove. Content is not carried into the new Pastoral Care page, so nothing to compare.",
+    "photo-gallery": "Image gallery, no prose. Triage 6/1: remove.",
+    "preparing-way-registration": "Event registration form. Triage 6/1: remove.",
+    "primetimers": "Committee 6/1: retire. Was a Connect source; content is not carried forward.",
+    "really-need-talk": "Triage 6/1: remove. Content is not carried into the new Pastoral Care page, so nothing to compare.",
+    "sermons": "Stub (2 words); sermons live on Watch & Listen. Triage 6/1: remove.",
+    "set-free-to-serve": "Triage 6/1: remove. Past capital campaign, old information; not carried into the new Serve page.",
+    "thank-you": "Form thank-you confirmation page. Triage 6/1: remove.",
+    "tour-de-saints-2021-sponsorship": "Triage 6/1: remove. Past-event sponsorship page; the removed-pages bucket was dropped from the audit, so it is excluded rather than shown.",
+    "transition": "Dynamic hub page; auto-lists the interim pages, which are included separately under Rector Search. Triage 6/1: remove.",
+    "virtual-tour": "Photo/tour scaffolding, no real prose. Triage 6/1: remove.",
+    "young-adults": "Triage 6/1: remove (outdated). Was a Connect source; content is not carried forward.",
+    "after-dark-all-saints-2025": "Past seasonal event page. Triage 6/1: remove.",
+    "after-dark-all-saints-2026": "Triage 6/1: keep as the single evergreen After Dark page, refreshed yearly. The new page is not built yet, so there is no new wording to compare; revisit once it exists.",
+    "welcome-from-the-rector": "Triage 6/1 flipped this to keep, but there is no standalone /final welcome page and the old letter is from the former rector. Held out of the audit pending Fr. John's confirmation of intent.",
+    "test": "Test page (private). Triage 6/1: remove.",
+    "wpforms-preview": "Form-builder preview (private). Triage 6/1: remove.",
+    "wpforms-preview-2": "Form-builder preview (private). Triage 6/1: remove."
   }
 }

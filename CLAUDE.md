@@ -31,7 +31,7 @@ npm run test     # vitest run
 
 - Live preview / review tool: **https://allsaints-redesign.nate-ernst7.workers.dev/final**
 - Worker name `allsaints-redesign`; D1 binding `DB` → `allsaints-review-db` (content-approval pipeline + page-triage tool).
-- `/final` pages: index (home), visit, connect (+ subpages: episcopalian, life-events, pastoral-care), serve, giving, happenings, learn, history, clergy (clergy + staff), arboretum, lcdc, prayer-requests, rector-search, watch-and-listen, sitemap. (`serve-options` was an internal comparison doc, removed Jun 2026.)
+- `/final` pages: index (home), visit, connect (+ subpages: episcopalian, life-events, pastoral-care), serve, giving, happenings, learn, history, clergy (clergy + staff), arboretum, prayer-requests, rector-search, watch-and-listen, sitemap. (`serve-options` was an internal comparison doc, removed Jun 2026. `lcdc` was removed Jun 2026: the current allsaintsconcord.org site links LCDC out to lockhartcdc.org via a custom menu link, not an on-site page, so the footer + serve links now point to that external site.)
 - **Secondary navigation (Jun 2026):** the top nav is flat, no dropdowns (Squarespace 7.1 folders can't be clickable landing pages). Secondary pages are reached two ways: the **navigable footer** (Our Parish / Get Connected / Contact columns, byte-identical on every page, plus a Site Map link in the footer bottom) and **in-page hub cards** (the Connect page's "Explore" row links to its 3 subpages). This is the portable model the design team converged on.
 
 ## Design system (the short version)

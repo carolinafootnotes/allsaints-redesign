@@ -217,7 +217,7 @@ const unaccounted = [...wpPages.keys()].filter((n) => !accounted.has(n));
 
 console.log("=== Content audit accounting ===");
 console.log(`Published WP pages parsed: ${wpPages.size}`);
-console.log(`Units: ${mapping.units.length} (+1 removed)`);
+console.log(`Units: ${mapping.units.length}${mapping.removed ? " (+1 removed)" : ""}`);
 console.log(`Sources placed in units: ${sourceRows.length}`);
 console.log(`Excluded (with reason): ${Object.keys(mapping.excluded || {}).length}`);
 if (unaccounted.length) {

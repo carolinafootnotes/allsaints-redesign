@@ -668,7 +668,7 @@ Adult Formation
 
 Education for Ministry (EfM), seasonal study groups, and contemplative practices. Two EfM cohorts currently meet.
 
-View Ministry Contacts Directory
+Email the Parish Office
 
 When You Need Us
 
@@ -731,6 +731,30 @@ Ongoing
 Stephen Ministry
 
 Trained lay caregivers for anyone walking through hard times. Confidential. No appointment needed.
+
+Most Wednesday nights, during the school year
+
+Episcopal Youth (EYC)
+
+Youth in grades 6 through 12 and their friends gather from 5:30 to 7:30, dinner included. It''s about building real relationships, with each other, with mentors, and with God.
+
+Saturday mornings, 8:00 to 9:30
+
+Men''s Ministry
+
+Book and Bible study in the Welcome Center, hands at parish work days and the community night shelter, plus the F3 crew (Faith, Fitness, Fellowship) already sweating before sunrise on Tuesdays, Thursdays, and Saturdays.
+
+Throughout the year
+
+Women''s Ministry
+
+Fellowship, growth, and service, including an Advent quiet day, a Lenten retreat, and a dessert night.
+
+After Christmas Eve and Easter
+
+The Revels
+
+When the candlelight of Christmas Eve and the last note of Easter fade, we raise a glass together. We call it the revels.
 
 Become a Member
 
@@ -1447,7 +1471,6 @@ Clergy considering this call, or parishioners with questions about the process, 
 
 Email the Committee
 (704) 782-2024', 14);
-INSERT INTO audit_units (slug_key, title, disposition, new_url, new_text, sort_order) VALUES ('removed', 'Removed from the new site', 'removed', NULL, NULL, 15);
 
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Mission, Vision, and Values', 'https://allsaintsconcord.org/mission-vision-and-values/', 'Our Mission 
 
@@ -1644,6 +1667,13 @@ Adults of all ages gather, usually on the second Friday evening in December, for
 
 
 Wine Tasting', 0 FROM audit_units WHERE slug_key = 'happenings';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Parish Life Events', 'https://allsaintsconcord.org/parish-life-events/', 'Parish Life Events Parish Life 
+
+Small groups, foyer/dinner groups, and Wednesday Night dinners which are open to all members of the church have brought us together.   This last year we held two family picnics which were great fun for all who attended as well as a picnic lunch for all who attended the combined service at the closing of Vacation Bible School in the Park.   
+
+After Christmas Eve service and Easter service we join together for revels which is a toast to celebrate.   
+
+For more information, contact Hilary Smith and Scott Russell.', 1 FROM audit_units WHERE slug_key = 'happenings';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Connect', 'https://allsaintsconcord.org/connect/', '(Also on this old page, not shown as text here: an online form (its fields aren''t shown here as text).)', 0 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Fellowship', 'https://allsaintsconcord.org/fellowship/', 'In spending time together, we encourage one another in our lives and journeys.  Fellowship events promote and encourage our spirit of community in addition to providing laughs, smiles, and usually food!
 
@@ -1734,107 +1764,13 @@ Adult baptized members become confirmed members through the Sacrament of Confirm
 Through being Received
 
 Those who have been confirmed in another denomination may become a confirmed communicant of the Episcopal Church by Reception.', 2 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Koinonia', 'https://allsaintsconcord.org/koinonia/', 'Collect for Koinonia
-God of all creation, fill us with a passion for justice and dignity for each neighbor in our community. Guide and support us through Koinonia to follow Your example and Your command: to do justice, to love mercy, and to walk humbly with You. Transform us, through Your Spirit, to become conduits of your love and compassion, in all that we do, so we become reconciled to You and Your creation. In the name of the Triune God. Amen
-
-Koinonia Committee Members
-Dorothy Garrett
-Chuck Collier
-Karen Robinson
-Randy Brantley
-Deanna Whitley
-Gabrielle Hollopeter
-
-As part of our learning and discerning process, the Koinonia Committee invited community leaders to educate All Saints'' about the needs and challenges in our broader community. In order to reach as many parishioners as possible, we offered Koinonia presentations in-person and live-streamed on Facebook and YouTube . You can watch past presentations by clicking the links below!
-
-The most recent update following the parish voting process is just below.
-
-July 2023: Koinonia Voting Update
-
-The Koinonia team has tallied the votes from the congregation of the three finalist non-profit organizations and are in the discernment process for All Saints’ next steps. The AYA House received the highest number of votes; however, CCM – Senior Food Delivery and the Academic Learning Center Tutoring combined for around 50% as well. With that being said, our parish’s main focus will be partnering with AYA House in a unique program to promote service and community . There will be much more information to follow in the coming weeks. At this time, we are seeking parishioners who are passionate about working in partnership with AYA House to further develop and implement a unique program for All Saints’.
-
-In regards to the other two organizations, we heard the voices of our brothers and sisters and feel we cannot ignore the needs of CCM and the Academic Learning Center (ALC). We know there are parishioners with the time and talents to help coordinate and develop these unique programs. We have coordinators to lead the ALC partnership, but need coordinators who are interested in working with CCM.
-
-Please prayerfully consider serving Jesus and our community through working to grow and develop Koinonia (community) in and out of All Saints’. Contact a member of the Koinonia team (found at the top of this page) if God is calling you to serve in this capacity. Once we identify coordinators, the Koinonia team will step back and take a supporting role as the congregation takes the lead on these programs. Click here for descriptions of the three programs designed for All Saints’.
-
-Final 2023 Presentation is available here .
-
-Fall 2022 Schedule
-
-September 18 - Mental Health of America of Central Carolinas (LaDonte''K Lee)
-
-September 25 - Second Course (Colin Bramlet) - Restaurant occupational training after incarceration
-Part 1 , Part 2
-
-October 2 - Opportunity House (Laura Tulbert) - Serving the homeless
-
-October 9 - CCM - Food Insecurity (Kris Edscom)
-
-October 16 - Guardian Ad Litem (Rachel Grossman-Zack) - Volunteer opportunities for the well-being of children
-
-October 23 - Rector''s Forum
-
-October 30 - Academic Learning Center (Terri Chaney) - After-school tutoring
-
-November 6 - Stewardship Sunday
-
-Check out presentation videos from Spring of 2022
-
-February 6 – Angelo DelliSanti – Education Challenges
-
-February 13 – Susan Caudle, Coltrane Life Center – Topic: The Challenges and Needs of Seniors
-
-February 20 – Dr. Andrew Nance – Social Determinants of Health: The Connection Between Social Needs and Physical Well-being
-
-March 6 – Tami Napier, Child Advocacy Center – Topic: Child Abuse
-
-March 13 – Sara Leonard – Topic: Foster Care – Providing a safe, temporary home for children
-
-March 20 – Taylor Brock, Meals on Wheels – Topic: Senior hunger and isolation
-
-March 27 – Nancy Litton, Free Clinic – Topic: Healthcare needs for people of low or no income
-
-April 3 – Dennis Brown, Opportunity House – Re-entry: Life after Prison
-
-April 10 - Sandra Torres, Latino Engagement and Relation Coordinator of Cabarrus Health Dept. - Topic: The Needs of the Hispanic Community
-
-April 17 - Easter Sunday (no Koinonia presentation)
-
-April 24 - Easter Egg hunt & Welcome Back Celebration (no Koinonia presentation)
-
-May 1 - Kami Biastes, Present Age Ministries - Topic: Combating Sexual Abuse, Exploitation and Trafficking of Teen Girls
-
-May 8 - Review & Feedback Session hosted by Koinonia Team
-
-May 15 - Bill Shelton, Habitat for Humanity - Topic: The needs of our youngest children & their families
-
-May 29 - Memorial Day Weekend (no Koinonia presentation)
-
-June 5 - Ed Hosack, CCM - Topic: Affordable Housing
-
-Access Affordable Housing Handouts Here Download
-
-And check out the Koinonia song that helps express the meaning of the word!
-
-https://youtu.be/ikvRT4yYYhY', 3 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Men''s Ministry', 'https://allsaintsconcord.org/mens-ministry/', 'Men''s Ministry All Saints’ Men’s Ministry centers around a group of men who meet every Saturday morning from 8:00 until 9:30 in the church’s Welcome Center. The group does book studies, and studies both the Bible and through-provoking books, discussing applications to everyday life and circumstances.
 
 The group also participates in parish works days and volunteers at the community night shelter.
 
-Another opportunity for fun is the F3 program (Faith, Fitness and Fellowship), which meets really early on Tuesdays, Thursday and Saturdays to enjoy fellowship as they work out. Contact Tom Jones for more information.', 4 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Women''s Ministry', 'https://allsaintsconcord.org/womens-ministry/', 'Women''s Ministry The Women’s Ministry of All Saints’ offers times of fellowship and growth, as well as service opportunities.  The annual events include an Advent quiet day, a Lenten Retreat, and a dessert night.  See Roxanne Friday for more information.', 5 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Young Adults', 'https://allsaintsconcord.org/young-adults/', 'Young Adults The Young Adults group at All Saints'' is made up of singles and couples who are in their late twenties through early forties. Some of us have children, and some do not. We get together for outings, like winery tours and camping trips, and we gather at each others'' homes to share meals, fellowship, and prayer. We invite you to join us! 
-
-Contact Jerrod Smith or Jennifer Cobb for more information.', 6 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Primetimers', 'https://allsaintsconcord.org/primetimers/', 'Prime Timers The Prime Timers are a group of men and women 50+ years of age; they participate in many activities at All Saints’ throughout the year as well as the activities away from the church.', 7 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Stitches for the Saints', 'https://allsaintsconcord.org/stitches-for-the-saints/', 'Stitches for the Saints What expresses love and support better than comfort food?  All Saints’ meal team provides home-cooked meals for folks recovering from illness or hospitalizations, those who are unpacking into new homes, and those with new babies.  There is a supply of home-cooked meals in the freezer, too, ready to be delivered when needed.', 8 FROM audit_units WHERE slug_key = 'connect';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Parish Life Events', 'https://allsaintsconcord.org/parish-life-events/', 'Parish Life Events Parish Life 
-
-Small groups, foyer/dinner groups, and Wednesday Night dinners which are open to all members of the church have brought us together.   This last year we held two family picnics which were great fun for all who attended as well as a picnic lunch for all who attended the combined service at the closing of Vacation Bible School in the Park.   
-
-After Christmas Eve service and Easter service we join together for revels which is a toast to celebrate.   
-
-For more information, contact Hilary Smith and Scott Russell.', 9 FROM audit_units WHERE slug_key = 'connect';
+Another opportunity for fun is the F3 program (Faith, Fitness and Fellowship), which meets really early on Tuesdays, Thursday and Saturdays to enjoy fellowship as they work out. Contact Tom Jones for more information.', 3 FROM audit_units WHERE slug_key = 'connect';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Women''s Ministry', 'https://allsaintsconcord.org/womens-ministry/', 'Women''s Ministry The Women’s Ministry of All Saints’ offers times of fellowship and growth, as well as service opportunities.  The annual events include an Advent quiet day, a Lenten Retreat, and a dessert night.  See Roxanne Friday for more information.', 4 FROM audit_units WHERE slug_key = 'connect';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Stitches for the Saints', 'https://allsaintsconcord.org/stitches-for-the-saints/', 'Stitches for the Saints What expresses love and support better than comfort food?  All Saints’ meal team provides home-cooked meals for folks recovering from illness or hospitalizations, those who are unpacking into new homes, and those with new babies.  There is a supply of home-cooked meals in the freezer, too, ready to be delivered when needed.', 5 FROM audit_units WHERE slug_key = 'connect';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'What is an Episcopalian', 'https://allsaintsconcord.org/what-is-an-epis/', 'The Episcopal Church is sometimes called a “bridge” church, because of our strong affinities with both Roman Catholic and other Protestant churches and our respect for all faith traditions. Our worship consists of music, prayers, readings from Scripture and a sermon, followed by what we call the celebration of Holy Communion, a sacred act of remembering and re-living Jesus’ last meal with his disciples. Our worship is traditional in many ways, and quite innovative in others. It’s that combination of tradition and innovation that gives the Episcopal Church its distinct feel. We love to explore the deeper questions of life and faith, in the context of that deeper grounding.
 
 The Episcopal Church celebrates diversity. We are young and old, male and female, gay and straight, single, married, divorced and widowed, Anglo, African American, Latino, African, Asian, CEO and unemployed, student and teacher, rich and poor. We worship together, study and ask questions as we move more deeply into the mystery of God.
@@ -1934,16 +1870,6 @@ Here are a few videos to help you better understand how Stephen Ministry can hel
 https://www.youtube.com/watch?v=JcuVe39UXYs
 
 https://www.youtube.com/watch?v=5GnTAEgLyH4', 1 FROM audit_units WHERE slug_key = 'pastoral-care';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Parish Nurses', 'https://allsaintsconcord.org/parish-nurses/', 'Parish Nurses The Parish Nurse program offers support and guidance for healing and wholeness.  We have two nurses in the program:  Gina Simmons and Judith Wilson.', 2 FROM audit_units WHERE slug_key = 'pastoral-care';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Prayer Teams', 'https://allsaintsconcord.org/prayer-teams/', 'Service Hours The Prayer/Healing Ministries are an important part of the life and ministry of All Saints’. Clergy, staff, and many parishioners pray faithfully for your prayer requests. There are also many people at All Saints’ willing to pray with you as well as provide pastoral care and support. 
-
-The Prayer Team is available to the congregation in various ways: we offer individual prayer at the 9:00 Sunday service and private sessions by appointment. A Healing Service with Communion is offered every Wednesday at noon.  The prayer intercessors offer a Prayer Chain on the church’s website.
-
-Daughters of the King 
-
-The Order of the Daughters of the King is an order of prayer and service; our members have taken vows to pray daily and serve in our parish at the will of the Rector.  DOK sponsors retreats and events that offer growth and worship opportunities for the women of the Parish.  The group meets on the third Thursday of each month.  For information, contact Jan Millar. 
-
-Order of St. Luke', 3 FROM audit_units WHERE slug_key = 'pastoral-care';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Prayer', 'https://allsaintsconcord.org/prayer/', 'The Prayer/Healing Ministries are an important part of the life and ministry of All Saints’. Clergy, staff, and many parishioners pray faithfully for your prayer requests. There are also many people at All Saints’ willing to pray with you as well as provide pastoral care and support.
 Prayer Teams &  Prayer Chain
 
@@ -1953,38 +1879,16 @@ Daughters of the King
 The Order of the Daughters of the King is an order of prayer and service; our members have taken vows to pray daily and serve in our parish at the will of the Rector. DOK sponsors retreats and events that offer growth and worship opportunities for the women of the Parish.  The group meets on the third Thursday of each month.  For information, contact Jan Millar.
 Order of St. Luke
 
-Group of lay people, clergy, and physicians dedicated to God’s healing ministry at All Saints.', 4 FROM audit_units WHERE slug_key = 'pastoral-care';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'We Really Need to Talk', 'https://allsaintsconcord.org/really-need-talk/', 'I have put this off too long. I wanted to avoid this subject. It’s uncomfortable. But I realize what a wonderful gift it will be to the people I love and hold dear. I can take control and make decisions now before a crisis. So, how would I like the end of my life to unfold?
+Group of lay people, clergy, and physicians dedicated to God’s healing ministry at All Saints.', 2 FROM audit_units WHERE slug_key = 'pastoral-care';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Prayer Teams', 'https://allsaintsconcord.org/prayer-teams/', 'Service Hours The Prayer/Healing Ministries are an important part of the life and ministry of All Saints’. Clergy, staff, and many parishioners pray faithfully for your prayer requests. There are also many people at All Saints’ willing to pray with you as well as provide pastoral care and support. 
 
-Let’s have a conversation.
+The Prayer Team is available to the congregation in various ways: we offer individual prayer at the 9:00 Sunday service and private sessions by appointment. A Healing Service with Communion is offered every Wednesday at noon.  The prayer intercessors offer a Prayer Chain on the church’s website.
 
+Daughters of the King 
 
-All Saints’ Episcopal Church Concord is hosting a month long series that will walk and talk you through the spiritual, healthcare, legal and ethical end-of-life issues. Pre-Registration is required for each session. This is for anyone 18 years of age and older.
+The Order of the Daughters of the King is an order of prayer and service; our members have taken vows to pray daily and serve in our parish at the will of the Rector.  DOK sponsors retreats and events that offer growth and worship opportunities for the women of the Parish.  The group meets on the third Thursday of each month.  For information, contact Jan Millar. 
 
-Online Registration is open! Scroll to the bottom of this page to register now, or call (704) 782-2024 to register by phone.
-
-Sunday, January 8, 2017- 10:00am 
-The Reverend Nancy Cox, Rector of All Saints’ Episcopal Church, will kick off our series with some of the questions she has often been asked, such as, In what situations might we be prolonging dying as opposed to extending life? Where is God when we come to the end of our lives? She will follow that with some practical steps to help your family and loved ones: know where to look for your passwords, your brokerage accounts, the location of the key to your safety deposit box. The booklet, “Act of Love” Part I will be given to those who participate to help organize this important information.
-
-Sunday, January 15, 2017- 10:00am 
-Dr. Randy Schisler, Director, Palliative Care at CMC-NorthEast will conduct an open discussion about what does resuscitation mean, what kind of care does a person get who is DNR (Do Not Resuscitate), and what does it mean if a person "wants everything"? What is life support, and how often does it work? What''s the difference between hospice and palliative care? What is the best way to get my wishes followed?
-
-Sunday, January 22, 2017- 10:00am 
-The Reverend Nancy Cox will have choices of scripture, music and liturgy at your fingertips so that planning a celebration of life service will be made easier for your loved one. After attending this class you may want to do it yourself! “Act of Love” Part II will be handed out at this session.
-
-Tuesday, January 24, 2017 
-Soup and Salad 5:30pm - 6:00pm 
-6:00pm – Reverend Ric Durham, BCC, Spiritual Care Director of Hospice & Palliative Care of Cabarrus County, will lead us in a discussion of advance care planning and the completion of North Carolina advance directives (healthcare power of attorney and living will).
-
-Sunday, February 5, 2017- 10:00am 
-Marjorie Brown, JD, Concord NC, will discuss the importance of wills, power of attorney and other legal documents you should have in place in order to leave a “Love Letter to Your Family”. What decisions do you need to make? Whose wishes should you consider? Have you thought about your young children, your adult children or your parents? Let’s discuss what I consider to be a complete love letter.
-
-Sunday, February 12, 2017- 10:00am 
-All Saint''s parishioner and nationally acclaimed presenter and author, Mary Ann Drummond, RN, will provide valuable information for those seeking a deeper understanding of what dementia is, how to recognize the symptoms associated with dementia, and techniques for positive interactions when a loved one or someone you know has dementia. What are the risk factors? Can dementia be prevented? What resources are available in our community for care givers? What can I personally do to support friends and loved ones with dementia?
-
-Registration
-
-(Also on this old page, not shown as text here: an online form (its fields aren''t shown here as text).)', 5 FROM audit_units WHERE slug_key = 'pastoral-care';
+Order of St. Luke', 3 FROM audit_units WHERE slug_key = 'pastoral-care';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Serve', 'https://allsaintsconcord.org/serve/', 'In The Church
 
 There are many, many areas of service and ministry ongoing within All Saints’. Some are visible, and some are behind the scenes. From making sure the pews are orderly, to answering phones and greeting visitors, to providing cookies and fruit for coffee hour, there is a place for you to contribute to the life of All Saints’ and the work and walk of fellow parishioners.
@@ -2006,146 +1910,13 @@ All Saints’ supports the work and mission of Episcopal Relief and Development,
 Events Planning
 
 All Saints’ supports the work and mission of Episcopal Relief and Development, an international relief and development agency. We seek to contribute to the work of healing a hurting world, guided by the principles of compassion, dignity and generosity. We respond to crisis and need in the world through prayer, action and financial aid. We have undertaken to provide mosquito nets through Nets for Life and are currently collecting funds for Syrian refugees. We have a strong and enduring relationship with development efforts in Haiti, and send teams there regularly.', 0 FROM audit_units WHERE slug_key = 'serve';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Set Free To Serve', 'https://allsaintsconcord.org/set-free-to-serve/', 'A message from The Rev. Nancy Cox, Rector
-
-
-
-
-
-Dear Friends,
-
-Since receiving a gracious offer from a parishioner concerned about how our mortgage payment limits our ability to grow in ministry, members of our parish have been working to plan a capital campaign for debt elimination/reduction.
-
-The theme for the campaign is Set Free to Serve . This captures our hopes for what this campaign will make possible. Freed from spending 20% of our operating budget on mortgage payments, we will be able to serve the community in new and exciting ways. It is essential that we act now to take advantage of this opportunity.
-
-Forty people have agreed to leadership roles in this campaign. Their passion for the mission of this church is inspiring; their energy and enthusiasm are electrifying. They know that God is doing amazing work through this church and they want to see it grow and flourish.
-
-I believe All Saints’ has been given an extraordinary opportunity to make an eternal difference in this community and the wider world. The offer to match our gifts and pledges is a once in a generation opportunity to free up resources for mission and ministry.
-
-I am thrilled to be part of this effort.
-
-Faithfully,
-Nancy+
-
-
-
-FAQs: Everything You Need to Know About the Capital Campaign
-
-
-
-
-
-
-
-Click above to learn everything you need to know about the Capital Campaign!
-
-
-
-Hear how All Saints'' Episcopal Church has changed people''s lives and why it''s important for them to participate in the Capital Campaign.
-
-https://www.youtube.com/playlist?list=PLnI7gCZiLWNz_gR1YvEjSQygWUtAzxME3 
-
-
-
-
-
-
-Click here to see the first newsletter.
-
-Click here to see the second newsletter. 
-
-Stay informed of the latest news.
-
-
-
- From the Capital Campaign Leadership Team
-
-
-
-
-
-All Saints’ Friends,
-
-We are embarking on a capital campaign to reduce or even eliminate our mortgage debt of $1.7 million. With the assistance of an anonymous donor, we can see this happen! This is a challenge match, dollar for dollar, provided we raise a minimum of $500,000. Every dollar we raise at or above $500K will be matched! We have three years to pay our campaign pledges, but only two months to make the commitment that will trigger this generous match.
-
-It will take the entire church family, using our individual and collective gifts and talents, to reach our goal. Imagine the impact of an All Saints’ that is Set Free To Serve within our church community and beyond! 
-
-Over the next few months there will be opportunities and events to learn more about this exciting endeavor. Please give prayerful consideration to joining us on this journey. Here are some important dates:
-
-Commitment Sunday (submit our pledge commitments): April 29
-
-First Fruits Sunday (first contributions to the campaign): May 20
-
-
-
-Yours in Faith,
-The Leadership Team
-
-
-
-
-
-
-For Alumni and Friends
-
-
-
-
-
-Dear Friends,
-
-Greetings from all of us at All Saints’ Episcopal Church in the name of Christ our Lord!
-
-We are writing friends and former members of All Saints’ about the capital campaign happening here this spring — a strategic plan to reduce or retire the church’s $1.7 million debt and free us for renewed investments in mission and ministry. During the planning of the capital campaign, an anonymous donor offered to multiply the impact of the campaign by matching all gifts, if we collectively pledge at least $500,000. This is an exciting time!
-
-Please join us in prayer that God will bless our efforts and multiply them to a successful conclusion. If you’re in the area this spring, we’d be so pleased to have you join us for worship and fellowship while you are here.
-
-And, if you are so led, we would be deeply grateful for your prayerful consideration of a gift or pledge toward our goal. Perhaps you would like to offer a one-time donation in honor or memory of someone dear to you at All Saints’. You might want to make a pledge that can be paid over the next three years. As we gather together to ask the Lord’s blessing on Commitment Sunday, April 29, we would be honored to include your gift with those we lift to the Lord. If you return your commitment card by April 29, your donation can be matched by the anonymous donor.
-
-There are some choices in how you can contribute:
-Make a One-Time Payment to the Capital Campaign Here.
-
-Just choose "Capital Campaign" in the drop down box. 
-Alumni and Friends may also make a pledge to the campaign through this link.
-
-You can mail a check with your pledge card. You can set up automatic, periodic payments through your bank. Whichever you choose, we ask that you make known your pledge by April 29 so that we can double it through the generous match.
-
-“We thank God every time we remember you. In all our prayers for all of you, we always pray with joy because of your partnership in the gospel from the first day until now” (Philippians 1:3-5).
-
-
-
-
-
-
-
-
-Sincerely yours,
-
-
-
-
-
-
-
-
-The Alumni and Friends Team
-
-Dick and Jackie Whitfield, Co-chairs
-Fannie and Tom Dillard, Co-chairs
-David Abernethy
-Bill and Sandra Biggerstaff
-Valerie Devine
-Juli Dwiggins
-Betty McCray
-Jerry and Virginia Ridenhour
-Betty Wiley', 1 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'In the Church', 'https://allsaintsconcord.org/in-the-church/', 'In the Church There are many, many areas of service and ministry ongoing within All Saints’.  Some are visible, and some are behind the scenes.  From making sure the pews are orderly, to answering phones and greeting visitors, to providing cookies and fruit for coffee hour, there is a place for you to contribute to the life of All Saints’ and the work and walk of fellow parishioners. 
 
 Greeters welcome church-goers with a smile that starts our transition from the outside world into this place of Worship. Greeters talk with visitors and provide information they seek, which can include a tour of our building, information about our services, and introductions to our Clergy, Staff, Vestry or other members. In addition to the greeters, Ushers are typically the first people who greet you when you enter our church. Their goal is to welcome everyone with a warm smile and a ‘good morning’ greeting.
 
 Each weekday, volunteers staff the Welcome Desk, answering phones, greeting guests to All Saints’ and helping to ensure that the first (or fiftieth) contact with this community has a human voice and friendly face.
 
-The Gardens of All Saints works to beautify and maintain the grounds of our 9-acre church campus, basing decisions for this work on our mission and vision statements.  The group literally breaks new ground in stewardship of God’s creation.  They have installed cisterns to collect rainwater; have developed gardens that beautify the grounds as well as providing herbs for the kitchen; and have maintained the grounds of our Parish. For more information, contact Shelley Williams. The Events Planning Team accepts, brainstorms, considers and finalizes fundraising recommendations for approval by the Vestry.     Our ministry contributes to spiritual growth within the church by providing opportunities to do God’s work and for fellowship. Within the community, our fundraising events give us the chance to make disciples for Jesus, love like God loves and seek and serve Jesus in unexpected places and/or ways.  For more information, contact Andrea Holdren.', 2 FROM audit_units WHERE slug_key = 'serve';
+The Gardens of All Saints works to beautify and maintain the grounds of our 9-acre church campus, basing decisions for this work on our mission and vision statements.  The group literally breaks new ground in stewardship of God’s creation.  They have installed cisterns to collect rainwater; have developed gardens that beautify the grounds as well as providing herbs for the kitchen; and have maintained the grounds of our Parish. For more information, contact Shelley Williams. The Events Planning Team accepts, brainstorms, considers and finalizes fundraising recommendations for approval by the Vestry.     Our ministry contributes to spiritual growth within the church by providing opportunities to do God’s work and for fellowship. Within the community, our fundraising events give us the chance to make disciples for Jesus, love like God loves and seek and serve Jesus in unexpected places and/or ways.  For more information, contact Andrea Holdren.', 1 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'In the Community', 'https://allsaintsconcord.org/in-the-community/', 'In the Community 
 
 
@@ -2164,7 +1935,7 @@ ASEC formed a foundation called All Saints’ Early Childhood Foundation (ASECF)
 
 Donations are always appreciated. Checks may be made out to ASECF and dropped off or mailed to the church office. 
 
-More information: Info@ASECF.org or www.facebook.com/ASECF', 3 FROM audit_units WHERE slug_key = 'serve';
+More information: Info@ASECF.org or www.facebook.com/ASECF', 2 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'In the World', 'https://allsaintsconcord.org/in-the-world/', 'In the World All Saints’ supports the work and mission of Episcopal Relief and Development, an international relief and development agency.  We seek to contribute to the work of healing a hurting world, guided by the principles of compassion, dignity and generosity.  We respond to crisis and need in the world through prayer, action and financial aid.  We have undertaken to provide mosquito nets through Nets for Life and are currently collecting funds for Syrian refugees.  We have a strong and enduring relationship with development efforts in Haiti, and send teams there regularly. We made our first trip in 1996 to a reforestation project in the southern mountains of Haiti. An interdenominational project called CODEP was, along with local subsistence farmers, planting trees and restoring water systems in the Cormeir valley near Leogane. This was also the first, ever, overseas mission trip for All Saint’s.
 
 Things have grown since then. CODEP now works in the Cormeir, Bwa Goch and Gros Morn valleys, some 600 local families are involved in growing and planting a million trees per year to reclaim some 100 sq. miles of barren hillside. Timber harvesting, fish farming, vegetable and fruit production, coffee, water sourcing, schools, housing, education, all flow from this activity which is funded by some 70 multi- denominational congregations from New York to Florida and our own Episcopal Relief through Haiti Fund Inc of New Bern, N. Carolina.
@@ -2177,7 +1948,7 @@ When not in Haiti we work hard to raise funds to help finance our trips and purc
 
 We store, load and ship 40ft containers of needed materials such as fertilizer, treated lumber, pipe and fish food on behalf of Haiti Fund. We are always happy to see new faces and our church office can point you in the right direction.  You don’t have to go to Haiti to help Haiti; at least half of our group fall into this category and they make much of what we accomplish possible. What we can promise you is a sense of purpose and good fellowship, a very definite chance to make a difference and the opportunity to follow God’s command to love your neighbor.
 
-We can also guarantee that the return you’ll get for the work you do will be a hundredfold and for many a life changing experience.', 4 FROM audit_units WHERE slug_key = 'serve';
+We can also guarantee that the return you’ll get for the work you do will be a hundredfold and for many a life changing experience.', 3 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Service Hours', 'https://allsaintsconcord.org/service-hours/', 'Worship and prayer are central to life at All Saints’. The vision that shapes our time together is simple: we focus on God and we leave with a greater sense of hope and joy.
 
 Our services are shaped by Episcopal tradition and tailored to be relevant to your daily life and spiritual journey. Inspiring music, meaningful sermons, a welcoming and inclusive atmosphere: these are the things you will find when you join us on a Sunday morning.
@@ -2194,7 +1965,7 @@ The 11:10 am service is a standard Rite II prayer book service with traditional 
 
 Tuesdays
 
-8 PM - Compline Night Prayer, as service to peacefully end the day, is offered online on Facebook Live and on All Saints''  Youtube Channel .', 5 FROM audit_units WHERE slug_key = 'serve';
+8 PM - Compline Night Prayer, as service to peacefully end the day, is offered online on Facebook Live and on All Saints''  Youtube Channel .', 4 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Night Shelter Meal Ministry', 'https://allsaintsconcord.org/night-shelter-meal-ministry/', 'Purpose
 
 For two full weeks a year ASEC provides a homemade meal and the gift of presence for guests at the night shelter.
@@ -2234,7 +2005,7 @@ Other notes
 
 You won''t be there alone. The shelter staff are always very helpful.
 
-We don''t need to leave the kitchen spotless.', 6 FROM audit_units WHERE slug_key = 'serve';
+We don''t need to leave the kitchen spotless.', 5 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'CCM MAC House Meal Ministry', 'https://allsaintsconcord.org/ccm-mac-house-meal-ministry/', 'Purpose
 
 Once a month, ASEC provides a homemade meal and the gift of presence for the residents (moms and kids) of the CCM MAC house.
@@ -2268,8 +2039,8 @@ It''s easiest to bring food that is prepped or mostly prepped.
 
 Other notes
 
-You won''t be there alone. This is a joyful ministry!', 7 FROM audit_units WHERE slug_key = 'serve';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Meals', 'https://allsaintsconcord.org/meals/', 'Meals What expresses love and support better than comfort food?  All Saints’ meal team provides home-cooked meals for folks recovering from illness or hospitalizations, those who are unpacking into new homes, and those with new babies.  There is a supply of home-cooked meals in the freezer, too, ready to be delivered when needed.', 8 FROM audit_units WHERE slug_key = 'serve';
+You won''t be there alone. This is a joyful ministry!', 6 FROM audit_units WHERE slug_key = 'serve';
+INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Meals', 'https://allsaintsconcord.org/meals/', 'Meals What expresses love and support better than comfort food?  All Saints’ meal team provides home-cooked meals for folks recovering from illness or hospitalizations, those who are unpacking into new homes, and those with new babies.  There is a supply of home-cooked meals in the freezer, too, ready to be delivered when needed.', 7 FROM audit_units WHERE slug_key = 'serve';
 INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Learn', 'https://allsaintsconcord.org/learn/', 'Christian formation is the lifelong process of growing in our relationship with God, self, others, and all creation. Through prayer, worship, study, fellowship, and service we can experience spiritual growth in our lives. On Sunday mornings throughout the program year, All Saints’ offers opportunities for all ages to study and learn as we seek to follow Christ.
 
 Christian Formation for Children and Youth
@@ -2637,14 +2408,3 @@ Congregations often are not aware of the support and resources they receive from
 5. Committing to New Directions in Ministry
 
 When a congregation has developed a shared vision of its future and has sought to call a rector to help lead it in moving into that future, there will probably be a new commitment both to that new leader and to that new future.', 2 FROM audit_units WHERE slug_key = 'rector-search';
-INSERT INTO audit_sources (unit_id, old_title, old_url, old_text, sort_order) SELECT id, 'Tour de Saints 2026 Sponsorship', 'https://allsaintsconcord.org/tour-de-saints-2021-sponsorship/', 'Sign up to become a Tour de Saints sponsor.
-
-Now in our 14th year, The Tour de Saints charity bike ride is an annual outreach event hosted by All Saints Episcopal Church. This community event supports local charities in Cabarrus County.
-
-Our objectives are to raise awareness about the work these important charities do in our community; collect non-perishable food items the day of the ride, and generate funds to directly support these local charities. For more information visit www.tourdesaints.com .
-
-The ride will begin and end at All Saints'' Episcopal Church on Lake Concord Road, Concord NC. The Concord Police Department helps get our cyclists safely out of town and onto less traveled country roads, and the Cabarrus Sheriff’s Department takes it from there.
-
-Routes are available for most ability levels. The 50k, 100k and 50-mile routes traverse scenic rural areas of Cabarrus and Rowan County on classic “Back Country” Roads. Riders participating in the event will pay an entry fee and donate non-perishable food items. We will provide lunch to the participants and sell lunch to guests.
-
-Sponsorship levels start at $300.00 and will be recognized on our event tee shirts and website. New this year, become a "Friends of Tour de Saints" individual sponsor!', 0 FROM audit_units WHERE slug_key = 'removed';
