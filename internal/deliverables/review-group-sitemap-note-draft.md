@@ -10,7 +10,7 @@ Hi all,
 
 Wanted to share where the new website structure has landed and get your eyes on it before we go further.
 
-Attached is a simple site map: every page on the new site, and where it lives. The short version: the old site had about 70 pages and a menu of 41 links spread across eight dropdowns. The new site keeps everything that matters in a much simpler shape, six items across the top, with just two dropdowns (About and Connect) for the pages underneath them.
+Attached is a simple site map: every page on the new site, and where it lives. The short version: the old site had about 70 pages reached through a top menu of eight dropdowns. The new site holds the 19 pages that matter in a much simpler shape, six items across the top, with just two dropdowns (About and Connect) for the pages underneath them.
 
 A few things worth calling out:
 
@@ -22,6 +22,13 @@ A few things worth calling out:
 You can see the site map as a single page here: https://allsaints-redesign.nate-ernst7.workers.dev/site-map
 
 And you can click through the actual pages here: https://allsaints-redesign.nate-ernst7.workers.dev/final
+
+A few things to keep in mind as you look around, since this is a working preview and not the finished site:
+
+- Not every link goes somewhere yet, and a few pages aren't rebuilt here at all (like the individual memorial-tree pages), because those carry straight over to the new site as they are.
+- The photos aren't final. Joy Marie is adding more over the next few weeks.
+- The events shown are just placeholders. The real site will pull in our actual calendar automatically.
+- Once everything is built in Squarespace, there will be another round to look at it all in its final form.
 
 The site map and the preview now match, so what you see in the menu is what you see on the map.
 
