@@ -81,7 +81,7 @@ DECISION: Keep the 6-item nav, no dedicated Worship item. Close the content gap 
 | Clergy & Staff | `/clergy` |
 | Our History | `/history` |
 | Formation & Learning | `/learn` |
-| Memorial Arboretum | `/arboretum` (+ 36 tree pages, preserved QR slugs) |
+| Memorial Arboretum | `/arboretum` (+ 36 tree pages, preserved QR slugs; the prayer labyrinth stays its own preserved-URL page reached from here, matching the current site. No standalone columbarium page: the current site has none, per "do what the current site does.") |
 
 ### Connect hub children (unchanged)
 New to the Episcopal Church `/connect/episcopalian` · Life Events `/connect/life-events` · Pastoral Care `/connect/pastoral-care`
