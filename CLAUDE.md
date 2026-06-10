@@ -6,8 +6,12 @@ WordPress to Squarespace migration for All Saints' Episcopal Church (Concord, NC
 
 ## Audience priority (calibrate every call to this)
 
-1. **Clergy candidates evaluating the parish** through mid-July 2026. The rector search is the reason for the timeline. IA, content depth, and design decisions serve this reader first.
-2. **The review group** (not the full vestry) reviews design/content in May–July. Only invoke the vestry for formal sign-off moments.
+End-user audience (who the site is built for), in order:
+
+1. **Church visitors, regular attenders, and curious seekers** looking for a church. This is the primary reader. Every IA, content, and design decision serves them first.
+2. **Clergy candidates evaluating the parish** (the rector search) — a secondary, time-bound goal through the mid-July 2026 search. Keep it accurate and present, but **go light** and don't over-build the rector-search page or add heavy candidate-facing features until there is solid parish-profile content. (Reversed 2026-06-10; earlier framing put candidates first.)
+
+Reviewer (not end-user) note: **the review group** (not the full vestry) reviews design/content in May–July. Only invoke the vestry for formal sign-off moments.
 
 ## Repo map
 
