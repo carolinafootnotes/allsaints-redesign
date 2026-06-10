@@ -329,6 +329,108 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 .mobile-nav a:hover,
 .mobile-nav a:focus { color: var(--color-gold); }
 
+/* ---- Nav dropdowns (mirrors a native Squarespace 7.1 folder) ---- */
+/* Desktop */
+.nav-dd { position: relative; display: inline-flex; align-items: center; }
+.nav-dd-btn {
+  font: inherit;
+  color: var(--color-burgundy);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.nav-dd-btn:hover,
+.nav-dd-btn:focus,
+.nav-dd:hover .nav-dd-btn { color: var(--color-burgundy-deep); }
+.nav-dd-caret { width: 0.7em; height: 0.7em; transition: transform 0.2s; }
+.nav-dd:hover .nav-dd-caret,
+.nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
+.nav-dd-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  min-width: 230px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.13);
+  padding: 0.4rem 0;
+  display: none;
+  flex-direction: column;
+  z-index: 60;
+}
+/* bridge the gap so hover doesn't drop between button and menu */
+.nav-dd-menu::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+}
+.nav-dd:hover .nav-dd-menu,
+.nav-dd:focus-within .nav-dd-menu,
+.nav-dd.open .nav-dd-menu { display: flex; }
+.nav-dd-menu a {
+  display: block;
+  padding: 0.6rem 1.4rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--color-burgundy);
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-dd-menu a::after { display: none; }
+.nav-dd-menu a:hover,
+.nav-dd-menu a:focus { background: var(--color-cream-warm); color: var(--color-burgundy-deep); }
+
+/* Mobile accordion (inside the full-screen mobile-nav overlay) */
+.mobile-dd { display: flex; flex-direction: column; align-items: center; }
+.mobile-dd-btn {
+  font: inherit;
+  color: #fff;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+.mobile-dd-caret { width: 0.65em; height: 0.65em; transition: transform 0.2s; }
+.mobile-dd.open .mobile-dd-caret { transform: rotate(180deg); }
+.mobile-dd-menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+.mobile-dd.open .mobile-dd-menu { display: flex; }
+.mobile-dd-menu a {
+  font-size: var(--text-base);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 @media (max-width: 768px) {
   .nav-links  { display: none; }
   .hamburger  { display: flex; }

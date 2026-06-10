@@ -78,6 +78,33 @@
     });
   }
 
+  // ---- Nav dropdowns (desktop click/touch + mobile accordion) ----
+  // Desktop also opens on CSS :hover/:focus-within; this handles click, touch, and keyboard toggle.
+  var ddToggles = Array.prototype.slice.call(document.querySelectorAll('.nav-dd-btn, .mobile-dd-btn'));
+  ddToggles.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var dd = btn.closest('.nav-dd, .mobile-dd');
+      if (!dd) return;
+      var open = dd.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  function closeDropdowns(filter) {
+    document.querySelectorAll('.nav-dd.open, .mobile-dd.open').forEach(function (dd) {
+      if (filter && !filter(dd)) return;
+      dd.classList.remove('open');
+      var b = dd.querySelector('.nav-dd-btn, .mobile-dd-btn');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  document.addEventListener('click', function (e) {
+    closeDropdowns(function (dd) { return !dd.contains(e.target); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDropdowns();
+  });
+
   // ---- Scroll reveal ----
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
