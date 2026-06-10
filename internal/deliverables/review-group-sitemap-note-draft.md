@@ -19,7 +19,9 @@ A few things worth calling out:
 - **"Give"** now opens our own giving page first, which explains the ways to give before sending people to the online giving site. We also added short notes there on estimated giving, the tax side of giving, and Tour de Saints.
 - **What's Happening** moved from the top menu into the footer at the bottom of every page. On a phone especially, a shorter top menu is easier to use, and the events are still one tap away from any page.
 
-You can click through the actual pages here: https://allsaints-redesign.nate-ernst7.workers.dev/final
+You can see the site map as a single page here: https://allsaints-redesign.nate-ernst7.workers.dev/site-map
+
+And you can click through the actual pages here: https://allsaints-redesign.nate-ernst7.workers.dev/final
 
 The site map and the preview now match, so what you see in the menu is what you see on the map.
 
