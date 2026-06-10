@@ -22,61 +22,25 @@
       margin-top: 1.5rem;
     }
 
-    /* New service cards (image/gradient banner-led) */
-    .service-cards-v2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
-      justify-content: center;
-      gap: 1.75rem;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .service-card-v2 {
+    /* Visit worship section: LIGHT treatment.
+       The shared .worship-card system (site.css) is dark-themed (white text for a dark band,
+       as used on the home page). On Visit the hero is already dark, so we keep this section
+       light to avoid stacking two dark bands. Override the card colors to dark-on-light. */
+    .worship { background: #fff; }
+    .worship .worship-card {
       background: #fff;
       border: 1px solid #e8e4dc;
-      border-radius: 16px;
-      overflow: hidden;
       box-shadow: 0 8px 24px rgba(123, 35, 50, 0.06);
-      display: flex;
-      flex-direction: column;
     }
-    .service-card-v2-banner {
-      padding: 2.25rem 1.75rem 1.75rem;
-      color: #fff;
-      position: relative;
+    .worship .worship-card-title { color: var(--color-ink); }
+    .worship .worship-card-desc  { color: var(--color-text-soft); }
+    .worship .worship-extra {
+      background: var(--color-cream);
+      border: 1px solid #e8e4dc;
     }
-    .service-card-v2-banner.family {
-      background: linear-gradient(135deg, #5e1a28 0%, #7b2332 100%);
-    }
-    .service-card-v2-banner.traditional {
-      background: linear-gradient(135deg, #3d2419 0%, #5c3a2a 100%);
-    }
-    .service-card-v2-banner .time {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #e8d9a0;
-      line-height: 1;
-      letter-spacing: -0.01em;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .service-card-v2-banner .name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      color: #fff;
-      margin: 0;
-    }
-    .service-card-v2-body {
-      padding: 1.75rem;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--color-text-soft);
-    }
-    .service-card-v2-body p { margin: 0 0 0.85rem; }
-    .service-card-v2-body p:last-child { margin: 0; }
-    .service-card-v2-body strong { color: #1a1a1a; font-weight: 600; }
+    .worship .worship-extra:hover { background: var(--color-cream-warm); }
+    .worship .worship-extra-title  { color: var(--color-ink); }
+    .worship .worship-extra-detail { color: var(--color-text-muted); }
 
     /* Light-background info card (replaces .visit-info-card on light surfaces) */
     /* info-card-light, info-card-grid, icon-housing -- defined in site.css */
@@ -264,8 +228,8 @@
             <div class="worship-extra-detail">Wednesday 12:00 PM &middot; A midweek pause</div>
           </div>
           <div class="worship-extra">
-            <a href="/final/watch-and-listen" style="color: #c8a977; text-decoration: none;">
-              <div class="worship-extra-title" style="color:#c8a977;">Watch Live &rarr;</div>
+            <a href="/final/watch-and-listen" style="color: #7b2332; text-decoration: none;">
+              <div class="worship-extra-title" style="color:#7b2332;">Watch Live &rarr;</div>
               <div class="worship-extra-detail">Stream any Sunday service</div>
             </a>
           </div>
@@ -464,7 +428,7 @@
           <div class="footer-brand">
             <img src="/allsaints-logo-white.svg" alt="All Saints' Episcopal Church" class="logo-icon">
           </div>
-          <p class="footer-about">A vibrant community of faith in Concord, North Carolina. Rooted in the Episcopal tradition since 1878. All are welcome.</p>
+          <p class="footer-about">The Rev. John Johanssen, Interim Rector<br>525 Lake Concord Road NE, Concord, NC 28025<br><a href="tel:7047822024" style="color:inherit;">(704) 782-2024</a> &middot; <a href="mailto:admin@allsaintsconcord.org" style="color:inherit;">admin@allsaintsconcord.org</a></p>
           <p class="footer-about" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.85;">A parish of the Episcopal Diocese of North Carolina &middot; The Rt. Rev. Sam Rodman, Bishop</p>
         </div>
         <div class="footer-col">
