@@ -353,6 +353,7 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 .nav-dd:hover .nav-dd-btn { color: var(--color-burgundy-deep); }
 .nav-dd-caret { width: 0.7em; height: 0.7em; transition: transform 0.2s; }
 .nav-dd:hover .nav-dd-caret,
+.nav-dd:focus-within .nav-dd-caret,
 .nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
 .nav-dd-menu {
   position: absolute;
@@ -853,6 +854,8 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
     transition: none;
   }
   .hero-scroll-indicator { animation: none; }
+  .nav-dd-caret, .mobile-dd-caret,
+  .nav-dd-btn, .mobile-dd-btn { transition: none; }
   html { scroll-behavior: auto; }
 }
 

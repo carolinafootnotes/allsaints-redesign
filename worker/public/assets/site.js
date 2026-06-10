@@ -69,12 +69,24 @@
       });
     });
 
+    // Single Escape handler: close an open mobile sub-menu first (stay in the
+    // overlay), then the overlay itself, then any desktop dropdown.
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+      if (e.key !== 'Escape') return;
+      if (mobileNav.classList.contains('open')) {
+        var openDd = mobileNav.querySelector('.mobile-dd.open');
+        if (openDd) {
+          openDd.classList.remove('open');
+          var ddBtn = openDd.querySelector('.mobile-dd-btn');
+          if (ddBtn) { ddBtn.setAttribute('aria-expanded', 'false'); ddBtn.focus(); }
+          return;
+        }
         mobileNav.removeEventListener('keydown', trapFocus);
         toggleMenu();
         hamburger.focus();
+        return;
       }
+      closeDropdowns();
     });
   }
 
@@ -101,9 +113,7 @@
   document.addEventListener('click', function (e) {
     closeDropdowns(function (dd) { return !dd.contains(e.target); });
   });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeDropdowns();
-  });
+  // Escape handling lives in the unified handler in the mobile-menu block above.
 
   // ---- Scroll reveal ----
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
