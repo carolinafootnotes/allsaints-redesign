@@ -890,13 +890,14 @@ button:focus-visible {
 
 /* ---- involved-card / involved-grid ---- */
 .involved-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-6);
   max-width: 1100px;
   margin: 0 auto;
 }
+.involved-grid > .involved-card { flex: 0 0 280px; }
 /* Clergy / staff card grid (home clergy section + /clergy staff section) */
 .clergy-grid {
   display: grid;
