@@ -10,6 +10,20 @@ Live preview: https://allsaints-redesign.nate-ernst7.workers.dev/final
 
 ---
 
+## IA restructure (Jun 2026) — shipped + follow-ups
+
+The new nav is live and lock-step with the sitemap diagrams: **Visit · About · Connect · Serve · Rector Search · Give**. About hub page built; What's Happening moved to footer; Give points to the on-site `/giving` page; external-link ↗ icon added. Plan: `internal/deliverables/ia-restructure-plan-jun2026.md`.
+
+Follow-ups not required for nav lock-step:
+- [ ] **P2 / N** Giving page enrichment — add Annual Estimated Giving (evergreen + Realm pledge link), tax-benefits note, Tour de Saints cross-link (no new sub-pages). From the IA plan.
+- [ ] **P2 / N** Visit page — add a worship summary (liturgy, Rite I/II, music) and put service times above the fold (the 18-site study's #1/#2 gaps). Covers the "no Worship nav item" decision.
+- [ ] **P3 / N** In-site `/final/sitemap` page is organized by audience (Newcomers/Members/Reference), not by the new nav. Decide: leave as the audience view, or add an "About" entry / mirror the nav structure.
+- [ ] **P3** Social footer icons (FB/IG/YT) — add "opens in new tab" to their aria-labels for parity with the text links.
+- [ ] **P3** Home page mobile nav uses a stray `class="mobile-nav-link"` (inert, no CSS rule); normalize to match the other 19 pages.
+- [ ] **P2 / N** "Why we moved it" cover note for the review group (What's Happening → footer, Lockhart → external) + send the simple sitemap with the preview URL.
+
+---
+
 ## Open decisions for the review group
 
 These came from the sitemap deck (slide 8) and need a yes/no from the group, not implementation.
