@@ -10,6 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    /* Four hub cards: avoid a lone 3+1 orphan row in the tablet range (the shared
+       grid is tuned for three cards). Force a balanced 2x2 between ~748 and ~987px. */
+    @media (min-width: 700px) and (max-width: 987px) {
+      .connect-channels { grid-template-columns: repeat(2, 220px); }
+    }
+  </style>
 </head>
 <body class="page-subpage">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -89,7 +96,7 @@
             <div class="cc-title">Formation &amp; Learning</div>
             <div class="cc-sub">Christian formation for children, youth, and adults</div>
           </a>
-          <a href="/final/arboretum" class="connect-channel-card reveal reveal-delay-1">
+          <a href="/final/arboretum" class="connect-channel-card reveal reveal-delay-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
             <div class="cc-title">Memorial Arboretum</div>
             <div class="cc-sub">The living memorial grounds, with a page for each tree</div>
@@ -131,9 +138,9 @@
           <a href="tel:7047822024">(704) 782-2024</a>
           <a href="mailto:admin@allsaintsconcord.org">Email Us</a>
           <a href="/final/giving">Giving</a>
-          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give Online</a>
-          <a href="https://conta.cc/47bfZ6Z" target="_blank" rel="noopener">Newsletter</a>
-          <a href="https://www.lockhartcdc.org" target="_blank" rel="noopener">Lockhart Child Development Center</a>
+          <a href="https://onrealm.org/AllSaintsEpiscopalConcord" target="_blank" rel="noopener">Give Online<span class="sr-only">, opens in new tab</span></a>
+          <a href="https://conta.cc/47bfZ6Z" target="_blank" rel="noopener">Newsletter<span class="sr-only">, opens in new tab</span></a>
+          <a href="https://www.lockhartcdc.org" target="_blank" rel="noopener">Lockhart Child Development Center<span class="sr-only">, opens in new tab</span></a>
         </div>
       </div>
       <div class="footer-bottom">
