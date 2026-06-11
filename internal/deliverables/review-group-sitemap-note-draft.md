@@ -1,43 +1,40 @@
-# Cover note to the review group — sitemap + navigation (DRAFT)
+# Email to the review group — walk through the new site (DRAFT)
 
-Status: DRAFT for Nate. Not sent. Written in Nate's voice. Two attachments: the simple site map (`sitemap-diagram-clean.png`) and, optionally, the detailed one (`sitemap-diagram.png`).
+Status: DRAFT for Nate. Not sent. Written in Nate's voice. Optional attachment: the simple site map image (`sitemap-diagram-clean.png`), or just the `/site-map` link.
 
 ---
 
-Subject: A look at the new site map (and how the menu is shaping up)
+Subject: A first walk through the new website
 
 Hi all,
 
-Wanted to share where the new website structure has landed and get your eyes on it before we go further.
+The new site is far enough along that I'd love for you to walk through the whole thing and tell me what you think. You can click around the real pages here:
 
-Attached is a simple site map: every page on the new site, and where it lives. The short version: the old site had about 70 pages reached through a top menu of eight dropdowns. The new site holds the 19 pages that matter in a much simpler shape, seven items across the top, with just two dropdowns (About and Connect) for the pages underneath them.
+https://allsaints-redesign.nate-ernst7.workers.dev/final
 
-A few things worth calling out:
+Take your time, and wander wherever you'd go as a guest or a member.
 
-- **"About"** is new. It groups the pages people look for when they want to know who we are: Clergy & Staff, Our History, Formation & Learning, and the Memorial Arboretum. We went with the plain word "About" on purpose, it's what nearly every church site uses, and it won't trip up someone new to the Episcopal Church.
-- We kept the **dropdown menus** you're used to. Hover (or tap on a phone) and the pages underneath About and Connect appear, just like today.
-- **"Give"** now opens our own giving page first, which explains the ways to give before sending people to the online giving site. We also added short notes there on estimated giving, the tax side of giving, and Tour de Saints.
-- **"Events"** keeps its spot in the top menu, since it's the page people come back to most. The full calendar lives there.
+A few things worth knowing about the structure:
 
-You can see the site map as a single page here: https://allsaints-redesign.nate-ernst7.workers.dev/site-map
+- The menu is much simpler. The old site had about 70 pages behind a top menu of eight dropdowns. The new site keeps the 19 pages that matter, with seven items across the top and just two dropdowns (About and Connect) for the pages underneath.
+- "About" is new. It gathers the "who we are" pages: Clergy & Staff, Our History, Formation & Learning, and the Memorial Arboretum. We used the plain word "About" on purpose, it's what nearly every church site uses, and it won't trip up someone new to the Episcopal Church.
+- "Give" now opens our own giving page first, which explains the ways to give before handing off to the online giving site.
+- "Events" keeps its spot up top, since it's the page people come back to most.
+- One new idea to look at: a "special services" schedule right on the home page for seasons like Advent and Holy Week, when there are a lot of services close together. (It's showing a recent Advent schedule as a stand-in for now.) It replaces squeezing everything onto an image, and it reads cleanly on a phone. I'm curious whether that feels right to you.
 
-And you can click through the actual pages here: https://allsaints-redesign.nate-ernst7.workers.dev/final
-
-A few things to keep in mind as you look around, since this is a working preview and not the finished site:
+A few things to keep in mind, since this is a working preview and not the finished site:
 
 - Not every link goes somewhere yet, and a few pages aren't rebuilt here at all (like the individual memorial-tree pages), because those carry straight over to the new site as they are.
 - The photos aren't final. Joy Marie is adding more over the next few weeks.
-- The events shown are just placeholders. The real site will pull in our actual calendar automatically.
+- The events and schedules shown are placeholders. The real site will pull in our actual calendar.
 - Once everything is built in Squarespace, there will be another round to look at it all in its final form.
 
-The site map and the preview now match, so what you see in the menu is what you see on the map.
+If you'd rather see the whole thing at a glance first, here's a simple map of every page and where it lives:
 
-If a label feels off, or something seems hard to find, that's exactly the kind of feedback that helps right now. Nothing here is locked in.
+https://allsaints-redesign.nate-ernst7.workers.dev/site-map
+
+If a label feels off, something is hard to find, or a page is missing something it should say, that is exactly the kind of feedback that helps right now. Nothing here is locked in.
 
 Thanks, as always, for the time.
 
 Nate
-
----
-
-If folks want more detail, here's a second version of the map with a one-line description of every page. (Attach `sitemap-diagram.png` only if asked, to keep the first email simple.)
