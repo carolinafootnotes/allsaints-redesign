@@ -273,6 +273,7 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 }
 .hamburger span {
   display: block;
+  width: 24px;
   height: 2px;
   background: var(--color-burgundy);
   border-radius: 2px;
@@ -412,6 +413,15 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 @media (max-width: 768px) {
   .nav-links  { display: none; }
   .hamburger  { display: flex; }
+  /* Home page: center the stacked logo, pin the hamburger to the right.
+     Subpages keep the compact logo left-aligned. */
+  body:not(.page-subpage) .header-inner { justify-content: center; position: relative; }
+  body:not(.page-subpage) .hamburger {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 @media (max-width: 480px) {
   .header-brand .logo-full { height: 64px; }
