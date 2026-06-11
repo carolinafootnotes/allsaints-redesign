@@ -404,7 +404,7 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 }
 .mobile-dd.open .mobile-dd-menu { display: flex; }
 .mobile-dd-menu a {
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   text-transform: none;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.85);

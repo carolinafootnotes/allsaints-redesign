@@ -21,7 +21,7 @@ Follow-ups:
 - [x] **P2 / N** Visit page worship summary + service times above the fold. ✅ already present (hero service times + the "Two Services" Rite II section); no change needed.
 - [x] **P3** Social footer icons (FB/IG/YT) — "opens in new tab" added to aria-labels. ✅
 - [x] **P3** Home page stray `class="mobile-nav-link"` removed. ✅
-- [ ] **P3 / N** In-site `/final/sitemap` page is organized by audience (Newcomers/Members/Reference), not by the new nav. Decide: leave as the audience view, or mirror the nav structure (add an About grouping).
+- [x] ~~**P3 / N** In-site `/final/sitemap` page organized by audience~~ ✅ REMOVED Jun 2026 (Nate: not needed; the published `/site-map` covers the review-group list, and the nav dropdowns now reach the About/Connect subpages).
 - [ ] **P2 / N** "Why we moved it" cover note for the review group (What's Happening → footer, Lockhart → external) + send the simple sitemap with the preview URL. (Gmail draft staged; caveats + corrected stats folded in.)
 - [ ] **P2 / N** Sitemap diagram stats are apples-to-oranges: "Main menu 41 → 6" compares 41 *total* old links to 6 *top-level* new items. Make it like-with-like on the diagram (e.g. "8 top menus → 6 top items" or compare total-to-total). "Pages 70 → 19" is fine. Regenerate `sitemap-diagram-clean.png` with corrected callouts. Cover-note text already fixed.
 - [ ] **P2 / N** Review-email caveats (now drafted in the cover note): not all links work yet; some pages are simple transfers not rebuilt here (e.g. memorial-tree pages); imagery isn't final (Joy Marie adding more over coming weeks); events are placeholders (real site pulls live data); another review pass once it's in Squarespace.
