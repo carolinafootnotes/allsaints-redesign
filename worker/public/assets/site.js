@@ -51,6 +51,7 @@
       hamburger.setAttribute('aria-expanded', isOpen);
       hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       document.body.style.overflow = isOpen ? 'hidden' : '';
+      document.body.classList.toggle('menu-open', isOpen);
       if (isOpen) {
         if (mobileLinks.length) mobileLinks[0].focus();
         mobileNav.addEventListener('keydown', trapFocus);

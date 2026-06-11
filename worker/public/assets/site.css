@@ -292,10 +292,18 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
   z-index: var(--z-mobile-nav);
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-8);
+  justify-content: safe center; /* center when it fits, top-align when it overflows */
+  gap: var(--space-6);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 5.5rem var(--space-6) 2.5rem; /* top clears the close button */
 }
 .mobile-nav.open { display: flex; }
+/* While the mobile menu is open, collapse the header to its compact form
+   (esp. the home page's tall stacked logo) so menu items clear it. */
+body.menu-open .site-header .header-inner { height: 64px; }
+body.menu-open .site-header .logo-full { opacity: 0; height: 0; pointer-events: none; }
+body.menu-open .site-header .logo-horizontal { opacity: 1; }
 .mobile-nav a {
   color: #fff;
   font-size: var(--text-xl);
