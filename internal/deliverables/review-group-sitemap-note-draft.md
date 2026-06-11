@@ -20,7 +20,6 @@ A few things worth knowing about the structure:
 - "About" is new. It gathers the "who we are" pages: Clergy & Staff, Our History, Formation & Learning, and the Memorial Arboretum. We used the plain word "About" on purpose, it's what nearly every church site uses, and it won't trip up someone new to the Episcopal Church.
 - "Give" now opens our own giving page first, which explains the ways to give before handing off to the online giving site.
 - "Events" keeps its spot up top, since it's the page people come back to most.
-- One new idea to look at: a "special services" schedule right on the home page for seasons like Advent and Holy Week, when there are a lot of services close together. (It's showing a recent Advent schedule as a stand-in for now.) It replaces squeezing everything onto an image, and it reads cleanly on a phone. I'm curious whether that feels right to you.
 
 A few things to keep in mind, since this is a working preview and not the finished site:
 
