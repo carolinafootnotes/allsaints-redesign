@@ -258,29 +258,6 @@ body.page-subpage .site-header.transparent .logo-horizontal { opacity: 1; }
 .nav-links a:hover,
 .nav-links a:focus { color: var(--color-burgundy-deep); }
 
-/*
-  .nav-cta: Give button in the nav.
-  Placed BEFORE .nav-links a so specificity fight is avoided without !important.
-  The selector is more specific (two classes) than .nav-links a (class + element).
-*/
-.nav-links .nav-cta {
-  background: transparent;
-  color: var(--color-burgundy);
-  padding: var(--space-2) var(--space-5);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(123, 35, 50, 0.5);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
-}
-.nav-links .nav-cta::after { display: none; }
-.nav-links .nav-cta:hover {
-  background: rgba(123, 35, 50, 0.06);
-  border-color: var(--color-burgundy);
-  transform: translateY(-1px);
-  color: var(--color-burgundy);
-}
-
 /* Hamburger */
 .hamburger {
   display: none;
