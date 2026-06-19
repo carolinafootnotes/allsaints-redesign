@@ -1,0 +1,58 @@
+<!-- ============================================================
+     ALL SAINTS' — COMMUNITY BENTO  (Code Block)
+
+     WHERE THIS GOES:  Homepage → add a Section → add ONE Code Block →
+     paste all of this. (The section background is cream-tint; set the
+     native section background to match #f5f0e8 or wrap in .community.)
+
+     DEPENDS ON:
+     - custom-css-global.css (carries the .bento-card / .bento-overlay base styles).
+     This block adds only the HOME 3-card layout override (the global file's
+     bento base is the 5-card Connect-page layout).
+
+     IMAGES:  replace the three src paths with your Squarespace Media URLs.
+     ============================================================ -->
+<style>
+  .as-bento { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 340px; gap: var(--space-5); max-width: 1200px; margin: 0 auto; }
+  .as-bento .bento-card { grid-column: span 1; }
+  @media (max-width: 768px) { .as-bento { grid-template-columns: 1fr; grid-template-rows: auto; } .as-bento .bento-card { height: 280px; } }
+  @media (max-width: 480px) { .as-bento .bento-card { height: 250px; } }
+  .as-bento-head { text-align: center; margin-bottom: 3rem; }
+  .as-bento-cta { text-align: center; margin-top: 2.5rem; }
+</style>
+
+<div style="padding: var(--space-24) var(--space-6);">
+  <div class="as-bento-head">
+    <div class="section-label">Life Together</div>
+    <h2 class="section-heading">More Than <em>Sunday Morning</em></h2>
+  </div>
+  <div class="as-bento">
+    <div class="bento-card">
+      <img src="/assets/2026/fellowship-formation-2026.jpg" alt="Parishioners gathered in fellowship at All Saints'" loading="lazy">
+      <div class="bento-overlay">
+        <div class="bento-tag">Fellowship</div>
+        <div class="bento-title">Life Together</div>
+        <div class="bento-desc">Relationships that go beyond Sunday morning.</div>
+      </div>
+    </div>
+    <div class="bento-card">
+      <img src="/assets/2026/choir-singing-2026.jpg" alt="Choristers singing at All Saints'" loading="lazy">
+      <div class="bento-overlay">
+        <div class="bento-tag">Music</div>
+        <div class="bento-title">Our Choirs</div>
+        <div class="bento-desc">A living tradition of choral worship.</div>
+      </div>
+    </div>
+    <div class="bento-card">
+      <img src="/assets/2026/childrens-sermon-2026.jpg" alt="Children gathered for a story during the Family Eucharist" loading="lazy">
+      <div class="bento-overlay">
+        <div class="bento-tag">Formation</div>
+        <div class="bento-title">Learn &amp; Grow</div>
+        <div class="bento-desc">Christian formation for every season of life.</div>
+      </div>
+    </div>
+  </div>
+  <div class="as-bento-cta">
+    <a href="/connect" class="btn btn-primary">Find Your Place</a>
+  </div>
+</div>

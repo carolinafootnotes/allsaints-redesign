@@ -1,0 +1,68 @@
+<!-- ============================================================
+     ALL SAINTS' — BEHAVIOR  (footer injection)
+
+     WHERE THIS GOES:  Squarespace → Settings → Advanced →
+     Code Injection → FOOTER.  Paste this whole block.
+
+     WHAT IT DOES (only two things — everything else is native):
+     1. Header scroll toggle: adds .solid past 80px, .transparent above,
+        on the homepage ONLY. Subpages keep a solid header automatically.
+     2. Random hero image: on the homepage, swaps the hero <img> to one of
+        five at random on load.
+
+     NOT INCLUDED on purpose: mobile-nav / dropdown JS (Squarespace's
+     native header handles that) and scroll-reveal (use Site Styles →
+     Animations instead).
+
+     TWO THINGS TO VERIFY / EDIT — see the CAPS comments below.
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  var isHome = (window.location.pathname === '/' || window.location.pathname === '');
+
+  /* ---- 1. Header transparent → solid on scroll (homepage only) ---- */
+  // VERIFY: Squarespace's header is usually <header id="header">. If querySelector('header')
+  // grabs the wrong element on your template, log the right selector in DISCOVERIES.md and fix here.
+  var header = document.querySelector('header');
+  if (isHome && header) {
+    var updateHeader = function () {
+      if (window.scrollY > 80) {
+        header.classList.remove('transparent');
+        header.classList.add('solid');
+      } else {
+        header.classList.remove('solid');
+        header.classList.add('transparent');
+      }
+    };
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  } else if (header) {
+    // Subpages: force solid, no scroll listener.
+    header.classList.add('solid');
+    header.classList.remove('transparent');
+  }
+
+  /* ---- 2. Random hero image (homepage only) ---- */
+  // EDIT AFTER UPLOAD: replace these 5 paths with the Squarespace CDN URLs you get
+  // after uploading the hero images to the Media Library (they look like
+  // https://images.squarespace-cdn.com/content/v1/.../filename.jpg).
+  // The hero Code Block's <img> must have id="hero-image" (it does in sections/hero.html).
+  if (isHome) {
+    var pool = [
+      '/assets/2026/exterior-2026.jpg',
+      '/assets/2026/procession-cross-2026.jpg',
+      '/assets/2026/fellowship-formation-2026.jpg',
+      '/assets/2026/9am-service-2026.jpg',
+      '/assets/2026/altar-blessing-2026.jpg'
+    ];
+    var img = document.getElementById('hero-image');
+    if (img) {
+      var pick = pool[Math.floor(Math.random() * pool.length)];
+      if (pick !== img.getAttribute('src')) img.setAttribute('src', pick);
+    }
+  }
+
+})();
+</script>
