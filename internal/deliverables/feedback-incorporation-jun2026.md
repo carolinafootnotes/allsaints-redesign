@@ -18,11 +18,16 @@ Source: "Update Requested All Saints' website" thread (John Johanssen 6/11, Bria
 - Connect > Fellowship & Hospitality: removed the passing "Koinonia small groups" mention (Nate confirmed 6/19: remove Koinonia site-wide). Koinonia now appears nowhere on the site.
 - Serve > In the Church: added a Music Ministry card.
 
+## Done (deployed 6/19, photo pass)
+
+- **9 AM Family Eucharist photo (Brian):** swapped to `selected/services_9am.jpg` (Joy Marie's Parish Hall shot with projector screen + congregation). Applied to both home and visit worship cards.
+- **Joy Marie's photos (6/11):** 29 photos batch-graded (ImageMagick: CLAHE local contrast, sigmoidal-contrast, temperature-aware warmth). Full variety pass replaced all recycled images across 12 pages. Every page hero is now unique. Remaining 10 unplaced photos available for arboretum, future use.
+- **Photo variety pass:** broke up 3 over-recycled images (`altar-blessing-2026`, `exterior-2026`, `fellowship-formation-2026`) with 16 targeted swaps across 10 files. See commit for the full mapping.
+
 ## Pending — needs an asset or a decision
 
-- **9 AM Family Eucharist photo (Brian):** swap the 9 AM block image to a Parish Hall worship-space photo to pair with the Traditional Eucharist shot. Brian attached a candidate (IMG_2479.jpeg) but hadn't reviewed Joy Marie's new photos yet. **Blocked on photo choice.** Affects home worship section + visit.
-- **Baptism photo (John):** the current baptism photo shows Nancy and should be replaced (also per the no-Nancy rule). **Could not locate** a baptism photo in the current build by filename/alt — need John to point to the page/photo. Replacement likely from Joy Marie. **Blocked on identification + asset.**
-- **Joy Marie's content (6/11):** new photos to her DropBox by end of that week + updated Tour de Saints stats (13-yr dollars raised/donated, rider count). Fold in when received.
+- **Baptism photo (John):** the current baptism photo shows Nancy and should be replaced (also per the no-Nancy rule). **Could not locate** a baptism photo in the current build by filename/alt. Need John to point to the page/photo he means. Replacement likely from Joy Marie. **Blocked on identification + asset.**
+- **Joy Marie's Tour de Saints stats (6/11):** updated stats (13-year dollars raised/donated, rider count). Not yet received.
 
 ## Squarespace-build notes (capture, not prototype changes)
 

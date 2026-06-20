@@ -73,7 +73,7 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 
 ### `/final` (home)
 - [ ] **P2 / N** Mobile QA on real device — eyeball logo, hero, mission/vision block, worship cards
-- [ ] **P3 / N** Confirm the new hero photo pool composition (currently 5 images: exterior, procession-cross, fellowship-formation, 9am-service, altar-blessing). Children's-sermon photo also a candidate for the pool?
+- [x] ~~Confirm the new hero photo pool composition~~ ✅ 6-image pool (exterior, procession-cross, fellowship-formation, 9am-service, altar-blessing, campus-main). Full variety pass deployed 6/19.
 - [ ] **P3 / N** "Stay Connected" section vs `/final/connect/stay-connected` — currently a slim social-channels strip on home, full strip on /connect. Acceptable or trim home further?
 
 ### `/final/visit`
@@ -82,12 +82,12 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 
 ### `/final/happenings`
 - [ ] **P1 / N** Events content is **stale** (Holy Week, Maundy Thursday Apr 2 — both in the past). Brian or Nate must refresh before launch. Mark as Brian's first content task on Squarespace.
-- [ ] **P2 / N** "Weekly Rhythms" section: confirm Tuesday Compline + Wednesday Noonday + Sunday Christian Formation times are still accurate.
+- [ ] **P2 / N** "Weekly Rhythms" section: confirm Tuesday Compline + Sunday Christian Formation times are still accurate. (Noonday Prayer removed 6/19 per Brian: paused during interim.)
 
 ### `/final/connect`
 - [ ] **P2 / N** Ministry contacts directory link points to current site's PDF. Decide: keep PDF, migrate to a Squarespace page, or both.
 - [ ] **P3 / N** Pastoral Care section has 6 cards. Some may be light on real content (Stephen Ministry presence depends on whether All Saints' has trained Stephen Ministers — confirm with Brian).
-- [ ] **P3 / N** Koinonia small groups — confirm they're currently active.
+- [x] ~~Koinonia small groups — confirm they're currently active.~~ ✅ REMOVED site-wide per Nate (6/19). No Koinonia references remain anywhere on the site.
 
 ### `/final/rector-search`
 - [ ] **P3 / N** "A Parish, in Brief" 6-card grid is generic. Decision (Jun 2026): leave the page thin for now. The search committee will supply more parish data and tell us how detailed they want it before the job posting. Revisit then (replace this section with the formal profile or expand with their data).
@@ -105,7 +105,7 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 - [x] ~~Erin Vanasse photo~~ ✅
 - [x] ~~9 AM service photo (children's sermon)~~ ✅
 - [ ] **P2 / N** Confirm we have current photos for the other 3 ministry team (Brian, Tiffany, Ruth) — currently pulling from `allsaintsconcord.org/wp-content/...`. Need to re-host once we cut DNS or they'll 404 if WP host changes.
-- [ ] **P3 / N** Joy Marie has additional photos from Palm Sunday + ongoing shoots. Identify any candidates for the hero pool or section accents.
+- [x] ~~Joy Marie photos: identify candidates for hero pool + section accents~~ ✅ 29 photos batch-graded and placed. Full variety pass broke up 3 recycled images across 12 pages (16 swaps). 10 photos remain unplaced for arboretum/future use.
 - [ ] **P3 / N** Consider Vestry photos if vestry bios get added (see Open Decisions).
 
 ---
@@ -200,32 +200,28 @@ Surfaced from audit item #10 (clergy bio rewrites). Nate envisions a parishioner
 
 ---
 
-## Done this session (for memory)
+## Done (cumulative log)
 
+### Session: Jun 2026 (review-group feedback + photos + Squarespace build kit)
+- ✅ Squarespace Build Kit shipped (`internal/deliverables/squarespace-build/`): README, 00-global-setup, homepage section map, build-any-page patterns, DISCOVERIES template, library (global CSS 391 lines, head/footer injection, hero + bento Code Block sections)
+- ✅ Review-group feedback incorporated (John 6/11 + Brian 6/15): BCP/bulletin copy rewrite (home + visit), coffee-after-each-service, large-print 11:10 only, Noonday Prayer removed site-wide (5 pages), Koinonia removed site-wide (3 pages), Music Ministry cards added (connect + serve)
+- ✅ Joy Marie photo pipeline: 29 photos batch-graded (ImageMagick CLAHE + sigmoidal-contrast + temp-aware warmth), deployed to `assets/2026/selected/`
+- ✅ Full photo variety pass: 16 swaps across 12 pages, breaking 3 recycled images (`altar-blessing`, `exterior`, `fellowship-formation`) down from 5-6 uses each to 1-2. Every page hero now unique.
+- ✅ Hero pool expanded to 6 images (added `campus_main`)
+- ✅ 9 AM worship card: `childrens-sermon` → Joy Marie's Parish Hall shot (home + visit)
+
+### Earlier sessions (May-Jun 2026)
 - ✅ 19-item batch one (Watch Live icon, hero overlay, kenBurns removal, logo treatment, type scale, mission/vision swap, em-dash sweep, section reorder, staff heading, street sign size, First Sunday icons, Connect heading, nav cleanup)
 - ✅ Photos for John Johanssen + Erin Vanasse + 9 AM children's sermon
 - ✅ Clickable hero service badges
-- ✅ `/final/visit` rebuilt with v1's content depth (Services / First Sunday / Getting Here / Accessibility / Connect CTA)
-- ✅ Visit page redesigned in v3 language after team audit (image-banner Services, light-bg info cards, killed cream box, fixed timeline colors, hero pills, scroll-margin)
+- ✅ `/final/visit` rebuilt with v1's content depth, then redesigned in v3 language
 - ✅ `/final/happenings` built
-- ✅ `/final/connect` built
+- ✅ `/final/connect` built (+ 3 subpages: episcopalian, life-events, pastoral-care)
 - ✅ `/final/rector-search` built (promoted from home section to own page)
 - ✅ `/final/watch-live` built with embedded YouTube live player
-- ✅ Home stripped of duplicate Visit / Events / Community content; replaced with teasers
-- ✅ Footer logo swapped to standard (vertical) lockup at 96px across all pages
-- ✅ Vision wording: "Loves Like God Loves" → "Loves as God Loves"
-- ✅ Nancy Cox removed from rector search section copy
-- ✅ Intro: "Episcopal branch of the Jesus Movement" added to Welcome block
-- ✅ Hero overlay reverted to v1 values
-- ✅ Hero photo pool refreshed (dropped stained-glass, added 9 AM service)
-- ✅ Hero subtitle replaced with Episcopal Church's official Jesus Movement language
-- ✅ Heading periods stripped from all H1s + relevant H2s
-- ✅ "All Saints" → "All Saints'" (apostrophe added in 61 places)
-- ✅ "Visitor" → "Guest" everywhere
-- ✅ Hearing Loop accessibility copy fix
-- ✅ Parking copy: dropped "free" framing
-- ✅ Children's sermon photo wired to 9 AM worship card on home + visit
-- ✅ Sitemap deck + content audit PDF delivered for the review meeting
+- ✅ Home stripped of duplicate content; replaced with teasers
+- ✅ IA restructure shipped: Visit·About·Connect·Serve·Rector Search·Give
+- ✅ Footer logo, vision wording, Nancy Cox removal, Jesus Movement intro, hero overlay, heading periods, apostrophe sweep, visitor→guest, hearing loop, parking copy, content audit PDF
 
 ## Deliverables
 
