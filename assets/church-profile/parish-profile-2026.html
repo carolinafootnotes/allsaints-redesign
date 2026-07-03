@@ -40,7 +40,8 @@
 }
 @page cover   { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
 @page divider { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
-@page closing { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
+@page closing   { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
+@page backcover { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
 
 /* ============================================================
    TOKENS + BASE
@@ -212,6 +213,29 @@ em { font-style: italic; }
   font-size: 9pt;
   line-height: 1.7;
   color: rgba(255,255,255,0.72);
+}
+
+/* ---- Back cover (logo on light) ---- */
+.page-backcover { page: backcover; break-before: page; }
+.backcover-inner {
+  width: 8.5in; height: 11in;
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+}
+.backcover-logo { width: 3.6in; height: auto; }
+.backcover-rule {
+  width: 1.4in; height: 1px;
+  background: var(--gold);
+  margin: 34px 0 22px;
+}
+.backcover-line {
+  font-family: var(--sans);
+  font-size: 9.5pt;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 /* ============================================================
@@ -1149,6 +1173,15 @@ We also seek a leader who can identify and cultivate gifts, empower lay leadersh
         allsaintsconcord.org
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ============================ BACK COVER (LOGO) ============================ -->
+<div class="page-backcover">
+  <div class="backcover-inner">
+    <img class="backcover-logo" src="file:///Users/varloo/develop/allsaints/worker/public/allsaints-logo.svg" alt="All Saints' Episcopal Church">
+    <div class="backcover-rule"></div>
+    <div class="backcover-line">Concord, North Carolina<br>allsaintsconcord.org</div>
   </div>
 </div>
 
