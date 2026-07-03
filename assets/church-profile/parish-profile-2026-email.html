@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Saints' Episcopal Church — Parish Profile 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PAGE SETUP (paged.js / CSS Paged Media)
+   ============================================================ */
+@page {
+  size: 8.5in 11in;
+  margin: 0.875in;
+  @bottom-left {
+    content: "All Saints’ Episcopal Church · Concord, NC";
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7pt;
+    color: #9a9a9a;
+    border-top: 0.5pt solid rgba(123, 35, 50, 0.28);
+    padding-top: 7pt;
+    vertical-align: top;
+  }
+  @bottom-center {
+    content: "";
+    border-top: 0.5pt solid rgba(123, 35, 50, 0.28);
+    vertical-align: top;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7pt;
+    color: #9a9a9a;
+    border-top: 0.5pt solid rgba(123, 35, 50, 0.28);
+    padding-top: 7pt;
+    vertical-align: top;
+    text-align: right;
+  }
+}
+@page cover   { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
+@page divider { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
+@page closing { margin: 0; @bottom-left { content: none } @bottom-center { content: none } @bottom-right { content: none } }
+
+/* ============================================================
+   TOKENS + BASE
+   ============================================================ */
+:root {
+  --burgundy: #7b2332;
+  --burgundy-deep: #5a1a27;
+  --gold: #c8a977;
+  --gold-light: #e8d9a0;
+  --cream: #faf8f4;
+  --cream-warm: #f5f0e8;
+  --dark: #260609;
+  --ink: #1a1a1a;
+  --ink-soft: #333333;
+  --muted: #666666;
+  --rule: #e8e4dc;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, Helvetica, Arial, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-family: var(--sans); color: var(--ink); }
+body { font-family: var(--sans); }
+img { display: block; max-width: 100%; }
+em { font-style: italic; }
+
+/* ============================================================
+   FULL-BLEED PAGES (cover / divider / closing)
+   ============================================================ */
+.page-cover   { page: cover;   break-after: page; }
+.page-divider { page: divider; break-before: page; break-after: page; }
+.page-closing { page: closing; break-before: page; }
+
+.bleed {
+  position: relative;
+  width: 8.5in;
+  height: 11in;
+  overflow: hidden;
+}
+.bleed .bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Cover ---- */
+.cover-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(38,6,9,0.90) 0%, rgba(38,6,9,0.55) 28%, rgba(38,6,9,0.0) 62%),
+    radial-gradient(120% 80% at 15% 10%, rgba(123,35,50,0.35) 0%, rgba(123,35,50,0) 55%);
+}
+.cover-stack {
+  position: absolute;
+  left: 0.9in; right: 0.9in; bottom: 1.05in;
+  color: #fff;
+}
+.cover-badge {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  border: 1px solid rgba(232,217,160,0.5);
+  border-radius: 2px;
+  padding: 5px 12px 4px;
+  margin-bottom: 20px;
+}
+.cover-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 43pt;
+  line-height: 1.04;
+  max-width: 6in;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+}
+.cover-title em { color: var(--gold); font-style: italic; }
+.cover-loc {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 12pt;
+  opacity: 0.85;
+  margin-top: 12px;
+  letter-spacing: 0.02em;
+}
+.cover-crest {
+  position: absolute;
+  left: 0.9in; bottom: 0.5in;
+  height: 46px;
+}
+
+/* ---- Chapter divider ---- */
+.divider-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(38,6,9,0.85) 0%, rgba(38,6,9,0.30) 40%, rgba(38,6,9,0.05) 70%);
+}
+.divider-stack {
+  position: absolute;
+  left: 0; right: 0; bottom: 2.1in;
+  text-align: center;
+  color: #fff;
+}
+.divider-eyebrow {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+}
+.divider-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 31pt;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+}
+
+/* ---- Closing ---- */
+.closing-bg { filter: saturate(0.9); }
+.closing-overlay {
+  position: absolute; inset: 0;
+  background: rgba(38,6,9,0.92);
+}
+.closing-inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1.4in;
+}
+.closing-crest { height: 52px; margin-bottom: 26px; }
+.closing-eyebrow {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7.5pt;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+.closing-mission {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16pt;
+  line-height: 1.5;
+  max-width: 4.5in;
+}
+.closing-sep {
+  width: 2in; height: 1px;
+  background: var(--gold);
+  margin: 28px 0 22px;
+}
+.closing-vision {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22pt;
+  line-height: 1.35;
+  max-width: 5in;
+}
+.closing-vision em { color: var(--gold); font-style: italic; }
+.closing-contact {
+  margin-top: 34px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 9pt;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+}
+
+/* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
+.toc-photo {
+  width: 100%; height: 2.75in;
+  object-fit: cover;
+  margin-bottom: 6pt;
+}
+.toc-caption {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-bottom: 26pt;
+}
+.toc-heading {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22pt;
+  color: var(--ink);
+  margin-bottom: 22pt;
+}
+.toc-cols {
+  column-count: 2;
+  column-gap: 0.4in;
+}
+.toc-group {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin: 12pt 0 6pt;
+  break-after: avoid;
+}
+.toc-group:first-child { margin-top: 0; }
+.toc-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--serif);
+  font-size: 12pt;
+  color: var(--ink);
+  line-height: 1.55;
+  break-inside: avoid;
+}
+.toc-entry .dots {
+  flex: 1;
+  border-bottom: 0.5pt dotted #c9c2b6;
+  margin: 0 6pt 3pt;
+}
+.toc-entry .pg {
+  font-family: var(--sans);
+  font-size: 9pt;
+  color: var(--muted);
+}
+
+/* ============================================================
+   FR. JOHN LETTER
+   ============================================================ */
+.letter { break-before: page; }
+.letter-grid {
+  display: flex;
+  gap: 0.4in;
+  align-items: flex-start;
+}
+.letter-aside { width: 2.6in; flex-shrink: 0; }
+.letter-portrait {
+  width: 100%; height: 3.5in;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.letter-aside .name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 13pt;
+  color: var(--ink);
+  margin-top: 12pt;
+  padding-top: 12pt;
+  border-top: 1px solid var(--rule);
+}
+.letter-aside .role {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-top: 4pt;
+}
+.letter-aside .tenure {
+  font-family: var(--sans);
+  font-size: 8pt;
+  color: var(--muted);
+  margin-top: 3pt;
+}
+.letter-body { flex: 1; }
+.letter-body p {
+  font-family: var(--sans);
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 11pt;
+}
+.letter-body p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 44pt;
+  line-height: 0.82;
+  float: left;
+  color: var(--burgundy);
+  padding: 4pt 8pt 0 0;
+}
+.letter-eyebrow {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 8pt;
+}
+.letter-h {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22pt;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 18pt;
+}
+.letter-h em { font-style: italic; }
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
+.section { margin-top: 34pt; }
+.section:first-of-type { margin-top: 0; }
+.section-head { break-inside: avoid; break-after: avoid; }
+.keep-together { break-inside: avoid; }
+.section-rule {
+  width: 1.5in; height: 2px;
+  background: var(--gold);
+  margin-bottom: 16pt;
+  break-after: avoid;
+}
+.eyebrow { break-after: avoid; }
+.eyebrow {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 7pt;
+}
+h2.section-h {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24pt;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 16pt;
+  break-after: avoid;
+}
+h2.section-h em { font-style: italic; }
+h3.sub-h {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 14pt;
+  color: var(--ink);
+  margin: 14pt 0 8pt;
+  break-after: avoid;
+}
+.prose p {
+  font-family: var(--sans);
+  font-size: 10.5pt;
+  line-height: 1.52;
+  color: var(--ink);
+  margin-bottom: 8pt;
+  text-align: left;
+  hyphens: auto;
+}
+
+/* ---- Pull quote ---- */
+.pull-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15pt;
+  line-height: 1.45;
+  color: var(--ink);
+  border-left: 3px solid var(--gold);
+  padding-left: 18pt;
+  margin: 18pt 0 18pt 0.75in;
+  max-width: 4.5in;
+  break-inside: avoid;
+  break-before: avoid;
+}
+
+/* ---- Stat row ---- */
+.stat-row {
+  display: flex;
+  background: var(--cream-warm);
+  padding: 20pt 0;
+  margin: 18pt 0;
+  break-inside: avoid;
+}
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 12pt;
+  position: relative;
+}
+.stat-item + .stat-item::before {
+  content: "";
+  position: absolute; left: 0; top: 20%;
+  height: 60%; width: 1px;
+  background: #ddd5c5;
+}
+.stat-accent {
+  width: 0.7in; height: 1px;
+  background: var(--gold);
+  margin: 0 auto 8pt;
+}
+.stat-number {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--burgundy);
+  margin-bottom: 6pt;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* ---- Photos ---- */
+.photo-full {
+  width: 100%;
+  max-height: 3.5in;
+  object-fit: cover;
+  margin: 14pt 0 6pt;
+  break-inside: avoid;
+}
+.photo-caption {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-bottom: 14pt;
+}
+.photo-row {
+  display: flex;
+  gap: 0.18in;
+  margin: 14pt 0 6pt;
+  break-inside: avoid;
+}
+.photo-row img {
+  flex: 1;
+  width: 50%;
+  height: 2.5in;
+  object-fit: cover;
+}
+.text-photo {
+  display: flex;
+  gap: 0.32in;
+  align-items: center;
+  margin: 16pt 0;
+  break-inside: avoid;
+}
+.text-photo.reverse { flex-direction: row-reverse; }
+.text-photo img {
+  width: 2.7in;
+  height: 2.7in;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.text-photo-body { flex: 1; }
+.text-photo-body p {
+  font-family: var(--sans);
+  font-size: 10.5pt;
+  line-height: 1.52;
+  color: var(--ink);
+  margin-bottom: 8pt;
+}
+.text-photo-body p:last-child { margin-bottom: 0; }
+
+/* ---- Prayer block ---- */
+.prayer {
+  background: var(--cream-warm);
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 24pt 36pt;
+  margin: 18pt 0;
+  text-align: center;
+  break-inside: avoid;
+}
+.prayer-label {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 12pt;
+}
+.prayer-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13pt;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ---- Quality cards ---- */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.32in;
+  margin-top: 16pt;
+  break-inside: avoid;
+}
+.card {
+  background: #fff;
+  border: 0.5pt solid var(--rule);
+  border-top: 3px solid var(--burgundy);
+  padding: 16pt;
+  break-inside: avoid;
+}
+.card h4 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 13pt;
+  color: var(--ink);
+  margin-bottom: 5pt;
+}
+.card p {
+  font-family: var(--sans);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+/* ---- Marriage-equality band ---- */
+.band {
+  background: var(--burgundy);
+  padding: 20pt 24pt;
+  margin-bottom: 16pt;
+  break-after: avoid;
+}
+.band .eyebrow { color: var(--gold); margin-bottom: 6pt; }
+.band h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24pt;
+  color: #fff;
+  line-height: 1.1;
+}
+.band h2 em { font-style: italic; }
+
+/* full-bleed section background helper used sparingly */
+.bg-cream-page { background: var(--cream-warm); }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<div class="page-cover">
+  <div class="bleed">
+    <img class="bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/exterior-2026.jpg" alt="">
+    <div class="cover-overlay"></div>
+    <div class="cover-stack">
+      <span class="cover-badge">2026 Parish Profile</span>
+      <div class="cover-title">All Saints'<br><em>Episcopal</em> Church</div>
+      <div class="cover-loc">Concord, North Carolina</div>
+    </div>
+    <img class="cover-crest" src="file:///Users/varloo/develop/allsaints/worker/public/allsaints-symbol-white.svg" alt="">
+  </div>
+</div>
+
+<!-- ============================ TABLE OF CONTENTS ============================ -->
+<div class="toc">
+  <img class="toc-photo" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_newcomers.jpg" alt="">
+  <div class="toc-caption">Welcoming newcomers after Sunday worship</div>
+  <div class="toc-heading">Contents</div>
+  <div class="toc-cols">
+    <div class="toc-group">Who We Are</div>
+    <div class="toc-entry"><span>Mission &amp; Identity</span><span class="dots"></span><span class="pg">5</span></div>
+    <div class="toc-entry"><span>Our Community</span><span class="dots"></span><span class="pg">7</span></div>
+    <div class="toc-entry"><span>Welcome &amp; Belonging</span><span class="dots"></span><span class="pg">8</span></div>
+    <div class="toc-entry"><span>Theological Convictions</span><span class="dots"></span><span class="pg">10</span></div>
+    <div class="toc-entry"><span>Marriage Equality</span><span class="dots"></span><span class="pg">11</span></div>
+
+    <div class="toc-group">Our Ministry</div>
+    <div class="toc-entry"><span>Worship</span><span class="dots"></span><span class="pg">14</span></div>
+    <div class="toc-entry"><span>Formation &amp; the Future</span><span class="dots"></span><span class="pg">16</span></div>
+    <div class="toc-entry"><span>Sustaining Well-Being</span><span class="dots"></span><span class="pg">18</span></div>
+    <div class="toc-entry"><span>Outreach &amp; Service</span><span class="dots"></span><span class="pg">19</span></div>
+    <div class="toc-entry"><span>Lockhart Child Development Center</span><span class="dots"></span><span class="pg">21</span></div>
+    <div class="toc-entry"><span>Pastoral Care</span><span class="dots"></span><span class="pg">23</span></div>
+
+    <div class="toc-group">Our Future</div>
+    <div class="toc-entry"><span>Our Hopes for This Call</span><span class="dots"></span><span class="pg">25</span></div>
+    <div class="toc-entry"><span>What We Seek in a Rector</span><span class="dots"></span><span class="pg">26</span></div>
+    <div class="toc-entry"><span>Discernment &amp; Adaptation</span><span class="dots"></span><span class="pg">27</span></div>
+    <div class="toc-entry"><span>Stewardship</span><span class="dots"></span><span class="pg">29</span></div>
+    <div class="toc-entry"><span>Navigating Change</span><span class="dots"></span><span class="pg">30</span></div>
+    <div class="toc-entry"><span>Technology in Ministry</span><span class="dots"></span><span class="pg">31</span></div>
+  </div>
+</div>
+
+<!-- ============================ FR. JOHN LETTER ============================ -->
+<div class="letter">
+  <div class="letter-eyebrow">Where We Are Now</div>
+  <h2 class="letter-h">Led by an <em>Interim Rector</em></h2>
+  <div class="letter-grid">
+    <div class="letter-aside">
+      <img class="letter-portrait" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/john-johanssen-2026.jpg" alt="">
+      <div class="name">The Rev. John Johanssen</div>
+      <div class="role">Interim Rector</div>
+      <div class="tenure">Since January 2026</div>
+    </div>
+    <div class="letter-body">
+      <p>The Rev. John Johanssen began as our Interim Rector on January 1, 2026, bringing specialized training in transition ministry and a Master of Divinity from Virginia Theological Seminary.</p>
+      <p>With Fr. John's steady leadership, the vestry has begun the work of calling our next rector, walking together through the discernment process in partnership with the Episcopal Diocese of North Carolina. The pages that follow are our attempt to tell you honestly who we are: a growing, debt-free, outward-facing parish that knows and cares for one another, and that believes God is leading us into a future marked by deeper relationships, stronger discipleship, and broader community impact.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ DIVIDER 1 ============================ -->
+<div class="page-divider">
+  <div class="bleed">
+    <img class="bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/campus_main.jpg" alt="">
+    <div class="divider-overlay"></div>
+    <div class="divider-stack">
+      <div class="divider-eyebrow">Chapter One</div>
+      <div class="divider-title">Who We Are</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ SECTION: MISSION & IDENTITY ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="section-h">Our Mission &amp; <em>Identity</em></h2>
+    </div>
+    <div class="prose">
+      <p>All Saints' is rooted in the call to be a community of disciples making disciples for Jesus Christ by loving as God loves through worship, service, and presence in the world. The congregation's mission, "disciples making disciples for Jesus," and the vision, "love as God loves," are clearly reflected in parishioners' understanding of their common life. All Saints' understands itself as a church grounded in worship, active in service, and formed through authentic community in which all are welcomed and known.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Worship is the spiritual center of the parish, forming and sustaining disciples through Holy Baptism, Holy Eucharist, holy seasons, music, and the sacramental life of the Church.</p>
+    <p>Radical welcome is a defining value. Parishioners and guests experience "all are welcome" as something tangible—not merely proclaimed, but practiced—creating belonging, acceptance, and care across the congregation.</p>
+    <p>The spiritual heart of our church comes to life when we serve outside of the church in meaningful ways and remains intricately connected as a community that knows and cares for one another.</p>
+    <p>Outreach is central. Parishioners serving those in need through local nonprofits—such AYA House, Cabarrus Meals on Wheels, Cabarrus Victims Assistance Network, Cooperative Christian Ministry, Habitat for Humanity Cabarrus, Lockhart Child Development Center, Salvation Army Tucker Center for Hope, and The Wesbury Apartments—engaging in mission and service that reflect a shared belief that discipleship is lived through action. These ministries are not separate from mission: they are our missions.</p>
+    <p>Parishioners experience unity and shared purpose in church-wide efforts like the Tour de Saints charity bike ride, and the capital campaign to eliminate debt, reflecting stewardship and collective calling.</p>
+    <p>Formation across generations, from children through senior adults, and a strong pastoral identity of presence, care, and compassion further shape congregational life.</p>
+    <p>Our church values resilience, adapting faithfully through change while remaining grounded in worship and mission.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number" style="font-size:22pt">Invite</div><div class="stat-label">An active, inclusive community of faith</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number" style="font-size:22pt">Nurture</div><div class="stat-label">Growing individuals in Christ</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number" style="font-size:22pt">Serve</div><div class="stat-label">Seeking Jesus in unexpected places</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number" style="font-size:22pt">Grow</div><div class="stat-label">Worshiping God in the Episcopal tradition</div></div>
+  </div>
+
+  <div class="prose">
+    <p>Many parishioners and external community members would describe All Saints' as a theologically center-left, progressive congregation with a broad-church liturgical style in the Episcopal tradition. The church offers two worship services on Sunday: a family service at 9:00 a.m. in the parish hall and a traditional service at 11:10 a.m. in the nave. While designed to engage children, youth and families in particular, the family service attracts individuals of all ages and marital statuses. In addition to regular Sunday worship services, parishioners enjoy weekly streamed Compline and Noonday Prayer in addition to special services during holy days that feature other styles of worship, such as Taizé.</p>
+    <p>All Saints' expresses its theological and spiritual identities through the mission statement, "to be a church of disciples making disciples for Jesus," and the vision statement, "to be a church that loves as God loves." These tenets are delineated further through four core values: 1) being an active, inclusive community of faith; 2) worshiping God in the Episcopal tradition; 3) nurturing individuals to grow in Christ; and 4) seeking and serving Jesus in unexpected places. These values are summarized in the words invite, nurture, serve, and grow. One additional tenet that permeates these beliefs is "all are welcome" to join in the Christian journey that takes place at All Saints'.</p>
+    <p>All Saints' parishioners approach discipleship as a lifelong journey of learning, following, and embodying the teachings of Jesus Christ in daily life. This approach involves living out the promises made in the Baptismal Covenant through continuous spiritual growth, prayer, and service. Parishioners draw deeply from scripture, historic tradition, and reason, focusing on growing in love of God, neighbor, and self.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: OUR COMMUNITY ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Where We Are</div>
+      <h2 class="section-h">Our <em>Community</em></h2>
+    </div>
+    <div class="text-photo">
+      <div class="text-photo-body">
+        <p>All Saints' is in the Southern Piedmont region of North Carolina, approximately a 2.5-hour drive to the mountains in the west and a 3.5-hour drive to the ocean beaches in the east. The parish is situated near the border of Concord and Kannapolis, just off Interstate 85. The two rapidly growing cities have a combined population of over 176,000, by far the largest combined suburbs of Charlotte, the nation's 14th largest city. Concord alone is ranked as the state's 10th largest city with a population over 112,000. Uptown Charlotte is a 25-mile drive, and Charlotte-Douglas International Airport is a 28-mile drive from the parish.</p>
+      </div>
+      <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/campus_main.jpg" alt="">
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">10.6%</div><div class="stat-label">Population growth since 2020</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">112k+</div><div class="stat-label">City of Concord population</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">$85,810</div><div class="stat-label">Median household income</div></div>
+  </div>
+  <div class="prose">
+    <p>As Cabarrus County's population has surged—growing more than 10.6% since 2020—the county has become increasingly diverse. The population consists of the following racial and ethnic identities: Non-Hispanic White (55.3%), Black or African American (22.5%), Hispanic or Latino of any race (13.4%), Asian (7.8%), and other smaller groups (3.8%). The demographic profile of Cabarrus County is shifting rapidly due to high-net migration from out of state. Approximately 10.8% of the county's residents were born outside of the United States, with 16.6% of residents age five or older speaking a language other than English at home. The local Asian population is the county's fastest-growing demographic, expanding by roughly 34% over the last decade, followed by a 30% increase in residents identifying as multi-racial. The county's poverty rate is approximately 9.4% compared to the state average of 12.8% and median household income stands at $85,810 compared to the state average of $70,804.</p>
+    <p>As the only Episcopal church in Cabarrus County, All Saints' enjoys close working relationships with several main line churches in the immediate area, including Lutherans, Presbyterians and Methodists. All Saints' helped establish and/or supports several interdenominational initiatives in areas of education, food security, health care, housing, and incarceration transition services. All Saints' has played a leading role in racial equity initiatives, led by current Senior Warden Chuck Collier. The initiative facilitated interracial and interdenominational gatherings to examine and address racial inequity candidly and constructively.</p>
+    <p>All Saints' efforts to be a faith community in which all God's children are welcome has contributed to gradual increases in congregational diversity, specifically African Americans and LGBTQ+ individuals. This increasing diversity enriches parish life as parishioners strive to love as God loves and be an active, inclusive community of faith.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: WELCOME & BELONGING ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">All Means All</div>
+      <h2 class="section-h">Welcome &amp; <em>Belonging</em></h2>
+    </div>
+    <div class="text-photo reverse">
+      <div class="text-photo-body">
+        <p>All Saints' strives to live out the motto "all are welcome" in all that we do. Parishioners strive to ensure that everyone who walks through our door feels welcomed and is greeted personally. We welcome families and the joyful noise of young children by offering busy bags and a service adapted specifically for families. We welcome and affirm all members of the LGBTQ+ community in our theological beliefs and practices. All Saints' has staffed booths at the Salisbury Pride Festival and Pride Night at the Kannapolis Cannon Ballers baseball game. We embrace our staff members and parishioners who identify as LGBTQ+. Parishioners respect one another's chosen pronouns and have sought to eliminate some of the gendered references to God in our services.</p>
+      </div>
+      <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_newcomers.jpg" alt="">
+    </div>
+  </div>
+  <div class="prose">
+    <p>All Saints' strives toward racial justice and healing. In 2017, we partnered with five area churches—two traditionally African American and three traditionally White mainline churches—to found Racial Equity Cabarrus. The initiative hosted 34 two-day workshops, many of which took place at All Saints'. Organizers trained approximately 3,400 community members over the past nine years. Our church also has explored racial justice and healing through adult formation classes and books, which are readily available in our Welcome Center's library. All Saints' has partnered with Grace Lutheran Church, a traditionally African American church in the local community, to build relationships through shared parish dinners and activities.</p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">34</div><div class="stat-label">Racial Equity workshops hosted</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">3,400</div><div class="stat-label">Community members trained</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">9 yrs</div><div class="stat-label">Of sustained commitment</div></div>
+  </div>
+  <div class="prose">
+    <p>A growing number of new parishioners are formerly unchurched or come from a more evangelical background. All Saints' offers classes to help explain Episcopal church traditions, beliefs, and liturgy during which clergy and church leaders encourage parishioners to ask difficult questions.</p>
+    <p>As we consider serving the local community, we invite conversations with local community leaders about current needs. About three years ago, All Saints' invited leaders from different Cabarrus County nonprofits to present during our adult formation hour. Referred to as "Koinonia," these conversations resulted in the parish focusing on two initiatives: an incarceration/substance use/unhoused transitions program and a reading program in a local elementary school. Recently, Cabarrus Health Alliance presented the 2025 Cabarrus County Health Needs Assessment findings to our congregation during the 10:00 a.m. adult formation hour.</p>
+    <p>All Saints' strives to understand local community needs through data and engagement, adapting our ministries to partner with existing organizations. We are grateful for our long history of addressing local needs. Several local organizations considered community pillars originated as All Saints' ministries, including Cabarrus Victims Assistance Network, Cooperative Christian Ministries, The Community Free Clinic, The Salvation Army Tucker Center of Hope Shelter, and The Wesbury Apartments.</p>
+    <p>All Saints' incorporates accessibility and inclusion by intentionally cultivating a culture in which every person is welcomed, valued, supported, and invited into full participation in the shared life of the community. We are a place of genuine welcome and belonging—where "all are welcome" is not just a tagline but is experienced in tangible ways through caring relationships, compassionate pastoral care and opportunities for connection across all ages and stages of life.</p>
+    <p>Inclusion is experienced through deep listening, non-judgmental acceptance, and a strong sense of community. Parishioners express that they feel seen, heard, and cared for during times of illness, grief, crisis, doubt, and transition. Clergy and lay leaders are valued for showing up consistently and compassionately—in hospitals, homes, funeral services, and difficult moments—often before being asked. This presence creates an environment in which people feel safe bringing their full selves into the life of the church. Ministries such as small groups, retreats, shared meals, youth programs, pastoral care teams and intergenerational gatherings help foster this sense of belonging.</p>
+    <p>Our congregation also understands inclusion as active engagement with the wider community. Through outreach ministries and partnerships with local non-profits, All Saints' seeks to serve vulnerable neighbors and extend God's love beyond its walls. Our congregation is committed to addressing social issues—actions that we view as Gospel imperatives.</p>
+    <p>Accessibility and inclusion are further reflected in our congregation's adaptability and desire to meet people where they are. During the pandemic, the church greatly expanded online worship and new forms of pastoral connection including creatively formed backyard neighborhood services.</p>
+    <p>Concerning physical accessibility, the parking lot, nave, welcome center, parish hall and education wing are at all ground level with no stairs, making navigation easy for those with mobility challenges. The education wing's lower level includes a community room, often used for meetings. For those who cannot easily navigate stairs, the community room is accessible by driving to the entrance in the rear of the church campus. All Saints' offers adaptive wireless hearing aid technology and large-print bulletins in the nave to assist our impaired parishioners.</p>
+    <p>Our congregation's shared understanding of accessibility and inclusion is rooted not only in hospitality but in relationship, presence, participation, and service. All Saints' seeks to be a spiritually vibrant and outward-facing community where all people can encounter belonging, grow in faith, discover their gifts, and experience God's love in practical and transformative ways.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: THEOLOGICAL CONVICTIONS ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Rooted in Faith</div>
+      <h2 class="section-h">Theological <em>Convictions</em></h2>
+    </div>
+    <div class="prose">
+      <p>In Acts 2:42, the early church provided a model of how believers should worship: "to continue in the apostles' teaching and fellowship, in the breaking of bread, and in the prayers." Eucharist is celebrated every Sunday and is open to all who claim Christ as savior. All Saints' maintains a team of trained lay Eucharistic visitors that includes our Stephen Ministers, who provide communion to homebound individuals. We began recording and streaming our worship services during the pandemic lockdown and have continued this ministry, expanding it to include a Tuesday evening Compline and special services. Opportunities to learn and grow outside of formal worship, including formation classes for children, youth, and adults, are offered during the 10 o'clock hour on Sunday mornings. Prayer also is a vibrant ministry through our prayer chain and through small groups, such as Daughters of the King.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>All Saints' strives to love Christ by loving others. In John 21:15-17, Jesus told Peter to "feed my sheep."  Parish groups prepare dinners for the local night shelter every night for two weeks of the year. Parishioners not only serve night shelter guests but also break bread and converse with them. Various individuals provide meals once a month for MAC House, a ministry for mothers and children in crisis. We support Cooperative Christian Ministries (CCM) financially through numerous fundraisers. Parishioners donate shelf-stable foods continually for CCM's food pantry and glean fresh produce at a local farm. We offer a meal ministry for parishioners who have been hospitalized. All Saints' promotes hospitality and community through events that bring our parish together outside of worship, like supper clubs, outings, and special events. Individuals and groups provide dinner for EYC gatherings following their meetings. Parish-wide meals, such as Maundy Thursday dinner, Gratitude &amp; Generosity stewardship breakfast, summer picnic, Epiphany chili cook-off, and the Easter II breakfast and egg hunt are well attended. We also seek to love "the least of these" through our Lockhart Child Development Center (LCDC), an accredited early learning center.</p>
+    <p>Because All Saints' believes that everyone is created in God's image, parishioners seek not only to say "all are welcome" but also to become a place where all people feel safe and welcomed. Our parish has hosted Racial Equity seminars and workshops with African American congregations. Racial Equity organizers have presented this workshop seminar to local school systems and law enforcement. Before the pandemic lockdown, we were meeting monthly with an African American church, Grace Lutheran, for covered dish meals. As a parish we continually seek the Holy Spirit's guidance to acknowledge and change ingrained habits and perceptions that prevent us from loving each other and from loving God.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: MARRIAGE EQUALITY ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="band">
+      <div class="eyebrow">A Defining Moment</div>
+      <h2>Marriage <em>Equality</em></h2>
+    </div>
+    <div class="prose">
+      <p>Like so many parishes, All Saints' wrestled with the Episcopal Church's approval of marriage equality. The issue had been simmering for 20 years prior to the Episcopal Church's 2015 General Convention, which passed Resolution A054, authorizing two trial marriage liturgies that eliminated gender-specific language, allowing them to be used by both same-sex and opposite-sex couples. Fortunately, All Saints' rector at the time anticipated change on the horizon. During 2013 and 2014, the rector offered classes on the history of marriage and how the institution has evolved over the course of history. The rector and Vestry engaged in conversations on the meaning and significance of All Saints' core tenets of being a place where all are welcome, striving to love as God loves, and being an active, inclusive community of faith.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>For some, the Episcopal Church's action was an irreparable, cataclysmic event. A few area parishioners and rectors shared their strong opposition with others and encouraged them to consider a change. In March 2015, a group of Cabarrus County residents formed a new Anglican church. All Saints' lost approximately 28 parishioners to the controversy.</p>
+    <p>For many others at All Saints', the marriage equality issue sparked a great evolution of thought on what it means to love as God loves and to welcome all people. All Saints' experienced an expansion in its theological approach to welcoming people of all sexual orientations. In comparison to many churches, All Saints' experience with the marriage equality issue was relatively conflict free thanks to the rector's leadership and preparation. Today, many LGBTQ+ parishioners share that they feel safe, welcomed and included.</p>
+  </div>
+  <blockquote class="pull-quote">"At All Saints', all means all."</blockquote>
+</section>
+
+<!-- ============================ DIVIDER 2 ============================ -->
+<div class="page-divider">
+  <div class="bleed">
+    <img class="bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/choir_brian-choir.jpg" alt="">
+    <div class="divider-overlay"></div>
+    <div class="divider-stack">
+      <div class="divider-eyebrow">Chapter Two</div>
+      <div class="divider-title">Our Ministry</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ SECTION: WORSHIP ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Sunday Mornings</div>
+      <h2 class="section-h">Worship at <em>All Saints'</em></h2>
+    </div>
+    <div class="photo-row">
+      <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_9am-standing.jpg" alt="">
+      <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_nave-full.jpg" alt="">
+    </div>
+    <div class="photo-caption">The 9:00 family service in the parish hall, and the 11:10 traditional service in the nave</div>
+  </div>
+  <div class="prose">
+    <p>All Saints' currently offers two worship services each Sunday at 9:00 a.m. and 11:10 a.m. Throughout the year, children and youth formation take place during the 10:00 a.m. hour. Adult formation takes place concurrently between services.</p>
+    <p>In response to parishioners' requests and emerging worship trends, All Saints' began offering a more casual, family service at 9:00 a.m. in the parish hall—a welcoming and relaxed space for people of all ages and especially families and children. The order of worship and liturgy are projected onto two video screens in the front of the hall. We are intentional about involving children and adults as acolytes, crucifers, lectors, and worship participants. During this service, clergy and others share lessons in a more intimate, small-group setting with children and youth at the altar before they depart for their story time during the sermon.</p>
+    <p>As people discovered All Saints' online during the pandemic, a number chose to visit and join. Many are now family service participants. Several volunteer musicians contribute to the music ministry playing electric and acoustic guitar, drums, and keyboard. The music director leads the congregation in singing and shepherds the adult and children's choirs.</p>
+  </div>
+  <blockquote class="pull-quote">"Worship is the spiritual center of the parish, forming and sustaining disciples through Holy Baptism, Holy Eucharist, holy seasons, music, and the sacramental life of the Church."</blockquote>
+  <div class="prose">
+    <p>A more traditional service is conducted at 11:10 a.m. in the nave. Greeters provide printed bulletins. QR codes located on the backs of pews provide the opportunity to scan for the bulletin and giving online. In addition to the bulletin, the Book of Common Prayer and 1982 hymnal are available to congregants. Youth occasionally serve as acolytes, crucifers, and lectors; adults fill these roles most of the time. The talented Choir of All Saints' presents anthems, Psalms, and special music accompanied by the music director/organist. Occasionally, other parishioners accompany the choir and/or organist on various instruments. The Bells of All Saints' perform at times during the church year and holy days. The traditional service also continues to attract new attendees.</p>
+    <p>The celebrant invites all congregants to participate in communion and explains options such as standing or kneeling, partaking of one or both elements, gluten-free hosts, or receiving a blessing only. The celebrant will take Eucharist to individuals with mobility issues. During the pandemic, All Saints' introduced the Spiritual Communion Prayer for those worshipping virtually, which continues today.</p>
+    <p>All Saints' follows the liturgical seasons and the Propers, which frames our services, formation topics, and fellowship activities. Parishioners bring their questions and ideas to gatherings. Discussions may evolve into innovative programs and ministries that expand our knowledge and faith. This can take the form of shared meals with neighboring churches, hosting events, and offering our space for meetings of local organizations.</p>
+  </div>
+  <img class="photo-full" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/choir_choir.jpg" alt="">
+  <div class="photo-caption">The Choir of All Saints'</div>
+</section>
+
+<!-- ============================ SECTION: FORMATION & THE FUTURE ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Growing Together</div>
+      <h2 class="section-h">Formation &amp; <em>the Future</em></h2>
+    </div>
+    <div class="text-photo">
+      <div class="text-photo-body">
+        <p>At All Saints', we believe the Church of the future is being formed today. We are intentionally cultivating a parish where all generations worship, serve, learn, and lead together. By investing in children and youth, embracing technology as a tool for connection, empowering lay leadership, and engaging our wider community, we are building a congregation rooted in Episcopal tradition and responsive to a changing world.</p>
+        <p>Intergenerational worship is central to this vision. Every Sunday at 9:00 a.m., children participate fully in both the Liturgy of the Word and the Liturgy of the Table. Youth serve as acolytes, Gospel bearers, readers, and leaders alongside adults of all ages. These shared experiences create meaningful opportunities for belonging, mentorship, and spiritual growth. We recognize that children are not simply the future of the Church; they are the Church today.</p>
+      </div>
+      <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_children-john.jpg" alt="">
+    </div>
+  </div>
+  <div class="prose">
+    <p>Our investment in young people extends beyond Sunday worship. All Saints' employs a full-time director of youth and family ministries and an assistant to support this growing ministry. Youth serve in outreach projects, work in church gardens, participate in mission experiences, and help lead parish events. From 12 – 20 youth participate in EYC on any given Sunday throughout the year, and many youth have enjoyed the meaningful Camp Nazareth experience during the summer. Through these opportunities, they develop a sense of purpose, ownership, and connection within the parish.</p>
+    <p>Technology helps strengthen relationships and expand participation. In addition to providing access to parishioners and local community members, our livestream ministry enables distant family members to remain connected to parish life. One couple in Maryland faithfully tunes in each week to watch their seven grandchildren participate in worship and quickly notices when one of them is absent. Technology also supports ongoing formation and community. Parishioners formed two Bible studies during the pandemic that continue today. One takes place on Tuesday afternoon and the other on Wednesday evening. Eight to 10 faithful individuals participate in each group. These ministries demonstrate how digital tools can deepen relationships, strengthen faith, and extend participation beyond geographic boundaries.</p>
+    <p>A strong culture of lay leadership persists. Parishioners provide volunteer leadership across communications, livestreaming, hospitality, outreach, creation care, and parish events. This collaborative approach empowers members to share their gifts and reinforces the understanding that ministry belongs to the whole people of God.</p>
+  </div>
+  <img class="photo-full" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_kids-praying.jpg" alt="">
+  <div class="photo-caption">Children praying together at All Saints'</div>
+  <div class="prose">
+    <p>Creation Care provides another example of preparing for the future. Through learning gardens, environmental education, and food recovery efforts, parishioners of all ages serve together while caring for God's creation. In 2025, volunteers contributed more than 1,300 hours and helped recover over 14,000 pounds of fresh produce for food assistance programs.</p>
+    <p>As we look ahead, All Saints' remains committed to being a parish where tradition and innovation work together, where all generations worship and serve side by side, and where every person is invited to discover their place in God's kingdom.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: SUSTAINING WELL-BEING ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Caring for One Another</div>
+      <h2 class="section-h">Sustaining <em>Well-Being</em></h2>
+    </div>
+    <div class="prose">
+      <p>All Saints' sustains congregational spiritual, emotional, and physical well-being through several means. Leaders promote spiritual growth through Education for Ministry (EfM,) a four-year program that promotes continuing education about the Bible, church history, and theology, as well as developing a sense of personal ministry. The racial justice and healing initiative, Racial Equity Cabarrus, was initiated through EfM. Some parishioners participate in the recently formed EfM Wide Angle program, a one-year, flexible overview of standard topics. All Saints' offers a wide variety of adult and youth formation classes between Sunday worship services. Numerous book studies, such as the very popular Saturday morning Men's Group, take place during the year virtually or in-person to discuss a variety of spiritual topics. Lay ministers regularly take Holy Eucharist to home-bound individuals.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>The parish supports emotional well-being through Stephen Ministry, which provides confidential one-to-one emotional and spiritual support to individuals experiencing crisis. The Prayer Shawl ministry, which gathers monthly, knits and distributes shawls to provide emotional comfort to parishioners and community members experiencing sickness, grief or other life challenges. On Sundays, The Flower Ministry repurposes altar flowers as bouquets delivered to shut-ins, hospital patients, and nursing home and Hospice House residents. Older and Wiser Laity (OWLS) meets twice per month for lunch, fellowship and chair yoga. Fun, Food and Fellowship meets in small groups for dinner in homes or restaurants with the aim of facilitating newer and deeper friendships among parishioners. Throughout the year, Parish Life sponsors parish dinners during which the entire church family enjoys fellowship. Twice per year, the four Altar Guild teams gather for instructional sessions and luncheons. The parish Welcome Center is a unique gathering space for a social "meet and greet" for the two Sunday services, as well as a hub for many community gatherings.</p>
+  </div>
+  <img class="photo-full" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/campus_aerial-labrynth.jpg" alt="">
+  <div class="photo-caption">The campus labyrinth, a recent addition for meditation and walking</div>
+  <div class="prose">
+    <p>All Saints' nurtures physical well-being through an active Creation Care ministry that has established and tends a native plants garden, vegetable garden, columbarium garden and walking trails throughout the church campus. A recent addition to the gardens is a peaceful and beautiful labyrinth for meditation and walking. The church campus includes a children's playground area for exercise and fun. Two highlights of the year for many parishioners and the community are Tour de Saints (TdS), an annual charity bike ride for cyclists throughout the region, and After Dark @ All Saints (AD@AS), an annual fundraiser offering a wide selection of classes and speakers. Proceeds from TdS and AD@AS are distributed to eight community-based nonprofits in Cabarrus County. Through these varied outreach opportunities, parishioners experience personal spiritual growth.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: OUTREACH & SERVICE ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Serving Our Neighbors</div>
+      <h2 class="section-h">Outreach &amp; <em>Service</em></h2>
+    </div>
+    <div class="prose">
+      <p>When All Saints' returned to in-person worship after the pandemic, the Vestry charged a small committee with discerning current community needs. Our parish has a long history of engaging and supporting local nonprofits. The Koinonia Committee was formed. The meaning of this Greek word found frequently in the New Testament ("a deep intimate shared life among believers, as well as active partnering in the Christian faith") aligned with ASEC's mission and vision and was the right approach to our outreach and ministry growth. The committee invited leaders of numerous Cabarrus County nonprofits to discuss their missions, activities, and needs.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>After the presentations concluded, the committee held congregational gatherings to discuss opportunities and what direction the parish felt called to follow. The Holy Spirit called our congregation to partner with AYA House and the Academic Learning Center (ALC) at Fred L. Wilson Elementary School beginning in 2024</p>
+  </div>
+  <div class="text-photo reverse">
+    <div class="text-photo-body">
+      <p>The "Hero in Me" mentoring program at the ALC enables ASEC volunteers to enter the school and provide encouraging support to early elementary-aged students. The weekly tutoring program's focuses are reading and phonics skills. ASEC is supporting the ALC's mission of improving academic performance and fostering social and emotional growth through new relationships with younger generations. During the 2025 academic year, nine All Saints' tutors mentored 33 first and second graders. Parishioners also provide funding for the annual book fair so all students can purchase books, and the school can expand its resources.</p>
+    </div>
+    <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_group-outside.jpg" alt="">
+  </div>
+  <div class="prose">
+    <p>AYA House (AYA) provides transitional housing for individuals who are in the recovery stages of life after incarceration, addiction, and chronic unhoused status. AYA offers emergency housing for approximately 50 individuals through a partnership with Cooperative Christian Ministry's housing program. The two-year program provides medical, financial, and job skills development. After six months and completion of the career education program through Rowan Cabarrus Community College, participants re-enter the workforce with certifications and essential job skills to begin their independent and successful future.</p>
+    <p>For ASEC, this community partnership has facilitated meaningful relationships, mentorship, and friendship. Volunteers encourage and support participants in becoming productive members of society. Many AYA friends now attend ASEC worship services and support parish activities. Parishioners treasure sharing the love of God with AYA friends during fellowship gatherings, fundraisers, Bible studies, and worship services. Currently four male All Saints' mentors support 12 male AYA residents while six female mentors have supported from two to six female AYA residents. The women's AYA has temporarily paused services until a new house manager is employed.</p>
+  </div>
+  <blockquote class="pull-quote">"These new ministries have provided our congregation with invaluable relationships and opportunities to share the love of Jesus in unexpected places."</blockquote>
+  <div class="prose">
+    <p>Parishioners share overwhelmingly positive experiences about both AYA House and the Academic Learning Center. We look forward to continuing to be fed spiritually through this service. These new ministries have provided our congregation with invaluable relationships and opportunities to share the love of Jesus in unexpected places.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: LCDC ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">A Ministry Risk</div>
+      <h2 class="section-h">The Lockhart Child <em>Development Center</em></h2>
+    </div>
+    <img class="photo-full" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/lcdc-hero.jpg" alt="">
+    <div class="photo-caption">The Lockhart Child Development Center on the All Saints' campus</div>
+  </div>
+  <div class="prose">
+    <p>Taking God's church into the community has always been a part of All Saints' DNA. When our church's 40-year-old parish preschool closed at the end of the 2011 school year due to financial challenges, we did not simply mourn the loss: we asked what God might do with the space?</p>
+    <p>In early 2012, Cabarrus County Schools identified preschool-aged children with no space to serve them. Being aware of All Saints' space availability, the Cabarrus Partnership for Children recognized an opportunity. The connection was made, and the Vestry charged an All Saints' task force with exploring community preschool needs and drafting a recommendation.</p>
+    <p>What the task force discovered was sobering: each year, 300 to 400 children from economically challenged homes qualified for preschool subsidies but had nowhere to go. Community leaders educated parishioners about the profound importance of early childhood education for children born into poverty, and we could not look away.</p>
+    <p>Questions arose quickly about finances and separation of church and state. A building inspection revealed that bringing classrooms up to code would cost $500,000, a staggering figure made weightier by an existing mortgage on the new parish hall. Yet, in March of 2013, the Vestry voted unanimously to move all reserves into a building fund so that renovations could begin and the partnership moved forward.</p>
+    <p>Parish leadership committed to full transparency: open conversations occurred, tensions were addressed directly, and space was made for the Holy Spirit to lead. All Saints' applied for and received a generous grant from The Cannon Foundation—unusual for a project still in its formative stages. In July 2013, representatives from All Saints', Cabarrus Partnership for Children, and the county school district presented a proposal to the Cabarrus County Schools Board of Education, which unanimously approved the partnership.</p>
+  </div>
+  <blockquote class="pull-quote">"The risk was real, but the reward has been transformational."</blockquote>
+  <div class="prose">
+    <p>Named for beloved Concord pediatrician and ASEC parishioner, the late Dr. David A. Lockhart, The Lockhart Child Development Center on the All Saints' campus became the newest facility in the Cabarrus County Schools system in fall 2013. Our resolve was to live out the Gospel instead of merely preach that it had become a reality. Today, the five-star Lockhart Child Development Center serves children ages three months through five years and provides mentoring for Rowan Cabarrus Community College students studying child development. With a staff of 23 individuals, the center anticipates an enrollment of 70 children with an infant waiting list in August 2026.</p>
+    <p>The risk was real, but the reward has been transformational in providing accessible, quality, affordable early childhood development services for working families.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: PASTORAL CARE ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Walking Alongside</div>
+      <h2 class="section-h">Pastoral <em>Care</em></h2>
+    </div>
+    <div class="prose">
+      <p>All Saints' regards pastoral care as a vital ministry. Parishioners are grateful that clergy are grounded in seminary education and hands-on clinical pastoral training. We deeply value their spiritual companionship combined with professional training in psychology and family systems to meet parishioners' needs in all of life's seasons. Individuals can submit prayer requests online or in writing. Clergy develop one-on-one relationships with parishioners through various means, such as Parish Life functions, that are very meaningful to individuals. Our rector and deacons are available to meet with parishioners by appointment, during office hours, or by phone call. Nearly every parishioner has experienced pastoral care in some way, whether through a discussion about faith during a season of doubt, a hospital visit, a phone call during a time of bereavement, or various other ways. One parishioner supports pastoral care by mailing a hand-written birthday card to every member of the congregation.</p>
+    </div>
+  </div>
+  <blockquote class="pull-quote">"As the body of Christ, parishioners are equipped to support each other."</blockquote>
+  <div class="prose">
+    <p>While having well-trained clergy and leaders available for guidance, comfort, and support is very important at All Saints', we also believe that, as the body of Christ, parishioners are equipped to support each other. All Saints' maintains a robust Stephen Ministry team, which trains lay individuals to provide one-to-one, confidential emotional and spiritual support to people experiencing difficult life challenges, such as grief, divorce, job loss, or illness. All Saints' also supports a Prayer Shawl Ministry team that meets monthly to knit or crochet shawls that are later blessed and prayed over by our congregation. The shawls are stored in a cabinet in the parish Welcome Center for any member to take or give to a friend or family member in need of comfort. Lay Eucharistic visitors provide Eucharist to home-bound members, and we offer various small groups that meet outside of Sunday services to grow together in faith, form meaningful relationships, and support one another.</p>
+  </div>
+</section>
+
+<!-- ============================ DIVIDER 3 ============================ -->
+<div class="page-divider">
+  <div class="bleed">
+    <img class="bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/services_children-vern.jpg" alt="">
+    <div class="divider-overlay"></div>
+    <div class="divider-stack">
+      <div class="divider-eyebrow">Chapter Three</div>
+      <div class="divider-title">Our Future</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ SECTION: OUR HOPES FOR THIS CALL ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">A Season of Discernment</div>
+      <h2 class="section-h">Our Hopes for <em>This Call</em></h2>
+    </div>
+    <div class="prose">
+      <p>All Saints' Episcopal Church (ASEC) in Concord, North Carolina, is a congregation on the move. We are a growing, diverse, and welcoming parish seeking a rector who will help us deepen discipleship, expand our impact in the community, and discern God's call for the future. Rooted in worship and shaped by relationships, we are blessed with a strong foundation: a debt-free parish, growing attendance, thriving children's and youth ministries, and a congregation eager to participate in God's mission. We seek a priest who sees possibilities where others see stability and who is excited to lead alongside a people ready for what comes.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Congregational conversations revealed a clear picture of who we are and who we aspire to become. All Saints' is a welcoming, inclusive, and outward-focused community where people are known, valued, supported, and invited to grow in faith. We seek a rector who will honor these strengths while helping us deepen our mission of "disciples making disciples for Jesus" and live more fully into our vision of "loving as God loves."</p>
+  </div>
+  <blockquote class="pull-quote">"At the heart of our hopes is a rector who leads through relationships."</blockquote>
+  <div class="prose">
+    <p>Parishioners consistently emphasized the importance of presence, compassion, authenticity, wisdom, and deep listening. We seek a priest who will walk alongside people through life's joys and challenges, offering pastoral care that makes God's love tangible and strengthens our sense of community.</p>
+    <p>We seek a collaborative and adaptive leader who listens carefully, discerns thoughtfully, builds trust, and encourages broad participation in ministry. We value a rector who can help us navigate opportunities and challenges with wisdom, transparency, and a healthy sense of humor.
+We also seek a leader who can identify and cultivate gifts, empower lay leadership, and strengthen the ministries that support our mission. Experience in congregational development, strategic planning, and organizational leadership will help us align our people, resources, and ministries with God's call for the future.</p>
+    <p>Strong administrative skills are essential. We seek a rector who can effectively lead staff, steward resources, communicate clearly, and address conflict with grace and integrity.</p>
+    <p>Above all, we seek a faithful pastor who is spiritually grounded, relationally engaged, and committed to helping us grow as disciples who make disciples. We believe God is leading All Saints' into a future marked by deeper relationships, stronger discipleship, broader community impact, and faithful growth. We seek a rector who will help us discern that future together and lead us with courage, humility, and hope.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: WHAT WE SEEK IN A RECTOR ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Our Next Chapter</div>
+      <h2 class="section-h">What We Seek in a <em>Rector</em></h2>
+    </div>
+    <div class="prose"><p>We value a leader who strives to be:</p></div>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>A Shining Light</h4><p>Whose attitudes, actions, and words reflect an inspirational faith in Jesus, an empathetic love for others, and a true concern for God's creation.</p></div>
+    <div class="card"><h4>A Compassionate Shepherd</h4><p>Who is responsive to parishioners and who "shows up" in times of need.</p></div>
+    <div class="card"><h4>A Collaborative Leader</h4><p>Whose management style enables lay leaders to use their expertise in various ministries, responsive to innovative ideas and suggestions, flexible and creative but faithful to our values as a parish: welcoming, open to diversity, centered in service, committed to discerning God's will.</p></div>
+    <div class="card"><h4>An Inspiring Communicator</h4><p>Who is an attentive listener as well as an articulate speaker, who has a sense of humor, and is well grounded in the Bible and theology.</p></div>
+    <div class="card"><h4>An Effective Administrator</h4><p>Who is organized, proactive, and practical, yet visionary; firm and confident, when necessary, but also thoughtful, compassionate, and positive; a team builder who manages all kinds of resources well.</p></div>
+    <div class="card"><h4>An Active Participant</h4><p>Who engages in parish life outside of worship and who is supportive of All Saints' many community ministry partners.</p></div>
+  </div>
+  <div class="prose" style="margin-top:16pt;">
+    <p>We have found good communication between all parties to be essential in the collaborative style we enjoy. Vestry members serve as liaisons to ministry areas within the parish, such as Parish Life, Pastoral Care, Outreach, or Building and Grounds. As liaisons they maintain contact with specific ministries in their area and report monthly to the priest and the Vestry. The priest, wardens, and Vestry liaisons avoid micromanaging ministries but instead offer support and remain informed. This style serves All Saints' well during times when ecclesiastical authority falls to the senior warden, such as sabbaticals or extended convalescences. Ministries continue to function smoothly and report to the Vestry liaisons. During these times, wardens experience more responsibility as they support parishioners and ministries without loss of continuity or coherence.</p>
+    <p>During this current season of transition, as All Saints' discerns God's will for a new rector, our Vestry has written a collect that the congregation prays each Sunday and has commissioned a diverse team of parishioners to seek guidance from the Holy Spirit and align our efforts with diocesan requirements. The Search Committee enlisted parish-wide input early through congregational meetings and continues to inform parishioners through the Weekly Word church newsletter, remaining true to our desire for comprehensive and transparent communication.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: DISCERNMENT & ADAPTATION ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Listening Together</div>
+      <h2 class="section-h">Discernment &amp; <em>Adaptation</em></h2>
+    </div>
+    <div class="prose">
+      <p>Discernment and adaptation are grounded in our shared commitment to grow in faith and empower others to do the same, while striving to love as God loves. Listening to the congregation's reflections, one thing becomes clear: this is a church that cares for one another, to the needs of the community, and to where God may be calling us next.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Discernment often happens in very relational and practical ways. People notice needs because they are connected through worship, small groups, friendships, and ongoing ministry involvement. That close connection to daily life in the congregation naturally extends outward into the wider community, where our church is closely linked to community partners. These relationships help our church remain grounded in what is happening around it and respond in real time to changing needs, for example food insecurity, housing challenges, crisis support, and care for families.</p>
+    <p>Worship and shared life play an important role in discernment. Through prayer, conversation, and congregational engagement, themes often emerge about where needs exist, where energy is present, and where our church is being invited to respond. Ours is not a top-down decision-making process; shared awareness grows out of life together.</p>
+    <p>Adaptation appears in All Saints' willingness to respond and adjust when circumstances change. This was especially apparent during the pandemic but also continues through leadership transitions and evolving community needs. The congregation responds with creativity and facilitates new ways to worship, to remain connected, and to continue ministering to one another and the community—always keeping worship and care at the center.</p>
+    <p>All Saints' demonstrates a pattern of shared ownership in ministry in which major initiatives bring people together in ways that help our church discern needs more clearly and respond collectively. When the whole community is engaged, discernment becomes something that is experienced together, not held in one place or one group. This approach was evident in the prayer offered before each Koinonia discernment presentation:</p>
+  </div>
+  <div class="prayer">
+    <div class="prayer-label">A Prayer</div>
+    <div class="prayer-text">"God of all creation, fill us with passion for justice and dignity for each neighbor in our community. Guide and support us through Koinonia to follow your example and your command to do justice, to love mercy, and to walk humbly with you. Transform us through your spirit to become conduits of your love and compassion in all that we do so we become reconciled to you and your creation. In the name of the triune God. Amen"</div>
+  </div>
+  <div class="prose">
+    <p>Parishioners pay attention to one another. They show up in hospitals, in times of grief, in moments of crisis, in times of joy and celebration, and in everyday life. That same attention extends into the community, and it shapes how the church understands what is needed and how to respond.</p>
+    <p>All Saints' has a history of not just adapting to change but responding to change as if it is part of the church's identity. Our church listens, remains connected, and moves together in compassion and purpose, seeking to faithfully live out its call to love as God loves.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: STEWARDSHIP ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Time, Talent, Treasure</div>
+      <h2 class="section-h"><em>Stewardship</em></h2>
+    </div>
+    <div class="text-photo reverse">
+      <div class="text-photo-body">
+        <p>All Saints' strives to take a multi-faceted, holistic, and continuous approach to stewardship as part of its daily service to God. This approach involves contributions of time, talent, and treasure, as well as wise use of resources and a commitment to creation care. The Stewardship Committee seeks to educate and communicate to parishioners so that they can directly and/or indirectly participate in the church's numerous ministries by various means.</p>
+        <p>The Stewardship Committee has never communicated an annual estimate of giving goal. The financial ministry plan has been developed based on total estimates of giving and anticipated additional revenue sources. (The Committee currently uses the term "estimate of giving" instead of "pledge" to ease anxiety over potential changes in individual or family financial circumstances during the calendar year.)</p>
+      </div>
+      <img src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/bell-garden.jpg" alt="">
+    </div>
+  </div>
+  <div class="prose">
+    <p>We've recognized the need to be as transparent as possible regarding the monetary needs of the church, and, to that end, the Stewardship Committee plans to pivot this year and be fully transparent about the church's financial ministry plan needs. One key goal is to support the church's full operating budget through estimates of giving instead of current dependence on other income sources, such as the child development center rent or investment income. This goal may take a few years to achieve. In addition, the committee will facilitate financial well-being events for parishioners, including education sessions on the importance of wills. These sessions also will provide a forum for highlighting legacy giving.</p>
+    <p>Recognizing the financial burden of debt repayment and interest, All Saints' undertook the "Set Free to Serve" campaign in 2019 with the aim of eliminating the church's debt. Motivated by the initiative, one parishioner offered a generous matching challenge gift, which the parish exceeded by nearly two-fold. Since the campaign, both increased giving and attendance have contributed to improved financial footing. Parishioners have expressed gratitude for the Episcopal approach to tithing, particularly in comparison to previously attended churches that imposed "guilt trips."</p>
+    <p>All Saints' approach to stewardship extends beyond money to truly valuing time, talent, and judicious use of resources. The church staff is credited with helping balance the financial ministry plan by managing expenses wisely. In addition, the parish enjoys an energetic and active Creation Care team that has enhanced the church grounds and gardens, including an annual "teaching and sharing" vegetable garden. The Creation Care ministry includes an annual tree giveaway in conjunction with the Cabarrus County Extension Service and The Arbor Day Foundation. In 2018, All Saints' was the first church in the country to co-sponsor The Arbor Day Foundation's Energy-Saving Tree Program at the local level. Stewardship truly is a holistic ministry at All Saints'.</p>
+  </div>
+</section>
+
+<!-- ============================ SECTION: NAVIGATING CHANGE ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Resilience</div>
+      <h2 class="section-h">Navigating <em>Change</em></h2>
+    </div>
+    <div class="prose">
+      <p>Even before the pandemic, All Saints' was navigating change. In 2019, we completed a full upgrade of the lighting and audio systems in the nave—improvements designed to enhance visibility and sound, and to lay the groundwork for livestreaming. No one imagined how soon that investment would matter.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>In 2020, when the pandemic hit, a task force began planning for the possibility of temporary closure. When the Diocese of North Carolina announced that all in-person worship and choir rehearsals would abruptly end, our parish had to pivot quickly. Within days, our small but mighty communications team scrambled to facilitate virtual services, choosing Facebook to livestream Morning Prayer that very first week.</p>
+    <p>What unfolded was remarkable. Viewership grew Sunday after Sunday, with parishioners responding to readings, prayers, and sermons through live chat—present and connected despite being apart. Facebook and eventually YouTube became All Saints' virtual sanctuary. Our website became the essential hub for bulletins, service links, and pandemic resources. The Weekly Word e-newsletter kept parishioners informed and allowed us to experience one another through photos. Soon the Vestry, every committee, both adult choirs, and our parishioner-led book study groups gathered virtually via Zoom.</p>
+  </div>
+  <blockquote class="pull-quote">"What began during a crisis became a permanent, thriving ministry."</blockquote>
+  <div class="prose">
+    <p>The Holy Spirit moved powerfully through this season. Parishioners moved beyond their fears, recording themselves singing or delivering readings from their homes and gardens. Together, we assembled virtual choirs people still mention today. That spirit of creativity peaked with two extraordinary virtual services: Advent Lessons &amp; Carols, and a Christmas Eve service uniting Bells of All Saints', Choir of All Saints', Resurrection Choir, and guest instrumentalists—all submitted as individual recordings woven into something truly holy by our talented music/communications director.</p>
+    <p>Knowing that level of manual production was not sustainable, All Saints' accelerated plans already in motion, installing four cameras in the Nave, three in the parish hall, and building a dedicated video control room. Within months of reopening, our full broadcast system was live for both Sunday services. Viewership grew into the hundreds, then thousands. Last year alone, All Saints' worship services surpassed nearly 60,000 views, and that number grows every year.</p>
+    <p>Today, weddings, funerals, adult education, and youth activities are all shared online. Many newcomers tell us they watched a worship service for weeks before visiting in person. What began during a crisis became a permanent, thriving ministry.</p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">57,537</div><div class="stat-label">Online views in 2025</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">120%</div><div class="stat-label">Year-over-year growth (2024)</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">69%</div><div class="stat-label">Newsletter open rate</div></div>
+  </div>
+</section>
+
+<!-- ============================ SECTION: TECHNOLOGY IN MINISTRY ============================ -->
+<section class="section">
+  <div class="keep-together">
+    <div class="section-head">
+      <div class="section-rule"></div>
+      <div class="eyebrow">Reaching Beyond Our Walls</div>
+      <h2 class="section-h">Technology in <em>Ministry</em></h2>
+    </div>
+    <div class="prose">
+      <p>Technology has been a steadily growing foundation for ministry, communication, and outreach at All Saints', and our commitment to it deepens every year.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>It began with intentional investment. In 2019, All Saints' upgraded to higher-speed internet, installed new parish hall screens and projectors thanks to a grant, refreshed the bulletin and Weekly Word newsletter design, and ensured every member could remain connected across our website, Facebook, Twitter, and Instagram—regardless of age or preference.</p>
+    <p>When the pandemic hit in 2020, All Saints' communications director was notified mid-week that the church would close. Within days, the director readied our first virtual worship service using a smartphone camera on a tripod, meaning All Saints' never missed a single Sunday. Launching our first Zoom gatherings occurred soon thereafter.</p>
+    <p>In 2021, All Saints' made a transformational investment: the installation of cameras in the nave and parish hall. The communications team set up a dedicated video control room, enabling the church to stream both Sunday services, weddings, funerals, and nonprofit partner events without placing unsustainable demands on staff.</p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">16,439</div><div class="stat-label">Views in 2022</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">34,357</div><div class="stat-label">Views in 2024</div></div>
+    <div class="stat-item"><div class="stat-accent"></div><div class="stat-number">57,537</div><div class="stat-label">Views in 2025</div></div>
+  </div>
+  <div class="prose">
+    <p>The results speak for themselves. In 2022, All Saints' online offerings generated 16,439 views. In 2023, the church posted 431 unique videos that attracted 15,337 views, launched the Realm Connect app with 180 active users currently, and distributed 24,441 Weekly Word emails with a remarkable 69% open rate. In 2024, online views surged to 34,357, an increase of over 120%. In 2025, All Saints' reached 57,537 views and plays, an additional 60% increase.</p>
+    <p>Today, technology touches every aspect of our ministry. Both Sunday services are livestreamed and archived. Adult formation, youth events, weddings, and funerals are shared online. Nonprofit partners use our broadcast facilities to reach wider audiences. QR codes providing access to parish news and online giving are available in the printed bulletins and backs of pews in the nave and on screens in the parish hall. The audio-visual team works faithfully behind the scenes every week to ensure worship is seen, heard, and experienced, whether someone is in the pew or watching from across the world.</p>
+    <p>Visitor after visitor shares the same experience: they watched online before walking through our doors. Experienced lay professionals continue to donate valuable time and talent to developing and maintaining virtual productions and the church website. Technology has not replaced our community: it has expanded it.</p>
+  </div>
+</section>
+
+<!-- ============================ CLOSING ============================ -->
+<div class="page-closing">
+  <div class="bleed">
+    <img class="bg closing-bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/stained-glass-bright.jpg" alt="">
+    <div class="closing-overlay"></div>
+    <div class="closing-inner">
+      <img class="closing-crest" src="file:///Users/varloo/develop/allsaints/worker/public/allsaints-symbol-white.svg" alt="">
+      <div class="closing-eyebrow">Our Mission and Vision</div>
+      <div class="closing-mission">To be a church of Disciples Making Disciples for Jesus.</div>
+      <div class="closing-sep"></div>
+      <div class="closing-vision">To be a church that Loves <em>as God Loves</em>.</div>
+      <div class="closing-contact">
+        All Saints' Episcopal Church &middot; 525 Lake Concord Road NE &middot; Concord, NC 28025<br>
+        allsaintsconcord.org
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="paged.polyfill.js"></script>
+</body>
+</html>

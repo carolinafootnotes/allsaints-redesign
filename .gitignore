@@ -4,3 +4,9 @@
 .playwright-mcp/
 .wrangler/
 *.backup*.pptx
+
+# Parish-profile PDF pipeline: regenerable / heavy local artifacts
+assets/church-profile/node_modules/
+assets/church-profile/web-img/
+assets/church-profile/parish-profile-2026.pdf
+assets/church-profile/parish-profile-2026-web.pdf

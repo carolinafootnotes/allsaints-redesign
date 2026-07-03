@@ -1,0 +1,10 @@
+{
+  "name": "allsaints-parish-profile-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PDF rendering pipeline for the All Saints' parish profile",
+  "dependencies": {
+    "puppeteer-core": "^25.3.0"
+  }
+}
