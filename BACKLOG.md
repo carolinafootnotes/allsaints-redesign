@@ -23,7 +23,7 @@ Follow-ups:
 - [x] **P3** Home page stray `class="mobile-nav-link"` removed. ✅
 - [x] ~~**P3 / N** In-site `/final/sitemap` page organized by audience~~ ✅ REMOVED Jun 2026 (Nate: not needed; the published `/site-map` covers the review-group list, and the nav dropdowns now reach the About/Connect subpages).
 - [ ] **P2 / N** "Why we moved it" cover note for the review group (What's Happening → footer, Lockhart → external) + send the simple sitemap with the preview URL. (Gmail draft staged; caveats + corrected stats folded in.)
-- [ ] **P2 / N** Sitemap diagram stats are apples-to-oranges: "Main menu 41 → 6" compares 41 *total* old links to 6 *top-level* new items. Make it like-with-like on the diagram (e.g. "8 top menus → 6 top items" or compare total-to-total). "Pages 70 → 19" is fine. Regenerate `sitemap-diagram-clean.png` with corrected callouts. Cover-note text already fixed.
+- [x] ~~**P2 / N** Sitemap diagram stats are apples-to-oranges~~ ✅ Fixed: metric now shows 41 → 14 (total-to-total), Events moved from top menu to footer ("What's Happening"), overview entries removed from dropdown children, `sitemap-diagram-clean.png` regenerated.
 - [ ] **P2 / N** Review-email caveats (now drafted in the cover note): not all links work yet; some pages are simple transfers not rebuilt here (e.g. memorial-tree pages); imagery isn't final (Joy Marie adding more over coming weeks); events are placeholders (real site pulls live data); another review pass once it's in Squarespace.
 
 ---
@@ -72,7 +72,10 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 ## Subpages — still-open polish
 
 ### `/final` (home)
-- [ ] **P2 / N** Mobile QA on real device — eyeball logo, hero, mission/vision block, worship cards
+- [x] ~~**P2 / N** Mobile QA on real device~~ ✅ Screenshotted at iPhone 14 (390px) and iPad (810px). No broken layouts. Three minor items noted below.
+  - [ ] **P3 / N** Stats row: 3-item grid orphans "5 Music Ensembles" alone on a second row in the 2-col layout. Add a 4th stat or switch to 3-col on mobile.
+  - [ ] **P3 / N** Stay Connected: 5 social tiles stack to ~635px of vertical scroll on mobile. A 2-col compact grid would halve it.
+  - [ ] **P3 / N** iPad nav: "Rector Search" label wraps to two lines at 810px. Could abbreviate or tighten spacing.
 - [x] ~~Confirm the new hero photo pool composition~~ ✅ 6-image pool (exterior, procession-cross, fellowship-formation, 9am-service, altar-blessing, campus-main). Full variety pass deployed 6/19.
 - [ ] **P3 / N** "Stay Connected" section vs `/final/connect/stay-connected` — currently a slim social-channels strip on home, full strip on /connect. Acceptable or trim home further?
 
@@ -114,7 +117,7 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 
 - [ ] **P1 / N** WCAG AA spot-check after all content changes land (use axe DevTools or Lighthouse)
 - [ ] **P2 / N** Performance check — current hero photos are 2-6 MB. Squarespace will auto-optimize, but verify on the preview.
-- [ ] **P3 / N** No-JS fallback added to `/visit` only. Apply `@media (scripting: none) { .reveal { opacity: 1; transform: none; } }` to all pages.
+- [x] ~~**P3 / N** No-JS fallback~~ ✅ Moved `@media (scripting: none)` rule from per-page `/visit` to shared `site.css`, covers all pages automatically.
 - [ ] **P3 / N** Test all anchor links (skip-link, hero badges, footer links) with keyboard-only navigation.
 
 ---

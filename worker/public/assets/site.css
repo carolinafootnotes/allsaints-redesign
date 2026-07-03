@@ -868,6 +868,10 @@ main a[target="_blank"]:not(.this-week-card):not(.event-card):not(.connect-link-
   html { scroll-behavior: auto; }
 }
 
+@media (scripting: none) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
 /* ============================================================
    FOCUS STATES
    ============================================================ */
