@@ -20,7 +20,7 @@ Reviewer (not end-user) note: **the review group** (not the full vestry) reviews
   - `worker/src/index.js` — worker entry. `worker/schema/` — D1 schema/seeds for the content-approval + triage tools. `worker/tests/` — vitest.
 - **`shared/`** — what the review group sees: decks, PDFs, sign-off docs, status updates. If it has been sent (or is about to be), it lives here.
 - **`internal/`** — working files (drafts, research, design history, screenshots, source files, session handoffs). Not for outside eyes. Markdown sources behind shared PDFs live in `internal/deliverables/`.
-- **`assets/`** — shared working assets (photos, WordPress export). Stays at root; referenced by tooling.
+- **`assets/`** — shared working assets (photos, WordPress export). Stays at root; referenced by tooling. **`assets/church-profile/`** holds the parish-profile PDF pipeline: the vestry-approved source docx, the print master `parish-profile-2026.html`, and `render-pdf.mjs` (paged.js + system Chrome). Regenerate with `node render-pdf.mjs parish-profile-2026.html <out>`; the served copy at `worker/public/assets/parish-profile-2026.pdf` must stay under Cloudflare's 25 MiB asset cap (use the `-email.html` variant with downsized `web-img/` photos). Linked from `/final/rector-search`.
 - **`BACKLOG.md`** — daily driver, single source of truth for what's left before cutover. Stays at root.
 
 ## Build, run, deploy

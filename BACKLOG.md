@@ -93,8 +93,9 @@ From `deliverables/content-audit-v1-vs-final.pdf` — 15 items. Decisions still 
 - [x] ~~Koinonia small groups — confirm they're currently active.~~ ✅ REMOVED site-wide per Nate (6/19). No Koinonia references remain anywhere on the site.
 
 ### `/final/rector-search`
-- [ ] **P3 / N** "A Parish, in Brief" 6-card grid is generic. Decision (Jun 2026): leave the page thin for now. The search committee will supply more parish data and tell us how detailed they want it before the job posting. Revisit then (replace this section with the formal profile or expand with their data).
-- [ ] **P2 / V** Search committee contact pattern — currently routes through admin@. Should it route to a dedicated search committee email or a real person?
+- [x] ~~**P3 / N** "A Parish, in Brief" thin page~~ ✅ SUPERSEDED Jul 2026: rector-search now hosts the **full vestry-approved parish profile** (every Vocation Hub answer, ~7,500 words, 18 themed sections). Content verified against the approved docx (nothing cut/invented, em dashes preserved). A tighter "v2" lives at `/final/church-profile` for comparison.
+- [x] ~~**P2 / N** Downloadable profile~~ ✅ Designed **34-page PDF** built from the same content (cover with logo band, TOC, three chapter dividers, pull quotes, prayer block, rector-quality cards, dark mission/vision close, cream logo back cover). Served at `/assets/parish-profile-2026.pdf` (17MB, under the 25MB Workers asset cap); "View the Profile (PDF)" button in the hero opens it in a new tab. Source + pipeline in `assets/church-profile/` (regenerate: `node render-pdf.mjs parish-profile-2026.html <out>`; see [[project-parish-profile-pdf]] memory).
+- [ ] **P2 / V** Search committee contact pattern — currently routes through admin@. Should it route to a dedicated search committee email or a real person? (Also: the PDF's closing page shows only the parish address + website; add a search-committee contact there if one is chosen.)
 
 ### `/final/watch-live`
 - [ ] **P3 / N** YouTube embed shows the channel's "no live stream" placeholder when not streaming. Acceptable, or do we want a custom "next stream is Sunday 9 AM" message above the player when the stream is offline?
