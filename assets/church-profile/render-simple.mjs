@@ -1,0 +1,10 @@
+import puppeteer from 'puppeteer-core';
+import { resolve } from 'node:path';
+const [,, inp, outp] = process.argv;
+const b = await puppeteer.launch({ channel:'chrome', headless:true, args:['--no-sandbox','--allow-file-access-from-files'] });
+const p = await b.newPage();
+await p.goto('file://'+resolve(inp), { waitUntil:'networkidle0', timeout:120000 });
+await new Promise(r=>setTimeout(r,1000));
+await p.pdf({ path: resolve(outp), printBackground:true, preferCSSPageSize:true });
+await b.close();
+console.log('wrote', outp);

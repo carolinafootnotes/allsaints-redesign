@@ -86,16 +86,19 @@ em { font-style: italic; }
   object-fit: cover;
 }
 
-/* ---- Cover ---- */
+/* ---- Cover (75% photo / 25% cream logo band) ---- */
+.cover-split { width: 8.5in; height: 11in; display: flex; flex-direction: column; }
+.cover-photo { position: relative; height: 75%; overflow: hidden; }
+.cover-photo .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .cover-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(to top, rgba(38,6,9,0.90) 0%, rgba(38,6,9,0.55) 28%, rgba(38,6,9,0.0) 62%),
-    radial-gradient(120% 80% at 15% 10%, rgba(123,35,50,0.35) 0%, rgba(123,35,50,0) 55%);
+    linear-gradient(to top, rgba(38,6,9,0.90) 0%, rgba(38,6,9,0.50) 30%, rgba(38,6,9,0.0) 65%),
+    radial-gradient(120% 80% at 15% 10%, rgba(123,35,50,0.30) 0%, rgba(123,35,50,0) 55%);
 }
 .cover-stack {
   position: absolute;
-  left: 0.9in; right: 0.9in; bottom: 1.05in;
+  left: 0.9in; right: 0.9in; bottom: 0.6in;
   color: #fff;
 }
 .cover-badge {
@@ -109,30 +112,32 @@ em { font-style: italic; }
   border: 1px solid rgba(232,217,160,0.5);
   border-radius: 2px;
   padding: 5px 12px 4px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .cover-title {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 43pt;
+  font-size: 40pt;
   line-height: 1.04;
-  max-width: 6in;
+  color: #fff;
   text-shadow: 0 2px 18px rgba(0,0,0,0.35);
 }
-.cover-title em { color: var(--gold); font-style: italic; }
 .cover-loc {
   font-family: var(--sans);
   font-weight: 300;
   font-size: 12pt;
   opacity: 0.85;
-  margin-top: 12px;
+  margin-top: 14px;
   letter-spacing: 0.02em;
 }
-.cover-crest {
-  position: absolute;
-  left: 0.9in; bottom: 0.5in;
-  height: 46px;
+.cover-band {
+  height: 25%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.cover-band-logo { width: 2.4in; height: auto; }
 
 /* ---- Chapter divider ---- */
 .divider-overlay {
@@ -613,15 +618,19 @@ h3.sub-h {
 
 <!-- ============================ COVER ============================ -->
 <div class="page-cover">
-  <div class="bleed">
-    <img class="bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/exterior-2026.jpg" alt="">
-    <div class="cover-overlay"></div>
-    <div class="cover-stack">
-      <span class="cover-badge">2026 Parish Profile</span>
-      <div class="cover-title">All Saints'<br><em>Episcopal</em> Church</div>
-      <div class="cover-loc">Concord, North Carolina</div>
+  <div class="cover-split">
+    <div class="cover-photo">
+      <img class="bg" src="file:///Users/varloo/develop/allsaints/assets/church-profile/web-img/exterior-2026.jpg" alt="">
+      <div class="cover-overlay"></div>
+      <div class="cover-stack">
+        <span class="cover-badge">2026 Parish Profile</span>
+        <div class="cover-title">All Saints'<br>Episcopal Church</div>
+        <div class="cover-loc">Concord, North Carolina</div>
+      </div>
     </div>
-    <img class="cover-crest" src="file:///Users/varloo/develop/allsaints/worker/public/allsaints-symbol-white.svg" alt="">
+    <div class="cover-band">
+      <img class="cover-band-logo" src="file:///Users/varloo/develop/allsaints/worker/public/allsaints-logo.svg" alt="All Saints' Episcopal Church">
+    </div>
   </div>
 </div>
 
