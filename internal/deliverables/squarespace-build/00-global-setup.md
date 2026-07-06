@@ -40,7 +40,9 @@ One exception: set the **hero section's** animation to **None** (in that section
 
 ## 5. Navigation → native header + Folders
 
-Build the **flat top nav**. Per the locked IA:
+**First, the home page (not a nav item).** Create/keep a **Home** page, build it from `homepage.md`, then set it as the homepage: Pages panel → hover the page → "..." → **Set as Homepage** (it gets a house icon; its URL becomes `/`). The site **logo links to it automatically**, so Home is *not* one of the top-nav items. Move the Home page to the **Not Linked** section so it doesn't show as a nav link (it stays the homepage and stays at `/`). If Squarespace insists it live in Main Navigation, leave it — the logo covers it either way.
+
+Then build the **flat top nav**. Per the locked IA:
 
 - Top-level items: **Visit · About · Connect · Serve · Rector Search · Give**
 - **About** and **Connect** are native **Folders**. The first item inside a folder is its overview/landing page (Squarespace folders aren't clickable themselves).
