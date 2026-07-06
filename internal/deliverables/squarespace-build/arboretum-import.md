@@ -36,10 +36,20 @@ Open the imported post and confirm its published URL is exactly:
 Delete the test post (so it isn't duplicated), then import **`arboretum.wxr`** into the
 same collection. Spot-check 3–4 slugs against `memory/project_preserved_urls.md`.
 
-**5. Point the Arboretum landing page at the collection.**
-The prototype `/arboretum` index (hero + intro + the tree list) becomes the blog's layout
-/ a simple landing section; the tree list is now the blog's post list. Build the hero +
-intro from the prototype using the normal patterns.
+**5. Build the Arboretum landing page around the feed.**
+On a 7.1 Blog collection page you can add block sections **above and below** the post feed
+(not inside it — verified). So the `/arboretum` landing is three parts:
+- **Above the feed:** the hero + intro from the prototype (normal patterns / Code Block).
+- **The feed:** the 36 tree posts (the tree list, with preserved `/arboretum/[tree]` URLs).
+- **Below the feed:** an "Also in our gardens" section — a small card grid linking to the
+  labyrinth and tree-of-seasons pages, so arboretum browsers discover them.
+
+**6. Keep the garden memorials as their own 1:1 pages too.**
+The Prayer Labyrinth, Jennifer Cobb Memorial Labyrinth, and Tree of Seasons each keep a
+dedicated page at their exact old slug (in **Not Linked**), for the physical signage (see
+`url-mappings.md` section A). The "Also in our gardens" cross-links above point at these
+pages. Result: signage lands 1:1 on the specific memorial, and the arboretum page surfaces
+them for browsers — no redirect either way.
 
 ## Content notes (read before go-live)
 - The WXR content is the **old WordPress copy**, which is *more* complete than the
