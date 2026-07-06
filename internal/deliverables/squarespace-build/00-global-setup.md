@@ -4,11 +4,11 @@ Do these in order, once, before building any page. Every page depends on them.
 
 ---
 
-## 1. Fonts → Header injection
+## 1. Fonts → Site Styles (native — no injection needed)
 
-Settings → Advanced → Code Injection → **Header**. Paste all of `library/head-injection.html`.
+Site Styles → **Fonts**. Set Heading → **Cormorant Garamond**, Body → **DM Sans**. Both are in Squarespace's native picker (it includes the full Google Fonts library), and assigning them makes Squarespace load them so the CSS tokens resolve. That's it.
 
-This loads Cormorant Garamond (the display serif — not in Squarespace's native picker) and DM Sans. After it's in, you *can* set headings → Cormorant Garamond and body → DM Sans in Site Styles, but the CSS tokens already reference them, so it's optional.
+`library/head-injection.html` is now **optional** — only paste it (Code Injection → Header) as a fallback if a specific weight/italic our CSS uses doesn't render after setting the fonts natively. Otherwise skip it.
 
 ---
 

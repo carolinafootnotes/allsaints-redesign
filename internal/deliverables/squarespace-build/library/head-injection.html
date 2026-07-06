@@ -1,15 +1,16 @@
 <!-- ============================================================
-     ALL SAINTS' — FONTS  (head injection)
+     ALL SAINTS' — FONTS  (head injection)  ***OPTIONAL — likely not needed***
 
-     WHERE THIS GOES:  Squarespace → Settings → Advanced →
-     Code Injection → HEADER.  Paste this whole block.
+     BOTH fonts are in Squarespace's native picker (it now includes the
+     full Google Fonts library). PREFERRED: just assign them in Site Styles →
+     Fonts (Heading = Cormorant Garamond, Body = DM Sans). Assigning them
+     makes Squarespace load them, and the tokens in custom-css-global.css
+     resolve. No code injection needed for fonts.
 
-     WHY:  DM Sans is in Squarespace's native font picker, but
-     Cormorant Garamond (the display serif) is NOT. This loads both
-     from Google Fonts so the tokens in custom-css-global.css resolve.
-
-     After this loads, you can set headings → Cormorant Garamond and
-     body → DM Sans in Site Styles, OR rely on the CSS var() tokens.
+     ONLY paste this (Settings → Advanced → Code Injection → HEADER) as a
+     belt-and-suspenders fallback IF a specific weight/italic our CSS uses
+     doesn't render after you've set the fonts natively (e.g. a Cormorant
+     italic looks like a plain serif). Otherwise skip it.
      ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
