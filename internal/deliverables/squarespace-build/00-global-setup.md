@@ -64,7 +64,7 @@ We are NOT recreating the prototype's custom-JS dropdown / logo-swap header — 
 
 Settings → **Developer Tools** → **URL Mappings** (not the old "Advanced" menu).
 
-**The full redirect + preserved-slug list lives in one file: `url-mappings.md`.** Open it, set the exact-slug pages (section A), and paste the 301 block (section B). That's the single source of truth — don't hunt across the memory file or session-handoff for redirects anymore.
+**The full preserved-URL list lives in one file: `url-mappings.md`.** Primary approach (section A): recreate every physically-referenced URL 1:1 as a real page at the exact slug — QR/printed URLs must NOT depend on a redirect. Section B is optional 301s for never-printed links only. That file is the single source of truth — don't hunt across the memory file or session-handoff anymore.
 
 ---
 
