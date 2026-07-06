@@ -15,7 +15,7 @@ This is the hands-on kit for rebuilding the approved `/final/` prototype in Squa
 ## The 3-layer model (how the pieces fit)
 
 1. **Global Custom CSS** (`library/custom-css-global.css`) → Design → Custom CSS. Tokens, buttons, cards, footer. Pasted once, inherited everywhere.
-2. **Global behavior** (`library/footer-injection.html` + `head-injection.html`) → Code Injection. Fonts, the sticky-header scroll toggle, the random hero image. That's all the JS there is.
+2. **Global behavior** (`library/footer-injection.html`) → Footer Code Injection. The sticky-header scroll toggle + the random hero image. That's all the JS there is. (Fonts are native — set them in Site Styles, no injection.)
 3. **Per-section content** → mostly native blocks; hero + bento are Code Blocks from `library/sections/`.
 
 ## Files
@@ -32,7 +32,6 @@ This is the hands-on kit for rebuilding the approved `/final/` prototype in Squa
 | `AUTOMATION-FINDINGS.md` | The verified automation verdict (no page-building API/MCP; what we use instead). |
 | `DISCOVERIES.md` | Fill this in *as you build* — real Squarespace selectors, what broke, what you changed. Feeds the rest of the build. |
 | `library/custom-css-global.css` | Paste-once global stylesheet. |
-| `library/head-injection.html` | Google Fonts (Cormorant Garamond + DM Sans). |
 | `library/footer-injection.html` | Header scroll toggle + random hero (the only JS). |
 | `library/sections/hero.html` | Hero Code Block. |
 | `library/sections/community-bento.html` | Community bento Code Block. |
