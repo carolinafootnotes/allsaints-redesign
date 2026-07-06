@@ -36,7 +36,9 @@ The burgundy `.connect` band: heading, sub, a row of `connect-link-card`s, a bot
 3. Closing CTA strip (4).
 4. If the page is repeating content, it's a Collection (5), not a hand-built page.
 
-## Remaining pages (Phase 3)
+## Remaining pages (Phase 3) — via build packets
 visit · about · connect (+ episcopalian, life-events, pastoral-care) · serve · giving · happenings · learn · history · clergy · arboretum · prayer-requests · rector-search · watch-and-listen.
 
-Each will get a short section list mapping to the patterns above, written after the homepage build confirms the real Squarespace behavior.
+Each gets a **build packet**: the approved copy in paste-ready form + a section→block map + links + images, so the page is follow-the-checklist-and-paste and nothing is retyped. Format: `packet-TEMPLATE.md`. Worked example (built first, exercises every card grid): `packet-connect.md`. The arboretum is not a packet — it bulk-imports (`arboretum-import.md`).
+
+Packets for the other pages get written after the homepage build confirms real Squarespace behavior (logged in `DISCOVERIES.md`), so the maps reflect what actually renders.

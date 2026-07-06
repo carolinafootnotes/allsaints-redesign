@@ -4,6 +4,7 @@ This is the hands-on kit for rebuilding the approved `/final/` prototype in Squa
 
 - Architecture / why: `../component-reference.md`, `../squarespace-rebuild-readiness.md`
 - IA / nav / URLs: `../ia-restructure-plan-jun2026.md`, `../session-handoff-2026-06-10.md`
+- **What can/can't be automated: `AUTOMATION-FINDINGS.md`** (verified July 2026 — no API/MCP builds pages; the visual build is manual; three levers cut the labor). Read it once so we don't re-chase a Squarespace content API.
 
 ## How we're building it
 
@@ -24,6 +25,11 @@ This is the hands-on kit for rebuilding the approved `/final/` prototype in Squa
 | `00-global-setup.md` | One-time setup. **Do this first, in order, before any page.** |
 | `homepage.md` | Section-by-section homepage build (native vs Code Block per section). |
 | `build-any-page.md` | The 4-5 repeating patterns, so any page is "pick from these." |
+| `packet-TEMPLATE.md` | Blank build-packet format (copy + block map + links + images per page). |
+| `packet-connect.md` | Worked example: the Connect page, paste-ready. The card-grid template for most subpages. |
+| `arboretum-import.md` | The one page we don't hand-build: bulk-import 36 trees via WXR (preserves QR URLs). |
+| `make-arboretum-wxr.py` | Generates `arboretum.wxr` + `arboretum-TEST-1-tree.wxr` from the prototype + WordPress export. |
+| `AUTOMATION-FINDINGS.md` | The verified automation verdict (no page-building API/MCP; what we use instead). |
 | `DISCOVERIES.md` | Fill this in *as you build* — real Squarespace selectors, what broke, what you changed. Feeds the rest of the build. |
 | `library/custom-css-global.css` | Paste-once global stylesheet. |
 | `library/head-injection.html` | Google Fonts (Cormorant Garamond + DM Sans). |
