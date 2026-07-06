@@ -2,6 +2,8 @@
 
 Once the homepage is built and the global setup is in, every other page is assembled from a small set of repeating patterns. This replaces a separate prose guide per page. (Per-page specifics get added in Phase 3, after the homepage validates what actually works.)
 
+> **Every Code Block's HTML must be wrapped in `<div class="as-content"> … </div>`.** The global CSS is scoped to `.as-content` so it can't leak onto Squarespace's editor (an unscoped earlier version made pages uneditable). No wrapper → the card styles won't apply.
+
 ## The patterns
 
 **1. Subpage hero band** *(top of almost every subpage)*

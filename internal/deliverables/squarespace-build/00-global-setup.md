@@ -18,7 +18,11 @@ Squarespace's picker is a **curated** set (~600 Google Fonts + ~1,000 Adobe Font
 
 Design → **Custom CSS**. Paste all of `library/custom-css-global.css`.
 
-This is the backbone: color tokens, type scale, buttons, all the card components, the worship/bento styles, footer, header transparent/solid states. Paste it **before** building pages. **Important (see `homepage.md`):** these styles are keyed to the prototype's **class names**, so they only take effect inside **Code Blocks** that carry those classes — native Squarespace blocks (Text/Image/Button) will *not* inherit the card looks, only Site Styles typography/color. Don't strip anything (especially the `:root` block).
+This is the backbone: color tokens, type scale, buttons, all the card components. Paste it **before** building pages. Don't strip anything (especially the `:root` block).
+
+**⚠️ The one rule that keeps this from breaking the editor:** every component style is scoped under `.as-content`, so **every Code Block's HTML must be wrapped in `<div class="as-content"> … </div>`** (hero.html and community-bento.html already are). This is deliberate: an earlier version used generic selectors like `.container` that collided with Squarespace's own editor DOM and made pages uneditable. Scoping under our own `.as-content` wrapper means the styles reach our Code Block content and can never touch Squarespace's UI.
+
+**Also (see `homepage.md`):** these styles are keyed to class names, so they only apply inside `.as-content` Code Blocks. Native Squarespace blocks (Text/Image/Button) get Site Styles typography/color only, not the card looks.
 
 ---
 

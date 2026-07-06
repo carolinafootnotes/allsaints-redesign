@@ -43,6 +43,8 @@
   @media (prefers-reduced-motion: reduce) { .as-hero .hero-scroll-indicator { animation: none; } }
 </style>
 
+<!-- .as-content wrapper: REQUIRED — the global CSS is scoped to it. -->
+<div class="as-content">
 <section class="as-hero" aria-label="Welcome">
   <div class="hero-bg">
     <img id="hero-image" src="/assets/2026/exterior-2026.jpg" alt="" role="presentation" loading="eager" fetchpriority="high">
@@ -74,6 +76,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
   </div>
 </section>
+</div><!-- /.as-content -->
 <!-- NOTE: nav links above point to /visit and /watch-and-listen (Squarespace slugs).
      Adjust to your actual page slugs. The #worship anchor jumps to the worship section
      on this page — make sure that section's Squarespace anchor/ID is "worship". -->
