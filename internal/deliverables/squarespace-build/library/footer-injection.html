@@ -16,11 +16,12 @@
 
      TWO THINGS TO VERIFY / EDIT — see the CAPS comments below.
 
-     BEFORE PASTING behavior #1: Squarespace 7.1's native transparent-header
-     option may ALREADY turn the header solid on scroll on its own. Enable the
-     transparent header (setup step 7) and scroll the homepage first. If it
-     already goes solid, you don't need the scroll-toggle script at all — delete
-     behavior #1 and keep only the hero randomizer. Log what you saw in DISCOVERIES.
+     ABOUT behavior #1 (verified against current docs): Squarespace's "Adaptive"
+     header (setup step 7) only makes the header TRANSPARENT over the first section.
+     It is NOT scroll-reactive — there is no native transparent->solid-on-scroll.
+     So this script IS expected to be needed: it produces the solid cream/shadow
+     look on scroll (homepage) and the solid header on subpages. Keep it. Your only
+     verify step is confirming the <header> selector below matches your template.
      ============================================================ -->
 <script>
 (function () {

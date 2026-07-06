@@ -2,13 +2,15 @@
 
 Do these in order, once, before building any page. Every page depends on them.
 
+*All menu paths below verified against current Squarespace docs (2026). Where a step can't be confirmed without the live editor, it says so.*
+
 ---
 
-## 1. Fonts → Site Styles (native — no injection needed)
+## 1. Fonts → Site Styles
 
-Site Styles → **Fonts**. Set Heading → **Cormorant Garamond**, Body → **DM Sans**. Both are in Squarespace's native picker (it includes the full Google Fonts library), and assigning them makes Squarespace load them so the CSS tokens resolve. That's it.
+Design → **Site Styles → Fonts**. The categories are **Headings** (with H1–H4 sub-controls), **Paragraphs**, **Buttons**, **Miscellaneous**. Set Headings → **Cormorant Garamond**, Paragraphs → **DM Sans**.
 
-No font code injection needed — both fonts are native. (If a specific weight/italic our CSS uses ever fails to render, add a single Google Fonts `<link>` for it in Header Code Injection, but you shouldn't need to.)
+Squarespace's picker is a **curated** set (~600 Google Fonts + ~1,000 Adobe Fonts), *not* the full Google catalog. Both fonts are common and almost certainly present, but search the picker and **confirm each appears** before relying on it. Assigning them makes Squarespace load them so the CSS tokens resolve. No font code injection needed.
 
 ---
 
@@ -16,13 +18,13 @@ No font code injection needed — both fonts are native. (If a specific weight/i
 
 Design → **Custom CSS**. Paste all of `library/custom-css-global.css`.
 
-This is the backbone: color tokens, type scale, buttons, all the card components, the worship/bento styles, footer, header transparent/solid states. Paste it **before** building pages so blocks inherit it. Don't strip anything (especially not the `:root` block).
+This is the backbone: color tokens, type scale, buttons, all the card components, the worship/bento styles, footer, header transparent/solid states. Paste it **before** building pages. **Important (see `homepage.md`):** these styles are keyed to the prototype's **class names**, so they only take effect inside **Code Blocks** that carry those classes — native Squarespace blocks (Text/Image/Button) will *not* inherit the card looks, only Site Styles typography/color. Don't strip anything (especially the `:root` block).
 
 ---
 
-## 3. Behavior → Footer injection
+## 3. Behavior → Code Injection (Footer)
 
-Settings → Advanced → Code Injection → **Footer**. Paste all of `library/footer-injection.html`.
+Settings → **Website Tools** → **Code Injection** → **Footer**. Paste all of `library/footer-injection.html`. (Code Injection lives under **Website Tools** now, not the old "Advanced" menu. It fires before `</body>` on every page.)
 
 Two behaviors: the header goes transparent→solid on scroll (homepage only), and the hero image is randomized on load. **Two edits you'll make later** are flagged in CAPS comments in that file:
 - confirm the `<header>` selector (see step 7 / DISCOVERIES),
@@ -32,9 +34,9 @@ Two behaviors: the header goes transparent→solid on scroll (homepage only), an
 
 ## 4. Animations → Site Styles
 
-Site Styles → **Animations** → set a subtle **Fade**. This replaces the prototype's scroll-reveal with zero code, and it applies to native blocks automatically.
+Design → Site Styles → **Animations**. Options are None / Fade / Scale / Slide / Clip / Flex, plus a speed control. Set a subtle **Fade** (Medium). This replaces the prototype's scroll-reveal with zero code and applies to native blocks automatically.
 
-One exception: set the **hero section's** animation to **None** (in that section's settings), or the whole 100vh hero fades in on every page load, which looks clunky. Code Blocks animate as one unit anyway, so don't expect the staggered reveal inside them — that's intentionally gone.
+One exception: turn the **hero's** animation to **None** — but that override lives on the **block's own Animations tab** (open the hero Code Block → its settings gear → **Animations** → None), *not* in the section's settings. Otherwise the whole 100vh hero fades in on every load, which looks clunky. Code Blocks animate as one unit, so don't expect a staggered reveal inside them.
 
 ---
 
@@ -60,19 +62,19 @@ We are NOT recreating the prototype's custom-JS dropdown / logo-swap header — 
 
 ## 6. URL Mappings → preserve printed/QR links
 
-Settings → Advanced → **URL Mappings**. Add the 301s from `../session-handoff-2026-06-10.md` and `memory/project_preserved_urls.md`. Critical ones:
+Settings → **Developer Tools** → **URL Mappings** (not the old "Advanced" menu).
 
-- `/arboretum/` and `/arboretum/[tree]` — physical QR codes depend on these exact slugs.
-- Prayer-requests path.
-- `/connect/*` child slugs flatten (Squarespace folders flatten the path) — map old → new.
+**The full redirect + preserved-slug list lives in one file: `url-mappings.md`.** Open it, set the exact-slug pages (section A), and paste the 301 block (section B). That's the single source of truth — don't hunt across the memory file or session-handoff for redirects anymore.
 
 ---
 
-## 7. Header style → transparent + confirm the selector
+## 7. Header style → Adaptive (transparent) + confirm the selector
 
-Site Styles → Header → enable the **transparent header** option (so it sits over the hero). The CSS in step 2 + the script in step 3 handle the solid-on-scroll look.
+Make the header transparent over the hero: **Edit** (top-left) → hover the header → **Edit Site Header** → **Edit Design** → **Color** tab → **Background style** → **Adaptive**. (There is no "Site Styles → Header → transparent" toggle; the option is called **Adaptive**.)
 
-Then **confirm the header selector**: open the published homepage, inspect the header element. It's usually `<header id="header">`. If it's something else, note it in `DISCOVERIES.md` and update the selector in `footer-injection.html` and the `header#header` rules in `custom-css-global.css`.
+**Important — Adaptive is not scroll-reactive.** It only makes the header transparent so the first section shows through at the top of the page. It does **not** turn the header solid on scroll (Squarespace documents no such behavior). So the step-3 script + step-2 CSS are what actually produce the solid cream/shadow header on scroll, and the solid header on subpages. Expect to need them; don't count on Adaptive.
+
+Then **confirm the header selector**: open the published homepage and inspect the `<header>` element (Squarespace's real header class/id isn't published and varies by template, so this must be checked in the editor). Note it in `DISCOVERIES.md` and update the selector in `footer-injection.html` and the `header#header` rules in `custom-css-global.css`.
 
 ---
 
@@ -80,8 +82,8 @@ Then **confirm the header selector**: open the published homepage, inspect the h
 
 The footer is the same on every page. Two ways:
 
-- **Recommended (faithful, low-maintenance):** in the site Footer section, add one **Code Block** with the footer markup. It's set-once global chrome that rarely changes, so the "it's HTML" cost is near zero, and it's byte-identical site-wide. The `.site-footer / .footer-*` CSS is already in the global stylesheet. (Footer markup can be lifted from `worker/public/final/index.html`; we'll finalize it during the homepage build.)
-- **Alternative (fully editable):** rebuild the 4 columns with native blocks and style via Site Styles. Won't match exactly; edit by clicking.
+- **Code Block (faithful):** in the site Footer, add one **Code Block** with the footer markup so it's byte-identical site-wide and inherits `.site-footer / .footer-*` from the global CSS. **VERIFY IN EDITOR:** confirm the Footer's block menu actually offers a **Code** block (Design → **Edit Site Footer**) — this isn't documented, so test it before assuming. Footer markup lifts from `worker/public/final/index.html`.
+- **Native 4-column (confirmed-safe default):** rebuild the columns with native blocks, styled via Site Styles. Won't match the prototype exactly, but it's fully editable and known to work. Use this if the Code Block option doesn't pan out.
 
 Pick one during the homepage build and log it in DISCOVERIES.
 

@@ -2,7 +2,7 @@
 
 Do `00-global-setup.md` first. Then build these sections top to bottom. Each Squarespace **Section** = one band on the page; inside it you add native blocks or one Code Block.
 
-Legend: **[Native]** = built with Squarespace blocks, styled by the global CSS. **[Code Block]** = paste a file from `library/sections/`.
+Legend: **[Native]** = built with Squarespace blocks, styled by **Site Styles only** — native blocks do NOT inherit the prototype's card/section CSS (that lives on class names only Code Blocks carry), so a "[Native]" section looks plainer than the prototype by design. **[Code Block]** = paste HTML (from `library/sections/` or lifted from the prototype) that carries the classes, so it matches the prototype exactly; you edit it as HTML.
 
 ---
 
@@ -35,7 +35,7 @@ A dark band with two link cards (bulletin + newsletter). You change these URLs e
 - Section background: dark (ink). Add two **Button blocks** or two **Link/Image cards**:
   - "This Sunday's Bulletin" → the weekly bulletin URL (opens in new tab).
   - "Read the Weekly Word" → the newsletter URL.
-- Style toward the glass-card look via Site Styles; the icons from the prototype are optional.
+- Native gives you two plain Button/Link blocks in a dark section — **no glass/blur card look** (Site Styles has no translucency control that produces it). That's fine here: this is a utility strip you edit weekly, not a showcase. If the glass look ever matters, it'd have to become a Code Block (and lose the click-to-edit).
 - **Why native:** updating a URL is a text-field edit, not an HTML edit. This is the highest-frequency change on the site.
 
 ---
@@ -48,7 +48,7 @@ Disabled currently. When a season needs it (Advent, Holy Week, Easter), build it
 ### 6. Worship — **[Native]**  ← times change, keep editable
 Burgundy section, two service cards + extras + a "what to expect" box.
 - Section background: burgundy gradient (use the `worship`/`.connect` color or a burgundy section background).
-- Two cards (native Image + Text): 9:00 AM Family Eucharist, 11:10 AM Traditional Eucharist. The `.worship-card` CSS exists in global if you ever want the exact card; for native, an Image block + caption + the gold time label is close enough and editable.
+- Two cards (native Image + Text): 9:00 AM Family Eucharist, 11:10 AM Traditional Eucharist. Honest expectation: native gives you an Image block + a Text block stacked — **no overlay gold time-badge, no glass background, no hover lift** (those need the `.worship-card` markup, i.e. a Code Block). Decide per your priority: exact card look → Code Block; keep service times click-editable → accept the plainer native version.
 - Extras row: Tuesday Compline · Noonday Prayer · Watch Live link.
 - "What to expect" box: a light card with 4 short bold-led paragraphs (shape of service, communion, what to wear, children).
 - **Why native:** service times and the Watch Live link change; keep them clickable to edit.
@@ -71,7 +71,7 @@ Burgundy section, two service cards + extras + a "what to expect" box.
 ---
 
 ### 9. Clergy — **[Native]**  ← changes at cutover when the rector arrives
-- Native image+text grid, 4 people (John, Jim, Mary, Vern). Squarespace's "People"/team layout or a simple Image+Text grid both work.
+- Native image+text grid, 4 people (John, Jim, Mary, Vern). There is **no Squarespace "People"/team block** — the only native option is a manual Image+Text grid (4 blocks per person). It won't have the round gold-bordered photo or hover lift unless it's a Code Block; keep it native anyway (the rector swaps at cutover, so click-to-edit wins here).
 - The `.clergy-card` CSS is in global if you want the round gold-bordered photo look on a Code Block, but **keep this native** — the new rector arrives right at cutover, and you'll want to swap a photo + name without touching HTML.
 - "Meet our clergy and staff" button → `/clergy`.
 

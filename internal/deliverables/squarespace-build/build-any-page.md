@@ -19,7 +19,10 @@ A centered grid of cards. The global CSS already has five card flavors, pick by 
 - `connect-channel-card` — white card, icon, title + sub (linked channels).
 - `info-card-light` — white card, round icon housing (feature lists).
 - `clergy-card` — round photo grid (people).
-Native: Squarespace card/summary blocks styled toward these. Code Block: paste the markup using these classes when you want the exact look on a stable page.
+**There is no native block that inherits these card classes** (verified — Squarespace won't let you add a class to a Text/Image block). Two real choices per card grid:
+- **Code Block** — paste the prototype's card markup (it carries the classes, so it gets the exact look). Editing means touching HTML. Best for stable content.
+- **Native grid/summary** — Squarespace's own layout, styled only by Site Styles typography/color. Editable by clicking, but it will *not* look like the prototype's cards (no gold top-border, no icon housing, no hover lift).
+There is no middle option where a native block "inherits `.involved-card`." Pick per page: exact-look-Code-Block vs editable-plainer-native.
 
 **4. Closing CTA strip** *(bottom of most pages)*
 The burgundy `.connect` band: heading, sub, a row of `connect-link-card`s, a bottom button. Reused site-wide. Native Button/Link blocks in a burgundy section.
