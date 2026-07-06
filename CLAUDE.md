@@ -43,7 +43,8 @@ npm run test     # vitest run
 Three layers, mirrored prototype → Squarespace: **global styles** (`site.css`), **global behavior** (`site.js`), **page-unique** inline `<style>`. Full catalog of sections, the card system, and the Squarespace 7.1 build strategy is in **`internal/deliverables/component-reference.md`** — read it before touching layout or adding a page.
 
 Squarespace rebuild rules to remember:
-- Paste `site.css` into Custom CSS **before** building any page, so blocks inherit styles.
+- **Build native-first, NOT Custom-CSS-first.** Pasting a global stylesheet up front collides with Squarespace's editor DOM (generic selectors like `.container`) and can block editing entirely. Build with Fluid Engine + Site Styles; add scoped Code Blocks / CSS (wrapped in `.as-content`) only for specific refinements after the native build works. (Reversed Aug 2026 — the old "paste CSS first" rule broke the editor.)
+- **Verify every Squarespace UI step against current help docs before giving it to Nate** — use the `squarespace-portability-checker` agent (it has WebFetch). The 7.1 Fluid Engine UI changes constantly; do not instruct from memory. The build kit in `internal/deliverables/squarespace-build/` is now live-docs-verified — trust it over recollection.
 - **Saved Sections are paste-copies, not live components** (edits don't propagate). Site-wide changes must be CSS (global) or a Collection.
 - Repeating content → Collections: arboretum trees (slug `arboretum`, preserves QR URLs), happenings (Events), sermons (Blog). Clergy/staff stays a static grid (only 4–6 people).
 - When 5+ similar pages exist, design ONE template, never bespoke instances.
