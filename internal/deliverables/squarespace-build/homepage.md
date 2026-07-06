@@ -7,16 +7,19 @@ first get a page built. (The old Code-Block/Custom-CSS approach fought the edito
 step and is retired. The prototype at `/final` stays the visual reference for copy, colors,
 and layout.)
 
-Steps verified against current Squarespace docs (2026). A few exact labels are marked
-"confirm in editor" where the docs didn't spell them out.
+Every step below was verified against live Squarespace Help Center articles (2026), with
+the wrong labels corrected: the events collection is **Calendar** (not "Events"), the
+footer is edited from the page canvas (not the Design menu), 7.1 buttons have no
+corner-rounding control, and two-column sections need a separate mobile pass. The one thing
+to eyeball live: Site Styles → Buttons → Shape (confirm there's genuinely no radius slider).
 
 ---
 
 ## Step 0 — Site Styles once (do NOT paste Custom CSS)
 Design → **Site Styles**:
 - **Fonts:** Headings → *Cormorant Garamond*, Paragraphs → *DM Sans*.
-- **Colors:** set the palette to brand — burgundy `#7b2332`, cream `#faf6ee`, gold `#c8a977`, ink `#1a1a1a`.
-- **Buttons:** primary = gold fill / dark text (or burgundy fill / white), light corner rounding.
+- **Colors:** chevron next to **Colors → Edit palette → Palette editor**, then set each swatch to your exact hex — burgundy `#7b2332`, cream `#faf6ee`, gold `#c8a977`, ink `#1a1a1a`.
+- **Buttons:** set **Shape** (Fill) + Text + padding. (7.1 has no corner-rounding control — don't go looking for one.)
 
 That's your whole global styling. Every section inherits it.
 
@@ -24,11 +27,12 @@ That's your whole global styling. Every section inherits it.
 - Click **Edit** → each section has an **Add Block** button (top-left) and a drag grid.
 - Press **G** to show/hide the grid. Drag blocks anywhere; drag a block's edge to resize.
 - **Edit Section** (pencil) has three tabs: **Design** (grid, Fill Screen, Height, Alignment), **Background** (image/color), **Colors** (the section's color theme — this drives text color + overlay).
+- **Mobile is a separate pass:** any side-by-side (two-column) layout must be re-arranged in **Mobile View** (icon, top-right). Desktop side-by-side does NOT auto-stack cleanly — plan on a quick mobile pass per section.
 
 ---
 
 ## 1. Hero  *(the one tricky section — here's the exact path)*
-1. Use the first section. **Edit Section → Design → Fill Screen ON** (full-height hero). If it's too tall, use **Height → L** instead.
+1. Use the first section. **Edit Section → Design → Fill Screen ON** (full-height hero). **Height** (S/M/L) appears *under* Fill Screen once it's on — choose **L** if you don't want a full 100vh hero.
 2. **Edit Section → Background → Image → +** → upload your hero photo (`exterior-2026.jpg` or similar).
 3. Still in Background: raise **Overlay Opacity** (~40–60%) so text is legible over the photo. The overlay color comes from the section's **Colors** theme — pick a **dark** theme so the overlay darkens and text goes light.
 4. **Add Block → Text** → type `All are welcome in this place`, select it, set **Heading 1**.
@@ -50,10 +54,10 @@ Result: a full-screen hero, brand fonts, photo + dark overlay, headline + button
 - **Add Section**, burgundy Colors theme. For each service: an **Image** block + a **Text** block (`9:00 AM Family Eucharist`, `11:10 AM Traditional Eucharist`). Add a Text row for extras (Compline, Noonday Prayer, Watch Live) and a short "What to expect" Text block.
 
 ## 5. Community
-- **Add Section**. Add 3–5 **Image** blocks in a row. On each image block, **Design tab → Overlay ON** + pick a dark tint, then add a small **Text** caption. Approximates the bento (not the overlapping layout — that was code).
+- **Add Section**. Add 3–5 **Image** blocks in a row. On each image block, **Design tab → Overlay ON** + pick a dark tint. Fluid Engine image blocks have no caption field, so layer a **separate Text block** over each image on the grid for the label. Approximates the bento (not the overlapping layout — that was code).
 
 ## 6. What's Happening (events)
-- First create an **Events** collection page (Pages → + → Events). Then on the homepage: **Add Block → Summary** block → source = your Events collection → show the next 2–3. It auto-updates.
+- First create a **Calendar** collection page (Pages → + → **Showcase → Calendar**; "Events" is the old 7.0 name for it). Then on the homepage: **Add Block → Summary** block → **Select a Page** = your Calendar → **Event Time Frame → Upcoming** → show the next 2–3. It auto-updates.
 
 ## 7. Clergy
 - **Add Section**. **Image + Text** per person (John, Jim, Mary, Vern), 4 across. Square photos are fine for now (round gold frames were code). Button `Meet our clergy and staff` → Clergy page.
@@ -68,7 +72,7 @@ Result: a full-screen hero, brand fonts, photo + dark overlay, headline + button
 - **Add Section**, burgundy Colors theme. A row of **Button**/link blocks (Newsletter, Facebook, Instagram, YouTube, Realm) + a bottom Button `Join Us This Sunday` → Visit page.
 
 ## 11. Footer  *(build once, site-wide)*
-- Design → **Edit Footer**. Rebuild the 4 columns with native **Text**/link blocks (About · Get Connected · Contact) — the same links as `/final`'s footer. It shows on every page.
+- While editing any page, hover over the **footer area** at the bottom and click **Edit Footer**, then **Add Block** as usual (there's no Design-menu route). Rebuild the 4 columns with native **Text**/link + **Social Links** blocks (About · Get Connected · Contact) — same links as `/final`'s footer. It shows on every page.
 
 ---
 
