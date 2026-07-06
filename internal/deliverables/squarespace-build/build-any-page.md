@@ -28,9 +28,11 @@ There is no middle option where a native block "inherits `.involved-card`." Pick
 The burgundy `.connect` band: heading, sub, a row of `connect-link-card`s, a bottom button. Reused site-wide. Native Button/Link blocks in a burgundy section.
 
 **5. Collections** *(repeating content — not hand-built pages)*
-- **Arboretum trees** → Blog Collection, slug `arboretum`, preserve `/arboretum/[tree]` URLs (QR codes).
+7.1 allows **multiple, independent blog collections**, each with its own slug + URL namespace (posts don't mix). So "blog collection" is a content *type* we reuse several times — using one as a memorial directory doesn't use up "the blog."
+- **Arboretum trees** → Blog Collection, slug `arboretum`, preserve `/arboretum/[tree]` URLs (QR codes). Used as a directory (hide date/author), not a chronological blog.
+- **Weekly blog / news** (if the parish wants one) → a **separate** Blog Collection at its own slug (e.g. `/blog` or `/news`). Independent of the arboretum.
+- **Sermons** → a separate Blog Collection `sermons` + native YouTube blocks.
 - **Happenings** → Events Collection.
-- **Sermons** → Blog Collection `sermons` + native YouTube blocks.
 - **Clergy/staff** → NOT a collection (only 4-6 people) — a static native grid.
 
 ## How to build a new page
