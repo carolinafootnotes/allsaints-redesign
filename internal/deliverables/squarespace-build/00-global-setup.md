@@ -38,19 +38,23 @@ One exception: set the **hero section's** animation to **None** (in that section
 
 ---
 
-## 5. Navigation → native header + Folders
+## 5. Navigation → native header + Dropdowns
+
+*Verified against Squarespace's current docs (2026). The nav-grouping feature is a **Dropdown** (Squarespace retired the old "Folder" term). Pages panel → **+** → **Dropdown**.*
 
 **First, the home page (not a nav item).** Create/keep a **Home** page, build it from `homepage.md`, then set it as the homepage: Pages panel → hover the page → "..." → **Set as Homepage** (it gets a house icon; its URL becomes `/`). The site **logo links to it automatically**, so Home is *not* one of the top-nav items. Move the Home page to the **Not Linked** section so it doesn't show as a nav link (it stays the homepage and stays at `/`). If Squarespace insists it live in Main Navigation, leave it — the logo covers it either way.
 
-Then build the **flat top nav**. Per the locked IA:
+**Top nav — six items, two of them dropdowns:** Visit · About · Connect · Serve · Rector Search · Give
+- Single pages (Visit, Serve, Rector Search, Give): add via Pages panel → **+** (Give → the `/giving` page, or a **Link** to it).
+- **About** and **Connect** are **Dropdowns**: Pages panel → **+** → **Dropdown** → enter the title. Then drag existing pages into the space under the dropdown, or click **Add Page** under it. Reorder by dragging within.
+  - About dropdown: **About All Saints'** · Clergy & Staff · Our History · Formation & Learning · Memorial Arboretum
+  - Connect dropdown: **Ways to Connect** · New to the Episcopal Church · Life Events · Pastoral Care
+- **The dropdown title is a container, not a link** — hovering opens the menu; clicking "About" does not navigate. So the **first item is the hub/landing page** (bold above: "About All Saints'", "Ways to Connect"). Child pages in the dropdown are directly clickable (one-click access to every subpage).
+  - *Optional:* to make the "About"/"Connect" label itself clickable to its hub, there's a current Code Injection + CSS workaround (route the title to the first item, hide that item on desktop). Add only if you want it; not required.
 
-- Top-level items: **Visit · About · Connect · Serve · Rector Search · Give**
-- **About** and **Connect** are native **Folders**. The first item inside a folder is its overview/landing page (Squarespace folders aren't clickable themselves).
-  - About folder: About All Saints' · Clergy & Staff · Our History · Formation & Learning · Memorial Arboretum
-  - Connect folder: Ways to Connect · New to the Episcopal Church · Life Events · Pastoral Care
-- **Give** points to `/giving`.
+We are NOT recreating the prototype's custom-JS dropdown / logo-swap header — Squarespace's native Dropdowns replace it. Style the logo and nav font/color in Site Styles.
 
-We are NOT recreating the prototype's custom dropdown / logo-swap header. Native header + Folders replaces it. Style the logo and nav font/color in Site Styles.
+> Note: `ia-restructure-plan-jun2026.md` and the project CLAUDE.md describe a "flat, no dropdowns" nav. That predates this build decision and is now superseded by native Dropdowns (which match the prototype's About/Connect menus). Reconcile those two docs when you get a chance.
 
 ---
 
